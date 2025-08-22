@@ -114,14 +114,14 @@ const InlineBookingCalendar = () => {
 
       setIsSubmitted(true);
       
-      // Reset after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setCurrentStep(1);
-        setSelectedDate('');
-        setSelectedTime('');
-        setFormData({ name: '', email: '', message: '' });
-      }, 5000);
+      // Don't auto-reset - let user see the confirmation
+      // setTimeout(() => {
+      //   setIsSubmitted(false);
+      //   setCurrentStep(1);
+      //   setSelectedDate('');
+      //   setSelectedTime('');
+      //   setFormData({ name: '', email: '', message: '' });
+      // }, 5000);
     } catch (err) {
       toast.error('Error booking consultation. Please try again.');
     } finally {
@@ -170,9 +170,22 @@ const InlineBookingCalendar = () => {
               We'll send you a confirmation email with the meeting details. 
               Looking forward to fixing your QA!
             </p>
-            <div className="text-lg text-yellow-500 font-semibold">
+            <div className="text-lg text-yellow-500 font-semibold mb-8">
               {formatDateForDisplay(selectedDate)} at {selectedTime} (Kyiv time)
             </div>
+            
+            <button
+              onClick={() => {
+                setIsSubmitted(false);
+                setCurrentStep(1);
+                setSelectedDate('');
+                setSelectedTime('');
+                setFormData({ name: '', email: '', message: '' });
+              }}
+              className="px-8 py-4 border-2 border-yellow-500 text-yellow-500 font-bold text-lg rounded-lg hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+            >
+              Book Another Consultation
+            </button>
           </motion.div>
         </div>
       </section>
