@@ -38,12 +38,18 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <Link to="/" className="flex items-center space-x-3 group">
+            <button 
+              onClick={() => {
+                window.location.href = '/';
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}
+              className="flex items-center space-x-3 group cursor-pointer"
+            >
               <Bug className="w-8 h-8 text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300" />
               <span className="text-2xl font-bold text-white group-hover:text-yellow-500 transition-colors">
-                QualityFix
+                BugDamn
               </span>
-            </Link>
+            </button>
             <p className="text-gray-400 leading-relaxed max-w-sm">
               We build scalable QA processes that prevent bugs before they happen, 
               transforming chaotic releases into smooth launches.
@@ -60,14 +66,17 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-white">Navigation</h3>
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.path}
-                  to={link.path}
+                  onClick={() => {
+                    window.location.href = link.path;
+                    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                  }}
                   className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 relative group"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
-                </Link>
+                </button>
               ))}
             </nav>
           </motion.div>
@@ -106,7 +115,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {currentYear} QualityFix. All rights reserved.
+              © {currentYear} BugDamn. All rights reserved.
             </p>
             
             {/* Accent Line */}

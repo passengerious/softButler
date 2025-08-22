@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Bug, Menu, X } from 'lucide-react';
 
@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,15 @@ const Navbar = () => {
     { path: '/contact', label: 'Contact' },
   ];
 
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+    setIsOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -34,33 +44,35 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center space-x-2 group">
+          <button 
+            onClick={() => handleNavigation('/')}
+            className="flex items-center space-x-2 group cursor-pointer"
+          >
             <Bug className="w-8 h-8 text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300" />
             <span className="text-xl font-bold text-white group-hover:text-yellow-500 transition-colors">
-              QualityFix
+              BugDamn
             </span>
-          </Link>
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.path}
-                to={item.path}
-                className={`relative py-2 px-4 transition-all duration-300 ${
+                onClick={() => handleNavigation(item.path)}
                   location.pathname === item.path
                     ? 'text-yellow-500'
                     : 'text-white hover:text-yellow-500'
                 }`}
               >
                 {item.label}
-                {location.pathname === item.path && (
+              </button>
                   <motion.div
                     layoutId="navbar-indicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-500 shadow-[0_0_10px_#FFD700]"
                   />
                 )}
-              </Link>
+              </button>
             ))}
           </div>
 

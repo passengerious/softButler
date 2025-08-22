@@ -61,6 +61,7 @@ const InlineBookingCalendar = () => {
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
+    // Add a small delay to ensure the date is properly set before transitioning
     setTimeout(() => setCurrentStep(2), 300);
   };
 
@@ -125,7 +126,7 @@ const InlineBookingCalendar = () => {
               Looking forward to fixing your QA!
             </p>
             <div className="text-lg text-yellow-500 font-semibold">
-              {new Date(selectedDate).toLocaleDateString('en-US', { 
+              {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
                 weekday: 'long', 
                 year: 'numeric', 
                 month: 'long', 
@@ -295,7 +296,7 @@ const InlineBookingCalendar = () => {
                       Select Your Time (Kyiv Time)
                     </h3>
                     <p className="text-gray-300">
-                      Selected: {new Date(selectedDate).toLocaleDateString('en-US', { 
+                      Selected: {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
                         weekday: 'long', 
                         month: 'long', 
                         day: 'numeric' 
@@ -357,7 +358,7 @@ const InlineBookingCalendar = () => {
                   <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 max-w-md mx-auto">
                     <p className="text-yellow-500 font-semibold mb-1 text-center">Your Consultation:</p>
                     <p className="text-white text-center">
-                      {new Date(selectedDate).toLocaleDateString('en-US', { 
+                      {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
                         weekday: 'long', 
                         year: 'numeric', 
                         month: 'long', 
