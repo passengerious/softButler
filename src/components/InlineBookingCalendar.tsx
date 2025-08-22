@@ -31,7 +31,9 @@ const InlineBookingCalendar = () => {
       date.setDate(startDate.getDate() + i);
       
       const isCurrentMonth = date.getMonth() === month;
-      const isPast = date < today.setHours(0, 0, 0, 0);
+      const todayStart = new Date(today);
+      todayStart.setHours(0, 0, 0, 0);
+      const isPast = date < todayStart;
       const isToday = date.toDateString() === new Date().toDateString();
       
       dates.push({

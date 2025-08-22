@@ -5,6 +5,24 @@
 import type { AppRoutes, LayoutRoutes, ParamMap } from "./routes.js"
 import type { ResolvingMetadata, ResolvingViewport } from "next/dist/lib/metadata/types/metadata-interface.js"
 
+type PagesPageConfig = {
+  default: React.ComponentType<any> | ((props: any) => React.ReactNode | Promise<React.ReactNode> | never | void)
+  getStaticProps?: (context: any) => Promise<any> | any
+  getStaticPaths?: (context: any) => Promise<any> | any
+  getServerSideProps?: (context: any) => Promise<any> | any
+  getInitialProps?: (context: any) => Promise<any> | any
+  /**
+   * Segment configuration for legacy Pages Router pages.
+   * Validated at build-time by parsePagesSegmentConfig.
+   */
+  config?: {
+    amp?: boolean | 'hybrid' | string // necessary for JS
+    maxDuration?: number
+    runtime?: 'edge' | 'experimental-edge' | 'nodejs' | string // necessary unless config is exported as const
+    regions?: string[]
+  }
+}
+
 type ApiRouteConfig = {
   default: (req: any, res: any) => Promise<void> | void | Promise<Response> | Response
   config?: {
@@ -23,7 +41,35 @@ type ApiRouteConfig = {
 
 
 
+// Validate ../../pages/about.tsx
+{
+  const handler = {} as typeof import("../../pages/about.js")
+  handler satisfies PagesPageConfig
+}
 
+// Validate ../../pages/contact.tsx
+{
+  const handler = {} as typeof import("../../pages/contact.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/index.tsx
+{
+  const handler = {} as typeof import("../../pages/index.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/process.tsx
+{
+  const handler = {} as typeof import("../../pages/process.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/services.tsx
+{
+  const handler = {} as typeof import("../../pages/services.js")
+  handler satisfies PagesPageConfig
+}
 
 // Validate ../../pages/api/send-to-telegram.ts
 {

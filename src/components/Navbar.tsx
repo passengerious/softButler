@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
@@ -7,8 +8,7 @@ import Logo from './Logo';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
 
   const handleNavigation = (path: string) => {
-    navigate(path);
+    router.push(path);
     // Scroll to top after navigation
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -64,13 +64,13 @@ const Navbar = () => {
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
                 className={`relative py-2 transition-all duration-300 ${
-                  location.pathname === item.path
+                  router.pathname === item.path
                     ? 'text-yellow-500'
                     : 'text-white hover:text-yellow-500'
                 }`}
               >
                 {item.label}
-                {location.pathname === item.path && (
+                {router.pathname === item.path && (
                   <motion.div
                     layoutId="navbar-indicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-500 shadow-[0_0_10px_#FFD700]"
@@ -98,18 +98,17 @@ const Navbar = () => {
           >
             <div className="py-4">
               {navItems.map((item) => (
-                <Link
+                <button
                   key={item.path}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block py-3 px-6 transition-all duration-300 ${
-                    location.pathname === item.path
+                  onClick={() => handleNavigation(item.path)}
+                  className={`block w-full text-left py-3 px-6 transition-all duration-300 ${
+                    router.pathname === item.path
                       ? 'text-yellow-500 bg-yellow-500/10'
                       : 'text-white hover:text-yellow-500 hover:bg-yellow-500/5'
                   }`}
                 >
                   {item.label}
-                </Link>
+                </button>
               ))}
             </div>
           </motion.div>

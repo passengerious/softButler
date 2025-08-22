@@ -51,7 +51,7 @@ const Contact = () => {
     }
   
     try {
-      const res = await fetch('/api/send-to-telegram', {
+      const res = await fetch('/.netlify/functions/send-to-telegram', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
