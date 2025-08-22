@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Bug, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +49,9 @@ const Navbar = () => {
             onClick={() => handleNavigation('/')}
             className="flex items-center space-x-2 group cursor-pointer"
           >
-            <Bug className="w-8 h-8 text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300" />
+            <div className="text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300">
+              <Logo size="md" animated={false} />
+            </div>
             <span className="text-xl font-bold text-white group-hover:text-yellow-500 transition-colors">
               BugDamn
             </span>

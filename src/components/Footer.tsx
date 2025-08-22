@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bug, Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,7 +46,9 @@ const Footer = () => {
               }}
               className="flex items-center space-x-3 group cursor-pointer"
             >
-              <Bug className="w-8 h-8 text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300" />
+              <div className="text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300">
+                <Logo size="md" animated={false} />
+              </div>
               <span className="text-2xl font-bold text-white group-hover:text-yellow-500 transition-colors">
                 BugDamn
               </span>
