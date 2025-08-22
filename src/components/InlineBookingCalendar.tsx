@@ -14,6 +14,18 @@ const InlineBookingCalendar = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Helper function to format date without timezone issues
+  const formatDateForDisplay = (dateString: string) => {
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day); // month is 0-indexed
+    return date.toLocaleDateString('en-US', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric'
+    });
+  };
+
   // Generate calendar dates for current month
   const generateCalendarDates = () => {
     const year = currentDate.getFullYear();
@@ -37,7 +49,7 @@ const InlineBookingCalendar = () => {
       const isToday = date.toDateString() === new Date().toDateString();
       
       dates.push({
-        date: date.toISOString().split('T')[0],
+        date: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,
         day: date.getDate(),
         isCurrentMonth,
         isPast,
@@ -128,12 +140,7 @@ const InlineBookingCalendar = () => {
               Looking forward to fixing your QA!
             </p>
             <div className="text-lg text-yellow-500 font-semibold">
-              {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })} at {selectedTime} (Kyiv time)
+              {formatDateForDisplay(selectedDate)} at {selectedTime} (Kyiv time)
             </div>
           </motion.div>
         </div>
