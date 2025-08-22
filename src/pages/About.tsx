@@ -72,7 +72,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              About <span className="text-yellow-500">QualityFix</span>
+              About <span className="text-yellow-500">BugDamn</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               We build scalable QA processes that prevent bugs before they happen
