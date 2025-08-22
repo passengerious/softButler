@@ -11,15 +11,22 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 
 // Component to handle scroll to top on route change
-function ScrollToTop() {
+function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function App() {
   }
   )
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollToTopOnRouteChange />
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
         <Navbar />
         <motion.div
