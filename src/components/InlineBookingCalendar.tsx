@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Clock, User, Mail, MessageSquare, Check, ChevronLeft, ChevronRight, ArrowRight, ArrowLeft } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const InlineBookingCalendar = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -13,6 +14,7 @@ const InlineBookingCalendar = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Helper function to format date without timezone issues
   const formatDateForDisplay = (dateString: string) => {
@@ -84,18 +86,47 @@ const InlineBookingCalendar = () => {
     setTimeout(() => setCurrentStep(3), 300);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
     
-    // Reset after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setCurrentStep(1);
-      setSelectedDate('');
-      setSelectedTime('');
-      setFormData({ name: '', email: '', message: '' });
-    }, 5000);
+    try {
+      // Prepare the message with booking details
+      const bookingMessage = `📅 New QA Consultation Booking:
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📅 Date: ${formatDateForDisplay(selectedDate)} at ${selectedTime} (Kyiv time)
+📝 Message: ${formData.message}`;
+
+      const res = await fetch('/.netlify/functions/send-to-telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: bookingMessage
+        })
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to send booking');
+      }
+
+      setIsSubmitted(true);
+      
+      // Reset after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setCurrentStep(1);
+        setSelectedDate('');
+        setSelectedTime('');
+        setFormData({ name: '', email: '', message: '' });
+      }, 5000);
+    } catch (err) {
+      toast.error('Error booking consultation. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const goBack = () => {
@@ -432,12 +463,22 @@ const InlineBookingCalendar = () => {
                       </button>
                       <motion.button
                         type="submit"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="flex-1 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all flex items-center justify-center space-x-2"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                        whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                        className="flex-1 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <span>Book Free QA Audit</span>
-                        <ArrowRight className="w-4 h-4" />
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                            <span>Booking...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Book Free QA Audit</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </>
+                        )}
                       </motion.button>
                     </div>
                   </form>

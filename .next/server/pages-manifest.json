@@ -1,11 +1,11 @@
 {
   "/_app": "pages/_app.js",
   "/about": "pages/about.html",
-  "/api/send-to-telegram": "pages/api/send-to-telegram.js",
-  "/_document": "pages/_document.js",
   "/contact": "pages/contact.html",
   "/": "pages/index.html",
   "/process": "pages/process.html",
+  "/api/send-to-telegram": "pages/api/send-to-telegram.js",
+  "/_document": "pages/_document.js",
   "/services": "pages/services.html",
   "/_error": "pages/_error.js",
   "/404": "pages/404.html"
