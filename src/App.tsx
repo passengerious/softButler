@@ -22,8 +22,6 @@ function ScrollToTopOnRouteChange() {
 }
 
 function App() {
-  }
-  )
   return (
     <Router>
       <ScrollToTopOnRouteChange />
