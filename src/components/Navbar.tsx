@@ -60,13 +60,14 @@ const Navbar = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
+                className={`relative py-2 transition-all duration-300 ${
                   location.pathname === item.path
                     ? 'text-yellow-500'
                     : 'text-white hover:text-yellow-500'
                 }`}
               >
                 {item.label}
-              </button>
+                {location.pathname === item.path && (
                   <motion.div
                     layoutId="navbar-indicator"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-500 shadow-[0_0_10px_#FFD700]"
