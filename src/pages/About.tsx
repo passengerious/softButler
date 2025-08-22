@@ -54,16 +54,16 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Delivered" },
-    { number: "100+", label: "Startups Helped" },
-    { number: "10+", label: "Industries Served" },
+    { number: "75+", label: "Projects Delivered" },
+    { number: "17+", label: "Startups Helped" },
+    { number: "8+", label: "Industries Served" },
     { number: "99.9%", label: "Client Retention" }
   ];
 
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 px-6">
+      {/* <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -79,7 +79,7 @@ const About = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission Statement */}
       <section className="py-20 px-6 bg-gray-900/30">
@@ -202,7 +202,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group">
+                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group" style={{ minHeight: '-webkit-fill-available' }}>
                   <value.icon className="w-12 h-12 text-yellow-500 mx-auto mb-6 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300" />
                   <h3 className="text-xl font-bold mb-4 text-white">{value.title}</h3>
                   <p className="text-gray-300 leading-relaxed text-sm">{value.description}</p>

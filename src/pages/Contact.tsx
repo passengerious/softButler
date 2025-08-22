@@ -1,6 +1,34 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, CheckCircle, User, MessageSquare } from 'lucide-react';
+import { toast } from 'react-toastify';
+
+// TypeScript interface for custom toast parameters
+interface CustomToastProps {
+  title: string;
+  description: string;
+  duration?: number;
+  className?: string;
+}
+
+// Custom toast function that matches your desired API
+const customToast = ({ title, description, duration = 5000, className = "toast-with-progress" }: CustomToastProps) => {
+  return toast.success(
+    <div>
+      <div className="font-bold">{title}</div>
+      <div className="text-sm opacity-90">{description}</div>
+    </div>,
+    {
+      position: "top-right",
+      autoClose: duration,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      className: className,
+    }
+  );
+};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,26 +36,46 @@ const Contact = () => {
     email: '',
     message: ''
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+  
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill in all fields");
+      setIsSubmitting(false);
+      return;
+    }
+  
+    try {
+      const res = await fetch('/api/send-to-telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+  
+      if (!res.ok) {
+        throw new Error('Failed to send message');
+      }
+  
+      customToast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours to discuss how we can help grow your e-commerce business.",
+        duration: 5000,
+        className: "toast-with-progress"
+      });
+      
+      setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    } catch (err) {
+      toast.error("Error sending message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,

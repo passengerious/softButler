@@ -33,12 +33,6 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
       details: "Cloud platforms, API testing, scalability"
     },
     {
-      name: "Gaming",
-      icon: Gamepad2,
-      description: "Tested multiplayer game with 1M+ concurrent users",
-      details: "Performance testing, cross-platform compatibility"
-    },
-    {
       name: "IoT",
       icon: Wifi,
       description: "Validated smart home ecosystem connectivity",
@@ -113,9 +107,8 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
               </div>
 
               {/* Hover Border Glow */}
-              <div className="absolute inset-0 rounded-lg border border-yellow-500/0 group-hover:border-yellow-500/30 transition-all duration-300" 
-                   style={{ boxShadow: '0 0 20px rgba(255, 215, 0, 0)' }}
-                   className="group-hover:shadow-[0_0_20px_rgba(255,215,0,0.3)]" />
+              <div className="absolute inset-0 rounded-lg border border-yellow-500/0 group-hover:border-yellow-500/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.3)]" 
+                   style={{ boxShadow: '0 0 20px rgba(255, 215, 0, 0)' }} />
             </motion.div>
           ))}
         </div>

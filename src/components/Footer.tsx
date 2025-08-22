@@ -76,6 +76,7 @@ const Footer = () => {
                     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
                   }}
                   className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 relative group"
+                  style={{ textAlign: 'start', maxWidth: 'fit-content' }}
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
