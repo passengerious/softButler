@@ -1,0 +1,49 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bug-body { fill: #22C55E; }
+      .bug-detail { fill: #06B6D4; }
+      .wordmark { fill: #FFFFFF; }
+    </style>
+  </defs>
+  
+  <!-- Icon Group -->
+  <g id="icon">
+    <!-- Beetle body (main shape) -->
+    <path class="bug-body" d="M25 20 C25 15, 30 10, 35 10 L45 10 C50 10, 55 15, 55 20 L55 30 C55 35, 50 40, 45 40 L35 40 C30 40, 25 35, 25 30 Z"/>
+    
+    <!-- Target/magnifying glass detail -->
+    <circle class="bug-detail" cx="40" cy="25" r="8"/>
+    <circle class="bug-detail" cx="40" cy="25" r="4" fill="white"/>
+    <circle class="bug-detail" cx="40" cy="25" r="2" fill="#06B6D4"/>
+    
+    <!-- Antennae -->
+    <path class="bug-body" d="M30 15 L28 8 M50 15 L52 8" stroke="#22C55E" stroke-width="2" fill="none"/>
+    <circle class="bug-body" cx="28" cy="8" r="1.5"/>
+    <circle class="bug-body" cx="52" cy="8" r="1.5"/>
+  </g>
+  
+  <!-- Wordmark Group -->
+  <g id="wordmark">
+    <!-- B -->
+    <path class="wordmark" d="M70 15 L70 35 M70 15 L80 15 C82 15, 84 17, 84 20 C84 23, 82 25, 80 25 L70 25 M70 25 L80 25 C82 25, 84 27, 84 30 C84 33, 82 35, 80 35 L70 35"/>
+    
+    <!-- u -->
+    <path class="wordmark" d="M90 15 L90 30 C90 32, 92 35, 95 35 C98 35, 100 32, 100 30 L100 15"/>
+    
+    <!-- g -->
+    <path class="wordmark" d="M110 15 L110 35 M110 25 C110 22, 112 20, 115 20 C118 20, 120 22, 120 25 L120 35 C120 32, 118 30, 115 30"/>
+    
+    <!-- d -->
+    <path class="wordmark" d="M130 15 L130 35 M125 25 C125 22, 127 20, 130 20 C133 20, 135 22, 135 25 L135 35"/>
+    
+    <!-- u -->
+    <path class="wordmark" d="M145 15 L145 30 C145 32, 147 35, 150 35 C153 35, 155 32, 155 30 L155 15"/>
+    
+    <!-- m -->
+    <path class="wordmark" d="M165 15 L165 35 M165 25 C165 22, 167 20, 170 20 C173 20, 175 22, 175 25 L175 35 M175 25 C175 22, 177 20, 180 20 C183 20, 185 22, 185 25 L185 35"/>
+    
+    <!-- n -->
+    <path class="wordmark" d="M195 15 L195 35 M195 25 C195 22, 197 20, 200 20 C203 20, 205 22, 205 25 L205 35"/>
+  </g>
+</svg>

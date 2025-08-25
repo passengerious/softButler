@@ -3,7 +3,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Clock, User, Mail, MessageSquare, Check, ChevronLeft, ChevronRight, ArrowRight, ArrowLeft } from 'lucide-react';
 import { toast } from 'react-toastify';
 
+// Custom CSS for mobile centering with !important
+const mobileCenterStyle = `
+  @media (max-width: 500px) {
+    .mobile-center-important {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+`;
+
 const InlineBookingCalendar = () => {
+  // Inject custom CSS for mobile centering
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = mobileCenterStyle;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
   const [currentStep, setCurrentStep] = useState(1);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState('');
@@ -214,7 +234,10 @@ const InlineBookingCalendar = () => {
           <div className="p-6 border-b border-gray-800">
             <div className="flex items-center justify-center space-x-8">
               {steps.map((step, index) => (
-                <div key={step.number} className="flex items-center">
+                <div
+                  key={step.number}
+                  className="flex items-center mx-auto sm:mx-0 mobile-center-important"
+                >
                   <div className="flex items-center space-x-3">
                     <motion.div
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${

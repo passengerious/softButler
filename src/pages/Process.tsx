@@ -152,7 +152,7 @@ const Process = () => {
 
                 {/* Step Visual */}
                 <div className="lg:w-1/2">
-                  <div className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group">
+                  <div style={{ maxWidth: 'fit-content' }} className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group mx-auto">
                     <step.icon className="w-24 h-24 text-yellow-500 mx-auto group-hover:drop-shadow-[0_0_20px_#FFD700] transition-all duration-300" />
                   </div>
                 </div>

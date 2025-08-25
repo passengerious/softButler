@@ -7,32 +7,38 @@ const SDLCSection = () => {
     {
       icon: FileText,
       title: "Requirements",
-      description: "Define & validate"
+      description: "Define & validate",
+      qaNote: "Validate requirements"
     },
     {
       icon: Palette,
       title: "Design",
-      description: "Plan & prototype"
+      description: "Plan & prototype",
+      qaNote: "Check testability"
     },
     {
       icon: Code,
       title: "Development",
-      description: "Build & code"
+      description: "Build & code",
+      qaNote: "Catch defects early"
     },
     {
       icon: TestTube,
       title: "Testing",
-      description: "Verify & validate"
+      description: "Verify & validate",
+      qaNote: "Verify quality"
     },
     {
       icon: Rocket,
       title: "Deployment",
-      description: "Release & launch"
+      description: "Release & launch",
+      qaNote: "Release testing"
     },
     {
       icon: Settings,
       title: "Maintenance",
-      description: "Monitor & improve"
+      description: "Monitor & improve",
+      qaNote: "Monitor & improve"
     }
   ];
 
@@ -46,45 +52,165 @@ const SDLCSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Test Less. <span className="text-yellow-500">Deliver Smarter</span>.
+            QA Isn't a Stage. <span className="text-yellow-500">It's Everywhere</span>.
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            QA is a process — not a task. We build systems that make your product release-ready at every stage of development.
+            We don't "test at the end." QA runs in parallel with your entire SDLC — reducing bugs earlier, when they're cheaper to fix.
           </p>
         </motion.div>
 
-        {/* SDLC Stages */}
-        <div className="relative">
-          {/* Connection Line */}
-          <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-yellow-500/20 via-yellow-500/50 to-yellow-500/20" />
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {sdlcStages.map((stage, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative group"
-              >
-                {/* Stage Number */}
+                {/* Mobile Circular QA Ring */}
+        <div className="relative md:hidden">
+          <div className="relative w-80 h-80 mx-auto">
+            {/* Outer QA Ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full border-4 border-yellow-500/30"
+              initial={{ scale: 0, rotate: 0 }}
+              whileInView={{ scale: 1, rotate: 360 }}
+              transition={{ duration: 2, delay: 0.5 }}
+            />
+            
+            {/* Glowing QA Ring */}
+            <motion.div
+              className="absolute inset-2 rounded-full border-2 border-yellow-500 shadow-[0_0_30px_rgba(255,215,0,0.5)]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+            />
+
+            {/* QA Label in center */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <div className="text-center">
+                <div className="text-yellow-500 font-bold text-lg mb-2">Continuous</div>
+                <div className="text-white font-bold text-xl">QA</div>
+              </div>
+            </motion.div>
+
+            {/* SDLC Stages around the circle */}
+            {sdlcStages.map((stage, index) => {
+              const angle = (index * 60) - 90; // Start from top, 60 degrees apart
+              const radius = 140;
+              const x = Math.cos(angle * Math.PI / 180) * radius;
+              const y = Math.sin(angle * Math.PI / 180) * radius;
+              
+              return (
                 <motion.div
-                  className="absolute -top-4 -left-4 w-8 h-8 bg-yellow-500 text-black rounded-full flex items-center justify-center font-bold text-sm z-10"
-                  whileHover={{ scale: 1.1 }}
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  className="absolute w-[4.5rem] h-[4.5rem] bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-yellow-500/50 transition-all duration-300 group"
                   style={{
-                    boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)'
+                    left: `calc(50% + ${x}px - 36px)`,
+                    top: `calc(50% + ${y}px - 36px)`
                   }}
                 >
-                  {index + 1}
+                  <stage.icon className="w-4 h-4 text-gray-400 mb-1 group-hover:text-yellow-500 transition-colors" />
+                  <span className="text-xs text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight">
+                    {stage.title}
+                  </span>
                 </motion.div>
+              );
+            })}
+          </div>
+        </div>
 
-                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-yellow-500/50 transition-all duration-300 text-center h-full">
-                  <stage.icon className="w-12 h-12 text-yellow-500 mx-auto mb-4 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300" />
-                  <h3 className="text-lg font-bold text-white mb-2">{stage.title}</h3>
-                  <p className="text-gray-300 text-sm">{stage.description}</p>
-                </div>
-              </motion.div>
-            ))}
+        {/* Desktop Circular QA Ring */}
+        <div className="relative hidden md:block">
+          <div className="relative w-96 lg:w-[500px] h-96 lg:h-[500px] mx-auto">
+            {/* Outer QA Ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full border-4 border-yellow-500/30"
+              initial={{ scale: 0, rotate: 0 }}
+              whileInView={{ scale: 1, rotate: 360 }}
+              transition={{ duration: 2, delay: 0.5 }}
+            />
+            
+            {/* Glowing QA Ring */}
+            <motion.div
+              className="absolute inset-2 rounded-full border-2 border-yellow-500 shadow-[0_0_30px_rgba(255,215,0,0.5)]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+            />
+
+            {/* QA Label in center */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <div className="text-center">
+                <div className="text-yellow-500 font-bold text-lg mb-2">Continuous</div>
+                <div className="text-white font-bold text-xl">QA</div>
+              </div>
+            </motion.div>
+
+            {/* SDLC Stages around the circle - Medium screens */}
+            {sdlcStages.map((stage, index) => {
+              const angle = (index * 60) - 90; // Start from top, 60 degrees apart
+              const radius = 190;
+              const x = Math.cos(angle * Math.PI / 180) * radius;
+              const y = Math.sin(angle * Math.PI / 180) * radius;
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  className="absolute w-24 h-24 lg:hidden bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-yellow-500/50 transition-all duration-300 group"
+                  style={{
+                    left: `calc(50% + ${x}px - 48px)`,
+                    top: `calc(50% + ${y}px - 48px)`
+                  }}
+                >
+                  <stage.icon className="w-6 h-6 text-gray-400 mb-1 group-hover:text-yellow-500 transition-colors" />
+                  <span className="text-sm text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
+                    {stage.title}
+                  </span>
+                  <span className="text-sm text-yellow-500 font-semibold text-center leading-tight">
+                    {stage.qaNote}
+                  </span>
+                </motion.div>
+              );
+            })}
+
+            {/* SDLC Stages around the circle - Large screens */}
+            {sdlcStages.map((stage, index) => {
+              const angle = (index * 60) - 90; // Start from top, 60 degrees apart
+              const radius = 220;
+              const x = Math.cos(angle * Math.PI / 180) * radius;
+              const y = Math.sin(angle * Math.PI / 180) * radius;
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  className="absolute hidden lg:flex w-28 h-28 bg-gray-900/80 border border-gray-700 rounded-lg flex-col items-center justify-center hover:border-yellow-500/50 transition-all duration-300 group"
+                  style={{
+                    left: `calc(50% + ${x}px - 56px)`,
+                    top: `calc(50% + ${y}px - 56px)`
+                  }}
+                >
+                  <stage.icon className="w-7 h-7 text-gray-400 mb-1 group-hover:text-yellow-500 transition-colors" />
+                  <span className="text-base text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
+                    {stage.title}
+                  </span>
+                  <span className="text-base text-yellow-500 font-semibold text-center leading-tight">
+                    {stage.qaNote}
+                  </span>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -92,19 +218,18 @@ const SDLCSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.8, delay: 1 }}
+          className="text-center mt-16"
         >
           <div className="bg-black/50 border border-yellow-500/30 rounded-lg p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-4">
-              <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3" />
               <p className="text-yellow-500 font-semibold text-lg">
-                We test at every stage to prevent issues before they become expensive problems.
+                Testing isn't a checkbox at the end. It's a consistent, integrated process.
               </p>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              By integrating quality assurance throughout the entire development lifecycle, 
-              we catch bugs early when they're cheap to fix, not late when they're costly disasters.
+              QA makes every stage of your product lifecycle safer, faster, and cheaper by catching issues 
+              when they're easiest to fix — not when they're most expensive.
             </p>
           </div>
         </motion.div>

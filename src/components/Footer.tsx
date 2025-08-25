@@ -49,8 +49,8 @@ const Footer = () => {
               <div className="text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300">
                 <Logo size="md" animated={false} />
               </div>
-              <span className="text-2xl font-bold text-white group-hover:text-yellow-500 transition-colors">
-                BugDamn
+              <span className="text-2xl font-bold text-white group-hover:text-green-500 transition-colors">
+                BugDumn
               </span>
             </button>
             <p className="text-gray-400 leading-relaxed max-w-sm">
