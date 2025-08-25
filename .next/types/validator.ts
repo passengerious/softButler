@@ -23,23 +23,22 @@ type PagesPageConfig = {
   }
 }
 
-type ApiRouteConfig = {
-  default: (req: any, res: any) => Promise<void> | void | Promise<Response> | Response
-  config?: {
-    api?: {
-      bodyParser?: boolean | { sizeLimit?: string }
-      responseLimit?: string | number
-      externalResolver?: boolean
-    }
-    runtime?: 'edge' | 'experimental-edge' | 'nodejs' | string // necessary unless config is exported as const
-    maxDuration?: number
-  }
+
+
+
+
+
+// Validate ../../pages/_app.tsx
+{
+  const handler = {} as typeof import("../../pages/_app.js")
+  handler satisfies PagesPageConfig
 }
 
-
-
-
-
+// Validate ../../pages/_document.tsx
+{
+  const handler = {} as typeof import("../../pages/_document.js")
+  handler satisfies PagesPageConfig
+}
 
 // Validate ../../pages/about.tsx
 {
@@ -71,10 +70,6 @@ type ApiRouteConfig = {
   handler satisfies PagesPageConfig
 }
 
-// Validate ../../pages/api/send-to-telegram.ts
-{
-  const handler = {} as typeof import("../../pages/api/send-to-telegram.js")
-  handler satisfies ApiRouteConfig
-}
+
 
 

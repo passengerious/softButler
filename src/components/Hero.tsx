@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Bug, Zap, Shield } from 'lucide-react';
+import { Bug, Zap, Shield, AlertTriangle } from 'lucide-react';
 
 interface HeroProps {
   onBookConsultation: () => void;
@@ -8,12 +8,23 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
   const [glitchActive, setGlitchActive] = useState(true);
+  const [showGlitchOverlay, setShowGlitchOverlay] = useState(true);
 
   useEffect(() => {
+    // Initial screen glitch effect
+    const glitchTimer = setTimeout(() => {
+      setShowGlitchOverlay(false);
+    }, 1500);
+
+    // Bug animation timer
     const timer = setTimeout(() => {
       setGlitchActive(false);
     }, 3000);
-    return () => clearTimeout(timer);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(glitchTimer);
+    };
   }, []);
 
   const floatingBugs = Array.from({ length: 6 }, (_, i) => ({
@@ -25,8 +36,84 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Initial Glitch Screen Effect */}
+      {showGlitchOverlay && (
+        <motion.div
+          className="fixed inset-0 z-50 bg-black flex items-center justify-center"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          onAnimationComplete={() => setShowGlitchOverlay(false)}
+        >
+          {/* White flash */}
+          <motion.div
+            className="absolute inset-0 bg-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 0.2 }}
+          />
+          
+          {/* Crack/glitch effect */}
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+          >
+            {/* Glitch lines */}
+            <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-red-500 opacity-80" />
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-blue-500 opacity-60" />
+            <div className="absolute top-3/4 left-0 right-0 h-0.5 bg-green-500 opacity-70" />
+            
+            {/* Digital noise */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent"
+              animate={{ x: [-100, 100, -100] }}
+              transition={{ duration: 0.3, repeat: 2 }}
+            />
+          </motion.div>
+          
+          {/* Broken screen effect */}
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.8, 0] }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+          >
+            <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <motion.path
+                d="M20,30 L80,70 M30,20 L70,80 M10,50 L90,50"
+                stroke="white"
+                strokeWidth="0.5"
+                fill="none"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+              />
+            </svg>
+          </motion.div>
+          
+          {/* Error message flash */}
+          <motion.div
+            className="relative z-10 text-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+            <div className="text-red-500 font-mono text-xl font-bold">SYSTEM ERROR</div>
+            <div className="text-white font-mono text-sm mt-2">Quality Assurance Failed...</div>
+          </motion.div>
+        </motion.div>
+      )}
+
       {/* Background Effects */}
-      <div className="absolute inset-0">
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+      >
         {/* Glitch Effect */}
         {glitchActive && (
           <motion.div
@@ -98,14 +185,19 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             </div>
           </motion.div>
         )}
-      </div>
+      </motion.div>
 
       {/* Hero Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <motion.div 
+        className="relative z-10 container mx-auto px-6 text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1, delay: 2 }}
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
             Your QA Is{' '}
@@ -127,7 +219,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 2.5 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             We turn chaotic releases into smooth launches — no guesswork, no excuses.
@@ -136,7 +228,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            transition={{ duration: 1, delay: 3 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <button
@@ -153,11 +245,14 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             </a>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 3.5 }}
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
