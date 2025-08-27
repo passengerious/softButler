@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
       </Head>
-      <body>
+      <body className="bg-black">
         <Main />
         <NextScript />
       </body>

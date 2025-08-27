@@ -58,7 +58,7 @@ const ProcessSteps = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-8 h-0.5 bg-yellow-500/30 z-0" />
               )}
               
-              <div className="relative bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group">
+              <div className="relative bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group min-h-[275px]">
                 {/* Glowing Number */}
                 <motion.div
                   className="absolute -top-4 -left-4 w-12 h-12 bg-yellow-500 text-black rounded-full flex items-center justify-center font-bold text-xl"
