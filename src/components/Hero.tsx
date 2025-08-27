@@ -251,10 +251,8 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 3.5 }}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ duration: 0.8, delay: 3.5, repeat: Infinity, repeatDelay: 1 }}
       >
         <div className="w-1 h-16 bg-gradient-to-b from-yellow-500 to-transparent rounded-full" />
       </motion.div>
