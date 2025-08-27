@@ -54,10 +54,10 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "75+", label: "Projects Delivered" },
-    { number: "17+", label: "Startups Helped" },
+    { number: "35+", label: "Projects Delivered" },
+    { number: "11+", label: "Startups Helped" },
     { number: "8+", label: "Industries Served" },
-    { number: "99.9%", label: "Client Retention" }
+    { number: "98.9%", label: "Client Retention" }
   ];
 
   return (

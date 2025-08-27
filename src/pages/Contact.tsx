@@ -268,7 +268,7 @@ const Contact = () => {
       </section>
 
       {/* Additional CTA */}
-      <section className="py-20 px-6 bg-gray-900/30">
+      {/* <section className="py-20 px-6 bg-gray-900/30">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -293,7 +293,7 @@ const Contact = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

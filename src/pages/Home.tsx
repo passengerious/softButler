@@ -18,14 +18,14 @@ const Home = () => {
       description: "\"It works perfectly!\" (Narrator: it didn't)"
     },
     {
-      icon: AlertTriangle,
-      title: "Offshore lottery",
-      description: "Different tester every sprint, zero context"
+      icon: CheckCircle,
+      title: "Checkbox Circus",
+      description: "1000 test cases passed, but users still hate it"
     },
     {
-      icon: CheckCircle,
-      title: "Checkbox theater",
-      description: "1000 test cases passed, but users still hate it"
+      icon: Shield,
+      title: "Shifting QA Left Out",
+      description: "\"QA? We’ll add it later.\" (Result: bugs made in from day one)"
     },
     {
       icon: Clock,
@@ -34,9 +34,14 @@ const Home = () => {
     },
     {
       icon: Target,
-      title: "Tool obsession",
+      title: "Tool Addiction",
       description: "$100K spent on tools, still shipping bugs"
-    }
+    },
+     {
+      icon: AlertTriangle,
+      title: "Missing Owner",
+      description: "No clear QA accountability → everyone assumes “someone else” tested it."
+    },
   ];
 
   return (
