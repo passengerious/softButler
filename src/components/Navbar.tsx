@@ -53,7 +53,7 @@ const Navbar = () => {
               <Logo size="md" animated={false} />
             </div>
             <span className="text-xl font-bold text-white group-hover:text-yellow-500 transition-colors">
-              BugDamn
+              BugDemon
             </span>
           </button>
 
