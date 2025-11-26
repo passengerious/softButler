@@ -17,7 +17,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', animated = tru
   const imgElement = (
     <img
       src="/logo.png"
-      alt="BugDumn Logo"
+      alt="SoftButler Logo"
       className={`${sizeClasses[size]} ${className}`}
       draggable={false}
     />

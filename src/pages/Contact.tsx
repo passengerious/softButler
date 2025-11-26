@@ -124,7 +124,7 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <motion.a
-                  href="mailto:hello@bugdemon.com"
+                  href="mailto:andrii@softbutler.io"
                   className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-yellow-500/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
@@ -133,12 +133,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-white font-semibold">Email Us</p>
-                    <p className="text-gray-300">hello@bugdemon.com</p>
+                    <p className="text-gray-300">andrii@softbutler.io</p>
                   </div>
                 </motion.a>
 
                 <motion.a
-                  href="https://linkedin.com/company/bugdemon"
+                  href="https://linkedin.com/company/softbutler"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-yellow-500/50 transition-all duration-300 group"

@@ -50,7 +50,7 @@ const Footer = () => {
                 <Logo size="md" animated={false} />
               </div>
               <span className="text-2xl font-bold text-white group-hover:text-green-500 transition-colors">
-                BugDumn
+                SoftButler
               </span>
             </button>
             <p className="text-gray-400 leading-relaxed max-w-sm">
@@ -119,7 +119,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {currentYear} BugDemon. All rights reserved.
+              © {currentYear} SoftButler. All rights reserved.
             </p>
             
             {/* Accent Line */}
