@@ -52,7 +52,7 @@ const SDLCSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            QA Isn't a Stage. <span className="text-yellow-500">It's Everywhere</span>.
+            QA Isn't a Stage. <span className="text-green-500">It's Everywhere</span>.
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             We don't "test at the end." QA runs in parallel with your entire SDLC — reducing bugs earlier, when they're cheaper to fix.
@@ -64,7 +64,7 @@ const SDLCSection = () => {
           <div className="relative w-80 h-80 mx-auto">
             {/* Outer QA Ring */}
             <motion.div
-              className="absolute inset-0 rounded-full border-4 border-yellow-500/30"
+              className="absolute inset-0 rounded-full border-4 border-green-500/30"
               initial={{ scale: 0, rotate: 0 }}
               whileInView={{ scale: 1, rotate: 360 }}
               transition={{ duration: 2, delay: 0.5 }}
@@ -72,7 +72,7 @@ const SDLCSection = () => {
             
             {/* Glowing QA Ring */}
             <motion.div
-              className="absolute inset-2 rounded-full border-2 border-yellow-500 shadow-[0_0_30px_rgba(255,215,0,0.5)]"
+              className="absolute inset-2 rounded-full border-2 border-green-400 shadow-[0_0_50px_rgba(74,222,128,0.9)]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -86,7 +86,7 @@ const SDLCSection = () => {
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="text-center">
-                <div className="text-yellow-500 font-bold text-lg mb-2">Continuous</div>
+                <div className="text-green-500 font-bold text-lg mb-2">Continuous</div>
                 <div className="text-white font-bold text-xl">QA</div>
               </div>
             </motion.div>
@@ -104,13 +104,13 @@ const SDLCSection = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute w-[4.5rem] h-[4.5rem] bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-yellow-500/50 transition-all duration-300 group"
+                  className="absolute w-[4.5rem] h-[4.5rem] bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group"
                   style={{
                     left: `calc(50% + ${x}px - 36px)`,
                     top: `calc(50% + ${y}px - 36px)`
                   }}
                 >
-                  <stage.icon className="w-4 h-4 text-gray-400 mb-1 group-hover:text-yellow-500 transition-colors" />
+                  <stage.icon className="w-4 h-4 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
                   <span className="text-xs text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight">
                     {stage.title}
                   </span>
@@ -125,7 +125,7 @@ const SDLCSection = () => {
           <div className="relative w-96 lg:w-[500px] h-96 lg:h-[500px] mx-auto">
             {/* Outer QA Ring */}
             <motion.div
-              className="absolute inset-0 rounded-full border-4 border-yellow-500/30"
+              className="absolute inset-0 rounded-full border-4 border-green-500/30"
               initial={{ scale: 0, rotate: 0 }}
               whileInView={{ scale: 1, rotate: 360 }}
               transition={{ duration: 2, delay: 0.5 }}
@@ -133,7 +133,7 @@ const SDLCSection = () => {
             
             {/* Glowing QA Ring */}
             <motion.div
-              className="absolute inset-2 rounded-full border-2 border-yellow-500 shadow-[0_0_30px_rgba(255,215,0,0.5)]"
+              className="absolute inset-2 rounded-full border-2 border-green-400 shadow-[0_0_50px_rgba(74,222,128,0.9)]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
@@ -147,7 +147,7 @@ const SDLCSection = () => {
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="text-center">
-                <div className="text-yellow-500 font-bold text-lg mb-2">Continuous</div>
+                <div className="text-green-500 font-bold text-lg mb-2">Continuous</div>
                 <div className="text-white font-bold text-xl">QA</div>
               </div>
             </motion.div>
@@ -165,17 +165,17 @@ const SDLCSection = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute w-24 h-24 lg:hidden bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-yellow-500/50 transition-all duration-300 group"
+                  className="absolute w-24 h-24 lg:hidden bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group"
                   style={{
                     left: `calc(50% + ${x}px - 48px)`,
                     top: `calc(50% + ${y}px - 48px)`
                   }}
                 >
-                  <stage.icon className="w-6 h-6 text-gray-400 mb-1 group-hover:text-yellow-500 transition-colors" />
+                  <stage.icon className="w-6 h-6 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
                   <span className="text-sm text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
                     {stage.title}
                   </span>
-                  <span className="text-sm text-yellow-500 font-semibold text-center leading-tight">
+                  <span className="text-sm text-green-500 font-semibold text-center leading-tight">
                     {stage.qaNote}
                   </span>
                 </motion.div>
@@ -195,17 +195,17 @@ const SDLCSection = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute hidden lg:flex w-28 h-28 bg-gray-900/80 border border-gray-700 rounded-lg flex-col items-center justify-center hover:border-yellow-500/50 transition-all duration-300 group"
+                  className="absolute hidden lg:flex w-28 h-28 bg-gray-900/80 border border-gray-700 rounded-lg flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group"
                   style={{
                     left: `calc(50% + ${x}px - 56px)`,
                     top: `calc(50% + ${y}px - 56px)`
                   }}
                 >
-                  <stage.icon className="w-7 h-7 text-gray-400 mb-1 group-hover:text-yellow-500 transition-colors" />
+                  <stage.icon className="w-7 h-7 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
                   <span className="text-base text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
                     {stage.title}
                   </span>
-                  <span className="text-base text-yellow-500 font-semibold text-center leading-tight">
+                  <span className="text-base text-green-500 font-semibold text-center leading-tight">
                     {stage.qaNote}
                   </span>
                 </motion.div>
@@ -221,9 +221,9 @@ const SDLCSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <div className="bg-black/50 border border-yellow-500/30 rounded-lg p-8 max-w-4xl mx-auto">
+          <div className="bg-black/50 border border-green-500/30 rounded-lg p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-4">
-              <p className="text-yellow-500 font-semibold text-lg">
+              <p className="text-green-500 font-semibold text-lg">
                 Testing isn't a checkbox at the end. It's a consistent, integrated process.
               </p>
             </div>

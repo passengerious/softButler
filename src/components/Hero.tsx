@@ -164,7 +164,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             transition={{ duration: 1 }}
             className="absolute inset-0"
           >
-            <div className="absolute top-20 right-20 w-64 h-40 bg-gray-800/10 border border-yellow-500/10 rounded-lg backdrop-blur-sm opacity-30">
+            <div className="absolute top-20 right-20 w-64 h-40 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30">
               <div className="p-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <Shield className="w-4 h-4 text-green-500" />
@@ -176,10 +176,10 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
                 <div className="text-xs text-gray-400">Coverage: 98%</div>
               </div>
             </div>
-            <div className="absolute bottom-32 left-16 w-48 h-32 bg-gray-800/10 border border-yellow-500/10 rounded-lg backdrop-blur-sm opacity-30">
+            <div className="absolute bottom-32 left-16 w-48 h-32 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30">
               <div className="p-3">
-                <Zap className="w-5 h-5 text-yellow-500 mb-2" />
-                <div className="text-sm text-yellow-500 mb-1">Bug Detected</div>
+                <Zap className="w-5 h-5 text-green-500 mb-2" />
+                <div className="text-sm text-green-500 mb-1">Bug Detected</div>
                 <div className="text-xs text-gray-400">Fixed automatically</div>
               </div>
             </div>
@@ -210,7 +210,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
               />
             </span>
             .<br />
-            <span className="text-yellow-500 drop-shadow-[0_0_20px_#FFD700]">
+            <span className="text-green-500 drop-shadow-[0_0_20px_#00B476]">
               We'll Fix It
             </span>
             .
@@ -233,13 +233,13 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
           >
             <button
               onClick={onBookConsultation}
-              className="px-8 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105"
             >
               Get a QA Audit
             </button>
             <a
               href="/process"
-              className="px-8 py-4 border-2 border-yellow-500 text-yellow-500 font-bold text-lg rounded-lg hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300 transform hover:scale-105"
             >
               See How We Work
             </a>
@@ -254,7 +254,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ duration: 0.8, delay: 3.5, repeat: Infinity, repeatDelay: 1 }}
       >
-        <div className="w-1 h-16 bg-gradient-to-b from-yellow-500 to-transparent rounded-full" />
+        <div className="w-1 h-16 bg-gradient-to-b from-green-500 to-transparent rounded-full" />
       </motion.div>
     </section>
   );

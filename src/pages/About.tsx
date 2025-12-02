@@ -20,7 +20,7 @@ const About = () => {
       icon: Award,
       title: "Top Quality",
       description: "We improve software quality worldwide using onsite consulting, offshore execution, and proven tools that deliver measurable results.",
-      color: "from-yellow-500 to-orange-500"
+      color: "from-green-500 to-orange-500"
     },
     {
       icon: TrendingUp,
@@ -72,7 +72,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              About <span className="text-yellow-500">BugDamn</span>
+              About <span className="text-green-500">BugDamn</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               We build scalable QA processes that prevent bugs before they happen
@@ -90,14 +90,14 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-yellow-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-12">
+            <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
+            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                Our <span className="text-yellow-500">Mission</span>
+                Our <span className="text-green-500">Mission</span>
               </h2>
               <blockquote className="text-2xl md:text-3xl leading-relaxed text-gray-300">
                 "We build scalable QA processes that prevent bugs before they happen, 
-                transforming chaotic releases into <span className="text-yellow-500">smooth launches</span>."
+                transforming chaotic releases into <span className="text-green-500">smooth launches</span>."
               </blockquote>
             </div>
           </motion.div>
@@ -114,7 +114,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Key <span className="text-yellow-500">Highlights</span>
+              Key <span className="text-green-500">Highlights</span>
             </h2>
           </motion.div>
 
@@ -127,12 +127,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group relative overflow-hidden"
               >
-                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 h-full">
+                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 h-full">
                   {/* Gradient background on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${highlight.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                   
                   <div className="relative">
-                    <highlight.icon className="w-12 h-12 text-yellow-500 mb-6 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300" />
+                    <highlight.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
                     <h3 className="text-2xl font-bold mb-4 text-white">{highlight.title}</h3>
                     <p className="text-gray-300 leading-relaxed">{highlight.description}</p>
                   </div>
@@ -153,7 +153,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Our <span className="text-yellow-500">Impact</span>
+              Our <span className="text-green-500">Impact</span>
             </h2>
           </motion.div>
 
@@ -166,8 +166,8 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group">
-                  <div className="text-4xl md:text-5xl font-bold text-yellow-500 mb-2 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300">
+                <div className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 group">
+                  <div className="text-4xl md:text-5xl font-bold text-green-500 mb-2 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300">
                     {stat.number}
                   </div>
                   <div className="text-gray-300 font-semibold">{stat.label}</div>
@@ -188,7 +188,7 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Our <span className="text-yellow-500">Values</span>
+              Our <span className="text-green-500">Values</span>
             </h2>
             <p className="text-xl text-gray-300">The principles that guide everything we do</p>
           </motion.div>
@@ -202,8 +202,8 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group" style={{ minHeight: '-webkit-fill-available' }}>
-                  <value.icon className="w-12 h-12 text-yellow-500 mx-auto mb-6 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300" />
+                <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 group" style={{ minHeight: '-webkit-fill-available' }}>
+                  <value.icon className="w-12 h-12 text-green-500 mx-auto mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
                   <h3 className="text-xl font-bold mb-4 text-white">{value.title}</h3>
                   <p className="text-gray-300 leading-relaxed text-sm">{value.description}</p>
                 </div>
@@ -222,10 +222,10 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-yellow-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-12">
+            <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
+            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Experience <span className="text-yellow-500">Quality Excellence</span>?
+                Ready to Experience <span className="text-green-500">Quality Excellence</span>?
               </h2>
               <p className="text-xl text-gray-300 mb-8">
                 Let's discuss how our expertise can transform your QA process.
@@ -233,13 +233,13 @@ const About = () => {
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a
                   href="/contact"
-                  className="px-8 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all duration-300 transform hover:scale-105"
+                  className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105"
                 >
                   Get in Touch
                 </a>
                 <a
                   href="/services"
-                  className="px-8 py-4 border-2 border-yellow-500 text-yellow-500 font-bold text-lg rounded-lg hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+                  className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300 transform hover:scale-105"
                 >
                   Our Services
                 </a>

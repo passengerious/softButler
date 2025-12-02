@@ -46,7 +46,7 @@ const Footer = () => {
               }}
               className="flex items-center space-x-3 group cursor-pointer"
             >
-              <div className="text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300">
+              <div className="text-green-500 group-hover:drop-shadow-[0_0_10px_#00B476] transition-all duration-300">
                 <Logo size="md" animated={false} />
               </div>
               <span className="text-2xl font-bold text-white group-hover:text-green-500 transition-colors">
@@ -75,11 +75,11 @@ const Footer = () => {
                     window.location.href = link.path;
                     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
                   }}
-                  className="text-gray-400 hover:text-yellow-500 transition-colors duration-300 relative group"
+                  className="text-gray-400 hover:text-green-500 transition-colors duration-300 relative group"
                   style={{ textAlign: 'start', maxWidth: 'fit-content' }}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-hover:w-full transition-all duration-300" />
                 </button>
               ))}
             </nav>
@@ -100,10 +100,10 @@ const Footer = () => {
                   href={social.href}
                   target={social.href.startsWith('http') ? '_blank' : undefined}
                   rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="w-12 h-12 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-yellow-500 hover:border-yellow-500/50 hover:bg-yellow-500/10 transition-all duration-300 group"
+                  className="w-12 h-12 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300 group"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300" />
+                  <social.icon className="w-5 h-5 group-hover:drop-shadow-[0_0_10px_#00B476] transition-all duration-300" />
                 </a>
               ))}
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
             {/* Accent Line */}
             <div className="flex items-center space-x-2">
               <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-yellow-500" />
-              <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-yellow-500" />
             </div>
           </div>

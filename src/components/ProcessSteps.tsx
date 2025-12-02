@@ -40,7 +40,7 @@ const ProcessSteps = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Our Process: <span className="text-yellow-500">Clear & Effective</span>
+            Our Process: <span className="text-green-500">Clear & Effective</span>
           </h2>
         </motion.div>
 
@@ -55,13 +55,13 @@ const ProcessSteps = () => {
             >
               {/* Connection Line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-8 h-0.5 bg-yellow-500/30 z-0" />
+                <div className="hidden lg:block absolute top-16 left-full w-8 h-0.5 bg-green-500/30 z-0" />
               )}
               
-              <div className="relative bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group min-h-[275px]">
+              <div className="relative bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 group min-h-[275px]">
                 {/* Glowing Number */}
                 <motion.div
-                  className="absolute -top-4 -left-4 w-12 h-12 bg-yellow-500 text-black rounded-full flex items-center justify-center font-bold text-xl"
+                  className="absolute -top-4 -left-4 w-12 h-12 bg-green-500 text-black rounded-full flex items-center justify-center font-bold text-xl"
                   whileHover={{ scale: 1.1 }}
                   style={{
                     boxShadow: '0 0 20px rgba(255, 215, 0, 0.5)'
@@ -71,7 +71,7 @@ const ProcessSteps = () => {
                 </motion.div>
 
                 <div className="mt-4">
-                  <step.icon className="w-12 h-12 text-yellow-500 mb-6 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300" />
+                  <step.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
                   <h3 className="text-xl font-bold mb-4 text-white">{step.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{step.description}</p>
                 </div>

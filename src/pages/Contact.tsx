@@ -95,7 +95,7 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              Let's Fix Your <span className="text-yellow-500">QA</span>
+              Let's Fix Your <span className="text-green-500">QA</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Ready to transform chaos into quality? Get in touch and let's discuss your testing challenges.
@@ -125,11 +125,11 @@ const Contact = () => {
               <div className="space-y-6">
                 <motion.a
                   href="mailto:andrii@softbutler.io"
-                  className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-yellow-500/50 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
-                  <div className="w-12 h-12 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
-                    <Mail className="w-6 h-6 text-yellow-500" />
+                  <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                    <Mail className="w-6 h-6 text-green-500" />
                   </div>
                   <div>
                     <p className="text-white font-semibold">Email Us</p>
@@ -141,11 +141,11 @@ const Contact = () => {
                   href="https://linkedin.com/company/softbutler"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-yellow-500/50 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
-                  <div className="w-12 h-12 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
-                    <Linkedin className="w-6 h-6 text-yellow-500" />
+                  <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                    <Linkedin className="w-6 h-6 text-green-500" />
                   </div>
                   <div>
                     <p className="text-white font-semibold">LinkedIn</p>
@@ -157,7 +157,7 @@ const Contact = () => {
               <div className="bg-gray-900/30 border border-gray-800 rounded-lg p-6">
                 <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
                 <p className="text-gray-300">
-                  We typically respond within <span className="text-yellow-500 font-semibold">24 hours</span> during business days.
+                  We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
                   For urgent QA emergencies, mention "URGENT" in your subject line.
                 </p>
               </div>
@@ -169,7 +169,7 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/30 transition-all duration-300">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/30 transition-all duration-300">
                 <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
                 
                 {isSubmitted ? (
@@ -182,7 +182,7 @@ const Contact = () => {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.2 }}
-                      className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                      className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
                     >
                       <CheckCircle className="w-8 h-8 text-black" />
                     </motion.div>
@@ -204,7 +204,7 @@ const Contact = () => {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
+                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
                         placeholder="Your full name"
                       />
                     </div>
@@ -220,7 +220,7 @@ const Contact = () => {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
+                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -236,7 +236,7 @@ const Contact = () => {
                         rows={6}
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 resize-none"
+                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all duration-300 resize-none"
                         placeholder="Tell us about your QA challenges. What's broken? What do you need help with?"
                       />
                     </div>
@@ -244,7 +244,7 @@ const Contact = () => {
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                      className="w-full py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                       whileTap={{ scale: 0.95 }}
                     >
                       {isSubmitting ? (
@@ -276,17 +276,17 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-yellow-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-12">
+            <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
+            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Prefer a <span className="text-yellow-500">Live Conversation</span>?
+                Prefer a <span className="text-green-500">Live Conversation</span>?
               </h2>
               <p className="text-xl text-gray-300 mb-8">
                 Book a free 30-minute consultation to discuss your QA challenges in detail.
               </p>
               <a
                 href="/"
-                className="inline-block px-8 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all duration-300 transform hover:scale-105"
+                className="inline-block px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105"
               >
                 Book Free Consultation
               </a>

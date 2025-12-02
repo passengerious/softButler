@@ -40,7 +40,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/90 backdrop-blur-md border-b border-yellow-500/20' : 'bg-transparent'
+        scrolled ? 'bg-black/90 backdrop-blur-md border-b border-green-500/20' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6">
@@ -49,10 +49,10 @@ const Navbar = () => {
             onClick={() => handleNavigation('/')}
             className="flex items-center space-x-2 group cursor-pointer"
           >
-            <div className="text-yellow-500 group-hover:drop-shadow-[0_0_10px_#FFD700] transition-all duration-300">
+            <div className="text-green-500 group-hover:drop-shadow-[0_0_10px_#00B476] transition-all duration-300">
               <Logo size="md" animated={false} />
             </div>
-            <span className="text-xl font-bold text-white group-hover:text-yellow-500 transition-colors">
+            <span className="text-xl font-bold text-white group-hover:text-green-500 transition-colors">
               SoftButler
             </span>
           </button>
@@ -65,15 +65,15 @@ const Navbar = () => {
                 onClick={() => handleNavigation(item.path)}
                 className={`relative py-2 transition-all duration-300 ${
                   router.pathname === item.path
-                    ? 'text-yellow-500'
-                    : 'text-white hover:text-yellow-500'
+                    ? 'text-green-500'
+                    : 'text-white hover:text-green-500'
                 }`}
               >
                 {item.label}
                 {router.pathname === item.path && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-500 shadow-[0_0_10px_#FFD700]"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-500 shadow-[0_0_10px_#00B476]"
                   />
                 )}
               </button>
@@ -83,7 +83,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:text-yellow-500 transition-colors"
+            className="md:hidden text-white hover:text-green-500 transition-colors"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -94,7 +94,7 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-black/95 backdrop-blur-md border-t border-yellow-500/20"
+            className="md:hidden bg-black/95 backdrop-blur-md border-t border-green-500/20"
           >
             <div className="py-4">
               {navItems.map((item) => (
@@ -103,8 +103,8 @@ const Navbar = () => {
                   onClick={() => handleNavigation(item.path)}
                   className={`block w-full text-left py-3 px-6 transition-all duration-300 ${
                     router.pathname === item.path
-                      ? 'text-yellow-500 bg-yellow-500/10'
-                      : 'text-white hover:text-yellow-500 hover:bg-yellow-500/5'
+                      ? 'text-green-500 bg-green-500/10'
+                      : 'text-white hover:text-green-500 hover:bg-green-500/5'
                   }`}
                 >
                   {item.label}

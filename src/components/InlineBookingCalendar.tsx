@@ -175,13 +175,13 @@ const InlineBookingCalendar = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-gray-900/50 border border-yellow-500/30 rounded-lg p-12 text-center"
+            className="bg-gray-900/50 border border-green-500/30 rounded-lg p-12 text-center"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-8"
+              className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8"
             >
               <Check className="w-10 h-10 text-black" />
             </motion.div>
@@ -190,7 +190,7 @@ const InlineBookingCalendar = () => {
               We'll send you a confirmation email with the meeting details. 
               Looking forward to fixing your QA!
             </p>
-            <div className="text-lg text-yellow-500 font-semibold mb-8">
+            <div className="text-lg text-green-500 font-semibold mb-8">
               {formatDateForDisplay(selectedDate)} at {selectedTime} (Kyiv time)
             </div>
             
@@ -202,7 +202,7 @@ const InlineBookingCalendar = () => {
                 setSelectedTime('');
                 setFormData({ name: '', email: '', message: '' });
               }}
-              className="px-8 py-4 border-2 border-yellow-500 text-yellow-500 font-bold text-lg rounded-lg hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300 transform hover:scale-105"
             >
               Book Another Consultation
             </button>
@@ -222,14 +222,14 @@ const InlineBookingCalendar = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Book Your Free <span className="text-yellow-500">QA Audit</span>
+            Book Your Free <span className="text-green-500">QA Audit</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to fix your QA process? Schedule a free consultation and let's discuss your testing challenges.
           </p>
         </motion.div>
 
-        <div className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-yellow-500/30 transition-all duration-300">
+        <div className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/30 transition-all duration-300">
           {/* Progress Indicator */}
           <div className="p-6 border-b border-gray-800">
             <div className="flex items-center justify-center space-x-8">
@@ -242,7 +242,7 @@ const InlineBookingCalendar = () => {
                     <motion.div
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${
                         currentStep >= step.number
-                          ? 'bg-yellow-500 text-black border-yellow-500 shadow-[0_0_20px_rgba(255,215,0,0.5)]'
+                          ? 'bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(255,215,0,0.5)]'
                           : 'bg-gray-800 text-gray-400 border-gray-600'
                       }`}
                       whileHover={{ scale: currentStep >= step.number ? 1.1 : 1 }}
@@ -255,7 +255,7 @@ const InlineBookingCalendar = () => {
                     </motion.div>
                     <div className="hidden sm:block">
                       <div className={`font-semibold transition-colors ${
-                        currentStep >= step.number ? 'text-yellow-500' : 'text-gray-400'
+                        currentStep >= step.number ? 'text-green-500' : 'text-gray-400'
                       }`}>
                         Step {step.number}
                       </div>
@@ -268,7 +268,7 @@ const InlineBookingCalendar = () => {
                   </div>
                   {index < steps.length - 1 && (
                     <div className={`w-12 h-0.5 mx-4 transition-colors ${
-                      currentStep > step.number ? 'bg-yellow-500' : 'bg-gray-700'
+                      currentStep > step.number ? 'bg-green-500' : 'bg-gray-700'
                     }`} />
                   )}
                 </div>
@@ -291,7 +291,7 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <Calendar className="w-6 h-6 text-yellow-500 mr-3" />
+                      <Calendar className="w-6 h-6 text-green-500 mr-3" />
                       Choose Your Preferred Date
                     </h3>
                     <p className="text-gray-300">Select a date that works best for your schedule</p>
@@ -302,7 +302,7 @@ const InlineBookingCalendar = () => {
                     <div className="flex items-center justify-between mb-6">
                       <button
                         onClick={() => navigateMonth(-1)}
-                        className="p-2 text-gray-400 hover:text-yellow-500 transition-colors"
+                        className="p-2 text-gray-400 hover:text-green-500 transition-colors"
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
@@ -311,7 +311,7 @@ const InlineBookingCalendar = () => {
                       </span>
                       <button
                         onClick={() => navigateMonth(1)}
-                        className="p-2 text-gray-400 hover:text-yellow-500 transition-colors"
+                        className="p-2 text-gray-400 hover:text-green-500 transition-colors"
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>
@@ -341,10 +341,10 @@ const InlineBookingCalendar = () => {
                               : dateInfo.isPast 
                                 ? 'text-gray-600 cursor-not-allowed'
                                 : dateInfo.isToday
-                                  ? 'bg-yellow-500/20 text-yellow-500 border border-yellow-500/50'
+                                  ? 'bg-green-500/20 text-green-500 border border-green-500/50'
                                   : selectedDate === dateInfo.date
-                                    ? 'bg-yellow-500 text-black font-bold shadow-[0_0_15px_rgba(255,215,0,0.5)]'
-                                    : 'text-white hover:bg-gray-800 hover:text-yellow-500'
+                                    ? 'bg-green-500 text-black font-bold shadow-[0_0_15px_rgba(255,215,0,0.5)]'
+                                    : 'text-white hover:bg-gray-800 hover:text-green-500'
                             }
                           `}
                         >
@@ -368,7 +368,7 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-yellow-500 mr-3" />
+                      <Clock className="w-6 h-6 text-green-500 mr-3" />
                       Select Your Time (Kyiv Time)
                     </h3>
                     <p className="text-gray-300">
@@ -390,8 +390,8 @@ const InlineBookingCalendar = () => {
                           whileTap={{ scale: 0.95 }}
                           className={`p-4 rounded-lg border text-center transition-all font-semibold ${
                             selectedTime === time
-                              ? 'border-yellow-500 bg-yellow-500/10 text-yellow-500 shadow-[0_0_15px_rgba(255,215,0,0.3)]'
-                              : 'border-gray-700 hover:border-yellow-500/50 text-white hover:text-yellow-500 hover:bg-yellow-500/5'
+                              ? 'border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_15px_rgba(255,215,0,0.3)]'
+                              : 'border-gray-700 hover:border-green-500/50 text-white hover:text-green-500 hover:bg-green-500/5'
                           }`}
                         >
                           {time}
@@ -402,7 +402,7 @@ const InlineBookingCalendar = () => {
                     <div className="flex justify-center mt-8">
                       <button
                         onClick={goBack}
-                        className="flex items-center space-x-2 px-6 py-3 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-yellow-500/50 transition-all"
+                        className="flex items-center space-x-2 px-6 py-3 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all"
                       >
                         <ArrowLeft className="w-4 h-4" />
                         <span>Back to Date</span>
@@ -424,7 +424,7 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <User className="w-6 h-6 text-yellow-500 mr-3" />
+                      <User className="w-6 h-6 text-green-500 mr-3" />
                       Almost There! Your Details
                     </h3>
                     <p className="text-gray-300">Tell us about yourself and your QA challenges</p>
@@ -432,7 +432,7 @@ const InlineBookingCalendar = () => {
 
                   {/* Selected Date & Time Display */}
                   <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 max-w-md mx-auto">
-                    <p className="text-yellow-500 font-semibold mb-1 text-center">Your Consultation:</p>
+                    <p className="text-green-500 font-semibold mb-1 text-center">Your Consultation:</p>
                     <p className="text-white text-center">
                       {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
                         weekday: 'long', 
@@ -454,7 +454,7 @@ const InlineBookingCalendar = () => {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all"
+                        className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all"
                         placeholder="Your full name"
                       />
                     </div>
@@ -469,7 +469,7 @@ const InlineBookingCalendar = () => {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all"
+                        className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -483,7 +483,7 @@ const InlineBookingCalendar = () => {
                         rows={4}
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
-                        className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all resize-none"
+                        className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/20 transition-all resize-none"
                         placeholder="What QA problems are you facing? What's your current testing setup?"
                       />
                     </div>
@@ -492,7 +492,7 @@ const InlineBookingCalendar = () => {
                       <button
                         type="button"
                         onClick={goBack}
-                        className="flex-1 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-yellow-500/50 transition-all flex items-center justify-center space-x-2"
+                        className="flex-1 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2"
                       >
                         <ArrowLeft className="w-4 h-4" />
                         <span>Back to Time</span>
@@ -502,7 +502,7 @@ const InlineBookingCalendar = () => {
                         disabled={isSubmitting}
                         whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                        className="flex-1 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex-1 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>

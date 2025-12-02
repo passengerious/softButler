@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Smartphone, Monitor, Search, Zap, FileCheck } from 'lucide-react';
+import { Globe, Smartphone, Brain, Search, Zap, FileCheck } from 'lucide-react';
 import IndustryGrid from '../components/IndustryGrid';
 
 const Services = () => {
@@ -28,14 +28,14 @@ const Services = () => {
       ]
     },
     {
-      icon: Monitor,
-      title: "Desktop App Testing",
-      description: "Multi-platform reliability for Windows, macOS, and Linux",
+      icon: Brain,
+      title: "AI Integration",
+      description: "Seamless AI-powered testing and quality assurance solutions",
       features: [
-        "Installation & upgrade testing",
-        "System resource optimization",
-        "Integration with OS features",
-        "Cross-platform consistency"
+        "AI-powered test case generation",
+        "Intelligent bug detection & prediction",
+        "Machine learning test optimization",
+        "Automated quality insights & analytics"
       ]
     },
     {
@@ -85,7 +85,7 @@ const Services = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              Our <span className="text-yellow-500">Services</span>
+              Our <span className="text-green-500">Services</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               Comprehensive QA solutions tailored to fix your specific testing challenges
@@ -104,15 +104,15 @@ const Services = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-yellow-500/50 transition-all duration-300 group"
+                className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 group"
               >
-                <service.icon className="w-12 h-12 text-yellow-500 mb-6 group-hover:drop-shadow-[0_0_15px_#FFD700] transition-all duration-300" />
+                <service.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
                 <h3 className="text-xl font-bold mb-4 text-white">{service.title}</h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="text-sm text-gray-400 flex items-start">
-                      <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -135,10 +135,10 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-yellow-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-12">
+            <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
+            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Fix Your <span className="text-yellow-500">QA Process</span>?
+                Ready to Fix Your <span className="text-green-500">QA Process</span>?
               </h2>
               <p className="text-xl text-gray-300 mb-8">
                 Let's discuss your specific testing challenges and create a customized solution.
@@ -146,13 +146,13 @@ const Services = () => {
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a
                   href="/contact"
-                  className="px-8 py-4 bg-yellow-500 text-black font-bold text-lg rounded-lg hover:bg-yellow-400 hover:drop-shadow-[0_0_20px_#FFD700] transition-all duration-300 transform hover:scale-105"
+                  className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105"
                 >
                   Get Started
                 </a>
                 <a
                   href="/process"
-                  className="px-8 py-4 border-2 border-yellow-500 text-yellow-500 font-bold text-lg rounded-lg hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+                  className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300 transform hover:scale-105"
                 >
                   Our Process
                 </a>
