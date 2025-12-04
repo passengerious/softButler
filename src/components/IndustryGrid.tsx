@@ -82,15 +82,15 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
                 <h3 className="text-xl font-bold mb-4 text-white">{industry.name}</h3>
                 <p className="text-gray-300 mb-4 text-sm leading-relaxed">{industry.description}</p>
                 {!preview && (
-                  <p className="text-green-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-green-500 text-sm  transition-opacity duration-300">
                     {industry.details}
                   </p>
                 )}
               </div>
 
               {/* Hover Border Glow */}
-              <div className="absolute inset-0 rounded-lg border border-green-500/0 group-hover:border-green-500/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.3)]" 
-                   style={{ boxShadow: '0 0 20px rgba(255, 215, 0, 0)' }} />
+              <div className="absolute inset-0 rounded-lg border border-green-500/0 group-hover:border-green-500/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(52,152,219,0.3)]" 
+                   style={{ boxShadow: '0 0 20px rgba(52, 152, 219, 0)' }} />
             </motion.div>
           ))}
         </div>
@@ -104,7 +104,7 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
           >
             <a
               href="/services"
-              className="inline-block px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300"
+              className="inline-block px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300"
             >
               View All Industries
             </a>

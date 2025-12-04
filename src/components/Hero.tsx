@@ -239,7 +239,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             </button>
             <a
               href="/process"
-              className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
             >
               See How We Work
             </a>

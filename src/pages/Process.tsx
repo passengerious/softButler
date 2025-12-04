@@ -220,7 +220,7 @@ const Process = () => {
                   {/* Content Card - Full width on mobile */}
                   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} px-4 md:px-0`}>
                     <motion.div 
-                      className="bg-black/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 md:p-8 hover:border-green-500/50 transition-all duration-500 group hover:shadow-[0_0_40px_rgba(255,215,0,0.1)]"
+                      className="bg-black/60 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 md:p-8 hover:border-green-500/50 transition-all duration-500 group hover:shadow-[0_0_40px_rgba(52,152,219,0.1)]"
                       whileHover={{ scale: 1.02 }}
                     >
                       {/* Header */}

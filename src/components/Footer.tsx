@@ -18,12 +18,12 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Mail,
-      href: 'mailto:hello@qualityfix.com',
+      href: 'mailto:andrii@softbutler.io',
       label: 'Email'
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/company/qualityfix',
+      href: 'https://linkedin.com/company/softbutler',
       label: 'LinkedIn'
     }
   ];

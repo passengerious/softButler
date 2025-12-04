@@ -202,7 +202,7 @@ const InlineBookingCalendar = () => {
                 setSelectedTime('');
                 setFormData({ name: '', email: '', message: '' });
               }}
-              className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
             >
               Book Another Consultation
             </button>
@@ -242,7 +242,7 @@ const InlineBookingCalendar = () => {
                     <motion.div
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${
                         currentStep >= step.number
-                          ? 'bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(255,215,0,0.5)]'
+                          ? 'bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(52,152,219,0.5)]'
                           : 'bg-gray-800 text-gray-400 border-gray-600'
                       }`}
                       whileHover={{ scale: currentStep >= step.number ? 1.1 : 1 }}
@@ -343,7 +343,7 @@ const InlineBookingCalendar = () => {
                                 : dateInfo.isToday
                                   ? 'bg-green-500/20 text-green-500 border border-green-500/50'
                                   : selectedDate === dateInfo.date
-                                    ? 'bg-green-500 text-black font-bold shadow-[0_0_15px_rgba(255,215,0,0.5)]'
+                                    ? 'bg-green-500 text-black font-bold shadow-[0_0_15px_rgba(52,152,219,0.5)]'
                                     : 'text-white hover:bg-gray-800 hover:text-green-500'
                             }
                           `}
@@ -390,7 +390,7 @@ const InlineBookingCalendar = () => {
                           whileTap={{ scale: 0.95 }}
                           className={`p-4 rounded-lg border text-center transition-all font-semibold ${
                             selectedTime === time
-                              ? 'border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_15px_rgba(255,215,0,0.3)]'
+                              ? 'border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_15px_rgba(52,152,219,0.3)]'
                               : 'border-gray-700 hover:border-green-500/50 text-white hover:text-green-500 hover:bg-green-500/5'
                           }`}
                         >
