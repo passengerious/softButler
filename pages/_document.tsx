@@ -8,9 +8,9 @@ export default function Document() {
         
         {/* Favicons */}
         <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/circle_logo.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/circle_logo.png" />
-        <link rel="apple-touch-icon" href="/circle_logo.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/group.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/group.png" />
+        <link rel="apple-touch-icon" href="/group.png" />
         <meta name="theme-color" content="#000000" />
         
         {/* JSON-LD Structured Data */}
@@ -39,8 +39,12 @@ export default function Document() {
         
         
         {/* Additional SEO */}
-        <meta name="description" content="We turn chaotic releases into smooth launches — no guesswork, no excuses. Professional QA testing services." />
-        <meta name="keywords" content="QA testing, quality assurance, software testing, bug testing, QA services" />
+        <meta name="description" content="SoftButler - Professional QA testing services. We turn chaotic releases into smooth launches — no guesswork, no excuses." />
+        <meta name="keywords" content="SoftButler, QA testing, quality assurance, software testing, bug testing, QA services, software quality, testing company" />
+        <meta name="author" content="SoftButler" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://softbutler.io" />
+        <meta name="google-site-verification" content="" />
       </Head>
       <body className="bg-black">
         <Main />
