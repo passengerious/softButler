@@ -124,9 +124,9 @@ const Footer = () => {
             
             {/* Accent Line */}
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-yellow-500" />
+              <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-green-500" />
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-yellow-500" />
+              <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-green-500" />
             </div>
           </div>
         </motion.div>
