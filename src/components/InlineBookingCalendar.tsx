@@ -222,7 +222,7 @@ const InlineBookingCalendar = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Book Your Free <span className="text-green-500">QA Audit</span>
+            Book Your <span className="text-green-500">Free Consultation</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to fix your QA process? Schedule a free consultation and let's discuss your testing challenges.

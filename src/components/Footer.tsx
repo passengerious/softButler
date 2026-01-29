@@ -1,7 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Mail, Linkedin, Send, Phone } from 'lucide-react';
 import Logo from './Logo';
 
 const Footer = () => {
@@ -10,26 +8,30 @@ const Footer = () => {
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/services', label: 'Services' },
-    { path: '/process', label: 'Our Process' },
-    { path: '/about', label: 'About' },
+    { path: '/careers', label: 'Careers' },
     { path: '/contact', label: 'Contact' },
   ];
 
-  const socialLinks = [
-    {
-      icon: Mail,
-      href: 'mailto:andrii@softbutler.io',
-      label: 'Email'
-    },
+  const socialLinks: Array<{
+    label: string;
+    href: string;
+    icon?: typeof Mail;
+    iconSrc?: string;
+  }> = [
     {
       icon: Linkedin,
       href: 'https://linkedin.com/company/softbutler',
       label: 'LinkedIn'
+    },
+    {
+      iconSrc: '/clutch-logo.png',
+      href: 'https://clutch.co/profile/softbutler',
+      label: 'Clutch'
     }
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800">
+    <footer className="bg-gradient-to-b from-black via-green-950/10 to-black border-t border-green-500/20">
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           {/* Company Logo & Name */}
@@ -103,9 +105,44 @@ const Footer = () => {
                   className="w-12 h-12 bg-gray-800 border border-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-green-500 hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300 group"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 group-hover:drop-shadow-[0_0_10px_#00B476] transition-all duration-300" />
+                  {social.icon ? (
+                    <social.icon className="w-5 h-5 group-hover:drop-shadow-[0_0_10px_#00B476] transition-all duration-300" />
+                  ) : (
+                    <img
+                      src={social.iconSrc}
+                      alt={social.label}
+                      className="w-8 h-8 object-contain"
+                    />
+                  )}
                 </a>
               ))}
+            </div>
+
+            <div className="space-y-2 text-sm text-gray-400">
+              <p className="text-white font-semibold">Direct Contact</p>
+              <a
+                href="tel:+380635138576"
+                className="flex items-center gap-2 hover:text-green-500 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                +380635138576
+              </a>
+              <a
+                href="https://t.me/andriipsoftbutler"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-green-500 transition-colors"
+              >
+                <Send className="w-4 h-4" />
+                Telegram
+              </a>
+              <a
+                href="mailto:andrii@softbutler.io"
+                className="flex items-center gap-2 hover:text-green-500 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                andriip@softbutler.io
+              </a>
             </div>
           </motion.div>
         </div>
@@ -119,7 +156,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {currentYear} SoftButler. All rights reserved.
+              © {currentYear} SoftButler. <a href="https://maps.app.goo.gl/gw8diAv6MP6F3K8E7?g_st=ic" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-500 transition-colors">Koval's'kyi Lane, 19, Kyiv, Ukraine</a>
             </p>
             
             {/* Accent Line */}

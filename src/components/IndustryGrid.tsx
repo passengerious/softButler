@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Heart, DollarSign, Laptop, Gamepad2, Wifi, Rocket, Brain, Blocks, GraduationCap } from 'lucide-react';
+import { ShoppingCart, DollarSign, Laptop, GraduationCap, Truck, Store } from 'lucide-react';
 
 interface IndustryGridProps {
   preview?: boolean;
@@ -27,16 +27,16 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
       details: "Cloud platforms, API testing, scalability"
     },
     {
-      name: "Startups",
-      icon: Rocket,
-      description: "Helped 100+ startups launch bug-free MVPs",
-      details: "Rapid testing cycles, MVP validation, growth scaling"
+      name: "Logistics",
+      icon: Truck,
+      description: "Reduced delivery failures by 40% by detecting route and tracking issues early",
+      details: "Shipment tracking, route optimization, warehouse systems, integrations with carriers"
     },
     {
-      name: "Blockchain",
-      icon: Blocks,
-      description: "Audited smart contracts worth $50M+",
-      details: "Security audits, tokenomics testing, DeFi protocols"
+      name: "Retail",
+      icon: Store,
+      description: "Improved in-store and online sales reliability, preventing POS and pricing errors",
+      details: "POS systems, pricing engines, inventory sync, omnichannel retail platforms"
     },
     {
       name: "EdTech",
@@ -103,10 +103,10 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
             className="text-center mt-12"
           >
             <a
-              href="/services"
+              href="/contact"
               className="inline-block px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300"
             >
-              View All Industries
+              Get a Free Audit
             </a>
           </motion.div>
         )}

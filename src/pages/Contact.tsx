@@ -84,9 +84,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-black text-white relative overflow-hidden">
+      <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       {/* Hero Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-black">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -125,7 +127,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <motion.a
                   href="mailto:andrii@softbutler.io"
-                  className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
                   <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
@@ -141,7 +143,7 @@ const Contact = () => {
                   href="https://linkedin.com/company/softbutler"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
                   whileHover={{ x: 10 }}
                 >
                   <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
@@ -154,7 +156,7 @@ const Contact = () => {
                 </motion.a>
               </div>
 
-              <div className="bg-gray-900/30 border border-gray-800 rounded-lg p-6">
+              <div className="bg-green-950/10 border border-green-500/20 rounded-lg p-6">
                 <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
                 <p className="text-gray-300">
                   We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
@@ -169,7 +171,7 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/30 transition-all duration-300">
+              <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8 hover:border-green-500/30 transition-all duration-300">
                 <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
                 
                 {isSubmitted ? (
@@ -204,7 +206,7 @@ const Contact = () => {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
+                        className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
                         placeholder="Your full name"
                       />
                     </div>
@@ -220,7 +222,7 @@ const Contact = () => {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
+                        className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -236,7 +238,7 @@ const Contact = () => {
                         rows={6}
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 resize-none"
+                        className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 resize-none"
                         placeholder="Tell us about your QA challenges. What's broken? What do you need help with?"
                       />
                     </div>
@@ -268,7 +270,7 @@ const Contact = () => {
       </section>
 
       {/* Additional CTA */}
-      {/* <section className="py-20 px-6 bg-gray-900/30">
+      {/* <section className="py-20 px-6 bg-green-950/10">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -277,7 +279,7 @@ const Contact = () => {
             className="relative"
           >
             <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
+            <div className="relative bg-green-950/15 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Prefer a <span className="text-green-500">Live Conversation</span>?
               </h2>

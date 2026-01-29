@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,8 +7,11 @@ interface LayoutProps {
 }
 
 function Layout({ children }: LayoutProps) {
+
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div
+      className="min-h-screen text-white overflow-x-hidden bg-black"
+    >
       <Navbar />
       <motion.div
         initial={{ opacity: 0 }}

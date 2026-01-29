@@ -7,7 +7,7 @@ export default function Document() {
         <title>SoftButler - Modern QA Testing Company</title>
         
         {/* Favicons */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/SoftButtler.ico" />
         <link rel="icon" type="image/png" sizes="192x192" href="/group.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/group.png" />
         <link rel="apple-touch-icon" href="/group.png" />
@@ -24,11 +24,11 @@ export default function Document() {
               "url": "https://softbutler.io",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://softbutler.io/group.png",
+                "url": "https://softbutler.io/circle_logo.png",
                 "width": 512,
                 "height": 512
               },
-              "image": "https://softbutler.io/group.png",
+              "image": "https://softbutler.io/circle_logo.png",
               "description": "Professional QA testing services. Test less. Deliver smarter."
             })
           }}
@@ -60,6 +60,9 @@ export default function Document() {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://softbutler.io" />
         <meta name="google-site-verification" content="" />
+        
+        {/* Clutch Widget Script */}
+        <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js" async></script>
       </Head>
       <body className="bg-black">
         <Main />

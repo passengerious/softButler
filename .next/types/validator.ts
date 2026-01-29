@@ -65,9 +65,9 @@ type ApiRouteConfig = {
   handler satisfies PagesPageConfig
 }
 
-// Validate ../../pages/about.tsx
+// Validate ../../pages/careers.tsx
 {
-  const handler = {} as typeof import("../../pages/about.js")
+  const handler = {} as typeof import("../../pages/careers.js")
   handler satisfies PagesPageConfig
 }
 
@@ -83,15 +83,105 @@ type ApiRouteConfig = {
   handler satisfies PagesPageConfig
 }
 
-// Validate ../../pages/process.tsx
+// Validate ../../pages/industries/ecommerce.tsx
 {
-  const handler = {} as typeof import("../../pages/process.js")
+  const handler = {} as typeof import("../../pages/industries/ecommerce.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/industries/edtech.tsx
+{
+  const handler = {} as typeof import("../../pages/industries/edtech.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/industries/fintech.tsx
+{
+  const handler = {} as typeof import("../../pages/industries/fintech.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/industries/logistics.tsx
+{
+  const handler = {} as typeof import("../../pages/industries/logistics.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/industries/retail.tsx
+{
+  const handler = {} as typeof import("../../pages/industries/retail.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/industries/saas.tsx
+{
+  const handler = {} as typeof import("../../pages/industries/saas.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/automation-nitro.tsx
+{
+  const handler = {} as typeof import("../../pages/service/automation-nitro.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/functional-testing.tsx
+{
+  const handler = {} as typeof import("../../pages/service/functional-testing.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/integration-testing.tsx
+{
+  const handler = {} as typeof import("../../pages/service/integration-testing.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/performance-testing.tsx
+{
+  const handler = {} as typeof import("../../pages/service/performance-testing.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/qa-audit.tsx
+{
+  const handler = {} as typeof import("../../pages/service/qa-audit.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/qa-candidate-assessment.tsx
+{
+  const handler = {} as typeof import("../../pages/service/qa-candidate-assessment.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/regression-testing.tsx
+{
+  const handler = {} as typeof import("../../pages/service/regression-testing.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/release-acceleration.tsx
+{
+  const handler = {} as typeof import("../../pages/service/release-acceleration.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/service/system-testing.tsx
+{
+  const handler = {} as typeof import("../../pages/service/system-testing.js")
   handler satisfies PagesPageConfig
 }
 
 // Validate ../../pages/services.tsx
 {
   const handler = {} as typeof import("../../pages/services.js")
+  handler satisfies PagesPageConfig
+}
+
+// Validate ../../pages/who-we-are.tsx
+{
+  const handler = {} as typeof import("../../pages/who-we-are.js")
   handler satisfies PagesPageConfig
 }
 

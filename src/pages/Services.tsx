@@ -1,168 +1,172 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Globe, Smartphone, Brain, Search, Zap, FileCheck } from 'lucide-react';
-import IndustryGrid from '../components/IndustryGrid';
+import Link from 'next/link';
+import { ArrowRight, Star, CheckCircle } from 'lucide-react';
 
-const Services = () => {
-  const services = [
+export default function Services() {
+  const popularServices = [
     {
-      icon: Globe,
-      title: "Web App Testing",
-      description: "Flawless browser performance across all devices and platforms",
-      features: [
-        "Cross-browser compatibility testing",
-        "Responsive design validation",
-        "Performance & load testing",
-        "Security vulnerability assessment"
-      ]
+      slug: 'qa-audit',
+      title: 'QA Audit & Consulting',
+      description:
+        "Fix your QA system before it breaks your product. Get clarity on what's wrong and how to fix it.",
+      highlights: ['50% fewer bugs', 'Clear action plan', 'Quick wins identified'],
     },
     {
-      icon: Smartphone,
-      title: "Mobile App Testing",
-      description: "Cross-device stability for iOS and Android applications",
-      features: [
-        "Device-specific testing on real devices",
-        "OS version compatibility",
-        "App store compliance validation",
-        "Touch gesture & usability testing"
-      ]
+      slug: 'automation-nitro',
+      title: 'Automation Nitro',
+      description: 'Accelerate your testing with smart automation. Reduce regression time by up to 80%.',
+      highlights: ['80% faster testing', 'Stable automation', 'CI/CD optimized'],
     },
     {
-      icon: Brain,
-      title: "AI Integration",
-      description: "Seamless AI-powered testing and quality assurance solutions",
-      features: [
-        "AI-powered test case generation",
-        "Intelligent bug detection & prediction",
-        "Machine learning test optimization",
-        "Automated quality insights & analytics"
-      ]
+      slug: 'release-acceleration',
+      title: 'Release Acceleration',
+      description:
+        'Ship faster without breaking things. Optimize your entire release pipeline for speed and quality.',
+      highlights: ['10× faster releases', 'Predictable delivery', 'Risk-based testing'],
     },
     {
-      icon: Search,
-      title: "Manual Testing",
-      description: "Human insight automation can't match",
-      features: [
-        "Exploratory testing sessions",
-        "User experience validation",
-        "Edge case identification",
-        "Accessibility compliance testing"
-      ]
+      slug: 'qa-candidate-assessment',
+      title: 'QA Candidate Assessment',
+      description: 'Hire QA engineers with confidence — not hope. Reduce hiring mistakes by 50-70%.',
+      highlights: ['Unbiased evaluation', 'Real-world testing', 'Clear hire/no-hire recommendation'],
+    },
+  ];
+
+  const coreServices = [
+    {
+      slug: 'functional-testing',
+      title: 'Functional Testing',
+      description:
+        'Verify that your application works as intended. Comprehensive testing of features and user workflows.',
+      highlights: ['Complete coverage', 'User-focused', 'Requirements validation'],
     },
     {
-      icon: Zap,
-      title: "Automated Testing",
-      description: "Speed & precision for continuous delivery",
-      features: [
-        "Test automation framework setup",
-        "Regression test automation",
-        "API testing automation",
-        "CI/CD pipeline integration"
-      ]
+      slug: 'performance-testing',
+      title: 'Performance Testing',
+      description:
+        'Ensure your application can handle the load. Test speed, stability, and scalability under various conditions.',
+      highlights: ['Load testing', 'Stress testing', 'Scalability analysis'],
     },
     {
-      icon: FileCheck,
-      title: "QA Audit & Consulting",
-      description: "Full review of your QA process",
-      features: [
-        "Current process assessment",
-        "QA strategy development",
-        "Tool recommendation & setup",
-        "Team training & best practices"
-      ]
-    }
+      slug: 'regression-testing',
+      title: 'Regression Testing',
+      description:
+        "Make sure new changes don't break existing functionality. Systematic validation after every update.",
+      highlights: ['Change impact analysis', 'Automated suites', 'Fast feedback'],
+    },
+    {
+      slug: 'integration-testing',
+      title: 'Integration Testing',
+      description:
+        'Test how different parts of your system work together. Identify interface issues early.',
+      highlights: ['API testing', 'System integration', 'Data flow validation'],
+    },
+    {
+      slug: 'system-testing',
+      title: 'System Testing',
+      description:
+        'End-to-end testing of your complete application. Verify the entire system meets requirements.',
+      highlights: ['Complete workflows', 'Real scenarios', 'Environment testing'],
+    },
   ];
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              Our <span className="text-green-500">Services</span>
+    <div className="bg-black text-white relative overflow-hidden">
+      <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
+      <section className="py-20 mt-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Our <span className="text-[#00B476]">Services</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive QA solutions tailored to fix your specific testing challenges
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Professional QA solutions tailored to your needs. From quick audits to comprehensive
+              testing services.
             </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 px-6 bg-gray-900/30">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-black/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 group"
-              >
-                <service.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
-                <h3 className="text-xl font-bold mb-4 text-white">{service.title}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="text-sm text-gray-400 flex items-start">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Industries Section */}
-      <IndustryGrid />
+      <section className="py-10 bg-gradient-to-b from-black via-green-950/5 to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center mb-12">
+            <Star className="text-[#00B476] mr-3" size={32} />
+            <h2 className="text-3xl md:text-4xl font-bold">Most Popular</h2>
+          </div>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-gray-900/30">
-        <div className="container mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Fix Your <span className="text-green-500">QA Process</span>?
-              </h2>
-              <p className="text-xl text-gray-300 mb-8">
-                Let's discuss your specific testing challenges and create a customized solution.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <a
-                  href="/contact"
-                  className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105"
-                >
-                  Get Started
-                </a>
-                <a
-                  href="/process"
-                  className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
-                >
-                  Our Process
-                </a>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            {popularServices.map((service) => (
+              <Link key={service.slug} href={`/service/${service.slug}`} className="group">
+                <div className="bg-gradient-to-br from-green-950/25 to-black border-2 border-[#00B476]/40 p-8 rounded-lg h-full transition-all hover:border-[#00B476] hover:shadow-xl hover:shadow-[#00B476]/30 hover:-translate-y-1">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-2xl font-bold group-hover:text-[#00B476] transition-colors">
+                      {service.title}
+                    </h3>
+                    <Star className="text-[#00B476] fill-[#00B476]" size={24} />
+                  </div>
+                  <p className="text-gray-400 mb-6">{service.description}</p>
+                  <div className="space-y-2 mb-6">
+                    {service.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center text-sm">
+                        <CheckCircle className="text-[#00B476] mr-2" size={16} />
+                        <span className="text-gray-300">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex items-center text-[#00B476] font-semibold">
+                    Learn more{' '}
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="border-t border-[#00B476]/20 pt-20">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12">Core Testing Services</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {coreServices.map((service) => (
+                <Link key={service.slug} href={`/service/${service.slug}`} className="group">
+                  <div className="bg-green-950/20 border border-[#00B476]/20 p-6 rounded-lg h-full transition-all hover:border-[#00B476] hover:bg-black hover:shadow-lg hover:shadow-[#00B476]/20">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#00B476] transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-4">{service.description}</p>
+                    <div className="space-y-1 mb-4">
+                      {service.highlights.map((highlight, idx) => (
+                        <div key={idx} className="flex items-center text-xs">
+                          <CheckCircle className="text-[#00B476] mr-2" size={14} />
+                          <span className="text-gray-400">{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center text-[#00B476] text-sm font-semibold">
+                      Learn more{' '}
+                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-          </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Not Sure Which Service You Need?</h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Let's talk. We'll help you find the right solution for your challenges.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-[#00B476] text-black px-8 py-3 rounded-lg font-semibold hover:bg-[#00B476]/90 transition-colors"
+          >
+            Book a call
+          </Link>
         </div>
       </section>
     </div>
   );
-};
-
-export default Services;
+}
