@@ -300,12 +300,12 @@ const Home = () => {
                 {/* Large Typography Quote - Overlaying bottom of image */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
                       <div className="relative inline-block">
-                        <div className="absolute inset-0 rounded-2xl bg-black/40 backdrop-blur-sm"></div>
+                        <div className="absolute inset-0 rounded-xl bg-black/40 backdrop-blur-sm"></div>
                     {/* Decorative accent line */}
                         <div className="relative z-10 w-16 h-1 bg-green-500 mb-4"></div>
 
                     {/* Quote text */}
-                        <p className="relative z-10 text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight px-4 py-3">
+                        <p className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight px-3 py-2">
                       People are our{' '}
                       <span className="text-green-500">core value.</span>
                     </p>
