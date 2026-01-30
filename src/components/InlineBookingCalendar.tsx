@@ -158,23 +158,22 @@ const InlineBookingCalendar = () => {
     setIsSubmitting(true);
     
     try {
-      // Prepare the message with booking details
-      const bookingMessage = `📅 New QA Consultation Booking:
-👤 Name: ${formData.name}
-📧 Email: ${formData.email}
-📅 Date: ${formatDateForDisplay(selectedDate)} at ${selectedTime} (Kyiv time)
-📝 Message: ${formData.message}`;
-
-      const res = await fetch('/.netlify/functions/send-to-telegram', {
+      const res = await fetch('/.netlify/functions/send-booking-to-telegram', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: bookingMessage
+          message: formData.message,
+          date: formatDateForDisplay(selectedDate),
+          time: selectedTime
         })
       });
 
+      if (res.status === 409) {
+        toast.error('This time slot is already booked. Please choose another.');
+        return;
+      }
       if (!res.ok) {
         throw new Error('Failed to send booking');
       }
