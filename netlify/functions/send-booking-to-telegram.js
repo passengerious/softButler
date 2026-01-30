@@ -4,6 +4,23 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const bookedSlots = new Set();
 
 exports.handler = async function (event) {
+  if (event.httpMethod === 'GET') {
+    const date = event.queryStringParameters?.date;
+    if (!date) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Missing date' }),
+      };
+    }
+    const times = Array.from(bookedSlots)
+      .filter((key) => key.startsWith(`${date}|`))
+      .map((key) => key.split('|')[1]);
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ times }),
+    };
+  }
+
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -20,7 +37,7 @@ exports.handler = async function (event) {
       };
     }
 
-    const { name, email, message, date, time } = JSON.parse(event.body);
+    const { name, email, message, date, time, displayDate } = JSON.parse(event.body);
 
     if (!name || !email || !date || !time) {
       return {
@@ -43,7 +60,7 @@ exports.handler = async function (event) {
 📅 New QA Consultation Booking:
 👤 Name: ${name}
 📧 Email: ${email}
-📅 Date: ${date} at ${time} (Kyiv time)
+📅 Date: ${displayDate || date} at ${time} (Kyiv time)
 📝 Message: ${message || '-'}
     `;
 

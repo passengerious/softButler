@@ -28,6 +28,7 @@ const InlineBookingCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -150,8 +151,34 @@ const InlineBookingCalendar = () => {
     }
     const dateTime = new Date(`${selectedDate}T${time}:00`);
     const minTime = getMinBookableTime();
-    return dateTime >= minTime;
+    return dateTime >= minTime && !bookedTimes.includes(time);
   };
+
+  React.useEffect(() => {
+    if (!selectedDate) {
+      setBookedTimes([]);
+      return;
+    }
+    let isActive = true;
+    const fetchBookedTimes = async () => {
+      try {
+        const res = await fetch(`/.netlify/functions/send-booking-to-telegram?date=${selectedDate}`);
+        if (!res.ok) {
+          return;
+        }
+        const data = await res.json();
+        if (isActive) {
+          setBookedTimes(Array.isArray(data.times) ? data.times : []);
+        }
+      } catch {
+        // ignore errors and keep times empty
+      }
+    };
+    fetchBookedTimes();
+    return () => {
+      isActive = false;
+    };
+  }, [selectedDate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -165,7 +192,8 @@ const InlineBookingCalendar = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          date: formatDateForDisplay(selectedDate),
+          date: selectedDate,
+          displayDate: formatDateForDisplay(selectedDate),
           time: selectedTime
         })
       });
