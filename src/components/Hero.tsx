@@ -10,6 +10,9 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
   const [glitchActive, setGlitchActive] = useState(true);
   const [showGlitchOverlay, setShowGlitchOverlay] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [floatingBugs, setFloatingBugs] = useState<
+    { id: number; initialX: number; initialY: number; delay: number }[]
+  >([]);
 
   useEffect(() => {
     // Initial screen glitch effect
@@ -46,12 +49,15 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
     });
   };
 
-  const floatingBugs = Array.from({ length: 6 }, (_, i) => ({
-    id: i,
-    initialX: Math.random() * 100,
-    initialY: Math.random() * 100,
-    delay: i * 0.5,
-  }));
+  useEffect(() => {
+    const bugs = Array.from({ length: 6 }, (_, i) => ({
+      id: i,
+      initialX: Math.random() * 100,
+      initialY: Math.random() * 100,
+      delay: i * 0.5,
+    }));
+    setFloatingBugs(bugs);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

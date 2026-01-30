@@ -61,13 +61,7 @@ export function NovaPostLogo() {
 
 export function MonobankLogo() {
   return (
-    <LogoImage 
-      src="https://logo.clearbit.com/monobank.ua" 
-      alt="Monobank" 
-      fallbackText="monobank"
-      cdnUrl="/logos/monobank.png"
-      className="h-16 md:h-20 lg:h-24 w-auto object-contain max-w-[300px] brightness-110"
-    />
+    <div className="text-white text-2xl md:text-3xl lg:text-4xl font-bold whitespace-nowrap">MONOBANK</div>
   );
 }
 
@@ -141,13 +135,7 @@ export function AkvelonLogo() {
 
 export function SoftServeLogo() {
   return (
-    <LogoImage 
-      src="https://logo.clearbit.com/softserveinc.com" 
-      alt="SoftServe" 
-      fallbackText="SoftServe"
-      cdnUrl="/logos/softserve.png"
-      className="h-20 md:h-24 lg:h-28 w-auto object-contain max-w-[320px] brightness-110"
-    />
+    <div className="text-white text-2xl md:text-3xl lg:text-4xl font-bold whitespace-nowrap">SOFTSERVE</div>
   );
 }
 

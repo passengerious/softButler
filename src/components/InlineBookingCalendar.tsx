@@ -48,50 +48,88 @@ const InlineBookingCalendar = () => {
     });
   };
 
+  const todayStart = React.useMemo(() => {
+    const today = new Date();
+    const start = new Date(today);
+    start.setHours(0, 0, 0, 0);
+    return start;
+  }, []);
+  const maxDate = React.useMemo(
+    () => new Date(todayStart.getFullYear(), todayStart.getMonth() + 2, 0),
+    [todayStart]
+  );
+
+  // Generate time slots (8 AM to 8 PM Kyiv time)
+  const timeSlots = React.useMemo(
+    () => [
+      '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
+      '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'
+    ],
+    []
+  );
+
+  const getMinBookableTime = () => new Date(Date.now() + 60 * 60 * 1000);
+
+  const hasAvailableTimesForDate = React.useCallback((date: Date) => {
+    const minTime = getMinBookableTime();
+    return timeSlots.some((time) => {
+      const dateTime = new Date(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}T${time}:00`);
+      return dateTime >= minTime;
+    });
+  }, [timeSlots]);
+
   // Generate calendar dates for current month
   const generateCalendarDates = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
     const startDate = new Date(firstDay);
     startDate.setDate(startDate.getDate() - firstDay.getDay());
     
     const dates = [];
-    const today = new Date();
     
     for (let i = 0; i < 42; i++) {
       const date = new Date(startDate);
       date.setDate(startDate.getDate() + i);
       
       const isCurrentMonth = date.getMonth() === month;
-      const todayStart = new Date(today);
-      todayStart.setHours(0, 0, 0, 0);
       const isPast = date < todayStart;
+      const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+      const isOutOfRange = date > maxDate;
       const isToday = date.toDateString() === new Date().toDateString();
+      const isTodayUnavailable = isToday && !hasAvailableTimesForDate(date);
       
       dates.push({
         date: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,
         day: date.getDate(),
         isCurrentMonth,
         isPast,
+        isWeekend,
+        isOutOfRange,
         isToday,
-        isSelectable: isCurrentMonth && !isPast
+        isSelectable: isCurrentMonth && !isPast && !isOutOfRange && !isWeekend && !isTodayUnavailable
       });
     }
     
     return dates;
   };
 
-  // Generate time slots (8 AM to 8 PM Kyiv time)
-  const timeSlots = [
-    '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-    '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'
-  ];
-
   const navigateMonth = (direction: number) => {
     const newDate = new Date(currentDate);
+    newDate.setDate(1);
     newDate.setMonth(currentDate.getMonth() + direction);
+
+    const minMonth = new Date(todayStart.getFullYear(), todayStart.getMonth(), 1);
+    const maxMonth = new Date(maxDate.getFullYear(), maxDate.getMonth(), 1);
+
+    if (newDate < minMonth) {
+      setCurrentDate(minMonth);
+      return;
+    }
+    if (newDate > maxMonth) {
+      setCurrentDate(maxMonth);
+      return;
+    }
     setCurrentDate(newDate);
   };
 
@@ -104,6 +142,15 @@ const InlineBookingCalendar = () => {
   const handleTimeSelect = (time: string) => {
     setSelectedTime(time);
     setTimeout(() => setCurrentStep(3), 300);
+  };
+
+  const isTimeSelectable = (time: string) => {
+    if (!selectedDate) {
+      return false;
+    }
+    const dateTime = new Date(`${selectedDate}T${time}:00`);
+    const minTime = getMinBookableTime();
+    return dateTime >= minTime;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -143,6 +190,7 @@ const InlineBookingCalendar = () => {
       //   setFormData({ name: '', email: '', message: '' });
       // }, 5000);
     } catch (err) {
+      console.error('Booking error:', err);
       toast.error('Error booking consultation. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -161,6 +209,55 @@ const InlineBookingCalendar = () => {
   ];
 
   const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const minMonth = React.useMemo(
+    () => new Date(todayStart.getFullYear(), todayStart.getMonth(), 1),
+    [todayStart]
+  );
+  const maxMonth = React.useMemo(
+    () => new Date(maxDate.getFullYear(), maxDate.getMonth(), 1),
+    [maxDate]
+  );
+  const currentMonthStart = React.useMemo(
+    () => new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
+    [currentDate]
+  );
+  const isPrevDisabled = currentMonthStart <= minMonth;
+  const isNextDisabled = currentMonthStart >= maxMonth;
+
+  const hasSelectableDatesInMonth = React.useCallback((date: Date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const monthStart = new Date(year, month, 1);
+    const monthEnd = new Date(year, month + 1, 0);
+
+    for (let d = new Date(monthStart); d <= monthEnd; d.setDate(d.getDate() + 1)) {
+      const isPast = d < todayStart;
+      const isWeekend = d.getDay() === 0 || d.getDay() === 6;
+      const isOutOfRange = d > maxDate;
+      const isToday = d.toDateString() === new Date().toDateString();
+      const isTodayUnavailable = isToday && !hasAvailableTimesForDate(d);
+      if (!isPast && !isWeekend && !isOutOfRange && !isTodayUnavailable) {
+        return true;
+      }
+    }
+    return false;
+  }, [todayStart, maxDate, hasAvailableTimesForDate]);
+
+  React.useEffect(() => {
+    if (currentMonthStart < minMonth) {
+      setCurrentDate(minMonth);
+      return;
+    }
+    if (currentMonthStart > maxMonth) {
+      setCurrentDate(maxMonth);
+      return;
+    }
+    if (!hasSelectableDatesInMonth(currentDate) && currentMonthStart < maxMonth) {
+      const nextMonth = new Date(currentMonthStart);
+      nextMonth.setMonth(currentMonthStart.getMonth() + 1);
+      setCurrentDate(nextMonth);
+    }
+  }, [currentDate, currentMonthStart, maxMonth, minMonth, hasSelectableDatesInMonth]);
 
   const steps = [
     { number: 1, title: 'Choose Date', icon: Calendar },
@@ -301,8 +398,11 @@ const InlineBookingCalendar = () => {
                     {/* Month Navigation */}
                     <div className="flex items-center justify-between mb-6">
                       <button
-                        onClick={() => navigateMonth(-1)}
-                        className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+                        onClick={() => !isPrevDisabled && navigateMonth(-1)}
+                        disabled={isPrevDisabled}
+                        className={`p-2 transition-colors ${
+                          isPrevDisabled ? 'text-gray-600 cursor-not-allowed' : 'text-gray-400 hover:text-green-500'
+                        }`}
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
@@ -310,8 +410,11 @@ const InlineBookingCalendar = () => {
                         {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
                       </span>
                       <button
-                        onClick={() => navigateMonth(1)}
-                        className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+                        onClick={() => !isNextDisabled && navigateMonth(1)}
+                        disabled={isNextDisabled}
+                        className={`p-2 transition-colors ${
+                          isNextDisabled ? 'text-gray-600 cursor-not-allowed' : 'text-gray-400 hover:text-green-500'
+                        }`}
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>
@@ -338,7 +441,7 @@ const InlineBookingCalendar = () => {
                             aspect-square flex items-center justify-center text-sm rounded transition-all
                             ${!dateInfo.isCurrentMonth 
                               ? 'text-gray-600 cursor-not-allowed' 
-                              : dateInfo.isPast 
+                          : dateInfo.isPast || dateInfo.isOutOfRange || dateInfo.isWeekend
                                 ? 'text-gray-600 cursor-not-allowed'
                                 : dateInfo.isToday
                                   ? 'bg-green-500/20 text-green-500 border border-green-500/50'
@@ -382,21 +485,27 @@ const InlineBookingCalendar = () => {
 
                   <div className="max-w-lg mx-auto">
                     <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                      {timeSlots.map((time) => (
+                      {timeSlots.map((time) => {
+                        const selectable = isTimeSelectable(time);
+                        return (
                         <motion.button
                           key={time}
-                          onClick={() => handleTimeSelect(time)}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                          onClick={() => (selectable ? handleTimeSelect(time) : null)}
+                          disabled={!selectable}
+                          whileHover={selectable ? { scale: 1.05 } : {}}
+                          whileTap={selectable ? { scale: 0.95 } : {}}
                           className={`p-4 rounded-lg border text-center transition-all font-semibold ${
-                            selectedTime === time
-                              ? 'border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_15px_rgba(52,152,219,0.3)]'
-                              : 'border-gray-700 hover:border-green-500/50 text-white hover:text-green-500 hover:bg-green-500/5'
+                            !selectable
+                              ? 'border-gray-700 text-gray-500 cursor-not-allowed bg-gray-800/40'
+                              : selectedTime === time
+                                ? 'border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_15px_rgba(52,152,219,0.3)]'
+                                : 'border-gray-700 hover:border-green-500/50 text-white hover:text-green-500 hover:bg-green-500/5'
                           }`}
                         >
                           {time}
                         </motion.button>
-                      ))}
+                      );
+                      })}
                     </div>
 
                     <div className="flex justify-center mt-8">

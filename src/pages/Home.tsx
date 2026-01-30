@@ -26,6 +26,7 @@ import {
 const Home = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const companyLogos = [
     { id: 'np', Component: NovaPostLogo },
@@ -40,6 +41,10 @@ const Home = () => {
     { id: 'sm', Component: SamsungLogo },
     { id: 'cm', Component: CheckmarxLogo },
   ];
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -346,16 +351,18 @@ const Home = () => {
       <section className="py-12 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center items-center">
-            <div 
-              className="clutch-widget"
-              data-url="https://widget.clutch.co" 
-              data-widget-type="13" 
-              data-height="50" 
-              data-nofollow="false" 
-              data-expandifr="true" 
-              data-scale="100" 
-              data-clutchcompany-id="2550066"
-            ></div>
+            {isMounted && (
+              <div 
+                className="clutch-widget"
+                data-url="https://widget.clutch.co" 
+                data-widget-type="13" 
+                data-height="50" 
+                data-nofollow="false" 
+                data-expandifr="true" 
+                data-scale="100" 
+                data-clutchcompany-id="2550066"
+              ></div>
+            )}
           </div>
         </div>
       </section>

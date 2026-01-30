@@ -11,6 +11,14 @@ exports.handler = async function(event, context) {
   }
 
   try {
+    if (!TELEGRAM_TOKEN || !CHAT_ID) {
+      console.error('Missing Telegram environment variables');
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Server is missing Telegram configuration' })
+      };
+    }
+
     const { name, email, message } = JSON.parse(event.body);
 
     if (!name || !email || !message) {
@@ -38,6 +46,8 @@ exports.handler = async function(event, context) {
     });
 
     if (!telegramRes.ok) {
+      const errorText = await telegramRes.text();
+      console.error('Telegram API error:', errorText);
       throw new Error('Failed to send Telegram message');
     }
 
@@ -46,6 +56,7 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ success: true })
     };
   } catch (err) {
+    console.error('Send-to-telegram error:', err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to send message' })
