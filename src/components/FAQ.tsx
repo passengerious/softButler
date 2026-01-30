@@ -7,25 +7,45 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What causes software defects?",
-      answer: "Software defects typically stem from rushed development cycles, inadequate testing coverage, poor communication between teams, changing requirements, and lack of proper QA processes. Environmental differences between development and production also contribute significantly."
+      question: "Who are you and what is your expertise?",
+      answer: "We are SoftButler, a QA and Quality Engineering company on a mission to make products trustworthy by default. We help teams build quality into their products from day one through manual and automated testing, QA audits, and release acceleration — preventing issues before they reach production."
     },
     {
-      question: "What is Quality Assurance?",
-      answer: "Quality Assurance (QA) is a systematic process of preventing defects by focusing on the process used to create software. It's proactive, involving process improvement, standards definition, and ensuring development teams follow best practices throughout the software lifecycle."
+      question: "Why should clients choose SoftButler?",
+      answer: "Clients choose SoftButler because we measure quality in real numbers, not promises. We combine strong QA engineering expertise with a business-oriented mindset — focusing on faster releases, fewer production bugs, and predictable delivery. We don’t slow teams down. We accelerate development while increasing confidence in every release."
     },
     {
-      question: "What is Quality Control?",
-      answer: "Quality Control (QC) is the reactive process of identifying defects in finished products through testing and inspection. While QA prevents defects, QC detects them. Both are essential components of a comprehensive quality management strategy."
+      question: "What industries do you have experience in?",
+      answer: "We have hands-on experience working with: SaaS products, E-commerce platforms, Fintech solutions, Business and enterprise web applications. Our QA approach adapts to the product domain, risk level, and business goals of each industry."
     },
     {
-      question: "What's the difference between manual and automated testing?",
-      answer: "Manual testing involves human testers executing test cases without automation tools, providing insight into user experience and exploratory testing. Automated testing uses tools and scripts to perform tests, offering speed, repeatability, and efficiency for regression testing."
+      question: "What results do clients get from working with you?",
+      answer: "Our clients typically achieve: Reduced production bugs, Faster and more predictable release cycles, Lower QA and regression costs through automation, Higher product stability and user satisfaction. We always focus on measurable outcomes and clearly show progress using metrics, reports, and KPIs."
     },
     {
-      question: "How fast can QA be integrated into our workflow?",
-      answer: "We can typically integrate QA processes within 1-2 weeks. Our approach starts with a rapid assessment of your current setup, followed by implementing critical testing processes first, then gradually expanding coverage while your team continues development."
+      question: "Why is QA important for business?",
+      answer: "QA is not just about finding bugs — it is about protecting revenue, reputation, and users. Strong QA helps businesses: Avoid costly production incidents, Reduce support and hotfix costs, Release faster with confidence, Build trust with customers. Quality directly impacts customer retention, growth, and long-term scalability."
     },
+    {
+      question: "What does your QA process look like from start to finish?",
+      answer: "Our QA process typically includes: Product and risk analysis, QA strategy and scope definition, Test planning and test case creation, Manual and/or automated testing, Defect tracking and verification, Reporting, metrics, and recommendations. The process is always adapted to the product stage, team setup, and business priorities."
+    },
+    {
+      question: "What quality guarantees do you provide?",
+      answer: "We prove quality with measurable results. If agreed quality metrics are not achieved, we refund the cost of the service. Quality for us is not subjective — it is transparent, measurable, and accountable."
+    },
+    {
+      question: "How do you work with client teams (communication and reporting)?",
+      answer: "We maintain continuous communication with client teams and provide regular reports, adjusted to client needs. This can include: Daily or weekly status updates, Clear defect reports, Quality metrics and progress tracking, Actionable recommendations. Clients always know what is happening, what was found, and what comes next."
+    },
+    {
+      question: "How long does QA implementation usually take?",
+      answer: "QA implementation typically starts from 2 weeks, depending on the complexity of the product and selected services. We focus on delivering early value, not long onboarding phases."
+    },
+    {
+      question: "Can clients get a free consultation or evaluation?",
+      answer: "Yes. We offer a 3-day free trial for any selected service. If the client is not satisfied within the first 3 days, the service is completely free with no obligations."
+    }
   ];
 
   const toggleFAQ = (index: number) => {
