@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   CheckCircle,
   ArrowRight,
@@ -6,10 +7,13 @@ import {
   Zap,
   Target,
   AlertTriangle,
+  Plus,
+  Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
 
 export default function AutomationNitro() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const benefits = [
     'Reduce regression testing time by up to 80%',
     'Improve test reliability and eliminate flaky tests',
@@ -81,6 +85,44 @@ export default function AutomationNitro() {
     { metric: 'Manual Regression', improvement: '–40%' },
     { metric: 'Production Bugs in Critical Flows', improvement: '–60%' },
     { metric: 'CI Feedback Time', improvement: '–50%' },
+  ];
+
+  const faqs = [
+    {
+      question: 'What exactly does Automation Nitro include?',
+      answer:
+        'Automation Nitro covers test automation setup from scratch or improvement of existing automation, including framework setup, test creation, CI/CD integration, and best practices.',
+    },
+    {
+      question: 'Is Automation Nitro suitable if we don’t have automation yet?',
+      answer:
+        'Yes. This service is designed both for products without automation and for teams with unstable or poorly maintained test automation.',
+    },
+    {
+      question: 'What types of tests do you automate?',
+      answer:
+        'We focus on high-value automated tests such as regression, smoke, critical user flows, and API tests — not low-impact or flaky scenarios.',
+    },
+    {
+      question: 'Which tools and technologies do you use?',
+      answer:
+        'We select tools based on your stack and needs, commonly using Playwright, Selenium, Cypress, API automation tools, and integrating them into your existing CI/CD pipeline.',
+    },
+    {
+      question: 'How fast will we see results?',
+      answer:
+        'Initial value is usually delivered within 2 weeks, with automated tests running as part of your release process shortly after.',
+    },
+    {
+      question: 'Will our team be able to maintain the automation?',
+      answer:
+        'Yes. We build clean, maintainable automation, provide documentation, and can onboard your team or continue supporting automation if needed.',
+    },
+    {
+      question: 'How do you ensure automation actually saves time and money?',
+      answer:
+        'We automate only what makes sense for your product and measure impact through reduced regression time, faster releases, and fewer production issues.',
+    },
   ];
 
   return (
@@ -318,6 +360,47 @@ export default function AutomationNitro() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Automation Nitro <span className="text-[#00B476]">FAQ</span>
+            </h2>
+            <p className="text-gray-300 mt-3">
+              Clear answers to common questions about automation setup and outcomes.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={faq.question}
+                  className="bg-black/60 border border-[#00B476]/20 rounded-lg overflow-hidden transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-green-500/5 transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
+                    <span className="text-[#00B476] flex-shrink-0">
+                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6">
+                      <div className="h-px bg-gradient-to-r from-[#00B476]/50 to-transparent mb-4" />
+                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

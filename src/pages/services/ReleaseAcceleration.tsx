@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   CheckCircle,
   ArrowRight,
@@ -13,10 +14,13 @@ import {
   Bell,
   Users,
   Activity,
+  Plus,
+  Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
 
 export default function ReleaseAcceleration() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const benefits = [
     'Deploy up to 10× faster than current pace',
     'Reduce time from commit to production',
@@ -90,6 +94,44 @@ export default function ReleaseAcceleration() {
     { metric: 'Rollback Time', improvement: 'From 2-4h to <5min' },
     { metric: 'Test Execution Time', improvement: '80% faster' },
     { metric: 'Manual Testing', improvement: '90% reduction' },
+  ];
+
+  const faqs = [
+    {
+      question: 'What exactly do you accelerate?',
+      answer:
+        'We accelerate the release cycle, not just testing — by removing QA bottlenecks, optimizing processes, and improving test efficiency.',
+    },
+    {
+      question: 'What problems does this service solve?',
+      answer:
+        'It solves slow releases, unstable deployments, late bug discovery, and last-minute QA chaos before production.',
+    },
+    {
+      question: 'Is this a QA or DevOps service?',
+      answer:
+        'It’s a QA-driven release optimization service that works closely with development and CI/CD, without replacing your DevOps team but closely working with our Devops expert.',
+    },
+    {
+      question: 'How do you identify release bottlenecks?',
+      answer:
+        'We analyze your release flow, test coverage, environments, feedback loops, and automation readiness to find what slows releases down.',
+    },
+    {
+      question: 'How fast can we see improvement?',
+      answer:
+        'Most teams see measurable improvements within 2–3 weeks, depending on product and process complexity.',
+    },
+    {
+      question: 'Do you change our existing processes?',
+      answer:
+        'We optimize, not break existing workflows — improving what you already have instead of forcing heavy process changes.',
+    },
+    {
+      question: 'How do you measure success?',
+      answer:
+        'Success is measured by shorter release cycles, fewer release blockers, and higher confidence in production deployments.',
+    },
   ];
 
   return (
@@ -334,6 +376,47 @@ export default function ReleaseAcceleration() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Release Acceleration <span className="text-[#00B476]">FAQ</span>
+            </h2>
+            <p className="text-gray-300 mt-3">
+              Clear answers to the most common questions about release optimization.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={faq.question}
+                  className="bg-black/60 border border-[#00B476]/20 rounded-lg overflow-hidden transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-green-500/5 transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
+                    <span className="text-[#00B476] flex-shrink-0">
+                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6">
+                      <div className="h-px bg-gradient-to-r from-[#00B476]/50 to-transparent mb-4" />
+                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

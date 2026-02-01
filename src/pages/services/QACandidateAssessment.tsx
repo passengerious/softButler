@@ -1,7 +1,18 @@
-import { CheckCircle, AlertTriangle, Target, FileCheck, TrendingUp, Award } from 'lucide-react';
+import { useState } from 'react';
+import {
+  CheckCircle,
+  AlertTriangle,
+  Target,
+  FileCheck,
+  TrendingUp,
+  Award,
+  Plus,
+  Minus,
+} from 'lucide-react';
 import Button from '../../components/Button';
 
 export default function QACandidateAssessment() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const painPoints = [
     "It's hard to objectively assess the real level of a QA candidate",
     'Good interviews ≠ strong performance on a real project',
@@ -46,6 +57,44 @@ export default function QACandidateAssessment() {
     { label: 'Wrong Hire Risk', value: '–50–70%' },
     { label: 'Hiring Confidence', value: '+100%' },
     { label: 'Fewer Re-hires', value: 'Significant' },
+  ];
+
+  const faqs = [
+    {
+      question: 'What is QA Candidate Assessment?',
+      answer:
+        'It’s a service where we evaluate QA candidates (manual and automation) for skills, mindset, and real-world problem solving before you hire them.',
+    },
+    {
+      question: 'What does the assessment include?',
+      answer:
+        'We assess technical skills, test design, automation logic, API knowledge, reporting clarity, and scenario thinking through real tasks and interviews.',
+    },
+    {
+      question: 'Who is this assessment for?',
+      answer:
+        'For companies hiring QA engineers (Junior, Middle, Senior) who want a trusted, objective evaluation before making hiring decisions.',
+    },
+    {
+      question: 'How long does the assessment take?',
+      answer:
+        'Assessment typically takes 1–3 days per candidate, depending on level and test depth.',
+    },
+    {
+      question: 'Do you provide detailed feedback?',
+      answer:
+        'Yes — you receive a clear report with strengths, weaknesses, and recommendations for each candidate.',
+    },
+    {
+      question: 'Can you assess candidates in our stack/tech?',
+      answer:
+        'Yes — we tailor assessments to your technology stack, tooling, and project specifics.',
+    },
+    {
+      question: 'How does this save time and cost?',
+      answer:
+        'We reduce bad hires and rework, help you focus only on qualified candidates, and improve hiring ROI.',
+    },
   ];
 
   return (
@@ -254,6 +303,47 @@ export default function QACandidateAssessment() {
                 <div className="text-gray-300 text-lg font-medium">{metric.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Candidate Assessment <span className="text-[#00B476]">FAQ</span>
+            </h2>
+            <p className="text-gray-300 mt-3">
+              Clear answers to the most common questions about candidate evaluation.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={faq.question}
+                  className="bg-black/60 border border-[#00B476]/20 rounded-lg overflow-hidden transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-green-500/5 transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
+                    <span className="text-[#00B476] flex-shrink-0">
+                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6">
+                      <div className="h-px bg-gradient-to-r from-[#00B476]/50 to-transparent mb-4" />
+                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

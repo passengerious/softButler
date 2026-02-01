@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/services": "pages/services.js",
+  "/service/automation-nitro": "pages/service/automation-nitro.js",
+  "/service/qa-candidate-assessment": "pages/service/qa-candidate-assessment.js",
+  "/service/qa-audit": "pages/service/qa-audit.js"
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   CheckCircle,
   AlertCircle,
@@ -16,10 +17,13 @@ import {
   FileText,
   AlertTriangle,
   Gift,
+  Plus,
+  Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
 
 export default function QAAudit() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const checklistItems = [
     'Releases are stressful and unpredictable',
     'Production bugs appear after almost every release',
@@ -154,6 +158,44 @@ export default function QAAudit() {
     { metric: 'Release predictability', improvement: '+40%' },
     { metric: 'Cost of bugs', improvement: '3× lower' },
     { metric: 'Regression time', improvement: '–20–35%' },
+  ];
+
+  const faqs = [
+    {
+      question: 'What exactly do you audit?',
+      answer:
+        'We audit your QA process, test coverage, tools, documentation, environments, and release risks to identify gaps that impact product quality and delivery speed.',
+    },
+    {
+      question: 'When do I need a QA audit?',
+      answer:
+        'A QA audit is needed when you face frequent production bugs, unstable releases, slow QA cycles, or want an external, unbiased quality assessment.',
+    },
+    {
+      question: 'How is a QA audit different from regular testing?',
+      answer:
+        'Testing finds bugs. A QA audit explains why bugs appear, evaluates the entire quality process, and provides clear, actionable improvements.',
+    },
+    {
+      question: 'What deliverables will I receive?',
+      answer:
+        'You receive a structured audit report with: Identified risks and gaps, Quality metrics, Prioritized recommendations, Clear next steps for improvement.',
+    },
+    {
+      question: 'How long does the QA audit take?',
+      answer:
+        'Most audits take 1–2 weeks, depending on product complexity and current QA maturity.',
+    },
+    {
+      question: 'Do you help implement the audit recommendations?',
+      answer:
+        'Yes. We can support implementation, optimize your QA process, or continue with testing and automation based on audit results.',
+    },
+    {
+      question: 'Is this audit suitable for small or early-stage teams?',
+      answer:
+        'Yes. The audit is adapted to your product stage, team size, and business goals — from startups to growing SaaS products.',
+    },
   ];
 
   return (
@@ -433,6 +475,47 @@ export default function QAAudit() {
                 );
               })}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              QA Audit <span className="text-[#00B476]">FAQ</span>
+            </h2>
+            <p className="text-gray-300 mt-3">
+              Clear answers to the most common questions about our audit process.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={faq.question}
+                  className="bg-black/60 border border-[#00B476]/20 rounded-lg overflow-hidden transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-green-500/5 transition-colors"
+                  >
+                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
+                    <span className="text-[#00B476] flex-shrink-0">
+                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6">
+                      <div className="h-px bg-gradient-to-r from-[#00B476]/50 to-transparent mb-4" />
+                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
