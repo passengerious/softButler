@@ -3,7 +3,6 @@ import {
   CheckCircle,
   AlertCircle,
   Target,
-  Users,
   TrendingUp,
   Zap,
   Shield,

@@ -137,11 +137,11 @@ const Footer = () => {
                 Telegram
               </a>
               <a
-                href="mailto:andrii@softbutler.io"
+                href="mailto:start@softbutler.io"
                 className="flex items-center gap-2 hover:text-green-500 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                andriip@softbutler.io
+                start@softbutler.io
               </a>
             </div>
           </motion.div>
