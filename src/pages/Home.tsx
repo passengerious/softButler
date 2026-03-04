@@ -230,58 +230,60 @@ const Home = () => {
       {/* About Us Section */}
       <section
         ref={aboutRef}
-        className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-green-950/25 via-green-950/5 to-black"
+        className="relative py-24 md:py-32 overflow-hidden bg-black"
       >
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-green-500/15 rounded-full blur-3xl"></div>
+        {/* Decorative: only vertical line and top-right glow (no bottom blur to avoid green line on photo) */}
+        <div className="absolute top-0 right-0 w-72 h-72 bg-green-500/8 rounded-full blur-3xl" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-3/4 bg-gradient-to-b from-transparent via-green-500/20 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Label */}
-          <div
-            className={`text-xs tracking-[0.3em] uppercase text-green-500 mb-8 transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            About Us
-          </div>
-
           {/* Asymmetrical Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Text Content - Left Side (takes 6 columns) */}
+            {/* Text Content - Left Side with improved background panel */}
             <div
-              className={`lg:col-span-6 space-y-6 transition-all duration-1000 delay-200 ${
+              className={`lg:col-span-6 transition-all duration-1000 delay-200 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}
             >
-              {/* Headline */}
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                We build trust in applications —{' '}
-                <span className="text-green-500">through people and quality thinking.</span>
-              </h2>
+              <div className="relative rounded-2xl border border-green-500/20 bg-gradient-to-br from-gray-900/80 via-green-950/20 to-black/90 p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(0,180,118,0.15)] backdrop-blur-sm">
+                {/* Subtle inner glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-500/5 via-transparent to-transparent pointer-events-none" />
+                <div className="relative space-y-6">
+                  {/* Label */}
+                  <div className="text-xs tracking-[0.3em] uppercase text-green-500 font-semibold">
+                    About Us
+                  </div>
 
-              {/* Body Text */}
-              <div className="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
-                <p>
-                  We started as a QA education initiative, helping engineers grow from Junior to Middle and Senior level.
-                </p>
-                <p>
-                  By teaching real-world testing and sharing practices from top tech companies, we built a strong professional community.
-                </p>
-                <p>
-                  Today, this knowledge allows us to set a new normal in quality — focused on impact, not rituals.
-                </p>
-              </div>
+                  {/* Headline */}
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                    We build trust in applications —{' '}
+                    <span className="text-green-500">through people and quality thinking.</span>
+                  </h2>
 
-              {/* CTA */}
-              <div className="pt-4">
-                <Link
-                  href="/who-we-are"
-                  className="inline-flex items-center text-green-500 hover:text-green-400 font-semibold text-lg group transition-colors"
-                >
-                  Learn our story
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-                </Link>
+                  {/* Body Text */}
+                  <div className="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
+                    <p>
+                      We started as a QA education initiative, helping engineers grow from Junior to Middle and Senior level.
+                    </p>
+                    <p>
+                      By teaching real-world testing and sharing practices from top tech companies, we built a strong professional community.
+                    </p>
+                    <p>
+                      Today, this knowledge allows us to set a new normal in quality — focused on impact, not rituals.
+                    </p>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="pt-2">
+                    <Link
+                      href="/who-we-are"
+                      className="inline-flex items-center text-green-500 hover:text-green-400 font-semibold text-lg group transition-colors"
+                    >
+                      Learn our story
+                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -293,7 +295,6 @@ const Home = () => {
             >
               {/* Main Photo Container with overlapping quote */}
               <div className="relative">
-                {/* Photo */}
                 <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden">
                   <img
                     src="/home_about_us.jpg"
@@ -302,23 +303,17 @@ const Home = () => {
                   />
                 </div>
 
-                {/* Large Typography Quote - Overlaying bottom of image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-                      <div className="relative inline-block">
-                        <div className="absolute inset-0 rounded-xl bg-black/40 backdrop-blur-sm"></div>
-                    {/* Decorative accent line */}
-                        <div className="relative z-10 w-16 h-1 bg-green-500 mb-4"></div>
-
-                    {/* Quote text */}
-                        <p className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight px-3 py-2">
+                {/* Quote overlay - at bottom of photo */}
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center px-6 pb-6 pt-3 md:px-8 md:pb-8 md:pt-4">
+                  <div className="relative inline-block text-left">
+                    <div className="absolute inset-0 rounded-xl bg-black/50"></div>
+                    <div className="relative z-10 w-20 h-1 bg-green-500 mb-3 rounded-full ml-3"></div>
+                    <p className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight px-4 py-2">
                       People are our{' '}
                       <span className="text-green-500">core value.</span>
                     </p>
                   </div>
                 </div>
-
-                {/* Decorative floating element */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-green-500/30 rounded-full"></div>
               </div>
             </div>
           </div>

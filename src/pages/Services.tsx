@@ -97,7 +97,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {popularServices.map((service) => (
               <Link key={service.slug} href={`/service/${service.slug}`} className="group">
-                <div className="bg-gradient-to-br from-green-950/25 to-black border-2 border-[#00B476]/40 p-8 rounded-lg h-full transition-all hover:border-[#00B476] hover:shadow-xl hover:shadow-[#00B476]/30 hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-green-950/25 to-black border-2 border-[#00B476]/40 p-8 rounded-lg h-full flex flex-col transition-all hover:border-[#00B476] hover:shadow-xl hover:shadow-[#00B476]/30 hover:-translate-y-1">
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="text-2xl font-bold group-hover:text-[#00B476] transition-colors">
                       {service.title}
@@ -105,7 +105,7 @@ export default function Services() {
                     <Star className="text-[#00B476] fill-[#00B476]" size={24} />
                   </div>
                   <p className="text-gray-400 mb-6">{service.description}</p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 flex-1">
                     {service.highlights.map((highlight, idx) => (
                       <div key={idx} className="flex items-center text-sm">
                         <CheckCircle className="text-[#00B476] mr-2" size={16} />
@@ -113,7 +113,7 @@ export default function Services() {
                       </div>
                     ))}
                   </div>
-                  <div className="flex items-center text-[#00B476] font-semibold">
+                  <div className="flex items-center text-[#00B476] font-semibold mt-auto pt-2">
                     Learn more{' '}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                   </div>
@@ -128,12 +128,12 @@ export default function Services() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {coreServices.map((service) => (
                 <Link key={service.slug} href={`/service/${service.slug}`} className="group">
-                  <div className="bg-green-950/20 border border-[#00B476]/20 p-6 rounded-lg h-full transition-all hover:border-[#00B476] hover:bg-black hover:shadow-lg hover:shadow-[#00B476]/20">
+                  <div className="bg-green-950/20 border border-[#00B476]/20 p-6 rounded-lg h-full flex flex-col transition-all hover:border-[#00B476] hover:bg-black hover:shadow-lg hover:shadow-[#00B476]/20">
                     <h3 className="text-xl font-bold mb-3 group-hover:text-[#00B476] transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-gray-400 text-sm mb-4">{service.description}</p>
-                    <div className="space-y-1 mb-4">
+                    <div className="space-y-1 mb-4 flex-1">
                       {service.highlights.map((highlight, idx) => (
                         <div key={idx} className="flex items-center text-xs">
                           <CheckCircle className="text-[#00B476] mr-2" size={14} />
@@ -141,7 +141,7 @@ export default function Services() {
                         </div>
                       ))}
                     </div>
-                    <div className="flex items-center text-[#00B476] text-sm font-semibold">
+                    <div className="flex items-center text-[#00B476] text-sm font-semibold mt-auto pt-2">
                       Learn more{' '}
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
                     </div>
@@ -155,7 +155,7 @@ export default function Services() {
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Not Sure Which Service You Need?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Not Sure <span className="text-[#00B476]">Which Service You</span> Need?</h2>
           <p className="text-xl text-gray-300 mb-8">
             Let's talk. We'll help you find the right solution for your challenges.
           </p>

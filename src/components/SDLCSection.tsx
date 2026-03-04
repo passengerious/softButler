@@ -85,9 +85,9 @@ const SDLCSection = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
               className="absolute inset-0 flex items-center justify-center"
             >
-              <div className="text-center">
-                <div className="text-green-500 font-bold text-lg mb-2">Continuous</div>
-                <div className="text-white font-bold text-xl">QA</div>
+              <div className="text-center leading-tight">
+                <div className="text-green-500 font-bold text-lg mb-0.5 leading-tight">Continuous</div>
+                <div className="text-white font-bold text-xl leading-tight">QA</div>
               </div>
             </motion.div>
 
@@ -146,9 +146,9 @@ const SDLCSection = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
               className="absolute inset-0 flex items-center justify-center"
             >
-              <div className="text-center">
-                <div className="text-green-500 font-bold text-lg mb-2">Continuous</div>
-                <div className="text-white font-bold text-xl">QA</div>
+              <div className="text-center leading-tight">
+                <div className="text-green-500 font-bold text-lg mb-0.5 leading-tight">Continuous</div>
+                <div className="text-white font-bold text-xl leading-tight">QA</div>
               </div>
             </motion.div>
 

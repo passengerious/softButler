@@ -90,7 +90,7 @@ export default function Ecommerce() {
           {/* Description Box */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
                 E-commerce platforms live under constant pressure: traffic spikes, frequent changes, and zero tolerance for checkout failures.
                 Quality directly impacts revenue.
               </p>
@@ -234,16 +234,16 @@ export default function Ecommerce() {
             Results e-commerce teams achieve with us
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Leadership-friendly metrics that show revenue protection
+            Measurable improvements that show revenue protection
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {metrics.map((metric, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-black to-green-950/20 border border-[#00B476]/30 rounded-lg p-6 text-center hover:border-[#00B476]/60 transition-colors"
+                className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-3">{metric.value}</div>
-                <div className="text-gray-300 font-medium">{metric.label}</div>
+                <div className="text-3xl font-bold text-[#00B476] mb-2">{metric.value}</div>
+                <div className="text-sm text-gray-400">{metric.label}</div>
               </div>
             ))}
           </div>

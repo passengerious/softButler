@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import { CheckCircle, ChevronDown } from 'lucide-react';
 import Button from '../components/Button';
 
@@ -85,7 +86,7 @@ export default function Careers() {
       <section className="py-20 mt-20 bg-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 text-center">
-            Careers
+            <span className="text-[#00B476]">Careers</span>
           </h1>
           <p className="text-2xl md:text-3xl text-gray-300 mb-8 text-center max-w-4xl mx-auto leading-relaxed">
             We build strong QA systems — and we're looking for people who care about quality, not
@@ -302,7 +303,12 @@ export default function Careers() {
             <br />
             If you care about quality and ownership — reach out.
           </p>
-          <Button className="text-lg">Contact us</Button>
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-3 rounded-lg font-semibold transition-all bg-[#00B476] text-black hover:bg-[#00B476]/90 text-lg"
+          >
+            Contact us
+          </Link>
         </div>
       </section>
     </div>
