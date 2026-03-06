@@ -124,10 +124,10 @@ const WhoWeAre = () => {
     <div className="min-h-screen bg-black">
       {/* HERO SECTION - Split Layout Introduction */}
       <section ref={heroRef} className="relative flex items-center bg-black overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-10 md:pb-20">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-10 md:pb-20 min-w-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="order-2 lg:order-1 space-y-8">
+            <div className="order-2 lg:order-1 space-y-8 min-w-0 overflow-hidden">
               <div className="space-y-6">
                 <span className="text-sm tracking-[0.3em] text-green-500 font-semibold uppercase">
                   Who We Are
@@ -158,10 +158,10 @@ const WhoWeAre = () => {
 
             {/* Right Side - Team Photo */}
             <div
-              className="order-1 lg:order-2 relative group"
+              className="order-1 lg:order-2 relative group min-w-0 z-10"
               style={{ transform: `translateY(${scrollY * 0.1}px)` }}
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] aspect-[4/5] lg:aspect-[3/4]">
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
                   src="/whoweare_team.jpg"
                   alt="Our team"

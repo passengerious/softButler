@@ -1,212 +1,42 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-42372ed130431b0a.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/HQMtJhZNeDAaWW3JJTLpx/_buildManifest.js",
-    "static/HQMtJhZNeDAaWW3JJTLpx/_ssgManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "rootMainFilesTree": {},
   "pages": {
     "/": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/184-8ca8594bb4d2d6fd.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/index-1f3b5d0697620a20.js"
-    ],
-    "/404": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/pages/404-e70a4b6f2477b5ee.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/css/feb2a93fcfc97cc4.css",
-      "static/chunks/pages/_app-cbb8aade93203bcc.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/pages/_error-d2b67b9cb0d0487c.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
     "/careers": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/careers-96e6f719290a492f.js"
-    ],
-    "/contact": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/contact-0583b46c618b6490.js"
-    ],
-    "/industries/ecommerce": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/industries/ecommerce-5235d2d3c9ef546c.js"
-    ],
-    "/industries/edtech": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/industries/edtech-4a8ca7fc9947e0c9.js"
-    ],
-    "/industries/fintech": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/industries/fintech-54fb748c2742c3ee.js"
-    ],
-    "/industries/logistics": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/industries/logistics-c0d83c8d4d02fc87.js"
-    ],
-    "/industries/retail": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/industries/retail-26505e58c60bb22b.js"
-    ],
-    "/industries/saas": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/industries/saas-b858e8e4d0588f3a.js"
-    ],
-    "/service/automation-nitro": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/service/automation-nitro-152a99aaa93aa4c9.js"
-    ],
-    "/service/functional-testing": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/619-5ef112e20a44e49d.js",
-      "static/chunks/pages/service/functional-testing-f625e32dac4abe82.js"
-    ],
-    "/service/integration-testing": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/619-5ef112e20a44e49d.js",
-      "static/chunks/pages/service/integration-testing-ef2140a600bbd24c.js"
-    ],
-    "/service/performance-testing": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/619-5ef112e20a44e49d.js",
-      "static/chunks/pages/service/performance-testing-6dbaee277d82817f.js"
-    ],
-    "/service/qa-audit": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/service/qa-audit-f01776b841a18d03.js"
-    ],
-    "/service/qa-candidate-assessment": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/service/qa-candidate-assessment-a76ada4618bb21f7.js"
-    ],
-    "/service/regression-testing": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/619-5ef112e20a44e49d.js",
-      "static/chunks/pages/service/regression-testing-438b2cd7b68d3b82.js"
-    ],
-    "/service/release-acceleration": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/service/release-acceleration-42e7b627a4423ab8.js"
-    ],
-    "/service/system-testing": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/619-5ef112e20a44e49d.js",
-      "static/chunks/pages/service/system-testing-bd9d15e1cad61fae.js"
-    ],
-    "/services": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/services-47171a370974ac0d.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/careers.js"
     ],
     "/who-we-are": [
-      "static/chunks/webpack-2fa21339ca43804a.js",
-      "static/chunks/framework-a6e0b7e30f98059a.js",
-      "static/chunks/main-d98d5fe6395292a9.js",
-      "static/chunks/843-f5fa265b2e69c6c2.js",
-      "static/chunks/18-7ae591c6f971c0bb.js",
-      "static/chunks/654-13512aab17a3d466.js",
-      "static/chunks/pages/who-we-are-020694ce8062a923.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/who-we-are.js"
     ]
   },
   "ampFirstPages": []
