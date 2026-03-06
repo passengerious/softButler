@@ -70,7 +70,7 @@ const Contact = () => {
       
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
+    } catch {
       toast.error("Error sending message. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -88,13 +88,13 @@ const Contact = () => {
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       {/* Hero Section */}
-      <section className="py-20 px-6 bg-black">
+      <section className="pt-20 pb-8 px-6 bg-black">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
               Let's Fix Your <span className="text-green-500">QA</span>
@@ -106,7 +106,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6">
+      <section className="pt-8 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Information */}

@@ -69,11 +69,9 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isHome
           ? scrolled
-            ? 'bg-black/60 backdrop-blur-sm border-b border-green-500/20'
+            ? 'bg-black/95 backdrop-blur-sm border-b border-green-500/20'
             : 'bg-transparent'
-          : scrolled
-            ? 'bg-black/60 backdrop-blur-sm border-b border-green-500/20'
-            : 'bg-transparent'
+          : 'bg-black/95 backdrop-blur-sm border-b border-green-500/20'
       }`}
     >
       <div className="container mx-auto px-6">

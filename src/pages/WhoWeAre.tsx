@@ -102,7 +102,7 @@ const WhoWeAre = () => {
     {
       icon: Star,
       title: "Creating New Standards",
-      description: "We stopped following trends and started setting them. Defining what 'new normal' means in QA."
+      description: "We stopped following trends and started setting them. Defining what \u201Cnew normal\u201D means in QA."
     }
   ];
 
@@ -123,11 +123,11 @@ const WhoWeAre = () => {
   return (
     <div className="min-h-screen bg-black">
       {/* HERO SECTION - Split Layout Introduction */}
-      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <section ref={heroRef} className="relative flex items-center bg-black overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-10 md:pb-20 min-w-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="order-2 lg:order-1 space-y-8">
+            <div className="order-2 lg:order-1 space-y-8 min-w-0 overflow-hidden">
               <div className="space-y-6">
                 <span className="text-sm tracking-[0.3em] text-green-500 font-semibold uppercase">
                   Who We Are
@@ -135,7 +135,7 @@ const WhoWeAre = () => {
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                   We are a team that builds{' '}
-                  <span className="text-green-500">trust through quality</span>.
+                  <span className="text-green-500">trust through quality</span>
                 </h1>
               </div>
 
@@ -149,19 +149,19 @@ const WhoWeAre = () => {
               </div>
 
               {/* Highlighted Statement */}
-              <div className="pt-8 border-l-4 border-green-500 pl-6">
+              <div className="pt-4">
                 <p className="text-2xl md:text-3xl font-bold text-white italic">
-                  "People are our core value."
+                  {"\u201C"}People are our <span className="text-green-500">core value</span>.{"\u201D"}
                 </p>
               </div>
             </div>
 
             {/* Right Side - Team Photo */}
             <div
-              className="order-1 lg:order-2 relative group"
+              className="order-1 lg:order-2 relative group min-w-0 z-10"
               style={{ transform: `translateY(${scrollY * 0.1}px)` }}
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] aspect-[4/5] lg:aspect-[3/4]">
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
                   src="/whoweare_team.jpg"
                   alt="Our team"
@@ -171,7 +171,7 @@ const WhoWeAre = () => {
               </div>
 
               {/* Subtle decorative element */}
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-green-500 opacity-20 blur-3xl rounded-full pointer-events-none"></div>
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-green-500 opacity-30 blur-3xl rounded-full pointer-events-none"></div>
             </div>
           </div>
         </div>
@@ -219,7 +219,7 @@ const WhoWeAre = () => {
                     {step.highlight && (
                       <blockquote className="border-l-4 border-green-500 pl-4 py-2 mt-4">
                         <p className="text-xl font-semibold text-green-500 italic">
-                          "{step.highlight}"
+                          {"\u201C"}{step.highlight}{"\u201D"}
                         </p>
                       </blockquote>
                     )}
@@ -352,7 +352,7 @@ const WhoWeAre = () => {
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <p className="text-xl md:text-2xl font-semibold text-white leading-relaxed">
-                    {item.principle} — <span className="text-green-500">{item.reality}</span>
+                    {item.principle} <span className="text-white/70 mx-1.5 text-lg md:text-xl font-normal">–</span> <span className="text-green-500">{item.reality}</span>
                   </p>
                 </div>
               );
@@ -361,63 +361,36 @@ const WhoWeAre = () => {
         </div>
       </section>
 
-      {/* OUR VALUES SECTION - 3 Large Interactive Cards */}
+      {/* OUR VALUES SECTION - 3 Cards in page style */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 text-white scroll-reveal">
             Our <span className="text-gradient-green">Core Values</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Card 1: People First */}
-            <div className="scroll-reveal group relative overflow-hidden rounded-2xl h-[350px] cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(0,180,118,0.6)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500 via-green-900 to-black group-hover:from-green-400 group-hover:via-green-500 transition-all duration-700">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-500 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
-              </div>
-              <div className="relative h-full flex flex-col p-8">
-                <div className="mb-auto">
-                  <Heart className="text-white mb-2 group-hover:scale-125 transition-transform duration-300" size={48} />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-3">People First 💙</h3>
-                  <h4 className="text-xl font-semibold text-gray-200 mb-2">People Are Our Main Value</h4>
-                  <p className="text-gray-300 text-lg">Every decision starts with people in mind</p>
-                </div>
-              </div>
+            <div className="scroll-reveal group bg-gray-900/50 border border-gray-800 rounded-xl p-10 hover:border-[#00B476]/40 transition-all duration-300">
+              <Heart className="text-[#00B476] mb-8" size={48} />
+              <h3 className="text-3xl font-bold text-white mb-3">People First</h3>
+              <h4 className="text-xl font-semibold text-[#00B476] mb-3">People Are Our Main Value</h4>
+              <p className="text-gray-400 text-lg">Every decision starts with people in mind</p>
             </div>
 
             {/* Card 2: Pain-Driven Innovation */}
-            <div className="scroll-reveal group relative overflow-hidden rounded-2xl h-[350px] cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(255,0,0,0.6)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500 via-gray-900 to-black group-hover:from-red-600 group-hover:via-red-900 transition-all duration-700"></div>
-              <div className="relative h-full flex flex-col p-8">
-                <div className="mb-auto">
-                  <Flame className="text-red-500 mb-2 group-hover:animate-pulse-glow" size={48} />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-3">Pain-Driven Innovation 🔥</h3>
-                  <h4 className="text-xl font-semibold text-red-400 mb-2">Client Pain Points Fuel Our Creativity</h4>
-                  <p className="text-gray-300 text-lg">Your challenges inspire our solutions</p>
-                </div>
-              </div>
+            <div className="scroll-reveal group bg-gray-900/50 border border-gray-800 rounded-xl p-10 hover:border-[#00B476]/40 transition-all duration-300">
+              <Flame className="text-[#00B476] mb-8" size={48} />
+              <h3 className="text-3xl font-bold text-white mb-3">Pain-Driven Innovation</h3>
+              <h4 className="text-xl font-semibold text-[#00B476] mb-3">Client Pain Points Fuel Our Creativity</h4>
+              <p className="text-gray-400 text-lg">Your challenges inspire our solutions</p>
             </div>
 
             {/* Card 3: Trendsetter Mindset */}
-            <div className="scroll-reveal group relative overflow-hidden rounded-2xl h-[350px] cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_rgba(0,180,118,0.6)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-black group-hover:from-green-500 group-hover:via-green-900 transition-all duration-700">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-green-500 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-red-500 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
-              </div>
-              <div className="relative h-full flex flex-col p-8">
-                <div className="mb-auto">
-                  <Target className="text-green-500 mb-2 group-hover:animate-pulse-glow" size={48} />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-3">Trendsetter Mindset 🎯</h3>
-                  <h4 className="text-xl font-semibold text-green-500 mb-2">First to Know, First to Create</h4>
-                  <p className="text-gray-300 text-lg">We don't follow trends—we set them</p>
-                </div>
-              </div>
+            <div className="scroll-reveal group bg-gray-900/50 border border-gray-800 rounded-xl p-10 hover:border-[#00B476]/40 transition-all duration-300">
+              <Target className="text-[#00B476] mb-8" size={48} />
+              <h3 className="text-3xl font-bold text-white mb-3">Trendsetter Mindset</h3>
+              <h4 className="text-xl font-semibold text-[#00B476] mb-3">First to Know, First to Create</h4>
+              <p className="text-gray-400 text-lg">We don't follow trends—we set them</p>
             </div>
           </div>
         </div>
@@ -448,7 +421,7 @@ const WhoWeAre = () => {
               {/* Overlay Text */}
               <div className="absolute inset-0 flex items-end justify-center p-8 md:p-12">
                 <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight">
-                  "Quality is a <span className="text-green-500">team sport</span>"
+                  {"\u201C"}Quality is a <span className="text-green-500">team sport</span>{"\u201D"}
                 </h3>
               </div>
             </div>
@@ -519,7 +492,7 @@ const WhoWeAre = () => {
               Join Community
               <ArrowRight className="ml-2 inline-block" size={24} />
             </Link>
-            <Link href="/services" className="text-lg px-10 py-6 bg-red-600 hover:bg-red-700 text-white font-bold shadow-[0_0_30px_rgba(255,0,0,0.5)] hover:shadow-[0_0_50px_rgba(255,0,0,0.8)] transition-all duration-300 whitespace-nowrap rounded-lg">
+            <Link href="/services" className="text-lg px-10 py-6 border-2 border-[#00B476] text-[#00B476] bg-transparent hover:bg-[#00B476]/10 font-bold transition-all duration-300 whitespace-nowrap rounded-lg">
               Work With Us
             </Link>
           </div>

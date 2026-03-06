@@ -1,4 +1,4 @@
-import { Store, Package, CreditCard, Repeat, AlertTriangle, DollarSign } from 'lucide-react';
+import { Store, Package, CreditCard, Repeat, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
 
@@ -89,7 +89,7 @@ export default function Retail() {
           {/* Description Box */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
                 Modern retail systems are complex ecosystems: stores, online platforms, warehouses, POS, and third-party integrations.
                 When quality breaks, customers feel it immediately — and so does revenue.
               </p>
@@ -239,10 +239,10 @@ export default function Retail() {
             {metrics.map((metric, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-black to-green-950/20 border border-[#00B476]/30 rounded-lg p-6 text-center hover:border-[#00B476]/60 transition-colors"
+                className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-3">{metric.value}</div>
-                <div className="text-gray-300 font-medium">{metric.label}</div>
+                <div className="text-3xl font-bold text-[#00B476] mb-2">{metric.value}</div>
+                <div className="text-sm text-gray-400">{metric.label}</div>
               </div>
             ))}
           </div>

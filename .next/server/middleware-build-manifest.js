@@ -10,6 +10,11 @@ globalThis.__BUILD_MANIFEST = {
   "rootMainFiles": [],
   "rootMainFilesTree": {},
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -20,25 +25,15 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/service/automation-nitro": [
+    "/careers": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/service/automation-nitro.js"
+      "static/chunks/pages/careers.js"
     ],
-    "/service/qa-audit": [
+    "/who-we-are": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/service/qa-audit.js"
-    ],
-    "/service/qa-candidate-assessment": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/service/qa-candidate-assessment.js"
-    ],
-    "/services": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/services.js"
+      "static/chunks/pages/who-we-are.js"
     ]
   },
   "ampFirstPages": []

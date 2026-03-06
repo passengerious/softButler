@@ -58,7 +58,7 @@ export default function FinTech() {
           {/* Description Box */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
                 FinTech products operate under regulatory pressure, real money flows, and zero tolerance for critical failures.
                 Quality is not optional — it's a business requirement.
               </p>
@@ -210,9 +210,9 @@ export default function FinTech() {
               return (
                 <div
                   key={index}
-                  className="bg-green-950/15 border border-green-500/20 rounded-lg p-6 text-center hover:border-[#00B476]/50 transition-colors"
+                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
                 >
-                  <Icon className="text-[#00B476] mx-auto mb-4" size={32} />
+                  <Icon className="text-[#00B476] mb-4 mx-auto" size={32} />
                   <div className="text-3xl font-bold text-[#00B476] mb-2">{metric.value}</div>
                   <div className="text-sm text-gray-400">{metric.label}</div>
                 </div>

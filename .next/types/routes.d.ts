@@ -4,7 +4,7 @@
 type AppRoutes = never
 type PageRoutes = "/" | "/404" | "/_app" | "/_document" | "/_error" | "/careers" | "/contact" | "/industries/ecommerce" | "/industries/edtech" | "/industries/fintech" | "/industries/logistics" | "/industries/retail" | "/industries/saas" | "/service/automation-nitro" | "/service/functional-testing" | "/service/integration-testing" | "/service/performance-testing" | "/service/qa-audit" | "/service/qa-candidate-assessment" | "/service/regression-testing" | "/service/release-acceleration" | "/service/system-testing" | "/services" | "/who-we-are"
 type LayoutRoutes = never
-type RedirectRoutes = never
+type RedirectRoutes = "/about" | "/about/" | "/process" | "/process/"
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes
 
@@ -15,6 +15,8 @@ interface ParamMap {
   "/_document": {}
   "/_error": {}
   "/404": {}
+  "/about": {}
+  "/about/": {}
   "/careers": {}
   "/contact": {}
   "/industries/ecommerce": {}
@@ -23,6 +25,8 @@ interface ParamMap {
   "/industries/logistics": {}
   "/industries/retail": {}
   "/industries/saas": {}
+  "/process": {}
+  "/process/": {}
   "/service/automation-nitro": {}
   "/service/functional-testing": {}
   "/service/integration-testing": {}

@@ -89,7 +89,7 @@ export default function EdTech() {
           {/* Description Box */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
                 EdTech platforms are not just products — they are learning infrastructures.
                 When they fail, users don't complain — they leave.
               </p>
@@ -250,10 +250,10 @@ export default function EdTech() {
             {results.map((result, index) => (
               <div
                 key={index}
-                className="bg-green-950/15 border border-green-500/20 rounded-lg p-8 text-center hover:border-[#00B476]/50 transition-colors"
+                className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
               >
-                <div className="text-4xl font-bold text-[#00B476] mb-3">{result.metric}</div>
-                <div className="text-gray-300 text-lg">{result.label}</div>
+                <div className="text-3xl font-bold text-[#00B476] mb-2">{result.metric}</div>
+                <div className="text-sm text-gray-400">{result.label}</div>
               </div>
             ))}
           </div>
