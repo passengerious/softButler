@@ -95,8 +95,8 @@ export default function QAAudit() {
     },
     {
       icon: Rocket,
-      title: 'Real Pipelines',
-      description: 'We work inside real delivery pipelines, not theoretical models',
+      title: 'Measured Quality',
+      description: 'We measure quality with numbers, not words — clear metrics that prove impact',
     },
     {
       icon: Shield,

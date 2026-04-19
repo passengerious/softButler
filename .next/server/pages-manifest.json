@@ -3,6 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/who-we-are": "pages/who-we-are.js",
-  "/careers": "pages/careers.js"
+  "/service/qa-audit": "pages/service/qa-audit.js",
+  "/services": "pages/services.js",
+  "/service/automation-nitro": "pages/service/automation-nitro.js"
 }

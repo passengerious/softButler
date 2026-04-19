@@ -7,10 +7,8 @@ export default function Document() {
         <title>SoftButler - Modern QA Testing Company</title>
         
         {/* Favicons */}
-        <link rel="icon" href="/SoftButtler.ico" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/group.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/group.png" />
-        <link rel="apple-touch-icon" href="/group.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo3.svg" />
         <meta name="theme-color" content="#000000" />
         
         {/* JSON-LD Structured Data */}
@@ -24,11 +22,11 @@ export default function Document() {
               "url": "https://softbutler.io",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://softbutler.io/circle_logo.png",
-                "width": 512,
-                "height": 512
+                "url": "https://softbutler.io/logo3.svg",
+                "width": 1497,
+                "height": 771
               },
-              "image": "https://softbutler.io/circle_logo.png",
+              "image": "https://softbutler.io/logo3.svg",
               "description": "Professional QA testing services. Test less. Deliver smarter."
             })
           }}
@@ -39,7 +37,7 @@ export default function Document() {
         <meta property="og:url" content="https://softbutler.io" />
         <meta property="og:title" content="SoftButler – Modern QA Testing Company" />
         <meta property="og:description" content="Professional QA testing services. Test less. Deliver smarter." />
-        <meta property="og:image" content="https://softbutler.io/group.png" />
+        <meta property="og:image" content="https://softbutler.io/logo3.svg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="SoftButler - QA Testing Services" />
@@ -49,7 +47,7 @@ export default function Document() {
         <meta name="twitter:url" content="https://softbutler.io" />
         <meta name="twitter:title" content="SoftButler – Modern QA Testing Company" />
         <meta name="twitter:description" content="Professional QA testing services. Test less. Deliver smarter." />
-        <meta name="twitter:image" content="https://softbutler.io/group.png" />
+        <meta name="twitter:image" content="https://softbutler.io/logo3.svg" />
         <meta name="twitter:image:alt" content="SoftButler - QA Testing Services" />
         
         
