@@ -1,7 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!;
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003922476267';
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TARGET_CHAT_ID = GROUP_ID || CHAT_ID;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -26,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                chat_id: CHAT_ID,
+                chat_id: TARGET_CHAT_ID,
                 text: telegramMessage,
                 parse_mode: 'Markdown',
             }),

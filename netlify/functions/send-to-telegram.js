@@ -1,5 +1,7 @@
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003922476267';
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TARGET_CHAT_ID = GROUP_ID || CHAT_ID;
 
 exports.handler = async function(event, context) {
   // Only allow POST
@@ -11,7 +13,7 @@ exports.handler = async function(event, context) {
   }
 
   try {
-    if (!TELEGRAM_TOKEN || !CHAT_ID) {
+    if (!TELEGRAM_TOKEN || !TARGET_CHAT_ID) {
       console.error('Missing Telegram environment variables');
       return {
         statusCode: 500,
@@ -39,7 +41,7 @@ exports.handler = async function(event, context) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        chat_id: CHAT_ID,
+        chat_id: TARGET_CHAT_ID,
         text: telegramMessage,
         parse_mode: 'Markdown',
       }),
