@@ -56,8 +56,6 @@ exports.handler = async function (event) {
       };
     }
 
-    bookedSlots.add(slotKey);
-
     const telegramMessage = `
 📅 New QA Consultation Booking:
 👤 Name: ${name}
@@ -72,7 +70,6 @@ exports.handler = async function (event) {
       body: JSON.stringify({
         chat_id: TARGET_CHAT_ID,
         text: telegramMessage,
-        parse_mode: 'Markdown',
       }),
     });
 
@@ -81,6 +78,9 @@ exports.handler = async function (event) {
       console.error('Telegram API error:', errorText);
       throw new Error('Failed to send Telegram message');
     }
+
+    // Mark slot as booked only after Telegram accepts the message.
+    bookedSlots.add(slotKey);
 
     return {
       statusCode: 200,
