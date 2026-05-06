@@ -1,5 +1,5 @@
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003922476267';
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003502873196';
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const TARGET_CHAT_ID = GROUP_ID || CHAT_ID;
 
