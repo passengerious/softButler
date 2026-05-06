@@ -1,7 +1,7 @@
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003502873196';
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const TARGET_CHAT_ID = GROUP_ID || CHAT_ID;
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID?.trim();
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID?.trim();
+const TARGET_CHAT_ID = GROUP_ID || CHAT_ID || '-1003502873196';
 
 const bookedSlots = new Set();
 
@@ -75,8 +75,11 @@ exports.handler = async function (event) {
 
     if (!telegramRes.ok) {
       const errorText = await telegramRes.text();
-      console.error('Telegram API error:', errorText);
-      throw new Error('Failed to send Telegram message');
+      console.error('Telegram API error:', errorText, 'chat_id:', TARGET_CHAT_ID);
+      return {
+        statusCode: telegramRes.status,
+        body: JSON.stringify({ error: 'Telegram API error', details: errorText }),
+      };
     }
 
     // Mark slot as booked only after Telegram accepts the message.
@@ -90,7 +93,7 @@ exports.handler = async function (event) {
     console.error('Send-booking error:', err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send message' }),
+      body: JSON.stringify({ error: 'Failed to send message', details: err?.message || 'Unknown error' }),
     };
   }
 };
