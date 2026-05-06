@@ -1,7 +1,7 @@
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003502873196';
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const TARGET_CHAT_ID = GROUP_ID || CHAT_ID;
+const TARGET_CHAT_ID = GROUP_ID || CHAT_ID || '-1003502873196';
 
 exports.handler = async function(event, context) {
   // Only allow POST
@@ -43,13 +43,12 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({
         chat_id: TARGET_CHAT_ID,
         text: telegramMessage,
-        parse_mode: 'Markdown',
       }),
     });
 
     if (!telegramRes.ok) {
       const errorText = await telegramRes.text();
-      console.error('Telegram API error:', errorText);
+      console.error('Telegram API error:', errorText, 'chat_id:', TARGET_CHAT_ID);
       throw new Error('Failed to send Telegram message');
     }
 

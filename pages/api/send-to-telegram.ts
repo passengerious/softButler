@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
-const GROUP_ID = process.env.TELEGRAM_GROUP_ID || '-1003502873196';
+const GROUP_ID = process.env.TELEGRAM_GROUP_ID;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const TARGET_CHAT_ID = GROUP_ID || CHAT_ID;
+const TARGET_CHAT_ID = GROUP_ID || CHAT_ID || '-1003502873196';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -30,16 +30,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body: JSON.stringify({
                 chat_id: TARGET_CHAT_ID,
                 text: telegramMessage,
-                parse_mode: 'Markdown',
             }),
         });
 
         if (!telegramRes.ok) {
+            const errorText = await telegramRes.text();
+            console.error('Telegram API error:', errorText, 'chat_id:', TARGET_CHAT_ID);
             throw new Error('Failed to send Telegram message');
         }
 
         res.status(200).json({ success: true });
-    } catch {
+    } catch (err) {
+        console.error('Send-to-telegram API error:', err);
         res.status(500).json({ error: 'Failed to send message' });
     }
 }
