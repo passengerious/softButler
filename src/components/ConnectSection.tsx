@@ -63,7 +63,7 @@ const ConnectSection = () => (
               +380635138576
             </a>
             <a
-              href="https://t.me/andriipsoftbutler"
+              href="https://t.me/andriysoftbutler"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 hover:text-green-500 transition-colors"
@@ -71,13 +71,10 @@ const ConnectSection = () => (
               <Send className="w-4 h-4" />
               Telegram
             </a>
-            <a
-              href="mailto:start@softbutler.io"
-              className="flex items-center justify-center gap-2 hover:text-green-500 transition-colors"
-            >
+            <div className="flex items-center justify-center gap-2">
               <Mail className="w-4 h-4" />
               start@softbutler.io
-            </a>
+            </div>
           </div>
         </div>
       </div>

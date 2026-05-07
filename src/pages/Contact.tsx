@@ -125,19 +125,15 @@ const Contact = () => {
               </div>
 
               <div className="space-y-6">
-                <motion.a
-                  href="mailto:start@softbutler.io"
-                  className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
-                  whileHover={{ x: 10 }}
-                >
-                  <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                <div className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg">
+                  <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
                     <Mail className="w-6 h-6 text-green-500" />
                   </div>
                   <div>
                     <p className="text-white font-semibold">Email Us</p>
                     <p className="text-gray-300">start@softbutler.io</p>
                   </div>
-                </motion.a>
+                </div>
 
                 <motion.a
                   href="https://linkedin.com/company/softbutler"
