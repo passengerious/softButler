@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface LogoProps {
   className?: string;
@@ -7,19 +8,24 @@ interface LogoProps {
   animated?: boolean;
 }
 
-const sizeClasses = {
-  sm: 'w-10 h-10',
-  md: 'w-16 h-16',
-  lg: 'w-20 h-20'
+const sizeMap = {
+  sm: 40,
+  md: 64,
+  lg: 80
 };
+
+
 
 const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', animated = true }) => {
   const imgElement = (
-    <img
+    <Image
       src="/logo3.svg"
       alt="SoftButler Logo"
-      className={`${sizeClasses[size]} ${className}`}
+      width={sizeMap[size]}
+      height={sizeMap[size]}
+      className={className}
       draggable={false}
+      priority
     />
   );
 

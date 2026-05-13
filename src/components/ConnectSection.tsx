@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 const socialLinks: Array<{
   label: string;
@@ -43,10 +44,12 @@ const ConnectSection = () => (
               {social.icon ? (
                 <social.icon className="w-5 h-5 group-hover:drop-shadow-[0_0_10px_#00B476] transition-all duration-300" />
               ) : (
-                <img
-                  src={social.iconSrc}
+                <Image
+                  src={social.iconSrc || ''}
                   alt={social.label}
-                  className="w-8 h-8 object-contain"
+                  width={32}
+                  height={32}
+                  className="object-contain"
                 />
               )}
             </a>

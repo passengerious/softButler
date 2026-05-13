@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Users, Shield, Clock, Target, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 import Hero from '../components/Hero';
 import ProcessSteps from '../components/ProcessSteps';
@@ -296,10 +297,13 @@ const Home = () => {
               {/* Main Photo Container with overlapping quote */}
               <div className="relative">
                 <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden">
-                  <img
+                  <Image
                     src="/home_about_us.jpg"
                     alt="Team collaborating"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                 </div>
 

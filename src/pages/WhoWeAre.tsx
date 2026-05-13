@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BookOpen, Rocket, Users, Star, Heart, Flame, Target } from 'lucide-react';
 import {
   NovaPostLogo,
@@ -162,10 +163,13 @@ const WhoWeAre = () => {
               style={{ transform: `translateY(${scrollY * 0.1}px)` }}
             >
               <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] aspect-[4/5] lg:aspect-[3/4] w-full">
-                <img
+                <Image
                   src="/whoweare_team.jpg"
                   alt="Our team"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                 />
                 <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl pointer-events-none"></div>
               </div>
@@ -411,10 +415,12 @@ const WhoWeAre = () => {
           {/* Main Hero Photo */}
           <div className="scroll-reveal mb-8 relative group">
             <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
-              <img
+              <Image
                 src="/quality_team_sport.jpg"
                 alt="Our team working together"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
 
@@ -430,28 +436,34 @@ const WhoWeAre = () => {
           {/* Grid of Smaller Photos */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             <div className="scroll-reveal col-span-2 relative group overflow-hidden rounded-2xl h-[280px]">
-              <img
+              <Image
                 src="/IMG_4299.jpg"
                 alt="Team collaboration"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
 
             <div className="scroll-reveal relative group overflow-hidden rounded-2xl h-[280px]">
-              <img
+              <Image
                 src="/IMG_4326.jpg"
                 alt="Working together"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 25vw, 50vw"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
 
             <div className="scroll-reveal relative group overflow-hidden rounded-2xl h-[280px]">
-              <img
+              <Image
                 src="/mentor.jpg"
                 alt="Team planning"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 25vw, 50vw"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>

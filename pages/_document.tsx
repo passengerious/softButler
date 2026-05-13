@@ -1,9 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* ... existing head content ... */}
         <title>SoftButler - Modern QA Testing Company</title>
         
         {/* Favicons */}
@@ -59,8 +61,11 @@ export default function Document() {
         <link rel="canonical" href="https://softbutler.io" />
         <meta name="google-site-verification" content="" />
         
-        {/* Clutch Widget Script */}
-        <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js" async></script>
+        {/* Clutch Widget Script optimized with next/script */}
+        <Script 
+          src="https://widget.clutch.co/static/js/widget.js" 
+          strategy="lazyOnload"
+        />
       </Head>
       <body className="bg-black">
         <Main />

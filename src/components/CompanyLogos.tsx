@@ -3,6 +3,7 @@
 // To use local logos, add them to /public/logos/ folder with names: novapost.png, monobank.png, etc.
 
 import React from 'react';
+import Image from 'next/image';
 
 const LogoImage = ({
   src,
@@ -29,18 +30,21 @@ const LogoImage = ({
   }
 
   return (
-    <img
-      src={imgSrc}
-      alt={alt}
-      className={className ?? "h-16 md:h-20 lg:h-24 w-auto object-contain max-w-[300px]"}
-      onError={() => {
-        if (cdnUrl && imgSrc === src) {
-          setImgSrc(cdnUrl);
-          return;
-        }
-        setHasError(true);
-      }}
-    />
+    <div className={`relative ${className ?? "h-16 md:h-20 lg:h-24 w-40"}`}>
+      <Image
+        src={imgSrc}
+        alt={alt}
+        fill
+        className="object-contain"
+        onError={() => {
+          if (cdnUrl && imgSrc === src) {
+            setImgSrc(cdnUrl);
+            return;
+          }
+          setHasError(true);
+        }}
+      />
+    </div>
   );
 };
 
