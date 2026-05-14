@@ -336,10 +336,10 @@ const Home = () => {
             <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
             <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
               <blockquote className="text-3xl md:text-4xl font-bold leading-relaxed">
-                "Your users won't give you a{' '}
+                &quot;Your users won&apos;t give you a{' '}
                 <span className="text-green-500 drop-shadow-[0_0_10px_#00B476]">second chance</span>.
                 <br />
-                We make sure they never see the bugs."
+                We make sure they never see the bugs.&quot;
               </blockquote>
             </div>
           </motion.div>

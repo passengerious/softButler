@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Bug, Zap, Shield, AlertTriangle } from 'lucide-react';
 
@@ -236,7 +237,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             </span>
             .<br />
             <span className="text-green-500 drop-shadow-[0_0_20px_#00B476]">
-              We'll Fix It
+              We&apos;ll Fix It
             </span>
             .
           </h1>
@@ -262,12 +263,12 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             >
               Get Free Consultation
             </button>
-            <a
+            <Link
               href="/services"
               className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
             >
               Our Services
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </motion.div>

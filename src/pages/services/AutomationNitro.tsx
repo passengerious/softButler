@@ -11,6 +11,7 @@ import {
   Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
+import Link from 'next/link';
 
 export default function AutomationNitro() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -94,7 +95,7 @@ export default function AutomationNitro() {
         'Automation Nitro covers test automation setup from scratch or improvement of existing automation, including framework setup, test creation, CI/CD integration, and best practices.',
     },
     {
-      question: 'Is Automation Nitro suitable if we don’t have automation yet?',
+      question: 'Is Automation Nitro suitable if we don&apos;t have automation yet?',
       answer:
         'Yes. This service is designed both for products without automation and for teams with unstable or poorly maintained test automation.',
     },
@@ -144,9 +145,9 @@ export default function AutomationNitro() {
               <span className="text-[#dc2626] font-semibold">up to 80%</span> while improving test
               reliability and coverage.
             </p>
-            <a href="/contact">
+            <Link href="/contact">
               <Button className="text-lg">Book a call</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -256,7 +257,7 @@ export default function AutomationNitro() {
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What's <span className="text-[#00B476]">Included</span>
+            What&apos;s <span className="text-[#00B476]">Included</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

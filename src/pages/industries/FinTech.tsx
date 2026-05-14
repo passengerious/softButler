@@ -60,7 +60,7 @@ export default function FinTech() {
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
                 FinTech products operate under regulatory pressure, real money flows, and zero tolerance for critical failures.
-                Quality is not optional — it's a business requirement.
+                Quality is not optional — it&apos;s a business requirement.
               </p>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function FinTech() {
             </div>
             <div className="mt-8 pt-8">
               <p className="text-lg text-center text-[#00B476] font-semibold">
-                "In FinTech, bugs are not just technical issues — they are business incidents."
+                &quot;In FinTech, bugs are not just technical issues — they are business incidents.&quot;
               </p>
             </div>
           </div>
@@ -273,7 +273,7 @@ export default function FinTech() {
             Building or scaling a FinTech product?
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let's talk about reducing quality risk in your FinTech product — before it becomes a business problem.
+            Let&apos;s talk about reducing quality risk in your FinTech product — before it becomes a business problem.
           </p>
           <Link href="/contact" className="px-8 py-4 bg-[#00B476] text-black font-bold text-lg rounded-lg hover:bg-[#00B476]/90 transition-all duration-300 inline-block">
             Book a call

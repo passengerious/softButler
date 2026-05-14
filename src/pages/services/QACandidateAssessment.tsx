@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import {
   CheckCircle,
   AlertTriangle,
@@ -141,8 +142,8 @@ export default function QACandidateAssessment() {
 
           <div className="bg-gradient-to-br from-[#dc2626]/10 to-black border-2 border-[#dc2626]/30 p-8 rounded-xl text-center">
             <p className="text-xl md:text-2xl text-gray-200 font-medium">
-              "We hire a QA engineer — and after 1–2 months we realize{' '}
-              <span className="text-[#dc2626] font-bold">it was a mistake</span>."
+              &quot;We hire a QA engineer — and after 1–2 months we realize{' '}
+              <span className="text-[#dc2626] font-bold">it was a mistake</span>.&quot;
             </p>
           </div>
         </div>
@@ -188,7 +189,7 @@ export default function QACandidateAssessment() {
                 One comprehensive service that gives a clear answer to the question:
                 <br />
                 <span className="text-white font-semibold">
-                  "Is this QA candidate the right fit for our product and team?"
+                  &quot;Is this QA candidate the right fit for our product and team?&quot;
                 </span>
               </p>
             </div>
@@ -356,7 +357,9 @@ export default function QACandidateAssessment() {
           <p className="text-xl text-gray-300 mb-8">
             One short call is enough to start reducing hiring risk.
           </p>
-          <Button className="text-lg">Book a call</Button>
+          <Link href="/contact">
+            <Button className="text-lg">Book a call</Button>
+          </Link>
         </div>
       </section>
     </div>

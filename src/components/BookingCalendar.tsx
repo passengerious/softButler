@@ -69,7 +69,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
           </motion.div>
           <h3 className="text-2xl font-bold text-white mb-4">Consultation Booked!</h3>
           <p className="text-gray-300 mb-6">
-            We'll send you a confirmation email with the meeting details. 
+            We&apos;ll send you a confirmation email with the meeting details. 
             Looking forward to fixing your QA!
           </p>
           <div className="text-sm text-green-500">

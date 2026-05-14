@@ -20,6 +20,7 @@ import {
   Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
+import Link from 'next/link';
 
 export default function QAAudit() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -29,8 +30,10 @@ export default function QAAudit() {
     'Regression testing takes too long',
     'QA depends too much on specific people',
     'Test cases are outdated or not trusted',
-    "Automation exists but doesn't save time",
-    "Developers don't trust QA results",
+    'Test cases are outdated or not trusted',
+    "Automation exists but doesn&apos;t save time",
+    "Developers don&apos;t trust QA results",
+    'CI/CD is slow or flaky because of tests',
     'CI/CD is slow or flaky because of tests',
   ];
 
@@ -239,9 +242,9 @@ export default function QAAudit() {
           </div>
 
           <div className="text-center">
-            <a href="/contact">
+            <Link href="/contact">
               <Button className="text-lg">Book a call</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -281,7 +284,7 @@ export default function QAAudit() {
             What we <span className="text-[#00B476]">actually do</span>
           </h2>
           <p className="text-center text-gray-300 text-lg mb-12">
-            We don't just review QA. We analyze the{' '}
+            We don&apos;t just review QA. We analyze the{' '}
             <span className="text-[#dc2626] font-semibold">entire quality flow</span> from idea to
             production.
           </p>
@@ -391,11 +394,11 @@ export default function QAAudit() {
                 </div>
 
                 <div className="border-t border-[#00B476]/20 pt-6">
-                  <a href="/contact">
+                  <Link href="/contact">
                     <Button variant={pkg.highlight ? 'primary' : 'secondary'} className="w-full">
                       Book a call
                     </Button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

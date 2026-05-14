@@ -68,7 +68,7 @@ export default function Careers() {
   const middleBenefits = [
     'Clear growth path to Senior QA',
     'Mentorship from experienced QA engineers',
-    'Real projects instead of "training tasks"',
+    'Real projects instead of &quot;training tasks&quot;',
     'Supportive and professional team',
   ];
 
@@ -89,7 +89,7 @@ export default function Careers() {
             <span className="text-[#00B476]">Careers</span>
           </h1>
           <p className="text-2xl md:text-3xl text-gray-300 mb-8 text-center max-w-4xl mx-auto leading-relaxed">
-            We build strong QA systems — and we're looking for people who care about quality, not
+            We build strong QA systems — and we&apos;re looking for people who care about quality, not
             checklists.
           </p>
           <p className="text-lg md:text-xl text-gray-300 text-center max-w-3xl mx-auto leading-relaxed">
@@ -176,9 +176,9 @@ export default function Careers() {
                   </div>
 
                   <div className="pt-4">
-                    <a href="/contact">
+                    <Link href="/contact">
                       <Button>Apply for Senior QA Engineer</Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -253,9 +253,9 @@ export default function Careers() {
                   </div>
 
                   <div className="pt-4">
-                    <a href="/contact">
+                    <Link href="/contact">
                       <Button>Apply for Middle QA Engineer</Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -270,7 +270,7 @@ export default function Careers() {
             How to <span className="text-[#00B476]">Apply</span>
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12">
-            We respect candidates' time and keep the process clear and predictable
+            We respect candidates&apos; time and keep the process clear and predictable
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -296,10 +296,10 @@ export default function Careers() {
       <section id="contact" className="py-20 bg-black">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Don't see <span className="text-[#00B476]">your role?</span>
+            Don&apos;t see <span className="text-[#00B476]">your role?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            We're always interested in strong QA engineers.
+            We&apos;re always interested in strong QA engineers.
             <br />
             If you care about quality and ownership — reach out.
           </p>

@@ -158,7 +158,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {currentYear} SoftButler. <a href="https://maps.app.goo.gl/gw8diAv6MP6F3K8E7?g_st=ic" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-500 transition-colors">Koval's'kyi Lane, 19, Kyiv, Ukraine</a>
+              © {currentYear} SoftButler. <a href="https://maps.app.goo.gl/gw8diAv6MP6F3K8E7?g_st=ic" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-500 transition-colors">Koval&apos;s&apos;kyi Lane, 19, Kyiv, Ukraine</a>
             </p>
             
             {/* Accent Line */}

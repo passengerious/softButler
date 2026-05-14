@@ -18,6 +18,7 @@ import {
   Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
+import Link from 'next/link';
 
 export default function ReleaseAcceleration() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -110,7 +111,7 @@ export default function ReleaseAcceleration() {
     {
       question: 'Is this a QA or DevOps service?',
       answer:
-        'It’s a QA-driven release optimization service that works closely with development and CI/CD, without replacing your DevOps team but closely working with our Devops expert.',
+        'It&apos;s a QA-driven release optimization service that works closely with development and CI/CD, without replacing your DevOps team but closely working with our Devops expert.',
     },
     {
       question: 'How do you identify release bottlenecks?',
@@ -154,9 +155,9 @@ export default function ReleaseAcceleration() {
               </span>{' '}
               while maintaining or improving quality standards.
             </p>
-            <a href="/contact">
+            <Link href="/contact">
               <Button className="text-lg">Book a call</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -170,7 +171,7 @@ export default function ReleaseAcceleration() {
               Does this sound <span className="text-[#dc2626]">familiar?</span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 italic">
-              "Releases are always stressful, long, and unpredictable."
+              &quot;Releases are always stressful, long, and unpredictable.&quot;
             </p>
           </div>
 
@@ -219,7 +220,7 @@ export default function ReleaseAcceleration() {
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What's <span className="text-[#00B476]">Included</span>
+            What&apos;s <span className="text-[#00B476]">Included</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -427,7 +428,7 @@ export default function ReleaseAcceleration() {
             Ready to <span className="text-[#00B476]">get started?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how we can help improve your quality assurance process.
+            Let&apos;s discuss how we can help improve your quality assurance process.
           </p>
           <Button className="text-lg">Book a call</Button>
         </div>

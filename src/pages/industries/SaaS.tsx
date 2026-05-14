@@ -83,10 +83,8 @@ export default function SaaS() {
 
           {/* CTA */}
           <div className="text-center">
-            <Link href="/contact" className="inline-block">
-              <Button className="text-lg px-10 py-6">
-                Talk to SaaS QA Experts
-              </Button>
+            <Link href="/contact">
+              <Button className="text-lg">Book a call</Button>
             </Link>
           </div>
         </div>
@@ -143,8 +141,8 @@ export default function SaaS() {
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            Why quality matters in SaaS
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            What&apos;s <span className="text-[#00B476]">Included</span>
           </h2>
           <div className="bg-green-950/15 border border-green-500/20 rounded-xl p-8 md:p-10">
             <div className="space-y-6">
@@ -154,7 +152,7 @@ export default function SaaS() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Churn risk</h3>
-                  <p className="text-gray-400">Users leave when product reliability doesn't meet expectations</p>
+                  <p className="text-gray-400">Users leave when product reliability doesn&apos;t meet expectations</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -187,7 +185,7 @@ export default function SaaS() {
             </div>
             <div className="mt-8 pt-8">
               <p className="text-lg text-center text-[#00B476] font-semibold">
-                "In SaaS, quality directly impacts retention and growth metrics."
+                &quot;In SaaS, quality directly impacts retention and growth metrics.&quot;
               </p>
             </div>
           </div>
@@ -269,7 +267,7 @@ export default function SaaS() {
             Building or scaling a SaaS product?
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let's talk about improving quality without slowing down your release velocity.
+            Let&apos;s talk about improving quality without slowing down your release velocity.
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">

@@ -74,5 +74,4 @@ const FAQ = () => {
   );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components -- FAQ data lives in FAQ.data.ts
 export default FAQ;

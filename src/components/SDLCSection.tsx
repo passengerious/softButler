@@ -52,10 +52,10 @@ const SDLCSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            QA Isn't a Stage. <span className="text-green-500">It's Everywhere</span>.
+            QA Isn&apos;t a Stage. <span className="text-green-500">It&apos;s Everywhere</span>.
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            We don't "test at the end." QA runs in parallel with your entire SDLC — reducing bugs earlier, when they're cheaper to fix.
+            We don&apos;t &quot;test at the end.&quot; QA runs in parallel with your entire SDLC — reducing bugs earlier, when they&apos;re cheaper to fix.
           </p>
         </motion.div>
 
@@ -224,12 +224,12 @@ const SDLCSection = () => {
           <div className="bg-black/50 border border-green-500/30 rounded-lg p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-4">
               <p className="text-green-500 font-semibold text-lg">
-                Testing isn't a checkbox at the end. It's a consistent, integrated process.
+                Testing isn&apos;t a checkbox at the end. It&apos;s a consistent, integrated process.
               </p>
             </div>
             <p className="text-gray-300 leading-relaxed">
               QA makes every stage of your product lifecycle safer, faster, and cheaper by catching issues 
-              when they're easiest to fix — not when they're most expensive.
+              when they&apos;re easiest to fix — not when they&apos;re most expensive.
             </p>
           </div>
         </motion.div>

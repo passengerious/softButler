@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ShoppingCart, DollarSign, Laptop, GraduationCap, Truck, Store } from 'lucide-react';
 
 interface IndustryGridProps {
@@ -102,12 +102,12 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center mt-12"
           >
-            <a
+            <Link
               href="/contact"
               className="inline-block px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300"
             >
               Get a Free Audit
-            </a>
+            </Link>
           </motion.div>
         )}
       </div>

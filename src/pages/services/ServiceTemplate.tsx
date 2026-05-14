@@ -1,4 +1,5 @@
 import { CheckCircle, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import Button from '../../components/Button';
 
 interface ServiceTemplateProps {
@@ -28,9 +29,9 @@ export default function ServiceTemplate({
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">{title}</h1>
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-6">{subtitle}</p>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">{description}</p>
-            <a href="/contact">
+            <Link href="/contact">
               <Button className="text-lg">Book a call</Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -63,7 +64,7 @@ export default function ServiceTemplate({
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What's <span className="text-[#00B476]">Included</span>
+            What&apos;s <span className="text-[#00B476]">Included</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -143,7 +144,7 @@ export default function ServiceTemplate({
             Ready to <span className="text-[#00B476]">get started?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how we can help improve your quality assurance process.
+            Let&apos;s discuss how we can help improve your quality assurance process.
           </p>
           <Button className="text-lg">Book a call</Button>
         </div>

@@ -6,7 +6,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* ... existing head content ... */}
-        <title>SoftButler - Modern QA Testing Company</title>
         
         {/* Favicons */}
         <link rel="icon" href="/favicon.ico" />

@@ -194,7 +194,7 @@ export default function Ecommerce() {
             Why quality directly impacts e-commerce business
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            In e-commerce, bugs don't wait — they immediately affect revenue
+            In e-commerce, bugs don&apos;t wait — they immediately affect revenue
           </p>
 
           <div className="relative">
@@ -295,7 +295,7 @@ export default function Ecommerce() {
             Running or scaling an e-commerce platform?
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let's protect your revenue before the next release or promotion.
+            Let&apos;s protect your revenue before the next release or promotion.
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">

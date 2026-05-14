@@ -97,10 +97,10 @@ const Contact = () => {
             className="text-center mb-8"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              Let's Fix Your <span className="text-green-500">QA</span>
+              Let&apos;s Fix Your <span className="text-green-500">QA</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Ready to transform chaos into quality? Get in touch and let's discuss your testing challenges.
+              Ready to transform chaos into quality? Get in touch and let&apos;s discuss your testing challenges.
             </p>
           </motion.div>
         </div>
@@ -119,8 +119,8 @@ const Contact = () => {
               <div>
                 <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
                 <p className="text-gray-300 leading-relaxed mb-8">
-                  We're here to help you build better software. Whether you need a complete QA overhaul 
-                  or just want to chat about your testing challenges, we'd love to hear from you.
+                  We&apos;re here to help you build better software. Whether you need a complete QA overhaul 
+                  or just want to chat about your testing challenges, we&apos;d love to hear from you.
                 </p>
               </div>
 
@@ -156,7 +156,7 @@ const Contact = () => {
                 <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
                 <p className="text-gray-300">
                   We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
-                  For urgent QA emergencies, mention "URGENT" in your subject line.
+                  For urgent QA emergencies, mention &quot;URGENT&quot; in your subject line.
                 </p>
               </div>
             </motion.div>
@@ -186,7 +186,7 @@ const Contact = () => {
                     </motion.div>
                     <h4 className="text-xl font-bold text-white mb-2">Message Sent!</h4>
                     <p className="text-gray-300">
-                      Thanks for reaching out. We'll get back to you within 24 hours.
+                      Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                     </p>
                   </motion.div>
                 ) : (
@@ -235,7 +235,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 resize-none"
-                        placeholder="Tell us about your QA challenges. What's broken? What do you need help with?"
+                        placeholder="Tell us about your QA challenges. What&apos;s broken? What do you need help with?"
                       />
                     </div>
 
@@ -253,7 +253,7 @@ const Contact = () => {
                       ) : (
                         <div className="flex items-center justify-center space-x-2">
                           <Send className="w-5 h-5" />
-                          <span>Let's Fix Your QA</span>
+                          <span>Let&apos;s Fix Your QA</span>
                         </div>
                       )}
                     </motion.button>

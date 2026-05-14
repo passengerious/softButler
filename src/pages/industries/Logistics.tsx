@@ -297,7 +297,7 @@ export default function Logistics() {
             Running or scaling a logistics platform?
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let's make your logistics system reliable under real-world pressure.
+            Let&apos;s make your logistics system reliable under real-world pressure.
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">

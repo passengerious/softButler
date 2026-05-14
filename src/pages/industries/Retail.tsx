@@ -82,7 +82,7 @@ export default function Retail() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In retail, quality issues don't just break software — they break sales
+              In retail, quality issues don&apos;t just break software — they break sales
             </h1>
           </div>
 
@@ -294,7 +294,7 @@ export default function Retail() {
             Scaling or modernizing a retail platform?
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let's make sure your systems don't fail when sales matter most.
+            Let&apos;s make sure your systems don&apos;t fail when sales matter most.
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">

@@ -91,7 +91,7 @@ export default function EdTech() {
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
                 EdTech platforms are not just products — they are learning infrastructures.
-                When they fail, users don't complain — they leave.
+                When they fail, users don&apos;t complain — they leave.
               </p>
             </div>
           </div>
@@ -185,7 +185,7 @@ export default function EdTech() {
           </div>
           <div className="bg-gradient-to-r from-[#00B476]/10 to-transparent border-l-4 border-[#00B476] rounded-r-lg p-6">
             <p className="text-xl text-gray-200 font-medium text-center">
-              "QA protects learning flows, not just features."
+              &quot;QA protects learning flows, not just features.&quot;
             </p>
           </div>
         </div>
@@ -232,7 +232,7 @@ export default function EdTech() {
           <div className="mt-16 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00B476]/5 to-transparent"></div>
             <p className="text-xl md:text-2xl text-center text-[#00B476] font-semibold leading-relaxed relative z-10">
-              "In EdTech, platform instability destroys trust faster than bad content."
+              &quot;In EdTech, platform instability destroys trust faster than bad content.&quot;
             </p>
           </div>
         </div>
@@ -309,7 +309,7 @@ export default function EdTech() {
             Building or scaling an EdTech platform?
           </h2>
           <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-            Let's make your platform reliable, scalable, and trusted — not fragile.
+            Let&apos;s make your platform reliable, scalable, and trusted — not fragile.
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">

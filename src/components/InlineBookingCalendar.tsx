@@ -311,7 +311,7 @@ const InlineBookingCalendar = () => {
             </motion.div>
             <h3 className="text-3xl font-bold text-white mb-6">Consultation Booked!</h3>
             <p className="text-xl text-gray-300 mb-8">
-              We'll send you a confirmation email with the meeting details. 
+              We&apos;ll send you a confirmation email with the meeting details. 
               Looking forward to fixing your QA!
             </p>
             <div className="text-lg text-green-500 font-semibold mb-8">
@@ -349,7 +349,7 @@ const InlineBookingCalendar = () => {
             Book Your <span className="text-green-500">Free Consultation</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to fix your QA process? Schedule a free consultation and let's discuss your testing challenges.
+            Ready to fix your QA process? Schedule a free consultation and let&apos;s discuss your testing challenges.
           </p>
         </motion.div>
 
@@ -620,7 +620,7 @@ const InlineBookingCalendar = () => {
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all resize-none"
-                        placeholder="What QA problems are you facing? What's your current testing setup?"
+                        placeholder="What QA problems are you facing? What&apos;s your current testing setup?"
                       />
                     </div>
 
