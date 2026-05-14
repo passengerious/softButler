@@ -157,9 +157,7 @@ export default function ReleaseAcceleration() {
               </span>{' '}
               while maintaining or improving quality standards.
             </p>
-            <Link href="/contact">
-              <Button className="text-lg">Book a call</Button>
-            </Link>
+            <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
         </div>
       </section>
@@ -432,7 +430,7 @@ export default function ReleaseAcceleration() {
           <p className="text-xl text-gray-300 mb-8">
             Let&apos;s discuss how we can help improve your quality assurance process.
           </p>
-          <Button className="text-lg">Book a call</Button>
+          <Button href="/contact" className="text-lg">Book a call</Button>
         </div>
       </section>
     </div>

@@ -147,9 +147,7 @@ export default function AutomationNitro() {
               <span className="text-[#dc2626] font-semibold">up to 80%</span> while improving test
               reliability and coverage.
             </p>
-            <Link href="/contact">
-              <Button className="text-lg">Book a call</Button>
-            </Link>
+            <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
         </div>
       </section>
@@ -438,7 +436,7 @@ export default function AutomationNitro() {
               <div className="text-gray-400">Faster Delivery</div>
             </div>
           </div>
-          <Button className="text-lg mb-4 w-full sm:w-auto">Get Your Free Automation Assessment</Button>
+          <Button href="/contact" className="text-lg mb-4 w-full sm:w-auto">Get Your Free Automation Assessment</Button>
           <p className="text-gray-400 text-sm sm:text-base">
             No commitment required. See how automation can transform your testing.
           </p>

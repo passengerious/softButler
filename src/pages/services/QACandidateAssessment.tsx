@@ -359,9 +359,7 @@ export default function QACandidateAssessment() {
           <p className="text-xl text-gray-300 mb-8">
             One short call is enough to start reducing hiring risk.
           </p>
-          <Link href="/contact">
-            <Button className="text-lg">Book a call</Button>
-          </Link>
+          <Button href="/contact" className="text-lg">Book a call</Button>
         </div>
       </section>
     </div>

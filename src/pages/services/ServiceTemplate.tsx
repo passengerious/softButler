@@ -29,9 +29,7 @@ export default function ServiceTemplate({
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">{title}</h1>
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-6">{subtitle}</p>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">{description}</p>
-            <Link href="/contact">
-              <Button className="text-lg">Book a call</Button>
-            </Link>
+            <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
         </div>
       </section>
@@ -146,7 +144,7 @@ export default function ServiceTemplate({
           <p className="text-xl text-gray-300 mb-8">
             Let&apos;s discuss how we can help improve your quality assurance process.
           </p>
-          <Button className="text-lg">Book a call</Button>
+          <Button href="/contact" className="text-lg">Book a call</Button>
         </div>
       </section>
     </div>

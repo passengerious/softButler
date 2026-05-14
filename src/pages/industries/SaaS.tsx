@@ -85,9 +85,7 @@ export default function SaaS() {
 
           {/* CTA */}
           <div className="text-center">
-            <Link href="/contact">
-              <Button className="text-lg">Book a call</Button>
-            </Link>
+            <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
         </div>
       </section>
@@ -271,11 +269,9 @@ export default function SaaS() {
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
             Let&apos;s talk about improving quality without slowing down your release velocity.
           </p>
-          <Link href="/contact" className="inline-block">
-            <Button className="text-lg px-10 py-6">
-              Book a call
-            </Button>
-          </Link>
+          <Button href="/contact" className="text-lg px-10 py-6">
+            Book a call
+          </Button>
         </div>
       </section>
     </div>

@@ -244,9 +244,7 @@ export default function QAAudit() {
           </div>
 
           <div className="text-center">
-            <Link href="/contact">
-              <Button className="text-lg">Book a call</Button>
-            </Link>
+            <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
         </div>
       </section>
@@ -396,11 +394,9 @@ export default function QAAudit() {
                 </div>
 
                 <div className="border-t border-[#00B476]/20 pt-6">
-                  <Link href="/contact">
-                    <Button variant={pkg.highlight ? 'primary' : 'secondary'} className="w-full">
+                    <Button href="/contact" variant={pkg.highlight ? 'primary' : 'secondary'} className="w-full">
                       Book a call
                     </Button>
-                  </Link>
                 </div>
               </div>
             ))}
@@ -532,7 +528,7 @@ export default function QAAudit() {
           <p className="text-xl text-gray-300 mb-8">
             One call to understand your product and challenges.
           </p>
-          <Button className="text-lg mb-6">Book a call</Button>
+          <Button href="/contact" className="text-lg mb-6">Book a call</Button>
           <p className="text-gray-400 text-lg">
             What we give you — <span className="text-[#00B476]">clarity</span>,{' '}
             <span className="text-[#00B476]">stability</span>, and a{' '}

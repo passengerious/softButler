@@ -196,7 +196,7 @@ const Navbar = () => {
             initial={{ scaleY: 0, opacity: 0 }}
             animate={{ scaleY: 1, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="md:hidden bg-black/95 backdrop-blur-md border-t border-green-500/20 fixed left-0 right-0 top-16 z-50 overflow-hidden origin-top"
+            className="md:hidden bg-black/95 backdrop-blur-md border-t border-green-500/20 fixed left-0 right-0 top-20 z-50 overflow-y-auto max-h-[calc(100vh-5rem)] origin-top"
           >
             <div className="py-4">
               <button

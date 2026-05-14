@@ -224,7 +224,21 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form 
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const trimmedName = formData.name.trim();
+                  const trimmedEmail = formData.email.trim();
+                  const trimmedMessage = formData.message.trim();
+                  
+                  if (!trimmedName) return;
+                  if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) return;
+                  if (!trimmedMessage) return;
+
+                  handleSubmit(e);
+                }} 
+                className="space-y-4"
+              >
                 <div>
                   <label className="block text-white font-semibold mb-2">
                     <User className="w-4 h-4 inline mr-2" />
@@ -260,6 +274,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                   </label>
                   <textarea
                     rows={4}
+                    required
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none transition-colors resize-none"
