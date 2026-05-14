@@ -1,8 +1,10 @@
+import SEO from '../../components/SEO';
 import ServiceTemplate from './ServiceTemplate';
 
 export default function SystemTesting() {
   return (
-    <ServiceTemplate
+    <>
+      <ServiceTemplate
       title="System Testing"
       subtitle="End-to-end testing of your complete application"
       description="Comprehensive testing of the entire system to verify it meets all requirements. Test complete workflows in realistic environments."
@@ -35,5 +37,7 @@ export default function SystemTesting() {
         'Provide system quality assessment',
       ]}
     />
+      <SEO pageKey="systemTesting" />
+    </>
   );
 }

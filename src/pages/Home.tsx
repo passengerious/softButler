@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -104,6 +105,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <SEO pageKey="home" />
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       <Hero onBookConsultation={() => {

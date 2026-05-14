@@ -1,8 +1,10 @@
+import SEO from '../../components/SEO';
 import ServiceTemplate from './ServiceTemplate';
 
 export default function FunctionalTesting() {
   return (
-    <ServiceTemplate
+    <>
+      <ServiceTemplate
       title="Functional Testing"
       subtitle="Verify your application works as intended"
       description="Comprehensive testing of features and user workflows to ensure your application meets requirements and delivers the expected user experience."
@@ -35,5 +37,7 @@ export default function FunctionalTesting() {
         'Provide test reports and metrics',
       ]}
     />
+      <SEO pageKey="functional" />
+    </>
   );
 }

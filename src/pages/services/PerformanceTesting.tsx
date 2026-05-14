@@ -1,8 +1,10 @@
+import SEO from '../../components/SEO';
 import ServiceTemplate from './ServiceTemplate';
 
 export default function PerformanceTesting() {
   return (
-    <ServiceTemplate
+    <>
+      <ServiceTemplate
       title="Performance Testing"
       subtitle="Ensure your application can handle the load"
       description="Test speed, stability, and scalability under various conditions. Identify bottlenecks before they impact your users and revenue."
@@ -35,5 +37,7 @@ export default function PerformanceTesting() {
         'Verify improvements through re-testing',
       ]}
     />
+      <SEO pageKey="performance" />
+    </>
   );
 }

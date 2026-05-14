@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -123,6 +124,7 @@ const WhoWeAre = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEO pageKey="whoWeAre" />
       {/* HERO SECTION - Split Layout Introduction */}
       <section ref={heroRef} className="relative flex items-center bg-black overflow-hidden">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-10 md:pb-20 min-w-0">

@@ -1,8 +1,10 @@
+import SEO from '../../components/SEO';
 import ServiceTemplate from './ServiceTemplate';
 
 export default function RegressionTesting() {
   return (
-    <ServiceTemplate
+    <>
+      <ServiceTemplate
       title="Regression Testing"
       subtitle="Ensure new changes don't break existing functionality"
       description="Systematic validation after every update to catch unintended side effects. Maintain product quality as your codebase evolves."
@@ -35,5 +37,7 @@ export default function RegressionTesting() {
         'Continuously maintain and update tests',
       ]}
     />
+      <SEO pageKey="regression" />
+    </>
   );
 }

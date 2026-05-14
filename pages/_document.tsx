@@ -33,31 +33,8 @@ export default function Document() {
           }}
         />
         
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://softbutler.io" />
-        <meta property="og:title" content="SoftButler – Modern QA Testing Company" />
-        <meta property="og:description" content="Professional QA testing services. Test less. Deliver smarter." />
-        <meta property="og:image" content="https://softbutler.io/logo3.svg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="SoftButler - QA Testing Services" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://softbutler.io" />
-        <meta name="twitter:title" content="SoftButler – Modern QA Testing Company" />
-        <meta name="twitter:description" content="Professional QA testing services. Test less. Deliver smarter." />
-        <meta name="twitter:image" content="https://softbutler.io/logo3.svg" />
-        <meta name="twitter:image:alt" content="SoftButler - QA Testing Services" />
-        
-        
-        {/* Additional SEO */}
-        <meta name="description" content="Professional QA testing services. Test less. Deliver smarter." />
-        <meta name="keywords" content="SoftButler, QA testing, quality assurance, software testing, bug testing, QA services, software quality, testing company" />
+        {/* Additional Global Meta */}
         <meta name="author" content="SoftButler" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://softbutler.io" />
         <meta name="google-site-verification" content="" />
         
         {/* Clutch Widget Script optimized with next/script */}

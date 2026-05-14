@@ -1,3 +1,4 @@
+import SEO from '../../components/SEO';
 import { useState } from 'react';
 import {
   CheckCircle,
@@ -137,6 +138,7 @@ export default function ReleaseAcceleration() {
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
+      <SEO pageKey="releaseAcceleration" />
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       <section className="py-20 mt-20 bg-gradient-to-b from-black via-green-950/10 to-black">

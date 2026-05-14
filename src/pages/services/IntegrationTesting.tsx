@@ -1,8 +1,10 @@
+import SEO from '../../components/SEO';
 import ServiceTemplate from './ServiceTemplate';
 
 export default function IntegrationTesting() {
   return (
-    <ServiceTemplate
+    <>
+      <ServiceTemplate
       title="Integration Testing"
       subtitle="Test how different parts of your system work together"
       description="Verify that integrated components, services, and systems work correctly together. Identify interface issues and data flow problems early."
@@ -35,5 +37,7 @@ export default function IntegrationTesting() {
         'Provide integration test reports',
       ]}
     />
+      <SEO pageKey="integration" />
+    </>
   );
 }

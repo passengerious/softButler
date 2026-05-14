@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, CheckCircle, User, MessageSquare } from 'lucide-react';
@@ -85,6 +86,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20 bg-black text-white relative overflow-hidden">
+      <SEO pageKey="contact" />
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       {/* Hero Section */}
