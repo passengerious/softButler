@@ -1,6 +1,6 @@
 ## Diagnosis
 
-The "Book Your Free Consultation" form in the `BookingCalendar` component allowed submissions with invalid data, such as names consisting only of whitespace, improperly formatted email addresses (e.g., `x@x`), and empty message fields.
+The "Book Your Free Consultation" form in the `BookingCalendar` and `InlineBookingCalendar` components allowed submissions with invalid data, such as names consisting only of whitespace, improperly formatted email addresses (e.g., `x@x`), and empty message fields.
 
 ## Root Cause
 
@@ -9,7 +9,7 @@ The "Book Your Free Consultation" form in the `BookingCalendar` component allowe
 
 ## Fix
 
-1. **Updated `BookingCalendar.tsx`**:
+1. **Updated `BookingCalendar.tsx` and `InlineBookingCalendar.tsx`**:
    - Enhanced the `onSubmit` handler to include manual validation logic.
    - Added trimming for all string inputs (`name`, `email`, `message`) to prevent whitespace-only submissions.
    - Implemented a stricter regular expression for email validation (`/^[^\s@]+@[^\s@]+\.[^\s@]+$/`) to ensure at least one dot in the domain part.
@@ -19,6 +19,7 @@ The "Book Your Free Consultation" form in the `BookingCalendar` component allowe
 ## Files Affected
 
 - `src/components/BookingCalendar.tsx`
+- `src/components/InlineBookingCalendar.tsx`
 
 ## Verification
 
