@@ -73,7 +73,8 @@ const Home = () => {
 
   const quotePart1 = "Your users won't give you a ";
   const quotePart2 = "second chance";
-  const quotePart3 = ". We make sure they never see the bugs.";
+  const quotePart3 = ".";
+  const quotePart4 = "We make sure they never see the bugs.";
 
   const companyLogos = [
     { id: 'np', Component: NovaPostLogo },
@@ -352,7 +353,6 @@ const Home = () => {
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
                   />
                 </div>
 
@@ -405,6 +405,12 @@ const Home = () => {
                   ))}
                   {quotePart3.split("").map((char, index) => (
                     <motion.span key={`q3-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
+                      {char}
+                    </motion.span>
+                  ))}
+                  <br />
+                  {quotePart4.split("").map((char, index) => (
+                    <motion.span key={`q4-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
                       {char}
                     </motion.span>
                   ))}

@@ -35,6 +35,7 @@ const LogoImage = ({
         src={imgSrc}
         alt={alt}
         fill
+        sizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 320px"
         className="object-contain"
         onError={() => {
           if (cdnUrl && imgSrc === src) {

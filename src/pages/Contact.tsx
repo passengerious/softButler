@@ -2,34 +2,8 @@ import SEO from '../components/SEO';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, CheckCircle, User, MessageSquare } from 'lucide-react';
-import { toast } from 'react-toastify';
-
-// TypeScript interface for custom toast parameters
-interface CustomToastProps {
-  title: string;
-  description: string;
-  duration?: number;
-  className?: string;
-}
-
-// Custom toast function that matches your desired API
-const customToast = ({ title, description, duration = 5000, className = "toast-with-progress" }: CustomToastProps) => {
-  return toast.success(
-    <div>
-      <div className="font-bold">{title}</div>
-      <div className="text-sm opacity-90">{description}</div>
-    </div>,
-    {
-      position: "top-right",
-      autoClose: duration,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      className: className,
-    }
-  );
-};
+import { validateContactForm } from '../lib/formValidation';
+import { showSuccessToast, showErrorToast } from '../lib/toastHelpers';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -43,59 +17,46 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-  
-    const trimmedName = formData.name.trim();
-    const trimmedEmail = formData.email.trim();
-    const trimmedMessage = formData.message.trim();
-  
-    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
-      toast.error("Please fill in all fields with valid content");
-      setIsSubmitting(false);
+
+    const trimmedData = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      message: formData.message.trim(),
+    };
+
+    const validationError = validateContactForm(trimmedData);
+    if (validationError) {
+      showErrorToast(validationError);
       return;
     }
 
-    if (trimmedName.length > 100) {
-      toast.error("Name must be 100 characters or less");
-      setIsSubmitting(false);
-      return;
-    }
-  
-    // Email regex validating a proper TLD (at least 2 letters, e.g. .com, .io)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(trimmedEmail)) {
-      toast.error("Please enter a valid email address with a top-level domain (e.g. .com)");
-      setIsSubmitting(false);
-      return;
-    }
-  
+    setIsSubmitting(true);
+
     try {
       const res = await fetch('/.netlify/functions/send-to-telegram', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: trimmedName,
-          email: trimmedEmail,
-          message: trimmedMessage
-        })
+          name: trimmedData.name,
+          email: trimmedData.email,
+          message: trimmedData.message,
+        }),
       });
-  
+
       if (!res.ok) {
         throw new Error('Failed to send message');
       }
-  
-      customToast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours to discuss how we can help grow your business.",
-        duration: 5000,
-        className: "toast-with-progress"
-      });
-      
+
+      showSuccessToast(
+        'Message sent successfully!',
+        "We'll get back to you within 24 hours to discuss how we can help grow your business."
+      );
+
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
-      toast.error("Error sending message. Please try again later.");
+      showErrorToast('Error sending message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -156,15 +117,19 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-6">
-                    <div className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg">
-                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
+                    <motion.a
+                      href="mailto:start@softbutler.io"
+                      className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group cursor-pointer"
+                      whileHover={{ x: 10 }}
+                    >
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
                         <Mail className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
                         <p className="text-white font-semibold">Email Us</p>
                         <p className="text-gray-300">start@softbutler.io</p>
                       </div>
-                    </div>
+                    </motion.a>
 
                     <motion.a
                       href="https://linkedin.com/company/softbutler"
@@ -194,15 +159,19 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-6">
-                    <div className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg">
-                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
+                    <motion.a
+                      href="mailto:start@softbutler.io"
+                      className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group cursor-pointer"
+                      whileHover={{ x: 10 }}
+                    >
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
                         <Mail className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
                         <p className="text-white font-semibold">Email Us</p>
                         <p className="text-gray-300">start@softbutler.io</p>
                       </div>
-                    </div>
+                    </motion.a>
 
                     <motion.a
                       href="https://linkedin.com/company/softbutler"
