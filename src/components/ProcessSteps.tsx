@@ -71,7 +71,7 @@ const ProcessSteps = () => {
                 </motion.div>
 
                 <div className="mt-4">
-                  <step.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
+                  <step.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_8px_rgba(0,180,118,0.5)] transition-all duration-300" />
                   <h3 className="text-xl font-bold mb-4 text-white">{step.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{step.description}</p>
                 </div>

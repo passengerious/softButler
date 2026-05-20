@@ -10,8 +10,12 @@ import {
   Award,
   Plus,
   Minus,
+  Search,
+  Settings,
+  Users,
 } from 'lucide-react';
 import Button from '../../components/Button';
+import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function QACandidateAssessment() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -55,8 +59,22 @@ export default function QACandidateAssessment() {
     'Clear comments for Hiring Manager / CTO / HR',
   ];
 
+  const processSteps = [
+    { icon: Users, title: 'Requirement Alignment', text: 'We align with your team on key expectations, product complexities, and required tech stack.' },
+    { icon: Target, title: 'Task Setup', text: 'We design custom, product-specific evaluation tasks and real-world testing scenarios.' },
+    { icon: Search, title: 'Active Evaluation', text: 'We conduct short structured technical interviews and live-testing/coding assessment sessions.' },
+    { icon: FileCheck, title: 'Report Generation', text: 'We deliver an unbiased assessment report highlighting risks, real QA level, and recommendations.' },
+    { icon: Award, title: 'Decision Consultation', text: 'We review results with your hiring team to ensure perfect alignment before the final offer.' },
+  ];
+
+  const results = [
+    { metric: 'Wrong Hire Risk', improvement: '– 50% – 70%' },
+    { metric: 'Hiring Confidence', improvement: '+100%' },
+    { metric: 'Fewer Re-hires', improvement: 'Significant' },
+  ];
+
   const metrics = [
-    { label: 'Wrong Hire Risk', value: '–50–70%' },
+    { label: 'Wrong Hire Risk', value: '– 50% – 70%' },
     { label: 'Hiring Confidence', value: '+100%' },
     { label: 'Fewer Re-hires', value: 'Significant' },
   ];
@@ -285,6 +303,91 @@ export default function QACandidateAssessment() {
         </div>
       </section>
 
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00B476]/10 via-transparent to-[#00B476]/10"></div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Our <span className="text-[#00B476]">Process</span>
+            </h2>
+            <p className="text-gray-400 text-lg">Your roadmap to candidate evaluation excellence</p>
+          </div>
+
+          <div className="relative mb-12">
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00B476] via-[#00B476] to-transparent z-0"></div>
+
+            <div className="space-y-8">
+              {processSteps.map((step, idx) => {
+                const Icon = step.icon;
+                const isLast = idx === processSteps.length - 1;
+                return (
+                  <div key={idx} className="relative pl-16">
+                    <div
+                      className={`absolute left-0 w-12 h-12 rounded-full bg-black border-2 border-[#00B476] flex items-center justify-center z-10 ${
+                        isLast ? '' : 'shadow-lg shadow-[#00B476]/20'
+                      }`}
+                    >
+                      <Icon className="text-[#00B476]" size={24} />
+                    </div>
+                    <div className="bg-black p-6 rounded-lg border border-[#00B476]/20 hover:border-[#00B476] transition-all hover:shadow-lg hover:shadow-[#00B476]/20 group">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-white font-bold text-lg group-hover:text-[#00B476] transition-colors">
+                          {step.title}
+                        </h3>
+                        <span className="text-[#00B476] font-bold text-sm">0{idx + 1}</span>
+                      </div>
+                      <p className="text-gray-400 text-sm leading-relaxed">{step.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            Expected <span className="text-[#00B476]">Results</span>
+          </h2>
+          <p className="text-center text-gray-400 text-lg mb-12">
+            Measurable improvements in hiring speed, cost reduction, and team stability
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 rounded-xl overflow-hidden">
+              <thead>
+                <tr className="bg-[#00B476]/10">
+                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Metric</th>
+                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Improvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                {results.map((result, idx) => (
+                  <tr
+                    key={idx}
+                    className="hover:bg-[#00B476]/5 transition-colors group"
+                  >
+                    <td className="p-6 text-gray-300 text-base font-normal group-hover:text-white transition-colors border-b border-[#00B476]/10">
+                      {result.metric}
+                    </td>
+                    <td className="p-6 text-right border-b border-[#00B476]/10">
+                      <FormatMetricValue
+                        value={result.improvement}
+                        valueClassName="text-xl font-bold text-[#00B476] group-hover:scale-105 transition-transform inline-block"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -300,8 +403,11 @@ export default function QACandidateAssessment() {
                 key={idx}
                 className="bg-gradient-to-br from-black to-green-950/20 border-2 border-green-500/20 p-8 rounded-xl text-center hover:border-[#00B476] transition-all duration-300 hover:shadow-xl hover:shadow-[#00B476]/20 group"
               >
-                <div className="text-4xl md:text-5xl font-bold text-[#00B476] mb-3 group-hover:scale-110 transition-transform">
-                  {metric.value}
+                <div className="mb-3 group-hover:scale-110 transition-transform">
+                  <FormatMetricValue
+                    value={metric.value}
+                    valueClassName="text-4xl md:text-5xl font-bold text-[#00B476]"
+                  />
                 </div>
                 <div className="text-gray-300 text-lg font-medium">{metric.label}</div>
               </div>

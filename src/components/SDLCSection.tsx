@@ -104,14 +104,14 @@ const SDLCSection = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute w-[4.5rem] h-[4.5rem] bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group"
+                  className="absolute w-20 h-20 bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group animate-none"
                   style={{
-                    left: `calc(50% + ${x}px - 36px)`,
-                    top: `calc(50% + ${y}px - 36px)`
+                    left: `calc(50% + ${x}px - 40px)`,
+                    top: `calc(50% + ${y}px - 40px)`
                   }}
                 >
                   <stage.icon className="w-4 h-4 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
-                  <span className="text-xs text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight">
+                  <span className="text-[10px] text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight p-1">
                     {stage.title}
                   </span>
                 </motion.div>

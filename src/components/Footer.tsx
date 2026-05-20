@@ -141,10 +141,13 @@ const Footer = () => {
                 <Send className="w-4 h-4" />
                 Telegram
               </a>
-              <div className="flex items-center gap-2">
+              <a
+                href="mailto:start@softbutler.io"
+                className="flex items-center gap-2 hover:text-green-500 transition-colors"
+              >
                 <Mail className="w-4 h-4" />
                 start@softbutler.io
-              </div>
+              </a>
             </div>
           </motion.div>
         </div>

@@ -32,8 +32,8 @@ const FAQ = () => {
           {faqItems.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/50 transition-all duration-300"

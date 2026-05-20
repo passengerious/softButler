@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { X, Calendar, Clock, User, Mail, MessageSquare, Check } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 interface BookingCalendarProps {
   onClose: () => void;
@@ -9,6 +10,7 @@ interface BookingCalendarProps {
 const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState('');
+  const modalContentRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -79,6 +81,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <motion.div
+        ref={modalContentRef}
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         className="bg-gray-900 border border-green-500/30 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
@@ -120,10 +123,10 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
+              className="space-y-6 px-4 sm:px-6"
             >
               <div className="flex items-center space-x-2 mb-4">
-                <Calendar className="w-5 h-5 text-green-500" />
+                <Calendar className="w-5 h-5 text-green-500 inline-block align-middle flex-shrink-0" />
                 <h3 className="text-xl font-semibold text-white">Choose a Date</h3>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -159,7 +162,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
               className="space-y-6"
             >
               <div className="flex items-center space-x-2 mb-4">
-                <User className="w-5 h-5 text-green-500" />
+                <User className="w-5 h-5 text-green-500 inline-block align-middle flex-shrink-0" />
                 <h3 className="text-xl font-semibold text-white">Your Information</h3>
               </div>
               
@@ -183,9 +186,29 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                   const trimmedEmail = formData.email.trim();
                   const trimmedMessage = formData.message.trim();
                   
-                  if (!trimmedName) return;
-                  if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) return;
-                  if (!trimmedMessage) return;
+                  if (!trimmedName) {
+                    toast.error('Please enter your name.');
+                    return;
+                  }
+                  if (trimmedName.length > 100) {
+                    toast.error('Name must be 100 characters or less.');
+                    return;
+                  }
+                  if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+                    toast.error('Please enter a valid email address.');
+                    return;
+                  }
+                  if (!trimmedMessage) {
+                    toast.error('Please enter your message.');
+                    return;
+                  }
+
+                  // Update state with trimmed values for consistency
+                  setFormData({
+                    name: trimmedName,
+                    email: trimmedEmail,
+                    message: trimmedMessage
+                  });
 
                   handleSubmit(e);
                 }} 
@@ -193,12 +216,13 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
               >
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    <User className="w-4 h-4 inline mr-2" />
+                    <User className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
                     Name
                   </label>
                   <input
                     type="text"
                     required
+                    maxLength={100}
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none transition-colors"
@@ -207,7 +231,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                 </div>
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    <Mail className="w-4 h-4 inline mr-2" />
+                    <Mail className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
                     Email
                   </label>
                   <input
@@ -221,8 +245,8 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                 </div>
                 <div>
                   <label className="block text-white font-semibold mb-2">
-                    <MessageSquare className="w-4 h-4 inline mr-2" />
-                    Tell us about your QA challenges
+                    <MessageSquare className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
+                    Tell us about your challenges
                   </label>
                   <textarea
                     rows={4}
@@ -230,13 +254,18 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none transition-colors resize-none"
-                    placeholder="What QA problems are you facing? What's your current testing setup?"
+                    placeholder="What problems are you facing?"
                   />
                 </div>
                 <div className="flex space-x-4 pt-4">
                   <button
                     type="button"
-                    onClick={() => setStep(1)}
+                    onClick={() => {
+                      setStep(1);
+                      setTimeout(() => {
+                        modalContentRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+                      }, 50);
+                    }}
                     className="flex-1 py-3 border border-gray-600 text-white rounded-lg hover:bg-gray-800 transition-colors"
                   >
                     Back

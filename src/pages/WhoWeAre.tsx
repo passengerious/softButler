@@ -231,10 +231,7 @@ const WhoWeAre = () => {
                     )}
                   </div>
 
-                  {/* Connecting line segment */}
-                  {index < journeySteps.length - 1 && (
-                    <div className="absolute left-8 md:left-12 top-16 w-0.5 h-16 bg-green-500 opacity-50"></div>
-                  )}
+
                 </div>
               );
             })}
@@ -396,7 +393,7 @@ const WhoWeAre = () => {
               <Target className="text-[#00B476] mb-8" size={48} />
               <h3 className="text-3xl font-bold text-white mb-3">Trendsetter Mindset</h3>
               <h4 className="text-xl font-semibold text-[#00B476] mb-3">First to Know, First to Create</h4>
-              <p className="text-gray-400 text-lg">We don&apos;t follow trends—we set them</p>
+              <p className="text-gray-400 text-lg">We don&apos;t follow trends — we set them</p>
             </div>
           </div>
         </div>

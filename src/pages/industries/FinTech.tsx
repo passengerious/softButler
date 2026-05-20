@@ -1,6 +1,7 @@
 import SEO from '../../components/SEO';
 import { CheckCircle, TrendingDown, Shield, Target } from 'lucide-react';
 import Link from 'next/link';
+import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function FinTech() {
   const pains = [
@@ -36,9 +37,9 @@ export default function FinTech() {
   ];
 
   const metrics = [
-    { label: 'Critical production bugs', value: '–40–65%', icon: TrendingDown },
-    { label: 'Release predictability', value: '+35–50%', icon: Target },
-    { label: 'Regression execution time', value: '–25–40%', icon: TrendingDown },
+    { label: 'Critical production bugs', value: '– 40% – 65%', icon: TrendingDown },
+    { label: 'Release predictability', value: '+ 35% – 50%', icon: Target },
+    { label: 'Regression execution time', value: '– 25% – 40%', icon: TrendingDown },
     { label: 'Cost of post-release fixes', value: '2–4× lower', icon: Shield },
   ];
 
@@ -70,7 +71,9 @@ export default function FinTech() {
           {/* Stats Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">40–60%</div>
+              <div className="mb-2">
+                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+              </div>
               <div className="text-gray-300 text-sm">Production incidents reduced</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
@@ -215,7 +218,9 @@ export default function FinTech() {
                   className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
                 >
                   <Icon className="text-[#00B476] mb-4 mx-auto" size={32} />
-                  <div className="text-3xl font-bold text-[#00B476] mb-2">{metric.value}</div>
+                  <div className="mb-2">
+                    <FormatMetricValue value={metric.value} valueClassName="text-3xl font-bold text-[#00B476]" />
+                  </div>
                   <div className="text-sm text-gray-400">{metric.label}</div>
                 </div>
               );

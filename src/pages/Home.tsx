@@ -30,6 +30,51 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  const quoteContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.015,
+      }
+    }
+  };
+
+  const quoteLetterVariants = {
+    hidden: { 
+      opacity: 0.3,
+      color: "rgba(255, 255, 255, 0.3)"
+    },
+    visible: { 
+      opacity: 1,
+      color: "#ffffff",
+      transition: {
+        duration: 0.4,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const quoteGreenLetterVariants = {
+    hidden: { 
+      opacity: 0.3,
+      color: "rgba(0, 180, 118, 0.2)",
+      textShadow: "0 0 12px rgba(0, 180, 118, 0.8)"
+    },
+    visible: { 
+      opacity: 1,
+      color: "#00B476",
+      textShadow: "0 0 12px rgba(0, 180, 118, 0.8)",
+      transition: {
+        duration: 0.4,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const quotePart1 = "Your users won't give you a ";
+  const quotePart2 = "second chance";
+  const quotePart3 = ". We make sure they never see the bugs.";
+
   const companyLogos = [
     { id: 'np', Component: NovaPostLogo },
     { id: 'mb', Component: MonobankLogo },
@@ -340,11 +385,31 @@ const Home = () => {
           >
             <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
             <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
-              <blockquote className="text-3xl md:text-4xl font-bold leading-relaxed">
-                &quot;Your users won&apos;t give you a{' '}
-                <span className="text-green-500 drop-shadow-[0_0_10px_#00B476]">second chance</span>.
-                <br />
-                We make sure they never see the bugs.&quot;
+              <blockquote className="text-3xl md:text-4xl font-bold leading-relaxed text-white">
+                &quot;
+                <motion.span
+                  variants={quoteContainerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                >
+                  {quotePart1.split("").map((char, index) => (
+                    <motion.span key={`q1-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
+                      {char}
+                    </motion.span>
+                  ))}
+                  {quotePart2.split("").map((char, index) => (
+                    <motion.span key={`q2-${index}`} variants={quoteGreenLetterVariants} className="inline-block whitespace-pre-wrap">
+                      {char}
+                    </motion.span>
+                  ))}
+                  {quotePart3.split("").map((char, index) => (
+                    <motion.span key={`q3-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.span>
+                &quot;
               </blockquote>
             </div>
           </motion.div>

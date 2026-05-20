@@ -27,6 +27,7 @@ const InlineBookingCalendar = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState('');
+  const sectionRef = React.useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -121,6 +122,16 @@ const InlineBookingCalendar = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const trimmedName = formData.name.trim();
+    if (!trimmedName) {
+      toast.error('Please enter your name.');
+      return;
+    }
+    if (trimmedName.length > 100) {
+      toast.error('Name must be 100 characters or less.');
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
@@ -128,9 +139,9 @@ const InlineBookingCalendar = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          name: trimmedName,
+          email: formData.email.trim(),
+          message: formData.message.trim(),
           date: selectedDate,
           displayDate: formatDateForDisplay(selectedDate)
         })
@@ -160,6 +171,9 @@ const InlineBookingCalendar = () => {
   const goBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
 
@@ -266,7 +280,7 @@ const InlineBookingCalendar = () => {
   }
 
   return (
-    <section className="py-20 px-6 bg-gray-900/30">
+    <section ref={sectionRef} className="py-20 px-6 bg-gray-900/30">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -344,13 +358,13 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <Calendar className="w-6 h-6 text-green-500 mr-3" />
+                      <Calendar className="w-6 h-6 text-green-500 inline-block align-middle flex-shrink-0 mr-3" />
                       Choose Your Preferred Date
                     </h3>
                     <p className="text-gray-300">Select a date that works best for your schedule</p>
                   </div>
 
-                  <div className="max-w-md mx-auto">
+                  <div className="max-w-md mx-auto px-4 sm:px-6">
                     {/* Month Navigation */}
                     <div className="flex items-center justify-between mb-6">
                       <button
@@ -429,10 +443,10 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <User className="w-6 h-6 text-green-500 mr-3" />
+                      <User className="w-6 h-6 text-green-500 inline-block align-middle flex-shrink-0 mr-3" />
                       Almost There! Your Details
                     </h3>
-                    <p className="text-gray-300">Tell us about yourself and your QA challenges</p>
+                    <p className="text-gray-300">Tell us about yourself and your challenges</p>
                   </div>
 
                   {/* Selected Date Display */}
@@ -451,12 +465,13 @@ const InlineBookingCalendar = () => {
                   <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto">
                     <div>
                       <label className="block text-white font-semibold mb-2">
-                        <User className="w-4 h-4 inline mr-2" />
+                        <User className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
                         Name
                       </label>
                       <input
                         type="text"
                         required
+                        maxLength={100}
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all"
@@ -466,7 +481,7 @@ const InlineBookingCalendar = () => {
 
                     <div>
                       <label className="block text-white font-semibold mb-2">
-                        <Mail className="w-4 h-4 inline mr-2" />
+                        <Mail className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
                         Email
                       </label>
                       <input
@@ -481,15 +496,15 @@ const InlineBookingCalendar = () => {
 
                     <div>
                       <label className="block text-white font-semibold mb-2">
-                        <MessageSquare className="w-4 h-4 inline mr-2" />
-                        Tell us about your QA challenges
+                        <MessageSquare className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
+                        Tell us about your challenges
                       </label>
                       <textarea
                         rows={4}
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all resize-none"
-                        placeholder="What QA problems are you facing? What&apos;s your current testing setup?"
+                        placeholder="What problems are you facing?"
                       />
                     </div>
 

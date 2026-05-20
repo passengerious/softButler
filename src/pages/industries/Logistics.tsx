@@ -2,6 +2,7 @@ import SEO from '../../components/SEO';
 import { Package, AlertTriangle, Activity, Timer } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
+import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function Logistics() {
   const pains = [
@@ -66,12 +67,12 @@ export default function Logistics() {
   ];
 
   const metrics = [
-    { label: 'Operational incidents', value: '–40–60%' },
-    { label: 'Integration-related failures', value: '–45–65%' },
-    { label: 'Incident detection time', value: '–30–50%' },
-    { label: 'Mean time to recovery (MTTR)', value: '–25–40%' },
-    { label: 'Release stability', value: '+30–45%' },
-    { label: 'Manual recovery operations cost', value: '–35–55%' },
+    { label: 'Operational incidents', value: '– 40% – 60%' },
+    { label: 'Integration-related failures', value: '– 45% – 65%' },
+    { label: 'Incident detection time', value: '– 30% – 50%' },
+    { label: 'Mean time to recovery (MTTR)', value: '– 25% – 40%' },
+    { label: 'Release stability', value: '+ 30% – 45%' },
+    { label: 'Manual recovery operations cost', value: '– 35% – 55%' },
   ];
 
   return (
@@ -103,11 +104,15 @@ export default function Logistics() {
           {/* Stats Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">40–60%</div>
+              <div className="mb-2">
+                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+              </div>
               <div className="text-gray-300 text-sm">Operational incidents reduced</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">50%</div>
+              <div className="mb-2">
+                <FormatMetricValue value="50%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+              </div>
               <div className="text-gray-300 text-sm">Data inconsistency issues reduced</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
@@ -245,7 +250,9 @@ export default function Logistics() {
                 key={index}
                 className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
               >
-                <div className="text-3xl font-bold text-[#00B476] mb-2">{metric.value}</div>
+                <div className="mb-2">
+                  <FormatMetricValue value={metric.value} valueClassName="text-3xl font-bold text-[#00B476]" />
+                </div>
                 <div className="text-sm text-gray-400">{metric.label}</div>
               </div>
             ))}

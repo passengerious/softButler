@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import Button from '../../components/Button';
 import Link from 'next/link';
+import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function QAAudit() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -157,10 +158,10 @@ export default function QAAudit() {
   ];
 
   const results = [
-    { metric: 'Production bugs', improvement: '–40–60%' },
+    { metric: 'Production bugs', improvement: '– 40% – 60%' },
     { metric: 'Release predictability', improvement: '+40%' },
     { metric: 'Cost of bugs', improvement: '3× lower' },
-    { metric: 'Regression time', improvement: '–20–35%' },
+    { metric: 'Regression time', improvement: '– 20% – 35%' },
   ];
 
   const faqs = [
@@ -290,7 +291,7 @@ export default function QAAudit() {
           </p>
 
           <div className="relative mb-12">
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00B476] via-[#00B476] to-transparent"></div>
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00B476] via-[#00B476] to-transparent z-0"></div>
 
             <div className="space-y-8">
               {analysisSteps.map((step, idx) => {
@@ -299,7 +300,7 @@ export default function QAAudit() {
                 return (
                   <div key={idx} className="relative pl-16">
                     <div
-                      className={`absolute left-0 w-12 h-12 rounded-full bg-black border-2 border-[#00B476] flex items-center justify-center ${
+                      className={`absolute left-0 w-12 h-12 rounded-full bg-black border-2 border-[#00B476] flex items-center justify-center z-10 ${
                         isLast ? '' : 'shadow-lg shadow-[#00B476]/20'
                       }`}
                     >
@@ -465,11 +466,10 @@ export default function QAAudit() {
                       </h3>
                     </div>
                     <div className="flex-shrink-0 sm:text-right">
-                      <div
-                        className={`text-lg sm:text-xl font-bold text-[#00B476] group-hover:scale-110 transition-transform`}
-                      >
-                        {result.improvement}
-                      </div>
+                      <FormatMetricValue
+                        value={result.improvement}
+                        valueClassName="text-lg sm:text-xl font-bold text-[#00B476] group-hover:scale-110 transition-transform"
+                      />
                     </div>
                   </div>
                 );

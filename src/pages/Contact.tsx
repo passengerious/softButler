@@ -54,6 +54,12 @@ const Contact = () => {
       setIsSubmitting(false);
       return;
     }
+
+    if (trimmedName.length > 100) {
+      toast.error("Name must be 100 characters or less");
+      setIsSubmitting(false);
+      return;
+    }
   
     // Email regex validating a proper TLD (at least 2 letters, e.g. .com, .io)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
@@ -80,7 +86,7 @@ const Contact = () => {
   
       customToast({
         title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours to discuss how we can help grow your e-commerce business.",
+        description: "We'll get back to you within 24 hours to discuss how we can help grow your business.",
         duration: 5000,
         className: "toast-with-progress"
       });
@@ -233,8 +239,6 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8 hover:border-green-500/30 transition-all duration-300">
-                <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
-                
                 {isSubmitted ? (
                   <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
@@ -255,7 +259,9 @@ const Contact = () => {
                     </p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <>
+                    <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
+                    <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <User className="w-4 h-4 inline mr-2" />
@@ -265,6 +271,7 @@ const Contact = () => {
                         type="text"
                         name="name"
                         required
+                        maxLength={100}
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
@@ -323,6 +330,7 @@ const Contact = () => {
                       )}
                     </motion.button>
                   </form>
+                  </>
                 )}
               </div>
             </motion.div>

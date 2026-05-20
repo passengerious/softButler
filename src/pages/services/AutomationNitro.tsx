@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Button from '../../components/Button';
 import Link from 'next/link';
+import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function AutomationNitro() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -84,9 +85,9 @@ export default function AutomationNitro() {
   ];
 
   const results = [
-    { metric: 'Manual Regression', improvement: '–40%' },
-    { metric: 'Production Bugs in Critical Flows', improvement: '–60%' },
-    { metric: 'CI Feedback Time', improvement: '–50%' },
+    { metric: 'Manual Regression', improvement: '– 40%' },
+    { metric: 'Production Bugs in Critical Flows', improvement: '– 60%' },
+    { metric: 'CI Feedback Time', improvement: '– 50%' },
   ];
 
   const faqs = [
@@ -292,7 +293,7 @@ export default function AutomationNitro() {
           </div>
 
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00B476] via-[#00B476] to-transparent hidden md:block"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00B476] via-[#00B476] to-transparent hidden md:block z-0"></div>
 
             <div className="space-y-8">
               {process.map((step, idx) => (
@@ -340,22 +341,25 @@ export default function AutomationNitro() {
           <div className="overflow-x-auto">
             <table className="w-full bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 rounded-xl overflow-hidden">
               <thead>
-                <tr className="bg-[#00B476]/10 border-b-2 border-[#00B476]/30">
-                  <th className="text-left p-6 text-[#00B476] font-bold text-lg">Metric</th>
-                  <th className="text-right p-6 text-[#00B476] font-bold text-lg">Improvement</th>
+                <tr className="bg-[#00B476]/10">
+                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Metric</th>
+                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Improvement</th>
                 </tr>
               </thead>
               <tbody>
                 {results.map((result, idx) => (
                   <tr
                     key={idx}
-                    className="border-b border-[#00B476]/10 hover:bg-[#00B476]/5 transition-colors group"
+                    className="hover:bg-[#00B476]/5 transition-colors group"
                   >
-                    <td className="p-6 text-gray-300 text-lg group-hover:text-white transition-colors">
+                    <td className="p-6 text-gray-300 text-lg group-hover:text-white transition-colors border-b border-[#00B476]/10">
                       {result.metric}
                     </td>
-                    <td className="p-6 text-right text-xl font-bold text-[#00B476] group-hover:scale-105 transition-transform">
-                      {result.improvement}
+                    <td className="p-6 text-right border-b border-[#00B476]/10">
+                      <FormatMetricValue
+                        value={result.improvement}
+                        valueClassName="text-xl font-bold text-[#00B476] group-hover:scale-105 transition-transform inline-block"
+                      />
                     </td>
                   </tr>
                 ))}

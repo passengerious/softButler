@@ -2,6 +2,7 @@ import SEO from '../../components/SEO';
 import { Store, Package, CreditCard, Repeat, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
+import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function Retail() {
   const pains = [
@@ -66,12 +67,12 @@ export default function Retail() {
   ];
 
   const metrics = [
-    { label: 'Checkout-related incidents', value: '–40–60%' },
-    { label: 'Pricing and promotion errors', value: '–50%' },
-    { label: 'Inventory mismatch issues', value: '–30–50%' },
-    { label: 'Regression testing time', value: '–25–40%' },
-    { label: 'Peak season incidents', value: '–45–65%' },
-    { label: 'Customer complaint volume', value: '–35–55%' },
+    { label: 'Checkout-related incidents', value: '– 40% – 60%' },
+    { label: 'Pricing and promotion errors', value: '– 50%' },
+    { label: 'Inventory mismatch issues', value: '– 30% – 50%' },
+    { label: 'Regression testing time', value: '– 25% – 40%' },
+    { label: 'Peak season incidents', value: '– 45% – 65%' },
+    { label: 'Customer complaint volume', value: '– 35% – 55%' },
   ];
 
   return (
@@ -243,7 +244,9 @@ export default function Retail() {
                 key={index}
                 className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#00B476]/40 transition-colors text-center"
               >
-                <div className="text-3xl font-bold text-[#00B476] mb-2">{metric.value}</div>
+                <div className="mb-2">
+                  <FormatMetricValue value={metric.value} valueClassName="text-3xl font-bold text-[#00B476]" />
+                </div>
                 <div className="text-sm text-gray-400">{metric.label}</div>
               </div>
             ))}
