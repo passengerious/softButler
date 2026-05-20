@@ -9,7 +9,7 @@ interface BookingCalendarProps {
 const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,11 +36,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
     return dates;
   };
 
-  // Generate time slots (8 AM to 8 PM Kyiv time)
-  const timeSlots = [
-    '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-    '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'
-  ];
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,7 +69,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
             Looking forward to fixing your QA!
           </p>
           <div className="text-sm text-green-500">
-            {selectedDate} at {selectedTime} (Kyiv time)
+            {selectedDate}
           </div>
         </motion.div>
       </div>
@@ -101,7 +97,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
         <div className="p-6">
           {/* Step Indicator */}
           <div className="flex items-center justify-center mb-8">
-            {[1, 2, 3].map((stepNumber) => (
+            {[1, 2].map((stepNumber) => (
               <div key={stepNumber} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                   step >= stepNumber 
@@ -110,7 +106,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                 }`}>
                   {stepNumber}
                 </div>
-                {stepNumber < 3 && (
+                {stepNumber < 2 && (
                   <div className={`w-12 h-0.5 mx-2 ${
                     step > stepNumber ? 'bg-green-500' : 'bg-gray-700'
                   }`} />
@@ -155,52 +151,8 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
             </motion.div>
           )}
 
-          {/* Step 2: Time Selection */}
+          {/* Step 2: Contact Information */}
           {step === 2 && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
-            >
-              <div className="flex items-center space-x-2 mb-4">
-                <Clock className="w-5 h-5 text-green-500" />
-                <h3 className="text-xl font-semibold text-white">Choose a Time (Kyiv Time)</h3>
-              </div>
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
-                {timeSlots.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => setSelectedTime(time)}
-                    className={`p-3 rounded-lg border text-center transition-all ${
-                      selectedTime === time
-                        ? 'border-green-500 bg-green-500/10 text-green-500'
-                        : 'border-gray-700 hover:border-gray-600 text-white'
-                    }`}
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => setStep(1)}
-                  className="flex-1 py-3 border border-gray-600 text-white rounded-lg hover:bg-gray-800 transition-colors"
-                >
-                  Back
-                </button>
-                <button
-                  onClick={() => setStep(3)}
-                  disabled={!selectedTime}
-                  className="flex-1 py-3 bg-green-500 text-black font-bold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-green-400 transition-colors"
-                >
-                  Continue
-                </button>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Step 3: Contact Information */}
-          {step === 3 && (
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -220,7 +172,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                     year: 'numeric', 
                     month: 'long', 
                     day: 'numeric' 
-                  })} at {selectedTime} (Kyiv time)
+                  })}
                 </p>
               </div>
 
@@ -284,7 +236,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ onClose }) => {
                 <div className="flex space-x-4 pt-4">
                   <button
                     type="button"
-                    onClick={() => setStep(2)}
+                    onClick={() => setStep(1)}
                     className="flex-1 py-3 border border-gray-600 text-white rounded-lg hover:bg-gray-800 transition-colors"
                   >
                     Back

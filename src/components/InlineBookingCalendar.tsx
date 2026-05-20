@@ -27,8 +27,7 @@ const InlineBookingCalendar = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
-  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,24 +59,7 @@ const InlineBookingCalendar = () => {
     [todayStart]
   );
 
-  // Generate time slots (8 AM to 8 PM Kyiv time)
-  const timeSlots = React.useMemo(
-    () => [
-      '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-      '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'
-    ],
-    []
-  );
 
-  const getMinBookableTime = () => new Date(Date.now() + 60 * 60 * 1000);
-
-  const hasAvailableTimesForDate = React.useCallback((date: Date) => {
-    const minTime = getMinBookableTime();
-    return timeSlots.some((time) => {
-      const dateTime = new Date(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}T${time}:00`);
-      return dateTime >= minTime;
-    });
-  }, [timeSlots]);
 
   // Generate calendar dates for current month
   const generateCalendarDates = () => {
@@ -98,8 +80,6 @@ const InlineBookingCalendar = () => {
       const isWeekend = date.getDay() === 0 || date.getDay() === 6;
       const isOutOfRange = date > maxDate;
       const isToday = date.toDateString() === new Date().toDateString();
-      const isTodayUnavailable = isToday && !hasAvailableTimesForDate(date);
-      
       dates.push({
         date: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`,
         day: date.getDate(),
@@ -108,7 +88,7 @@ const InlineBookingCalendar = () => {
         isWeekend,
         isOutOfRange,
         isToday,
-        isSelectable: isCurrentMonth && !isPast && !isOutOfRange && !isWeekend && !isTodayUnavailable
+        isSelectable: isCurrentMonth && !isPast && !isOutOfRange && !isWeekend
       });
     }
     
@@ -136,49 +116,8 @@ const InlineBookingCalendar = () => {
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
-    // Add a small delay to ensure the date is properly set before transitioning
     setTimeout(() => setCurrentStep(2), 300);
   };
-
-  const handleTimeSelect = (time: string) => {
-    setSelectedTime(time);
-    setTimeout(() => setCurrentStep(3), 300);
-  };
-
-  const isTimeSelectable = (time: string) => {
-    if (!selectedDate) {
-      return false;
-    }
-    const dateTime = new Date(`${selectedDate}T${time}:00`);
-    const minTime = getMinBookableTime();
-    return dateTime >= minTime && !bookedTimes.includes(time);
-  };
-
-  React.useEffect(() => {
-    if (!selectedDate) {
-      setBookedTimes([]);
-      return;
-    }
-    let isActive = true;
-    const fetchBookedTimes = async () => {
-      try {
-        const res = await fetch(`/.netlify/functions/send-booking-to-telegram?date=${selectedDate}`);
-        if (!res.ok) {
-          return;
-        }
-        const data = await res.json();
-        if (isActive) {
-          setBookedTimes(Array.isArray(data.times) ? data.times : []);
-        }
-      } catch {
-        // ignore errors and keep times empty
-      }
-    };
-    fetchBookedTimes();
-    return () => {
-      isActive = false;
-    };
-  }, [selectedDate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -193,15 +132,10 @@ const InlineBookingCalendar = () => {
           email: formData.email,
           message: formData.message,
           date: selectedDate,
-          displayDate: formatDateForDisplay(selectedDate),
-          time: selectedTime
+          displayDate: formatDateForDisplay(selectedDate)
         })
       });
 
-      if (res.status === 409) {
-        toast.error('This time slot is already booked. Please choose another.');
-        return;
-      }
       if (!res.ok) {
         throw new Error('Failed to send booking');
       }
@@ -213,7 +147,6 @@ const InlineBookingCalendar = () => {
       //   setIsSubmitted(false);
       //   setCurrentStep(1);
       //   setSelectedDate('');
-      //   setSelectedTime('');
       //   setFormData({ name: '', email: '', message: '' });
       // }, 5000);
     } catch (err) {
@@ -261,14 +194,12 @@ const InlineBookingCalendar = () => {
       const isPast = d < todayStart;
       const isWeekend = d.getDay() === 0 || d.getDay() === 6;
       const isOutOfRange = d > maxDate;
-      const isToday = d.toDateString() === new Date().toDateString();
-      const isTodayUnavailable = isToday && !hasAvailableTimesForDate(d);
-      if (!isPast && !isWeekend && !isOutOfRange && !isTodayUnavailable) {
+      if (!isPast && !isWeekend && !isOutOfRange) {
         return true;
       }
     }
     return false;
-  }, [todayStart, maxDate, hasAvailableTimesForDate]);
+  }, [todayStart, maxDate]);
 
   React.useEffect(() => {
     if (currentMonthStart < minMonth) {
@@ -288,8 +219,7 @@ const InlineBookingCalendar = () => {
 
   const steps = [
     { number: 1, title: 'Choose Date', icon: Calendar },
-    { number: 2, title: 'Select Time', icon: Clock },
-    { number: 3, title: 'Your Details', icon: User }
+    { number: 2, title: 'Your Details', icon: User }
   ];
 
   if (isSubmitted) {
@@ -315,7 +245,7 @@ const InlineBookingCalendar = () => {
               Looking forward to fixing your QA!
             </p>
             <div className="text-lg text-green-500 font-semibold mb-8">
-              {formatDateForDisplay(selectedDate)} at {selectedTime} (Kyiv time)
+              {formatDateForDisplay(selectedDate)}
             </div>
             
             <button
@@ -323,7 +253,6 @@ const InlineBookingCalendar = () => {
                 setIsSubmitted(false);
                 setCurrentStep(1);
                 setSelectedDate('');
-                setSelectedTime('');
                 setFormData({ name: '', email: '', message: '' });
               }}
               className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
@@ -482,74 +411,14 @@ const InlineBookingCalendar = () => {
                         </motion.button>
                       ))}
                     </div>
+
+
                   </div>
                 </motion.div>
               )}
 
-              {/* Step 2: Time Selection */}
+              {/* Step 2: Contact Form */}
               {currentStep === 2 && (
-                <motion.div
-                  key="step2"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-8"
-                >
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-green-500 mr-3" />
-                      Select Your Time (Kyiv Time)
-                    </h3>
-                    <p className="text-gray-300">
-                      Selected: {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
-                        weekday: 'long', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}
-                    </p>
-                  </div>
-
-                  <div className="max-w-lg mx-auto">
-                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                      {timeSlots.map((time) => {
-                        const selectable = isTimeSelectable(time);
-                        return (
-                        <motion.button
-                          key={time}
-                          onClick={() => (selectable ? handleTimeSelect(time) : null)}
-                          disabled={!selectable}
-                          whileHover={selectable ? { scale: 1.05 } : {}}
-                          whileTap={selectable ? { scale: 0.95 } : {}}
-                          className={`p-4 rounded-lg border text-center transition-all font-semibold ${
-                            !selectable
-                              ? 'border-gray-700 text-gray-500 cursor-not-allowed bg-gray-800/40'
-                              : selectedTime === time
-                                ? 'border-green-500 bg-green-500/10 text-green-500 shadow-[0_0_15px_rgba(52,152,219,0.3)]'
-                                : 'border-gray-700 hover:border-green-500/50 text-white hover:text-green-500 hover:bg-green-500/5'
-                          }`}
-                        >
-                          {time}
-                        </motion.button>
-                      );
-                      })}
-                    </div>
-
-                    <div className="flex justify-center mt-8">
-                      <button
-                        onClick={goBack}
-                        className="flex items-center space-x-2 px-6 py-3 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all"
-                      >
-                        <ArrowLeft className="w-4 h-4" />
-                        <span>Back to Date</span>
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Step 3: Contact Form */}
-              {currentStep === 3 && (
                 <motion.div
                   key="step3"
                   initial={{ opacity: 0, x: 50 }}
@@ -566,16 +435,16 @@ const InlineBookingCalendar = () => {
                     <p className="text-gray-300">Tell us about yourself and your QA challenges</p>
                   </div>
 
-                  {/* Selected Date & Time Display */}
+                  {/* Selected Date Display */}
                   <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 max-w-md mx-auto">
-                    <p className="text-green-500 font-semibold mb-1 text-center">Your Consultation:</p>
+                    <p className="text-green-500 font-semibold mb-1 text-center">Your Consultation Date:</p>
                     <p className="text-white text-center">
                       {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { 
                         weekday: 'long', 
                         year: 'numeric', 
                         month: 'long', 
                         day: 'numeric' 
-                      })} at {selectedTime} (Kyiv time)
+                      })}
                     </p>
                   </div>
 
@@ -631,7 +500,7 @@ const InlineBookingCalendar = () => {
                         className="flex-1 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        <span>Back to Time</span>
+                        <span>Back to Date</span>
                       </button>
                       <motion.button
                         type="submit"

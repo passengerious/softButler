@@ -3,23 +3,11 @@ const GROUP_ID = process.env.TELEGRAM_GROUP_ID?.trim();
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID?.trim();
 const TARGET_CHAT_ID = GROUP_ID || CHAT_ID || '-1003502873196';
 
-const bookedSlots = new Set();
-
 exports.handler = async function (event) {
   if (event.httpMethod === 'GET') {
-    const date = event.queryStringParameters?.date;
-    if (!date) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Missing date' }),
-      };
-    }
-    const times = Array.from(bookedSlots)
-      .filter((key) => key.startsWith(`${date}|`))
-      .map((key) => key.split('|')[1]);
     return {
       statusCode: 200,
-      body: JSON.stringify({ times }),
+      body: JSON.stringify({ times: [] }),
     };
   }
 
@@ -39,20 +27,12 @@ exports.handler = async function (event) {
       };
     }
 
-    const { name, email, message, date, time, displayDate } = JSON.parse(event.body);
+    const { name, email, message, date, displayDate } = JSON.parse(event.body);
 
-    if (!name || !email || !date || !time) {
+    if (!name || !email || !date) {
       return {
         statusCode: 400,
         body: JSON.stringify({ error: 'Missing fields' }),
-      };
-    }
-
-    const slotKey = `${date}|${time}`;
-    if (bookedSlots.has(slotKey)) {
-      return {
-        statusCode: 409,
-        body: JSON.stringify({ error: 'Slot already booked' }),
       };
     }
 
@@ -60,7 +40,7 @@ exports.handler = async function (event) {
 📅 New QA Consultation Booking:
 👤 Name: ${name}
 📧 Email: ${email}
-📅 Date: ${displayDate || date} at ${time} (Kyiv time)
+📅 Date: ${displayDate || date}
 📝 Message: ${message || '-'}
     `;
 
@@ -81,9 +61,6 @@ exports.handler = async function (event) {
         body: JSON.stringify({ error: 'Telegram API error', details: errorText }),
       };
     }
-
-    // Mark slot as booked only after Telegram accepts the message.
-    bookedSlots.add(slotKey);
 
     return {
       statusCode: 200,
