@@ -123,12 +123,23 @@ const InlineBookingCalendar = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+
     if (!trimmedName) {
       toast.error('Please enter your name.');
       return;
     }
     if (trimmedName.length > 100) {
       toast.error('Name must be 100 characters or less.');
+      return;
+    }
+    if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      toast.error('Please enter a valid email address.');
+      return;
+    }
+    if (!trimmedMessage) {
+      toast.error('Please enter your message.');
       return;
     }
     
@@ -140,8 +151,8 @@ const InlineBookingCalendar = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: trimmedName,
-          email: formData.email.trim(),
-          message: formData.message.trim(),
+          email: trimmedEmail,
+          message: trimmedMessage,
           date: selectedDate,
           displayDate: formatDateForDisplay(selectedDate)
         })
@@ -501,6 +512,7 @@ const InlineBookingCalendar = () => {
                       </label>
                       <textarea
                         rows={4}
+                        required
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all resize-none"

@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 import { AlertTriangle, Home } from 'lucide-react';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Custom404() {
-  const router = useRouter();
-
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
       <motion.div
@@ -28,15 +26,17 @@ export default function Custom404() {
           The page you&apos;re looking for doesn&apos;t exist.
         </p>
         
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => router.push('/')}
-          className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 flex items-center gap-2 mx-auto"
-        >
-          <Home className="w-5 h-5" />
-          Go Home
-        </motion.button>
+        <Link href="/" passHref legacyBehavior>
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 flex items-center gap-2 mx-auto cursor-pointer"
+            style={{ width: 'fit-content' }}
+          >
+            <Home className="w-5 h-5" />
+            Go Home
+          </motion.a>
+        </Link>
       </motion.div>
     </div>
   );
