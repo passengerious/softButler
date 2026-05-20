@@ -134,18 +134,18 @@ export default function Services() {
                     <h3 className="text-xl font-bold mb-3 group-hover:text-[#00B476] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mb-4">{service.description}</p>
+                    <p className="text-gray-400 mb-4">{service.description}</p>
                     <div className="space-y-1 mb-4 flex-1">
                       {service.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center text-xs">
-                          <CheckCircle className="text-[#00B476] mr-2" size={14} />
-                          <span className="text-gray-400">{highlight}</span>
+                        <div key={idx} className="flex items-center text-sm">
+                          <CheckCircle className="text-[#00B476] mr-2" size={16} />
+                          <span className="text-gray-300">{highlight}</span>
                         </div>
                       ))}
                     </div>
-                    <div className="flex items-center text-[#00B476] text-sm font-semibold mt-auto pt-2">
+                    <div className="flex items-center text-[#00B476] font-semibold mt-auto pt-2">
                       Learn more{' '}
-                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
+                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                     </div>
                   </div>
                 </Link>

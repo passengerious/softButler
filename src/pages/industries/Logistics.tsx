@@ -260,7 +260,7 @@ export default function Logistics() {
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-500 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
               <p className="text-gray-300 leading-relaxed">
                 Frequent production incidents causing delayed shipments, partner integration failures during peak hours,
                 firefighting mode — teams reacting to problems rather than preventing them. Operations team spending hours
@@ -268,14 +268,14 @@ export default function Logistics() {
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Problems</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
               <p className="text-gray-300 leading-relaxed">
                 Weak regression testing — changes breaking existing flows. Integrations tested only for happy paths, not edge cases.
                 Poor incident visibility — difficult to identify root cause quickly. No monitoring alignment — QA and operations working in silos.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
               <p className="text-gray-300 leading-relaxed">
                 Rebuilt QA flow around critical operational chains. Built integration testing strategy covering failure scenarios.
                 Aligned testing with monitoring and alerting. Created regression suites protecting high-risk areas.

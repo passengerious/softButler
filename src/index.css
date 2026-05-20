@@ -77,6 +77,8 @@ body {
   display: flex;
   align-items: center;
   gap: 3rem;
+  padding-right: 3rem;
+  flex-shrink: 0;
 }
 
 .glass-effect {
@@ -103,4 +105,16 @@ body {
   background:
     radial-gradient(circle at 20% 50%, rgba(0, 180, 118, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
+}
+
+/* Autofill styling overrides to prevent browser from turning fields white */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

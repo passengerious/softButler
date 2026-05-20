@@ -45,8 +45,20 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
   
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all fields");
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+  
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      toast.error("Please fill in all fields with valid content");
+      setIsSubmitting(false);
+      return;
+    }
+  
+    // Email regex validating a proper TLD (at least 2 letters, e.g. .com, .io)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      toast.error("Please enter a valid email address with a top-level domain (e.g. .com)");
       setIsSubmitting(false);
       return;
     }
@@ -55,7 +67,11 @@ const Contact = () => {
       const res = await fetch('/.netlify/functions/send-to-telegram', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage
+        })
       });
   
       if (!res.ok) {
@@ -71,6 +87,7 @@ const Contact = () => {
       
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
       toast.error("Error sending message. Please try again later.");
     } finally {
@@ -118,49 +135,95 @@ const Contact = () => {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  We&apos;re here to help you build better software. Whether you need a complete QA overhaul 
-                  or just want to chat about your testing challenges, we&apos;d love to hear from you.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg">
-                  <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-green-500" />
+              {isSubmitted ? (
+                <>
+                  <div className="bg-green-950/10 border border-green-500/20 rounded-lg p-6">
+                    <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
+                    <p className="text-gray-300">
+                      We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
+                      For urgent QA emergencies, mention &quot;URGENT&quot; in your subject line.
+                    </p>
                   </div>
+
                   <div>
-                    <p className="text-white font-semibold">Email Us</p>
-                    <p className="text-gray-300">start@softbutler.io</p>
+                    <h3 className="text-2xl font-bold text-white mb-6">You can also contact us via...</h3>
                   </div>
-                </div>
 
-                <motion.a
-                  href="https://linkedin.com/company/softbutler"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
-                  whileHover={{ x: 10 }}
-                >
-                  <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
-                    <Linkedin className="w-6 h-6 text-green-500" />
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg">
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
+                        <Mail className="w-6 h-6 text-green-500" />
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Email Us</p>
+                        <p className="text-gray-300">start@softbutler.io</p>
+                      </div>
+                    </div>
+
+                    <motion.a
+                      href="https://linkedin.com/company/softbutler"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
+                      whileHover={{ x: 10 }}
+                    >
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                        <Linkedin className="w-6 h-6 text-green-500" />
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">LinkedIn</p>
+                        <p className="text-gray-300">Connect with us professionally</p>
+                      </div>
+                    </motion.a>
                   </div>
+                </>
+              ) : (
+                <>
                   <div>
-                    <p className="text-white font-semibold">LinkedIn</p>
-                    <p className="text-gray-300">Connect with us professionally</p>
+                    <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
+                    <p className="text-gray-300 leading-relaxed mb-8">
+                      We&apos;re here to help you build better software. Whether you need a complete QA overhaul 
+                      or just want to chat about your testing challenges, we&apos;d love to hear from you.
+                    </p>
                   </div>
-                </motion.a>
-              </div>
 
-              <div className="bg-green-950/10 border border-green-500/20 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
-                <p className="text-gray-300">
-                  We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
-                  For urgent QA emergencies, mention &quot;URGENT&quot; in your subject line.
-                </p>
-              </div>
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg">
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
+                        <Mail className="w-6 h-6 text-green-500" />
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Email Us</p>
+                        <p className="text-gray-300">start@softbutler.io</p>
+                      </div>
+                    </div>
+
+                    <motion.a
+                      href="https://linkedin.com/company/softbutler"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-4 p-4 bg-green-950/15 border border-green-500/20 rounded-lg hover:border-green-500/50 transition-all duration-300 group"
+                      whileHover={{ x: 10 }}
+                    >
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                        <Linkedin className="w-6 h-6 text-green-500" />
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">LinkedIn</p>
+                        <p className="text-gray-300">Connect with us professionally</p>
+                      </div>
+                    </motion.a>
+                  </div>
+
+                  <div className="bg-green-950/10 border border-green-500/20 rounded-lg p-6">
+                    <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
+                    <p className="text-gray-300">
+                      We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
+                      For urgent QA emergencies, mention &quot;URGENT&quot; in your subject line.
+                    </p>
+                  </div>
+                </>
+              )}
             </motion.div>
 
             {/* Contact Form */}
@@ -186,8 +249,8 @@ const Contact = () => {
                     >
                       <CheckCircle className="w-8 h-8 text-black" />
                     </motion.div>
-                    <h4 className="text-xl font-bold text-white mb-2">Message Sent!</h4>
-                    <p className="text-gray-300">
+                    <h4 className="text-3xl font-bold text-white mb-4">Message Sent!</h4>
+                    <p className="text-xl text-gray-300 leading-relaxed">
                       Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                     </p>
                   </motion.div>

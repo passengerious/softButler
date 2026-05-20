@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
-import ConnectSection from './components/ConnectSection';
 import Footer from './components/Footer';
 
 interface LayoutProps {
@@ -21,7 +20,6 @@ function Layout({ children }: LayoutProps) {
       >
         {children}
       </motion.div>
-      <ConnectSection />
       <Footer />
     </div>
   );

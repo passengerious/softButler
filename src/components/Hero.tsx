@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Initial Glitch Screen Effect */}
       {showGlitchOverlay && (
         <motion.div
@@ -190,7 +190,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             transition={{ duration: 1 }}
             className="absolute inset-0"
           >
-            <div className="absolute top-20 right-20 w-64 h-40 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30">
+            <div className="absolute top-20 right-20 w-64 h-40 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30 hidden md:block">
               <div className="p-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <Shield className="w-4 h-4 text-green-500" />
@@ -202,7 +202,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
                 <div className="text-xs text-gray-400">Coverage: 98%</div>
               </div>
             </div>
-            <div className="absolute bottom-32 left-16 w-48 h-32 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30">
+            <div className="absolute bottom-32 left-16 w-48 h-32 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30 hidden md:block">
               <div className="p-3">
                 <Zap className="w-5 h-5 text-green-500 mb-2" />
                 <div className="text-sm text-green-500 mb-1">Bug Detected</div>

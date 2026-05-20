@@ -185,9 +185,9 @@ export default function EdTech() {
               );
             })}
           </div>
-          <div className="bg-gradient-to-r from-[#00B476]/10 to-transparent border-l-4 border-[#00B476] rounded-r-lg p-6">
-            <p className="text-xl text-gray-200 font-medium text-center">
-              &quot;QA protects learning flows, not just features.&quot;
+          <div className="mt-12 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 text-center">
+            <p className="text-xl md:text-2xl text-[#00B476] font-semibold leading-relaxed">
+              QA protects learning flows, not just features.
             </p>
           </div>
         </div>

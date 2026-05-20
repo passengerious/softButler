@@ -237,21 +237,21 @@ export default function FinTech() {
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Initial situation</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
               <p className="text-gray-300 leading-relaxed">
                 Frequent production incidents affecting transactions, slow and stressful releases,
                 team losing confidence in the release process, business stakeholders frustrated with quality unpredictability.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Key problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
               <p className="text-gray-300 leading-relaxed">
                 Weak regression coverage of critical payment flows, unstable automation that nobody trusted,
                 unclear ownership of quality risks, testing focused on UI rather than financial logic.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
               <p className="text-gray-300 leading-relaxed">
                 Rebuilt test strategy around transaction risk, stabilized automation for core flows,
                 established clear QA gates for releases, introduced risk-based test planning tied to business priorities.

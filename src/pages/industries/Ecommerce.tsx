@@ -259,7 +259,7 @@ export default function Ecommerce() {
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-500 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
               <p className="text-gray-300 leading-relaxed">
                 Frequent checkout issues causing lost revenue, unstable releases during peak seasons,
                 lost thousands in sales during promotional events. Team afraid to deploy during traffic spikes.
@@ -267,14 +267,14 @@ export default function Ecommerce() {
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Problems</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
               <p className="text-gray-300 leading-relaxed">
                 Weak regression coverage on checkout flow — small changes breaking purchases. Promotions and discounts tested manually,
                 causing pricing errors. Fragile payment integrations. No load testing — platform unstable during flash sales.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
               <p className="text-gray-300 leading-relaxed">
                 Built QA strategy around revenue-critical flows. Comprehensive checkout and payment validation.
                 Automated testing of promotional logic. Load testing for peak scenarios. Release validation before major sales events.

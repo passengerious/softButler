@@ -258,7 +258,7 @@ export default function Retail() {
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-500 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
               <p className="text-gray-300 leading-relaxed">
                 Frequent pricing and checkout issues frustrating customers. Unstable releases causing operational disruptions.
                 POS systems freezing during busy hours. Inventory showing incorrect availability across channels.
@@ -266,14 +266,14 @@ export default function Retail() {
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">Problems</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
               <p className="text-gray-300 leading-relaxed">
                 Fragmented systems with weak integration testing. Weak regression coverage on checkout and pricing flows.
                 Manual QA unable to keep up with catalog and campaign changes. No validation of inventory sync accuracy.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-gray-100 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
               <p className="text-gray-300 leading-relaxed">
                 Built retail-focused QA strategy around sales continuity. Risk-based coverage on checkout, pricing, and inventory.
                 Automated critical retail flows. Pre-launch validation for campaigns and catalog updates.

@@ -60,6 +60,7 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -76,6 +77,7 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 cursor-pointer h-full"
                 whileHover={{ scale: 1.02 }}
@@ -106,6 +108,7 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center mt-12"
           >

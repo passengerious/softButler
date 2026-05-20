@@ -493,11 +493,11 @@ const InlineBookingCalendar = () => {
                       />
                     </div>
 
-                    <div className="flex space-x-4 pt-4">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
                       <button
                         type="button"
                         onClick={goBack}
-                        className="flex-1 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2"
+                        className="w-full sm:w-1/2 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2"
                       >
                         <ArrowLeft className="w-4 h-4" />
                         <span>Back to Date</span>
@@ -507,7 +507,7 @@ const InlineBookingCalendar = () => {
                         disabled={isSubmitting}
                         whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                        className="flex-1 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full sm:w-1/2 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>

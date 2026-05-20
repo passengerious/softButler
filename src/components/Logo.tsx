@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 interface LogoProps {
   className?: string;
@@ -14,18 +14,17 @@ const sizeMap = {
   lg: 80
 };
 
-
-
 const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', animated = true }) => {
+  const pixelSize = sizeMap[size];
+
   const imgElement = (
-    <Image
+    <img
       src="/logo3.svg"
       alt="SoftButler Logo"
-      width={sizeMap[size]}
-      height={sizeMap[size]}
+      width={pixelSize}
+      height={pixelSize}
       className={className}
       draggable={false}
-      priority
     />
   );
 

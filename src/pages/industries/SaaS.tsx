@@ -230,21 +230,21 @@ export default function SaaS() {
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Initial situation</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
               <p className="text-gray-300 leading-relaxed">
                 Growing number of user-reported bugs, release anxiety, slow deployment cycles,
                 testing becoming a bottleneck as feature complexity increases.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Key problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
               <p className="text-gray-300 leading-relaxed">
                 Weak coverage of critical user journeys, manual regression taking days,
                 integration points untested, no systematic approach to prioritizing test efforts.
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
               <p className="text-gray-300 leading-relaxed">
                 Built automation for core user flows, established risk-based testing strategy,
                 improved API test coverage, introduced performance benchmarks for critical operations.

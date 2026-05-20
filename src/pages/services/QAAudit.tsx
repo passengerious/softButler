@@ -369,7 +369,7 @@ export default function QAAudit() {
             {packages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`rounded-lg p-8 border-2 transition-all duration-500 hover:-translate-y-2 ${
+                className={`flex flex-col h-full rounded-lg p-8 border-2 transition-all duration-500 hover:-translate-y-2 ${
                   pkg.highlight
                     ? 'bg-gradient-to-b from-[#00B476]/10 to-black border-[#00B476] shadow-xl shadow-[#00B476]/20 hover:shadow-2xl hover:shadow-[#00B476]/30'
                     : 'bg-green-950/20 border-[#00B476]/20 hover:border-[#00B476] hover:shadow-xl hover:shadow-[#00B476]/20'
@@ -393,7 +393,7 @@ export default function QAAudit() {
                   ))}
                 </div>
 
-                <div className="border-t border-[#00B476]/20 pt-6">
+                <div className="border-t border-[#00B476]/20 pt-6 mt-auto">
                     <Button href="/contact" variant={pkg.highlight ? 'primary' : 'secondary'} className="w-full">
                       Book a call
                     </Button>
