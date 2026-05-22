@@ -146,7 +146,7 @@ const InlineBookingCalendar = () => {
 
     try {
       const res = await fetch(
-        '/.netlify/functions/send-booking-to-telegram',
+        '/api/send-booking-to-telegram',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
