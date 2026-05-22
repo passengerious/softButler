@@ -6,17 +6,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).end('Method Not Allowed');
     }
 
-    const { name, email, message } = req.body;
+    const { name, email, message, date, displayDate } = req.body;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !date) {
         return res.status(400).json({ error: 'Missing fields' });
     }
 
     const telegramMessage = `
-📩 New Contact Form Submission:
+📅 New QA Consultation Booking:
 👤 Name: ${name}
 📧 Email: ${email}
-📝 Message: ${message}
+📅 Date: ${displayDate || date}
+📝 Message: ${message || '-'}
 `;
 
     const result = await sendTelegramMessage(telegramMessage);
