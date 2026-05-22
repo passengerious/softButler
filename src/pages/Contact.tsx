@@ -44,7 +44,8 @@ const Contact = () => {
       });
 
       if (!res.ok) {
-        throw new Error('Failed to send message');
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to send message');
       }
 
       showSuccessToast(
@@ -55,8 +56,9 @@ const Contact = () => {
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } catch {
-      showErrorToast('Error sending message. Please try again later.');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Error sending message. Please try again later.';
+      showErrorToast(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

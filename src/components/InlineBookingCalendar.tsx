@@ -161,13 +161,15 @@ const InlineBookingCalendar = () => {
       );
 
       if (!res.ok) {
-        throw new Error('Failed to send booking');
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to send booking');
       }
 
       setIsSubmitted(true);
     } catch (err) {
       console.error('Booking error:', err);
-      showErrorToast('Error booking consultation. Please try again.');
+      const errorMessage = err instanceof Error ? err.message : 'Error booking consultation. Please try again.';
+      showErrorToast(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
