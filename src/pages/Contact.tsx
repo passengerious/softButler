@@ -102,7 +102,7 @@ const Contact = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className={`space-y-8 ${isSubmitted ? 'order-last lg:order-none' : ''}`}
             >
               {isSubmitted ? (
                 <>
@@ -208,6 +208,7 @@ const Contact = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className={isSubmitted ? 'order-first lg:order-none' : ''}
             >
               <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8 hover:border-green-500/30 transition-all duration-300">
                 {isSubmitted ? (

@@ -393,8 +393,8 @@ const Home = () => {
             className="relative"
           >
             <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-12">
-              <blockquote className="text-3xl md:text-4xl font-bold leading-relaxed text-white">
+            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-8">
+              <blockquote className="text-2xl md:text-3xl font-bold leading-relaxed text-white">
                 &quot;
                 <motion.span
                   variants={quoteContainerVariants}
@@ -403,23 +403,23 @@ const Home = () => {
                   viewport={{ once: true, margin: "-100px" }}
                 >
                   {quotePart1.split("").map((char, index) => (
-                    <motion.span key={`q1-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
+                    <motion.span key={`q1-${index}`} variants={quoteLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
                       {char}
                     </motion.span>
                   ))}
                   {quotePart2.split("").map((char, index) => (
-                    <motion.span key={`q2-${index}`} variants={quoteGreenLetterVariants} className="inline-block whitespace-pre-wrap">
+                    <motion.span key={`q2-${index}`} variants={quoteGreenLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
                       {char}
                     </motion.span>
                   ))}
                   {quotePart3.split("").map((char, index) => (
-                    <motion.span key={`q3-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
+                    <motion.span key={`q3-${index}`} variants={quoteLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
                       {char}
                     </motion.span>
                   ))}
                   <br />
                   {quotePart4.split("").map((char, index) => (
-                    <motion.span key={`q4-${index}`} variants={quoteLetterVariants} className="inline-block whitespace-pre-wrap">
+                    <motion.span key={`q4-${index}`} variants={quoteLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
                       {char}
                     </motion.span>
                   ))}

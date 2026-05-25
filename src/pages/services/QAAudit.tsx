@@ -377,7 +377,7 @@ export default function QAAudit() {
                 }`}
               >
                 {pkg.highlight && (
-                  <div className="bg-[#00B476] text-black text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
+                  <div className="bg-[#00B476] text-black text-sm font-bold px-3 py-1 rounded-full inline-block mb-4 text-center">
                     MOST POPULAR
                   </div>
                 )}
