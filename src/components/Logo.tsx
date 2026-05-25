@@ -23,7 +23,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', animated = tru
       alt="SoftButler Logo"
       width={pixelSize}
       height={pixelSize}
-      className={className}
+      className={`drop-shadow-[0_8px_16px_rgba(0,0,0,0.35)] ${className}`}
       draggable={false}
     />
   );

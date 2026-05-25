@@ -344,9 +344,9 @@ const InlineBookingCalendar = () => {
         <div className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/30 transition-all duration-300">
           {/* Progress Indicator */}
           <div className="p-6 border-b border-gray-800">
-            <div className="flex items-center justify-center space-x-8">
+            <div className="flex items-center justify-between sm:justify-center w-full mx-auto max-w-sm sm:max-w-none px-4 sm:px-0">
               {steps.map((step, index) => (
-                <div key={step.number} className="flex items-center mx-auto sm:mx-0">
+                <React.Fragment key={step.number}>
                   <div className="flex items-center space-x-3">
                     <motion.div
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${
@@ -385,14 +385,14 @@ const InlineBookingCalendar = () => {
                   </div>
                   {index < steps.length - 1 && (
                     <div
-                      className={`w-12 h-0.5 mx-4 transition-colors ${
+                      className={`flex-1 sm:flex-none sm:w-12 h-0.5 mx-4 transition-colors animate-pulse ${
                         currentStep > step.number
                           ? 'bg-green-500'
                           : 'bg-gray-700'
                       }`}
                     />
                   )}
-                </div>
+                </React.Fragment>
               ))}
             </div>
           </div>
@@ -412,7 +412,6 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <Calendar className="w-6 h-6 text-green-500 inline-block align-middle flex-shrink-0 mr-3" />
                       Choose Your Preferred Date
                     </h3>
                     <p className="text-gray-300">
