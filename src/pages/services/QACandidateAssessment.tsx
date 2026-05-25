@@ -131,6 +131,10 @@ export default function QACandidateAssessment() {
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-8">
               Hire QA engineers with confidence — not hope
             </p>
+            <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+              Evaluate technical skills and testing mindset objectively. Filter out underperformers and identify the top 10% of talent before the final interview stage.
+            </p>
+            <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
         </div>
       </section>

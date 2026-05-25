@@ -106,7 +106,7 @@ export default function ServiceTemplate({
               <div className="absolute left-8 top-8 bottom-0 w-0.5 bg-black hidden md:block pointer-events-none"></div>
                   )}
                   <div className="flex-shrink-0 relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#00B476] to-[#00B476]/60 rounded-full flex items-center justify-center font-bold text-xl text-black shadow-lg shadow-[#00B476]/50 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#00B476] to-[#008A5A] rounded-full flex items-center justify-center font-bold text-xl text-black shadow-lg shadow-[#00B476]/50 group-hover:scale-110 transition-transform duration-300">
                       {idx + 1}
                     </div>
                   </div>

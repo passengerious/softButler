@@ -182,9 +182,14 @@ const InlineBookingCalendar = () => {
   const goBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+      // Start scrolling early for responsiveness
       setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
+      // Follow up after transition finishes to ensure perfect alignment
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 350);
     }
   };
 
