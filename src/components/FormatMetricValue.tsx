@@ -24,8 +24,8 @@ export function FormatMetricValue({
     rest = str.slice(prefixMatch[0].length).trim();
   }
   
-  // Check if it's a range like "40% – 60%" or "40-60%"
-  const rangeMatch = rest.match(/^(\d+)\s*(%?)\s*[-–]\s*(\d+)\s*(%?)(.*)$/);
+  // Check if it's a range like "40% – 60%" or "40-60%" or "40% — 60%"
+  const rangeMatch = rest.match(/^(\d+)\s*(%?)\s*[-–—]\s*(\d+)\s*(%?)(.*)$/);
   if (rangeMatch) {
     const [, firstNum, firstPct, secondNum, secondPct, extra] = rangeMatch;
     
@@ -38,7 +38,7 @@ export function FormatMetricValue({
       <span className="inline-flex items-baseline flex-nowrap">
         {prefix && <span className={`${valueClassName} mr-1.5 select-none`}>{prefix}</span>}
         <span className={valueClassName}>{first}</span>
-        <span className="text-sm mx-1.5 text-[#00B476] font-normal align-baseline opacity-90 shrink-0 select-none">–</span>
+        <span className={`${valueClassName} mx-1.5 opacity-90 shrink-0 select-none font-semibold`}>—</span>
         <span className={valueClassName}>{second}</span>
       </span>
     );
