@@ -22,10 +22,9 @@ const socialLinks: Array<{
 
 const ConnectSection = () => (
   <motion.section
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-50px' }}
-    transition={{ duration: 0.5 }}
+    transition={{ duration: 0.8 }}
     className="border-t border-green-500/20 bg-gradient-to-b from-black via-green-950/5 to-black py-12 md:py-16"
   >
     <div className="container mx-auto px-6">

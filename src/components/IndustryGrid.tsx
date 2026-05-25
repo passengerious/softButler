@@ -62,7 +62,6 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -75,52 +74,53 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedIndustries.map((industry, index) => (
-            <Link 
-              key={index} 
-              href={industry.path}
-              onClick={(e) => {
-                e.preventDefault();
-                router.replace('/#industries', undefined, { shallow: true }).then(() => {
-                  router.push(industry.path);
-                });
-              }}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="h-full"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 transition-all duration-300 cursor-pointer h-full"
-                whileHover={{ scale: 1.02 }}
+              <Link 
+                href={industry.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.replace('/#industries', undefined, { shallow: true }).then(() => {
+                    router.push(industry.path);
+                  });
+                }}
               >
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-green-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative">
-                  <industry.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
-                  <h3 className="text-xl font-bold mb-4 text-white">{industry.name}</h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">{industry.description}</p>
-                  {!preview && (
-                    <p className="text-green-500 text-sm  transition-opacity duration-300">
-                      {industry.details}
-                    </p>
-                  )}
-                </div>
+                <div
+                  className="group relative bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-green-500/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full"
+                >
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-green-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative">
+                    <industry.icon className="w-12 h-12 text-green-500 mb-6 group-hover:drop-shadow-[0_0_15px_#00B476] transition-all duration-300" />
+                    <h3 className="text-xl font-bold mb-4 text-white">{industry.name}</h3>
+                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">{industry.description}</p>
+                    {!preview && (
+                      <p className="text-green-500 text-sm  transition-opacity duration-300">
+                        {industry.details}
+                      </p>
+                    )}
+                  </div>
 
-                {/* Hover Border Glow */}
-                <div className="absolute inset-0 rounded-lg border border-green-500/0 group-hover:border-green-500/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(52,152,219,0.3)]" 
-                     style={{ boxShadow: '0 0 20px rgba(52, 152, 219, 0)' }} />
-              </motion.div>
-            </Link>
+                  {/* Hover Border Glow */}
+                  <div className="absolute inset-0 rounded-lg border border-green-500/0 group-hover:border-green-500/30 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(52,152,219,0.3)]" 
+                       style={{ boxShadow: '0 0 20px rgba(52, 152, 219, 0)' }} />
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
 
         {preview && (
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-12"
           >
             <Link

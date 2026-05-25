@@ -2,7 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
-  images: {},
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'logo.clearbit.com',
+      },
+    ],
+  },
   async redirects() {
     return [
       {

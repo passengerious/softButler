@@ -47,7 +47,7 @@ const SDLCSection = () => {
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          viewport={{ once: true }} whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -66,7 +66,7 @@ const SDLCSection = () => {
             <motion.div
               className="absolute inset-0 rounded-full border-4 border-green-500/30"
               initial={{ scale: 0, rotate: 0 }}
-              viewport={{ once: true }} whileInView={{ scale: 1, rotate: 360 }}
+              whileInView={{ scale: 1, rotate: 360 }}
               transition={{ duration: 2, delay: 0.5 }}
             />
             
@@ -74,14 +74,14 @@ const SDLCSection = () => {
             <motion.div
               className="absolute inset-2 rounded-full border-2 border-green-400 shadow-[0_0_50px_rgba(74,222,128,0.9)]"
               initial={{ opacity: 0 }}
-              viewport={{ once: true }} whileInView={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             />
 
             {/* QA Label in center */}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
-              viewport={{ once: true }} whileInView={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
               className="absolute inset-0 flex items-center justify-center"
             >
@@ -102,18 +102,20 @@ const SDLCSection = () => {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
-                  viewport={{ once: true }} whileInView={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute w-20 h-20 bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group animate-none"
+                  className="absolute w-20 h-20 group"
                   style={{
                     left: `calc(50% + ${x}px - 40px)`,
                     top: `calc(50% + ${y}px - 40px)`
                   }}
                 >
-                  <stage.icon className="w-4 h-4 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
-                  <span className="text-[10px] text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight p-1">
-                    {stage.title}
-                  </span>
+                  <div className="w-full h-full bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 animate-none">
+                    <stage.icon className="w-4 h-4 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
+                    <span className="text-[10px] text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight p-1">
+                      {stage.title}
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}
@@ -127,7 +129,7 @@ const SDLCSection = () => {
             <motion.div
               className="absolute inset-0 rounded-full border-4 border-green-500/30"
               initial={{ scale: 0, rotate: 0 }}
-              viewport={{ once: true }} whileInView={{ scale: 1, rotate: 360 }}
+              whileInView={{ scale: 1, rotate: 360 }}
               transition={{ duration: 2, delay: 0.5 }}
             />
             
@@ -135,14 +137,14 @@ const SDLCSection = () => {
             <motion.div
               className="absolute inset-2 rounded-full border-2 border-green-400 shadow-[0_0_50px_rgba(74,222,128,0.9)]"
               initial={{ opacity: 0 }}
-              viewport={{ once: true }} whileInView={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             />
 
             {/* QA Label in center */}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
-              viewport={{ once: true }} whileInView={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
               className="absolute inset-0 flex items-center justify-center"
             >
@@ -163,21 +165,23 @@ const SDLCSection = () => {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
-                  viewport={{ once: true }} whileInView={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute w-24 h-24 lg:hidden bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group"
+                  className="absolute w-24 h-24 lg:hidden group"
                   style={{
                     left: `calc(50% + ${x}px - 48px)`,
                     top: `calc(50% + ${y}px - 48px)`
                   }}
                 >
-                  <stage.icon className="w-6 h-6 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
-                  <span className="text-sm text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
-                    {stage.title}
-                  </span>
-                  <span className="text-sm text-green-500 font-semibold text-center leading-tight">
-                    {stage.qaNote}
-                  </span>
+                  <div className="w-full h-full bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300">
+                    <stage.icon className="w-6 h-6 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
+                    <span className="text-sm text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
+                      {stage.title}
+                    </span>
+                    <span className="text-sm text-green-500 font-semibold text-center leading-tight">
+                      {stage.qaNote}
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}
@@ -193,21 +197,23 @@ const SDLCSection = () => {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
-                  viewport={{ once: true }} whileInView={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="absolute hidden lg:flex w-28 h-28 bg-gray-900/80 border border-gray-700 rounded-lg flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300 group"
+                  className="absolute hidden lg:flex w-28 h-28 group"
                   style={{
                     left: `calc(50% + ${x}px - 56px)`,
                     top: `calc(50% + ${y}px - 56px)`
                   }}
                 >
-                  <stage.icon className="w-7 h-7 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
-                  <span className="text-base text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
-                    {stage.title}
-                  </span>
-                  <span className="text-base text-green-500 font-semibold text-center leading-tight">
-                    {stage.qaNote}
-                  </span>
+                  <div className="w-full h-full bg-gray-900/80 border border-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-green-500/50 transition-all duration-300">
+                    <stage.icon className="w-7 h-7 text-gray-400 mb-1 group-hover:text-green-500 transition-colors" />
+                    <span className="text-base text-gray-400 font-semibold group-hover:text-white transition-colors text-center leading-tight mb-1">
+                      {stage.title}
+                    </span>
+                    <span className="text-base text-green-500 font-semibold text-center leading-tight">
+                      {stage.qaNote}
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}
@@ -216,8 +222,8 @@ const SDLCSection = () => {
 
         {/* Bottom Note */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          viewport={{ once: true }} whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >

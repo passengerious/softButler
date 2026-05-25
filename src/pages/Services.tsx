@@ -75,9 +75,9 @@ export default function Services() {
       <SEO pageKey="services" />
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
-      <section className="py-20 mt-20 bg-black">
+      <section className="pt-20 pb-4 mt-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Our <span className="text-[#00B476]">Services</span>
             </h1>
@@ -89,7 +89,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-10 bg-gradient-to-b from-black via-green-950/5 to-black">
+      <section className="pt-2 pb-10 bg-gradient-to-b from-black via-green-950/5 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-12">
             <Star className="text-[#00B476] mr-3" size={32} />
@@ -109,8 +109,8 @@ export default function Services() {
                   <p className="text-gray-400 mb-6">{service.description}</p>
                   <div className="space-y-2 mb-6 flex-1">
                     {service.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-center text-sm">
-                        <CheckCircle className="text-[#00B476] mr-2" size={16} />
+                      <div key={idx} className="flex items-start text-sm">
+                        <CheckCircle className="text-[#00B476] mr-2 flex-shrink-0 mt-0.5" size={16} />
                         <span className="text-gray-300">{highlight}</span>
                       </div>
                     ))}
@@ -137,8 +137,8 @@ export default function Services() {
                     <p className="text-gray-400 mb-4">{service.description}</p>
                     <div className="space-y-1 mb-4 flex-1">
                       {service.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center text-sm">
-                          <CheckCircle className="text-[#00B476] mr-2" size={16} />
+                        <div key={idx} className="flex items-start text-sm">
+                          <CheckCircle className="text-[#00B476] mr-2 flex-shrink-0 mt-0.5" size={16} />
                           <span className="text-gray-300">{highlight}</span>
                         </div>
                       ))}
