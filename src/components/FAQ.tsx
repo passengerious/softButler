@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
-import { faqItems } from './FAQ.data';
+import { faqItems as defaultFaqItems } from './FAQ.data';
 
-const FAQ = () => {
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface FAQProps {
+  items?: FAQItem[];
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
+  className?: string;
+  id?: string;
+}
+
+const FAQ = ({
+  items = defaultFaqItems,
+  title = <>Frequently Asked <span className="text-green-500">Questions</span></>,
+  subtitle = "General Questions About QA and Testing",
+  className = "py-20 px-6 bg-gray-900/30",
+  id = "faq"
+}: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -11,29 +30,31 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-20 px-6 bg-gray-900/30">
+    <section id={id} className={className}>
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Frequently Asked <span className="text-green-500">Questions</span>
+            {title}
           </h2>
           <p className="text-xl text-gray-300">
-            General Questions About QA and Testing
+            {subtitle}
           </p>
         </motion.div>
 
         <div className="space-y-4">
-          {faqItems.map((faq, index) => (
+          {items.map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <div className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/50 transition-all duration-300">

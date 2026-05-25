@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import FAQ from '../../components/FAQ';
 import {
   CheckCircle,
   AlertCircle,
@@ -25,7 +26,6 @@ import Link from 'next/link';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function QAAudit() {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const checklistItems = [
     'Releases are stressful and unpredictable',
     'Production bugs appear after almost every release',
@@ -208,7 +208,13 @@ export default function QAAudit() {
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       <section className="py-20 mt-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Fix your QA system
@@ -247,11 +253,17 @@ export default function QAAudit() {
           <div className="text-center">
             <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
             When do you need a <span className="text-[#00B476]">QA Audit?</span>
           </h2>
@@ -276,11 +288,17 @@ export default function QAAudit() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
             What we <span className="text-[#00B476]">actually do</span>
           </h2>
@@ -328,11 +346,17 @@ export default function QAAudit() {
             </p>
             <p className="text-gray-400">Ready to implement from day one</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Why <span className="text-[#00B476]">work with us?</span>
           </h2>
@@ -354,11 +378,17 @@ export default function QAAudit() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Choose the level of <span className="text-[#00B476]">impact</span>
           </h2>
@@ -402,11 +432,17 @@ export default function QAAudit() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             What you get after <span className="text-[#00B476]">QA Audit</span>
           </h2>
@@ -476,52 +512,25 @@ export default function QAAudit() {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              QA Audit <span className="text-[#00B476]">FAQ</span>
-            </h2>
-            <p className="text-gray-300 mt-3">
-              Clear answers to the most common questions about our audit process.
-            </p>
-          </div>
+      <FAQ 
+        items={faqs} 
+        title={<>QA Audit <span className="text-[#00B476]">FAQ</span></>}
+        subtitle="Clear answers to common questions about our QA Audit process."
+        className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
+      />
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaqIndex === index;
-              return (
-                <div
-                  key={faq.question}
-                  className="bg-black/60 border border-[#00B476]/20 rounded-lg overflow-hidden transition-all duration-300"
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-green-500/5 transition-colors"
-                  >
-                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
-                    <span className="text-[#00B476] flex-shrink-0">
-                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-6">
-                      <div className="h-px bg-gradient-to-r from-[#00B476]/50 to-transparent mb-4" />
-                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <section id="contact" className="py-20 bg-black">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             What we need <span className="text-[#00B476]">from you?</span>
           </h2>
@@ -534,7 +543,7 @@ export default function QAAudit() {
             <span className="text-[#00B476]">stability</span>, and a{' '}
             <span className="text-[#00B476]">QA system that scales</span> with your product.
           </p>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

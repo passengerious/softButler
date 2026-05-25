@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import FAQ from '../../components/FAQ';
 import {
   CheckCircle,
   ArrowRight,
@@ -16,7 +17,6 @@ import Link from 'next/link';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
 
 export default function AutomationNitro() {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const benefits = [
     'Reduce regression testing time by up to 80%',
     'Improve test reliability and eliminate flaky tests',
@@ -134,7 +134,13 @@ export default function AutomationNitro() {
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
       <div className="pointer-events-none absolute top-40 -right-20 h-80 w-80 rounded-full bg-green-500/10 blur-3xl" />
       <section className="py-20 mt-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Automation Nitro
@@ -150,12 +156,18 @@ export default function AutomationNitro() {
             </p>
             <Button href="/contact" className="text-lg">Book a call</Button>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-[#dc2626]/5 to-black relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#dc2626]/5 via-transparent to-[#dc2626]/5 opacity-40"></div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        >
           <div className="text-center mb-12">
             <AlertTriangle className="text-[#dc2626] mx-auto mb-4" size={48} />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -177,11 +189,17 @@ export default function AutomationNitro() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Key <span className="text-[#00B476]">Benefits</span>
           </h2>
@@ -202,12 +220,18 @@ export default function AutomationNitro() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#00B476]/3 via-transparent to-transparent"></div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        >
           <div className="text-center mb-16">
             <div className="inline-block bg-[#00B476]/10 px-6 py-2 rounded-full mb-4 animate-pulse">
               <span className="text-[#00B476] font-bold text-sm">POWERED BY AI</span>
@@ -252,11 +276,17 @@ export default function AutomationNitro() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             What&apos;s <span className="text-[#00B476]">Included</span>
           </h2>
@@ -277,14 +307,20 @@ export default function AutomationNitro() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-r from-[#00B476]/10 via-transparent to-[#00B476]/10"></div>
         </div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Our <span className="text-[#00B476]">Process</span>
@@ -326,11 +362,17 @@ export default function AutomationNitro() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Expected <span className="text-[#00B476]">Results</span>
           </h2>
@@ -366,52 +408,24 @@ export default function AutomationNitro() {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Automation Nitro <span className="text-[#00B476]">FAQ</span>
-            </h2>
-            <p className="text-gray-300 mt-3">
-              Clear answers to common questions about automation setup and outcomes.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaqIndex === index;
-              return (
-                <div
-                  key={faq.question}
-                  className="bg-black/60 border border-[#00B476]/20 rounded-lg overflow-hidden transition-all duration-300"
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-green-500/5 transition-colors"
-                  >
-                    <h3 className="text-lg font-semibold text-white pr-4">{faq.question}</h3>
-                    <span className="text-[#00B476] flex-shrink-0">
-                      {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-6">
-                      <div className="h-px bg-gradient-to-r from-[#00B476]/50 to-transparent mb-4" />
-                      <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <FAQ 
+        items={faqs} 
+        title={<>Automation Nitro <span className="text-[#00B476]">FAQ</span></>}
+        subtitle="Clear answers to common questions about automation setup and outcomes."
+        className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
+      />
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
           <div className="bg-black/60 backdrop-blur-sm border border-green-500/20 rounded-2xl px-6 py-8 sm:px-10 sm:py-10">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">
             Ready to <span className="text-[#00B476]">Automate Your Testing?</span>
@@ -445,7 +459,7 @@ export default function AutomationNitro() {
             No commitment required. See how automation can transform your testing.
           </p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-950 to-black">
