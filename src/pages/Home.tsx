@@ -1,5 +1,6 @@
 import SEO from '../components/SEO';
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -26,6 +27,7 @@ import {
 } from '../components/CompanyLogos';
 
 const Home = () => {
+  const router = useRouter();
   const aboutRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -329,6 +331,12 @@ const Home = () => {
                   <div className="pt-2">
                     <Link
                       href="/who-we-are"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        router.replace('/#about', undefined, { shallow: true }).then(() => {
+                          router.push('/who-we-are');
+                        });
+                      }}
                       className="inline-flex items-center text-green-500 hover:text-green-400 font-semibold text-lg group transition-colors"
                     >
                       Learn our story

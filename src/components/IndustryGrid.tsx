@@ -125,6 +125,12 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
           >
             <Link
               href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                router.replace('/#industries', undefined, { shallow: true }).then(() => {
+                  router.push('/contact');
+                });
+              }}
               className="inline-block px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transform hover:scale-105 transition-all duration-300 hover:drop-shadow-[0_0_20px_#00B476]"
             >
               Get a Free Audit

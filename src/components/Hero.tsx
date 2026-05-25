@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Bug, Zap, Shield, AlertTriangle } from 'lucide-react';
 
@@ -8,6 +9,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
+  const router = useRouter();
   const [glitchActive, setGlitchActive] = useState(true);
   const [showGlitchOverlay, setShowGlitchOverlay] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
@@ -265,6 +267,12 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             </button>
             <Link
               href="/services"
+              onClick={(e) => {
+                e.preventDefault();
+                router.replace('/#hero', undefined, { shallow: true }).then(() => {
+                  router.push('/services');
+                });
+              }}
               className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
             >
               Our Services
