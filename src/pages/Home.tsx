@@ -1,5 +1,5 @@
 import SEO from '../components/SEO';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -73,10 +73,29 @@ const Home = () => {
     }
   };
 
-  const quotePart1 = "Your users won't give you a ";
+  const quotePart1 = "Your users won't give you a";
   const quotePart2 = "second chance";
   const quotePart3 = ".";
   const quotePart4 = "We make sure they never see the bugs.";
+
+  const renderAnimatedText = (text: string, isGreen: boolean = false, keyPrefix: string) => {
+    const words = text.split(" ");
+    return words.map((word, wordIdx) => (
+      <Fragment key={`${keyPrefix}-${wordIdx}`}>
+        <span className="inline-block">
+          {word.split("").map((char, charIdx) => (
+            <motion.span
+              key={`${keyPrefix}-${wordIdx}-${charIdx}`}
+              variants={isGreen ? quoteGreenLetterVariants : quoteLetterVariants}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </span>
+        {wordIdx < words.length - 1 && ' '}
+      </Fragment>
+    ));
+  };
 
   const companyLogos = [
     { id: 'np', Component: NovaPostLogo },
@@ -401,27 +420,12 @@ const Home = () => {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                 >
-                  {quotePart1.split("").map((char, index) => (
-                    <motion.span key={`q1-${index}`} variants={quoteLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
-                      {char}
-                    </motion.span>
-                  ))}
-                  {quotePart2.split("").map((char, index) => (
-                    <motion.span key={`q2-${index}`} variants={quoteGreenLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
-                      {char}
-                    </motion.span>
-                  ))}
-                  {quotePart3.split("").map((char, index) => (
-                    <motion.span key={`q3-${index}`} variants={quoteLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
-                      {char}
-                    </motion.span>
-                  ))}
+                  {renderAnimatedText(quotePart1, false, "q1")}
+                  {' '}
+                  {renderAnimatedText(quotePart2, true, "q2")}
+                  {renderAnimatedText(quotePart3, false, "q3")}
                   <br />
-                  {quotePart4.split("").map((char, index) => (
-                    <motion.span key={`q4-${index}`} variants={quoteLetterVariants} className={char === ' ' ? 'whitespace-pre' : ''}>
-                      {char}
-                    </motion.span>
-                  ))}
+                  {renderAnimatedText(quotePart4, false, "q4")}
                 </motion.span>
                 &quot;
               </blockquote>
