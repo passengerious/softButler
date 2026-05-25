@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ShoppingCart, DollarSign, Laptop, GraduationCap, Truck, Store } from 'lucide-react';
 
 interface IndustryGridProps {
@@ -7,6 +8,7 @@ interface IndustryGridProps {
 }
 
 const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
+  const router = useRouter();
   const industries = [
     {
       name: "E-commerce",
@@ -55,7 +57,7 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
   const displayedIndustries = preview ? industries.slice(0, 6) : industries;
 
   return (
-    <section className="py-20 px-6">
+    <section id="industries" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -73,7 +75,16 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedIndustries.map((industry, index) => (
-            <Link key={index} href={industry.path}>
+            <Link 
+              key={index} 
+              href={industry.path}
+              onClick={(e) => {
+                e.preventDefault();
+                router.replace('/#industries', undefined, { shallow: true }).then(() => {
+                  router.push(industry.path);
+                });
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

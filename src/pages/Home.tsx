@@ -162,7 +162,7 @@ const Home = () => {
       }} />
 
       {/* INDUSTRY EXPERIENCE SECTION */}
-      <section className="pt-12 pb-24 bg-gradient-to-b from-black via-green-950/15 to-black overflow-hidden">
+      <section id="experience" className="pt-12 pb-24 bg-gradient-to-b from-black via-green-950/15 to-black overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -235,7 +235,7 @@ const Home = () => {
       </section>
       
       {/* Why QA Breaks Section */}
-      <section className="py-20 px-6">
+      <section id="why-qa-breaks" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -280,6 +280,7 @@ const Home = () => {
 
       {/* About Us Section */}
       <section
+        id="about"
         ref={aboutRef}
         className="relative py-24 md:py-32 overflow-hidden bg-black"
       >
@@ -374,7 +375,7 @@ const Home = () => {
       </section>
       
       {/* Impact Quote */}
-      <section className="py-20 px-6">
+      <section id="quote" className="py-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -423,7 +424,7 @@ const Home = () => {
       </section>
 
       {/* Clutch Widget */}
-      <section className="py-12 px-6">
+      <section id="reviews" className="py-12 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="flex justify-center items-center">
             {isMounted && (

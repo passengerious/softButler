@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Initial Glitch Screen Effect */}
       {showGlitchOverlay && (
         <motion.div

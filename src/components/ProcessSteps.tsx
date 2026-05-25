@@ -31,7 +31,7 @@ const ProcessSteps = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gray-900/30">
+    <section id="process" className="py-20 px-6 bg-gray-900/30">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
