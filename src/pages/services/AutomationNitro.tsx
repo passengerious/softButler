@@ -97,7 +97,7 @@ export default function AutomationNitro() {
         'Automation Nitro covers test automation setup from scratch or improvement of existing automation, including framework setup, test creation, CI/CD integration, and best practices.',
     },
     {
-      question: 'Is Automation Nitro suitable if we don&apos;t have automation yet?',
+      question: "Is Automation Nitro suitable if we don't have automation yet?",
       answer:
         'Yes. This service is designed both for products without automation and for teams with unstable or poorly maintained test automation.',
     },

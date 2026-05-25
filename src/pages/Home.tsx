@@ -392,8 +392,8 @@ const Home = () => {
             className="relative"
           >
             <div className="absolute inset-0 bg-green-500/10 rounded-2xl blur-3xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-8">
-              <blockquote className="text-2xl md:text-3xl font-bold leading-relaxed text-white">
+            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-green-500/30 rounded-2xl p-6 md:p-8 lg:p-12">
+              <blockquote className="text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed text-white">
                 &quot;
                 <motion.span
                   variants={quoteContainerVariants}
