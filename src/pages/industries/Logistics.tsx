@@ -67,12 +67,12 @@ export default function Logistics() {
   ];
 
   const metrics = [
-    { label: 'Operational incidents', value: '– 40% – 60%' },
-    { label: 'Integration-related failures', value: '– 45% – 65%' },
-    { label: 'Incident detection time', value: '– 30% – 50%' },
-    { label: 'Mean time to recovery (MTTR)', value: '– 25% – 40%' },
-    { label: 'Release stability', value: '+ 30% – 45%' },
-    { label: 'Manual recovery operations cost', value: '– 35% – 55%' },
+    { label: 'Operational incidents', value: '-60%' },
+    { label: 'Integration-related failures', value: '-65%' },
+    { label: 'Incident detection time', value: '-50%' },
+    { label: 'Mean time to recovery (MTTR)', value: '-40%' },
+    { label: 'Release stability', value: '+45%' },
+    { label: 'Manual recovery operations cost', value: '-55%' },
   ];
 
   return (
@@ -105,7 +105,7 @@ export default function Logistics() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value="-60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
               <div className="text-gray-300 text-sm">Operational incidents reduced</div>
             </div>

@@ -38,10 +38,10 @@ export default function SaaS() {
   ];
 
   const metrics = [
-    { label: 'User-reported bugs', value: '– 45% – 70%', icon: TrendingDown },
-    { label: 'Release frequency', value: '+ 40% – 60%', icon: Target },
-    { label: 'Test execution time', value: '– 30% – 50%', icon: TrendingDown },
-    { label: 'Production incidents', value: '– 35% – 55%', icon: Shield },
+    { label: 'User-reported bugs', value: '-70%', icon: TrendingDown },
+    { label: 'Release frequency', value: '+60%', icon: Target },
+    { label: 'Test execution time', value: '-50%', icon: TrendingDown },
+    { label: 'Production incidents', value: '-55%', icon: Shield },
   ];
 
   return (
@@ -72,13 +72,13 @@ export default function SaaS() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="45% – 70%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value="-70%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
               <div className="text-gray-300 text-sm">User-reported bugs reduced</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value="+60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
               <div className="text-gray-300 text-sm">Release frequency increased</div>
             </div>

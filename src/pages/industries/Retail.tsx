@@ -67,12 +67,12 @@ export default function Retail() {
   ];
 
   const metrics = [
-    { label: 'Checkout-related incidents', value: '– 40% – 60%' },
+    { label: 'Checkout-related incidents', value: '-60%' },
     { label: 'Pricing and promotion errors', value: '– 50%' },
-    { label: 'Inventory mismatch issues', value: '– 30% – 50%' },
-    { label: 'Regression testing time', value: '– 25% – 40%' },
-    { label: 'Peak season incidents', value: '– 45% – 65%' },
-    { label: 'Customer complaint volume', value: '– 35% – 55%' },
+    { label: 'Inventory mismatch issues', value: '-50%' },
+    { label: 'Regression testing time', value: '-40%' },
+    { label: 'Peak season incidents', value: '-65%' },
+    { label: 'Customer complaint volume', value: '-55%' },
   ];
 
   return (

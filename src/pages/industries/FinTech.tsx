@@ -37,10 +37,10 @@ export default function FinTech() {
   ];
 
   const metrics = [
-    { label: 'Critical production bugs', value: '– 40% – 65%', icon: TrendingDown },
-    { label: 'Release predictability', value: '+ 35% – 50%', icon: Target },
-    { label: 'Regression execution time', value: '– 25% – 40%', icon: TrendingDown },
-    { label: 'Cost of post-release fixes', value: '2–4× lower', icon: Shield },
+    { label: 'Critical production bugs', value: '-65%', icon: TrendingDown },
+    { label: 'Release predictability', value: '+50%', icon: Target },
+    { label: 'Regression execution time', value: '-40%', icon: TrendingDown },
+    { label: 'Cost of post-release fixes', value: '', icon: Shield },
   ];
 
   return (
@@ -72,7 +72,7 @@ export default function FinTech() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value="-65%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
               <div className="text-gray-300 text-sm">Production incidents reduced</div>
             </div>

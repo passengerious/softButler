@@ -390,17 +390,14 @@ export default function AutomationNitro() {
               </thead>
               <tbody>
                 {results.map((result, idx) => (
-                  <tr
-                    key={idx}
-                    className="hover:bg-[#00B476]/5 transition-colors group"
-                  >
-                    <td className="p-6 text-gray-300 text-lg group-hover:text-white transition-colors border-b border-[#00B476]/10">
+                  <tr key={idx}>
+                    <td className="p-6 text-gray-300 text-lg border-b border-gray-800/50">
                       {result.metric}
                     </td>
-                    <td className="p-6 text-right border-b border-[#00B476]/10">
+                    <td className="p-6 text-right border-b border-gray-800/50">
                       <FormatMetricValue
                         value={result.improvement}
-                        valueClassName="text-xl font-bold text-[#00B476] group-hover:scale-105 transition-transform inline-block"
+                        valueClassName="text-xl font-bold text-[#00B476]"
                       />
                     </td>
                   </tr>

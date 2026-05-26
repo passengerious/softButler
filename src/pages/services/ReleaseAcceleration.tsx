@@ -405,14 +405,11 @@ export default function ReleaseAcceleration() {
               </thead>
               <tbody>
                 {results.map((result, idx) => (
-                  <tr
-                    key={idx}
-                    className="hover:bg-[#00B476]/5 transition-colors group"
-                  >
-                    <td className="p-6 text-gray-300 text-base font-normal group-hover:text-white transition-colors border-b border-[#00B476]/10">
+                  <tr key={idx}>
+                    <td className="p-6 text-gray-300 text-base font-normal border-b border-gray-800/50">
                       {result.metric}
                     </td>
-                    <td className="p-6 text-right text-xl font-bold text-[#00B476] group-hover:scale-105 transition-transform border-b border-[#00B476]/10">
+                    <td className="p-6 text-right text-xl font-bold text-[#00B476] border-b border-gray-800/50">
                       {result.improvement}
                     </td>
                   </tr>

@@ -68,13 +68,13 @@ export default function QACandidateAssessment() {
   ];
 
   const results = [
-    { metric: 'Wrong Hire Risk', improvement: '– 50% – 70%' },
+    { metric: 'Wrong Hire Risk', improvement: '-70%' },
     { metric: 'Hiring Confidence', improvement: '+100%' },
     { metric: 'Fewer Re-hires', improvement: 'Significant' },
   ];
 
   const metrics = [
-    { label: 'Wrong Hire Risk', value: '– 50% – 70%' },
+    { label: 'Wrong Hire Risk', value: '-70%' },
     { label: 'Hiring Confidence', value: '+100%' },
     { label: 'Fewer Re-hires', value: 'Significant' },
   ];

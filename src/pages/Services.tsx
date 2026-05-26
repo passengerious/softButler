@@ -27,7 +27,7 @@ export default function Services() {
     {
       slug: 'qa-candidate-assessment',
       title: 'QA Candidate Assessment',
-      description: 'Hire QA engineers with confidence — not hope. Reduce hiring mistakes by 50-70%.',
+      description: 'Hire QA engineers with confidence — not hope. Reduce hiring mistakes by 70%.',
       highlights: ['Unbiased evaluation', 'Real-world testing', 'Clear hire/no-hire recommendation'],
     },
   ];

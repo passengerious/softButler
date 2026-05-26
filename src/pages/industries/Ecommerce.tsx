@@ -68,12 +68,12 @@ export default function Ecommerce() {
   ];
 
   const metrics = [
-    { label: 'Conversion-impacting bugs', value: '– 45% – 65%' },
-    { label: 'Checkout failures', value: '– 40% – 60%' },
-    { label: 'Production incidents during sales', value: '– 50% – 70%' },
-    { label: 'Regression execution time', value: '– 25% – 40%' },
-    { label: 'Faster promotional launches', value: '+ 30% – 50%' },
-    { label: 'Revenue loss from incidents', value: '– 35% – 60%' },
+    { label: 'Conversion-impacting bugs', value: '-65%' },
+    { label: 'Checkout failures', value: '-60%' },
+    { label: 'Production incidents during sales', value: '-70%' },
+    { label: 'Regression execution time', value: '-40%' },
+    { label: 'Faster promotional launches', value: '+50%' },
+    { label: 'Revenue loss from incidents', value: '-60%' },
   ];
 
   return (
@@ -104,7 +104,7 @@ export default function Ecommerce() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value="-60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
               <div className="text-gray-300 text-sm">Checkout failures reduced</div>
             </div>

@@ -20,6 +20,7 @@ const InlineBookingCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState('');
   const sectionRef = React.useRef<HTMLDivElement>(null);
+  const calendarCardRef = React.useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -184,11 +185,11 @@ const InlineBookingCalendar = () => {
       setCurrentStep(currentStep - 1);
       // Start scrolling early for responsiveness
       setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        calendarCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
       // Follow up after transition finishes to ensure perfect alignment
       setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        calendarCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 350);
     }
   };
@@ -346,7 +347,10 @@ const InlineBookingCalendar = () => {
           </p>
         </motion.div>
 
-        <div className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/30 transition-all duration-300">
+        <div
+          ref={calendarCardRef}
+          className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/30 transition-all duration-300 scroll-mt-24"
+        >
           {/* Progress Indicator */}
           <div className="p-6 border-b border-gray-800">
             <div className="flex items-center justify-between sm:justify-center w-full mx-auto max-w-sm sm:max-w-none px-4 sm:px-0">
@@ -519,7 +523,6 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      <User className="w-6 h-6 text-green-500 inline-block align-middle flex-shrink-0 mr-3" />
                       Almost There! Your Details
                     </h3>
                     <p className="text-gray-300">

@@ -67,11 +67,11 @@ export default function EdTech() {
   ];
 
   const results = [
-    { metric: '– 40% – 65%', label: 'Platform incidents' },
-    { metric: '– 60% – 70%', label: 'Peak-load failures' },
-    { metric: '– 30% – 50%', label: 'User complaints' },
-    { metric: '+ 35% – 50%', label: 'Release stability' },
-    { metric: '– 25% – 40%', label: 'Regression execution time' },
+    { metric: '-65%', label: 'Platform incidents' },
+    { metric: '-70%', label: 'Peak-load failures' },
+    { metric: '-50%', label: 'User complaints' },
+    { metric: '+50%', label: 'Release stability' },
+    { metric: '-40%', label: 'Regression execution time' },
     { metric: 'Faster', label: 'Feature launches' },
   ];
 
@@ -103,7 +103,7 @@ export default function EdTech() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="40% – 60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value="-65%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
               <div className="text-gray-300 text-sm">Platform incidents reduced</div>
             </div>

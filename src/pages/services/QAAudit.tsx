@@ -158,10 +158,10 @@ export default function QAAudit() {
   ];
 
   const results = [
-    { metric: 'Production bugs', improvement: '– 40% – 60%' },
+    { metric: 'Production bugs', improvement: '-60%' },
     { metric: 'Release predictability', improvement: '+40%' },
     { metric: 'Cost of bugs', improvement: '3× lower' },
-    { metric: 'Regression time', improvement: '– 20% – 35%' },
+    { metric: 'Regression time', improvement: '-35%' },
   ];
 
   const faqs = [
