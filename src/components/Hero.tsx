@@ -12,7 +12,6 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
   const router = useRouter();
   const [glitchActive, setGlitchActive] = useState(true);
   const [showGlitchOverlay, setShowGlitchOverlay] = useState(true);
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [floatingBugs, setFloatingBugs] = useState<
     { id: number; initialX: number; initialY: number; delay: number }[]
   >([]);
@@ -33,24 +32,6 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
       clearTimeout(glitchTimer);
     };
   }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Показуємо індикатор тільки коли користувач на початку сторінки (в межах 100px від верху)
-      setShowScrollIndicator(scrollY < 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleScrollDown = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  };
 
   useEffect(() => {
     const bugs = Array.from({ length: 6 }, (_, i) => ({
@@ -237,11 +218,10 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
                 transition={{ duration: 2, repeat: Infinity }}
               />
             </span>
-            .<br />
+            <br />
             <span className="text-green-500 drop-shadow-[0_0_20px_#00B476]">
               We&apos;ll Fix It
             </span>
-            .
           </h1>
 
           <motion.p
@@ -281,19 +261,6 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
         </motion.div>
       </motion.div>
  
-      {/* Scroll Indicator */}
-      {showScrollIndicator && (
-        <motion.button
-          onClick={handleScrollDown}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer focus:outline-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ duration: 0.8, delay: 3.5, repeat: Infinity, repeatDelay: 1 }}
-          whileHover={{ scale: 1.1 }}
-        >
-          <div className="w-1 h-16 bg-gradient-to-b from-green-500 to-transparent rounded-full" />
-        </motion.button>
-      )}
     </section>
   );
 };

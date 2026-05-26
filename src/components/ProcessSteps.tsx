@@ -63,9 +63,6 @@ const ProcessSteps = () => {
                 <motion.div
                   className="absolute -top-4 -left-4 w-12 h-12 bg-green-500 text-black rounded-full flex items-center justify-center font-bold text-xl"
                   whileHover={{ scale: 1.1 }}
-                  style={{
-                    boxShadow: '0 0 20px rgba(52, 152, 219, 0.5)'
-                  }}
                 >
                   {step.number}
                 </motion.div>
