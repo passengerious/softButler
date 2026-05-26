@@ -2,6 +2,8 @@ export interface SEOData {
   title: string;
   description: string;
   keywords: string;
+  image?: string;
+  url?: string;
 }
 
 export const seoConfig: Record<string, SEOData> = {
@@ -10,26 +12,36 @@ export const seoConfig: Record<string, SEOData> = {
     title: 'SoftButler – Modern QA Testing Company',
     description: 'Professional QA testing services. Test less. Deliver smarter. We provide comprehensive software quality assurance.',
     keywords: 'QA testing, software testing, QA services, quality assurance, SoftButler',
+    image: 'https://softbutler.io/og-image.png',
+    url: 'https://softbutler.io',
   },
   services: {
     title: 'QA Services | SoftButler',
     description: 'Explore our comprehensive range of QA and software testing services designed to accelerate your delivery.',
     keywords: 'QA services, testing services, automated testing, manual testing, performance testing',
+    image: 'https://softbutler.io/og-image.png',
+    url: 'https://softbutler.io/services',
   },
   whoWeAre: {
     title: 'Who We Are | SoftButler',
     description: 'Learn about SoftButler, our mission, our approach to modern QA, and the team behind our success.',
     keywords: 'about SoftButler, QA company, software testing experts',
+    image: 'https://softbutler.io/og-image.png',
+    url: 'https://softbutler.io/who-we-are',
   },
   contact: {
     title: 'Contact Us | SoftButler',
     description: 'Get in touch with SoftButler for professional QA testing services and consulting.',
     keywords: 'contact SoftButler, QA consulting, hire QA testers',
+    image: 'https://softbutler.io/og-image.png',
+    url: 'https://softbutler.io/contact',
   },
   careers: {
     title: 'Careers | SoftButler',
     description: 'Join the SoftButler team. We are always looking for talented QA engineers and testing professionals.',
     keywords: 'QA jobs, software testing careers, SoftButler careers',
+    image: 'https://softbutler.io/og-image.png',
+    url: 'https://softbutler.io/careers',
   },
 
   // Industries

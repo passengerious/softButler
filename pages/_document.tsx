@@ -24,11 +24,11 @@ export default function Document() {
               "url": "https://softbutler.io",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://softbutler.io/logo3.svg",
-                "width": 1497,
-                "height": 771
+                "url": "https://softbutler.io/og-image.png",
+                "width": 1200,
+                "height": 630
               },
-              "image": "https://softbutler.io/logo3.svg",
+              "image": "https://softbutler.io/og-image.png",
               "description": "Professional QA testing services. Test less. Deliver smarter."
             })
           }}
@@ -36,7 +36,6 @@ export default function Document() {
         
         {/* Additional Global Meta */}
         <meta name="author" content="SoftButler" />
-        <meta name="google-site-verification" content="" />
         
         {/* Clutch Widget Script optimized with next/script */}
         <Script 
