@@ -68,7 +68,7 @@ export default function Retail() {
 
   const metrics = [
     { label: 'Checkout-related incidents', value: '-60%' },
-    { label: 'Pricing and promotion errors', value: '– 50%' },
+    { label: 'Pricing and promotion errors', value: '-50%' },
     { label: 'Inventory mismatch issues', value: '-50%' },
     { label: 'Regression testing time', value: '-40%' },
     { label: 'Peak season incidents', value: '-65%' },

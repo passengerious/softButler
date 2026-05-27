@@ -95,7 +95,7 @@ export default function Logistics() {
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center mb-4">
                 In Logistics, one bug can stop the entire operation chain.
               </p>
-              <p className="text-base md:text-lg text-gray-400 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed text-center">
                 Logistics platforms operate in real time. Every failure propagates downstream — delays, penalties, and customer dissatisfaction.
               </p>
             </div>

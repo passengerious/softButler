@@ -33,8 +33,8 @@ export default function QAAudit() {
     'QA depends too much on specific people',
     'Test cases are outdated or not trusted',
     'Test cases are outdated or not trusted',
-    "Automation exists but doesn&apos;t save time",
-    "Developers don&apos;t trust QA results",
+    "Automation exists but doesn't save time",
+    "Developers don't trust QA results",
     'CI/CD is slow or flaky because of tests',
     'CI/CD is slow or flaky because of tests',
   ];
