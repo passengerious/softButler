@@ -16,6 +16,7 @@ import { validateContactForm } from '../lib/formValidation';
 import { showSuccessToast, showErrorToast } from '../lib/toastHelpers';
 
 const InlineBookingCalendar = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState('');
@@ -29,6 +30,12 @@ const InlineBookingCalendar = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+
 
   // ---------------------------------------------------------------------------
   // Date helpers
@@ -271,7 +278,81 @@ const InlineBookingCalendar = () => {
     hasSelectableDatesInMonth,
   ]);
 
+  // ---------------------------------------------------------------------------
+  // Skeleton Loader for Server-Side Rendering and Hydration
+  // ---------------------------------------------------------------------------
+  if (!isMounted) {
+    return (
+      <section className="py-20 px-6 bg-gray-900/30">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              Book Your <span className="text-green-500">Free Consultation</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Ready to fix your QA process? Schedule a free consultation and
+              let&apos;s discuss your testing challenges.
+            </p>
+          </div>
+
+          <div className="bg-black/50 border border-gray-800 rounded-lg overflow-hidden hover:border-green-500/30 transition-all duration-300">
+            {/* Progress Indicator Skeleton */}
+            <div className="p-6 border-b border-gray-800">
+              <div className="flex items-center justify-between sm:justify-center w-full mx-auto max-w-sm sm:max-w-none px-4 sm:px-0 opacity-50">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center font-bold text-lg text-gray-400" />
+                  <div className="hidden sm:block">
+                    <div className="font-semibold text-gray-400">Step 1</div>
+                    <div className="text-sm text-gray-500">Choose Date</div>
+                  </div>
+                </div>
+                <div className="flex-1 sm:flex-none sm:w-12 h-0.5 mx-4 bg-gray-700" />
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center font-bold text-lg text-gray-400" />
+                  <div className="hidden sm:block">
+                    <div className="font-semibold text-gray-400">Step 2</div>
+                    <div className="text-sm text-gray-500">Your Details</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Calendar Skeleton Content */}
+            <div className="p-8 min-h-[500px] flex flex-col justify-center items-center">
+              <div className="animate-pulse w-full max-w-md mx-auto space-y-8">
+                <div className="text-center mb-8">
+                  <div className="h-8 bg-gray-800 rounded w-64 mx-auto mb-2" />
+                  <div className="h-4 bg-gray-800 rounded w-48 mx-auto" />
+                </div>
+                
+                {/* Month navigation skeleton */}
+                <div className="flex items-center justify-between px-6">
+                  <div className="w-10 h-10 bg-gray-800 rounded" />
+                  <div className="h-6 bg-gray-800 rounded w-32" />
+                  <div className="w-10 h-10 bg-gray-800 rounded" />
+                </div>
+
+                {/* Grid skeleton */}
+                <div className="grid grid-cols-7 gap-2">
+                  {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                    <div key={day} className="text-center text-sm text-gray-400 py-2 font-semibold opacity-50">
+                      {day}
+                    </div>
+                  ))}
+                  {Array.from({ length: 35 }).map((_, i) => (
+                    <div key={`cell-${i}`} className="aspect-square bg-gray-800/30 rounded m-1" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const steps = [
+
     { number: 1, title: 'Choose Date', icon: Calendar },
     { number: 2, title: 'Your Details', icon: User },
   ];
