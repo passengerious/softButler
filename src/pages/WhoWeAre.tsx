@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, BookOpen, Rocket, Users, Star, Heart, Flame, Target } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 import {
   NovaPostLogo,
   MonobankLogo,
@@ -24,6 +25,7 @@ const WhoWeAre = () => {
   const journeyRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
   const [lineProgress, setLineProgress] = useState(0);
+  const { t } = useTranslation('who-we-are');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,39 +74,39 @@ const WhoWeAre = () => {
   const journeySteps = [
     {
       icon: BookOpen,
-      title: "Started as Educators",
-      description: "We began by teaching people software testing fundamentals. Not just theory, but real-world practices. We upgraded levels from middle to senior, not just beginners.",
-      highlight: "Teaching others forced us to master quality ourselves."
+      title: t('journeySteps.0.title'),
+      description: t('journeySteps.0.description'),
+      highlight: t('journeySteps.0.highlight')
     },
     {
       icon: Users,
-      title: "Built a Learning Community",
-      description: "Engineers started coming together to share knowledge, discuss failures, and learn from each other's experiences."
+      title: t('journeySteps.1.title'),
+      description: t('journeySteps.1.description')
     },
     {
       icon: Rocket,
-      title: "From Teaching to Practicing",
-      description: "Our deep understanding of quality principles naturally evolved into providing QA services to real products."
+      title: t('journeySteps.2.title'),
+      description: t('journeySteps.2.description')
     },
     {
       icon: Target,
-      title: "Learning from the Best",
-      description: "We studied practices from Google, Amazon, Netflix, and other tech giants. Not to copy, but to understand and adapt."
+      title: t('journeySteps.3.title'),
+      description: t('journeySteps.3.description')
     },
     {
       icon: Heart,
-      title: "People-First Approach",
-      description: "We realized that quality is built by people, not just processes. People became our core value."
+      title: t('journeySteps.4.title'),
+      description: t('journeySteps.4.description')
     },
     {
       icon: Flame,
-      title: "Pain-Driven Innovation",
-      description: "Client challenges pushed us to create better solutions. Their pain points became our innovation fuel."
+      title: t('journeySteps.5.title'),
+      description: t('journeySteps.5.description')
     },
     {
       icon: Star,
-      title: "Creating New Standards",
-      description: "We stopped following trends and started setting them. Defining what \u201Cnew normal\u201D means in QA."
+      title: t('journeySteps.6.title'),
+      description: t('journeySteps.6.description')
     }
   ];
 
@@ -133,29 +135,24 @@ const WhoWeAre = () => {
             <div className="order-2 lg:order-1 space-y-8 min-w-0 overflow-hidden">
               <div className="space-y-6">
                 <span className="text-sm tracking-[0.3em] text-green-500 font-semibold uppercase">
-                  Who We Are
+                  {t('whoWeAreLabel')}
                 </span>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  We are a team that builds{' '}
-                  <span className="text-green-500">trust through quality</span>
-                </h1>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight" dangerouslySetInnerHTML={{ __html: t('heroTitleHtml') }} />
               </div>
 
               <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed">
                 <p>
-                  We are QA engineers, educators, and system thinkers who care deeply about how products work in the real world.
+                  {t('heroText1')}
                 </p>
                 <p>
-                  We started by teaching testing, grew into a strong professional community, and now help companies make quality a competitive advantage.
+                  {t('heroText2')}
                 </p>
               </div>
 
               {/* Highlighted Statement */}
               <div className="pt-4">
-                <p className="text-2xl md:text-3xl font-bold text-white italic">
-                  {"\u201C"}People are our <span className="text-green-500">core value</span>.{"\u201D"}
-                </p>
+                <p className="text-2xl md:text-3xl font-bold text-white italic" dangerouslySetInnerHTML={{ __html: t('heroQuoteHtml') }} />
               </div>
             </div>
 
@@ -188,11 +185,9 @@ const WhoWeAre = () => {
         <div className="absolute inset-0 bg-gradient-mesh"></div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-center mb-6 text-white scroll-reveal">
-            Our <span className="text-gradient-green">Journey</span>
-          </h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-center mb-6 text-white scroll-reveal" dangerouslySetInnerHTML={{ __html: t('journeyTitleHtml') }} />
           <p className="text-xl text-gray-400 text-center mb-20 scroll-reveal">
-            From humble beginnings to industry leaders
+            {t('journeySubtitle')}
           </p>
 
           {/* Vertical Flowing Timeline */}
@@ -242,10 +237,8 @@ const WhoWeAre = () => {
       {/* COMPANY LOGOS SLIDER - Full Width */}
       <section className="py-24 bg-gradient-to-b from-black via-green-950/15 to-black overflow-hidden">
         <div className="mb-12 text-center scroll-reveal">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Experience behind our <span className="text-gradient-green">QA engineers</span>
-          </h2>
-          <p className="text-gray-400 text-lg">Top companies we learn from and adapt their practices</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4" dangerouslySetInnerHTML={{ __html: t('experienceTitleHtml') }} />
+          <p className="text-gray-400 text-lg">{t('experienceSubtitle')}</p>
         </div>
 
         {/* Top row - scrolling left to right */}
@@ -304,54 +297,33 @@ const WhoWeAre = () => {
       {/* NEW NORMAL IN TESTING - Principles Section */}
       <section className="py-24 bg-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-center mb-6 text-white scroll-reveal">
-            New Normal in <span className="text-gradient-green">Testing</span>
-          </h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-center mb-6 text-white scroll-reveal" dangerouslySetInnerHTML={{ __html: t('newNormalTitleHtml') }} />
           <p className="text-xl text-gray-400 text-center mb-16 scroll-reveal">
-            Our core principles that redefine quality assurance
+            {t('newNormalSubtitle')}
           </p>
 
           <div className="space-y-8">
-            {[
-              {
-                principle: "Quality is not a phase",
-                reality: "it's a system",
-                align: "left"
-              },
-              {
-                principle: "Testing is not a role",
-                reality: "it's a mindset",
-                align: "center"
-              },
-              {
-                principle: "Automation is not a goal",
-                reality: "impact is",
-                align: "right"
-              },
-              {
-                principle: "Best practices are useless",
-                reality: "if they don't fit reality",
-                align: "left-offset"
-              }
-            ].map((item, index) => {
+            {(t('principles') as Array<{ principle: string, reality: string }> || []).map((item, index) => {
               const alignmentClasses = {
-                left: "mr-auto",
-                center: "mx-auto",
-                right: "ml-auto",
-                "left-offset": "mr-auto md:ml-[15%]"
+                0: "mr-auto",
+                1: "mx-auto",
+                2: "ml-auto",
+                3: "mr-auto md:ml-[15%]"
               };
 
               const maxWidths = {
-                left: "max-w-4xl",
-                center: "max-w-3xl",
-                right: "max-w-4xl",
-                "left-offset": "max-w-3xl"
+                0: "max-w-4xl",
+                1: "max-w-3xl",
+                2: "max-w-4xl",
+                3: "max-w-3xl"
               };
+
+              const alignIndex = index % 4;
 
               return (
                 <div
                   key={index}
-                  className={`scroll-reveal glass-effect rounded-2xl p-8 md:p-10 hover:shadow-[0_0_30px_rgba(0,180,118,0.3)] transition-all duration-300 ${alignmentClasses[item.align as keyof typeof alignmentClasses]} ${maxWidths[item.align as keyof typeof maxWidths]}`}
+                  className={`scroll-reveal glass-effect rounded-2xl p-8 md:p-10 hover:shadow-[0_0_30px_rgba(0,180,118,0.3)] transition-all duration-300 ${alignmentClasses[alignIndex as keyof typeof alignmentClasses]} ${maxWidths[alignIndex as keyof typeof maxWidths]}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <p className="text-xl md:text-2xl font-semibold text-white leading-relaxed">
@@ -367,33 +339,31 @@ const WhoWeAre = () => {
       {/* OUR VALUES SECTION - 3 Cards in page style */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 text-white scroll-reveal">
-            Our <span className="text-gradient-green">Core Values</span>
-          </h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 text-white scroll-reveal" dangerouslySetInnerHTML={{ __html: t('valuesTitleHtml') }} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Card 1: People First */}
             <div className="scroll-reveal group bg-gray-900/50 border border-gray-800 rounded-xl p-10 hover:border-[#00B476]/40 transition-all duration-300">
               <Heart className="text-[#00B476] mb-8" size={48} />
-              <h3 className="text-3xl font-bold text-white mb-3">People First</h3>
-              <h4 className="text-xl font-semibold text-[#00B476] mb-3">People Are Our Main Value</h4>
-              <p className="text-gray-400 text-lg">Every decision starts with people in mind</p>
+              <h3 className="text-3xl font-bold text-white mb-3">{t('values.peopleFirst.title')}</h3>
+              <h4 className="text-xl font-semibold text-[#00B476] mb-3">{t('values.peopleFirst.subtitle')}</h4>
+              <p className="text-gray-400 text-lg">{t('values.peopleFirst.description')}</p>
             </div>
 
             {/* Card 2: Pain-Driven Innovation */}
             <div className="scroll-reveal group bg-gray-900/50 border border-gray-800 rounded-xl p-10 hover:border-[#00B476]/40 transition-all duration-300">
               <Flame className="text-[#00B476] mb-8" size={48} />
-              <h3 className="text-3xl font-bold text-white mb-3">Pain-Driven Innovation</h3>
-              <h4 className="text-xl font-semibold text-[#00B476] mb-3">Client Pain Points Fuel Our Creativity</h4>
-              <p className="text-gray-400 text-lg">Your challenges inspire our solutions</p>
+              <h3 className="text-3xl font-bold text-white mb-3">{t('values.painInnovation.title')}</h3>
+              <h4 className="text-xl font-semibold text-[#00B476] mb-3">{t('values.painInnovation.subtitle')}</h4>
+              <p className="text-gray-400 text-lg">{t('values.painInnovation.description')}</p>
             </div>
 
             {/* Card 3: Trendsetter Mindset */}
             <div className="scroll-reveal group bg-gray-900/50 border border-gray-800 rounded-xl p-10 hover:border-[#00B476]/40 transition-all duration-300">
               <Target className="text-[#00B476] mb-8" size={48} />
-              <h3 className="text-3xl font-bold text-white mb-3">Trendsetter Mindset</h3>
-              <h4 className="text-xl font-semibold text-[#00B476] mb-3">First to Know, First to Create</h4>
-              <p className="text-gray-400 text-lg">We don&apos;t follow trends — we set them</p>
+              <h3 className="text-3xl font-bold text-white mb-3">{t('values.trendsetter.title')}</h3>
+              <h4 className="text-xl font-semibold text-[#00B476] mb-3">{t('values.trendsetter.subtitle')}</h4>
+              <p className="text-gray-400 text-lg">{t('values.trendsetter.description')}</p>
             </div>
           </div>
         </div>
@@ -403,11 +373,9 @@ const WhoWeAre = () => {
       <section className="py-24 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              The People Behind <span className="text-gradient-green">Quality</span>
-            </h2>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6" dangerouslySetInnerHTML={{ __html: t('peopleBehindTitleHtml') }} />
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We are a team of QA engineers, educators, and problem-solvers united by one thing — care for quality.
+              {t('peopleBehindSubtitle')}
             </p>
           </div>
 
@@ -425,9 +393,7 @@ const WhoWeAre = () => {
 
               {/* Overlay Text */}
               <div className="absolute inset-0 flex items-end justify-center p-8 md:p-12">
-                <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight">
-                  {"\u201C"}Quality is a <span className="text-green-500">team sport</span>{"\u201D"}
-                </h3>
+                <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight" dangerouslySetInnerHTML={{ __html: t('teamSportQuoteHtml') }} />
               </div>
             </div>
           </div>
@@ -471,13 +437,13 @@ const WhoWeAre = () => {
           {/* Culture Statement */}
           <div className="scroll-reveal max-w-4xl mx-auto text-center">
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              We collaborate, challenge assumptions, and learn from each other every day to build systems people can trust.
+              {t('cultureStatement')}
             </p>
             <Link
               href="/services"
               className="inline-flex items-center text-lg md:text-xl text-green-500 hover:text-green-400 font-semibold transition-colors duration-300 group"
             >
-              See how we work
+              {t('seeHowWeWork')}
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={24} />
             </Link>
           </div>
@@ -489,27 +455,23 @@ const WhoWeAre = () => {
         <div className="absolute inset-0 bg-gradient-mesh"></div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight scroll-reveal">
-            Ready to Create{' '}
-            <span className="text-gradient-green">New Normal</span>{' '}
-            with Us?
-          </h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight scroll-reveal" dangerouslySetInnerHTML={{ __html: t('ctaTitleHtml') }} />
           <p className="text-xl md:text-2xl text-gray-300 mb-12 scroll-reveal">
-            Join our community of innovators and quality champions
+            {t('ctaSubtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center scroll-reveal">
             <Link href="/careers" className="text-lg px-10 py-6 bg-green-500 hover:bg-green-400 text-black font-bold shadow-[0_0_30px_rgba(0,180,118,0.5)] hover:shadow-[0_0_50px_rgba(0,180,118,0.8)] transition-all duration-300 whitespace-nowrap flex items-center rounded-lg">
-              Join Community
+              {t('joinCommunity')}
               <ArrowRight className="ml-2 inline-block" size={24} />
             </Link>
             <Link href="/services" className="text-lg px-10 py-6 border-2 border-[#00B476] text-[#00B476] bg-transparent hover:bg-[#00B476]/10 font-bold transition-all duration-300 whitespace-nowrap rounded-lg">
-              Work With Us
+              {t('workWithUs')}
             </Link>
           </div>
 
           <p className="text-gray-400 mt-12 text-lg scroll-reveal">
-            Let&apos;s build something extraordinary together 🚀
+            {t('ctaFooter')}
           </p>
         </div>
       </section>

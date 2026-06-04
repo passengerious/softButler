@@ -1,32 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Wrench, FileText, Shield } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 const ProcessSteps = () => {
+  const { t } = useTranslation('home');
+
   const steps = [
     {
       number: 1,
       icon: Search,
-      title: "We Learn",
-      description: "Deep dive into your product, stack, and pain points"
+      title: t('process.steps.0.title'),
+      description: t('process.steps.0.description')
     },
     {
       number: 2,
       icon: Wrench,
-      title: "We Break",
-      description: "Exploratory testing to find what you've missed"
+      title: t('process.steps.1.title'),
+      description: t('process.steps.1.description')
     },
     {
       number: 3,
       icon: FileText,
-      title: "We Fix",
-      description: "Detailed bug reports with steps, screenshots, severity"
+      title: t('process.steps.2.title'),
+      description: t('process.steps.2.description')
     },
     {
       number: 4,
       icon: Shield,
-      title: "We Prevent",
-      description: "Automation & processes to stop bugs early"
+      title: t('process.steps.3.title'),
+      description: t('process.steps.3.description')
     }
   ];
 
@@ -39,9 +42,7 @@ const ProcessSteps = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Our Process: <span className="text-green-500">Clear & Effective</span>
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8" dangerouslySetInnerHTML={{ __html: t('process.titleHtml') }} />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

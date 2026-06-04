@@ -1,0 +1,59 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "industries": "Industries",
+    "whoWeAre": "Who We Are",
+    "careers": "Careers",
+    "contact": "Contact",
+    "companyName": "SoftButler"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Settings",
+    "builtBy": "Built with precision for modern teams.",
+    "description": "We build scalable QA processes that prevent bugs before they happen, transforming chaotic releases into smooth launches.",
+    "navigation": "Navigation",
+    "connect": "Connect",
+    "directContact": "Direct Contact"
+  },
+  "cookieBanner": {
+    "title": "We value your privacy",
+    "description": "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+    "accept": "Accept All",
+    "decline": "Decline",
+    "preferences": "Preferences"
+  },
+  "booking": {
+    "title": "Book Your <span class=\"text-green-500\">Free Consultation</span>",
+    "subtitle": "Ready to fix your QA process? Schedule a free consultation and let's discuss your testing challenges.",
+    "step": "Step",
+    "chooseDate": "Choose Date",
+    "yourDetails": "Your Details",
+    "step1Title": "Choose Your Preferred Date",
+    "step1Subtitle": "Select a date that works best for your schedule",
+    "step2Title": "Almost There! Your Details",
+    "step2Subtitle": "Tell us about yourself and your challenges",
+    "selectedDate": "Your Consultation Date:",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Tell us about your challenges",
+      "messagePlaceholder": "What problems are you facing?"
+    },
+    "buttons": {
+      "back": "Back to Date",
+      "submit": "Book Free QA Audit",
+      "submitting": "Booking...",
+      "another": "Book Another Consultation"
+    },
+    "success": {
+      "title": "Consultation Booked!",
+      "message": "We'll send you a confirmation email with the meeting details. Looking forward to fixing your QA!"
+    }
+  }
+}

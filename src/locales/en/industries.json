@@ -1,0 +1,577 @@
+{
+  "ecommerce": {
+    "headline": "In e-commerce, one broken flow can cost thousands in lost revenue",
+    "description": "E-commerce platforms live under constant pressure: traffic spikes, frequent changes, and zero tolerance for checkout failures. Quality directly impacts revenue.",
+    "stats": {
+      "checkoutVal": "-60%",
+      "checkoutLbl": "Checkout failures reduced",
+      "bugsVal": "50%",
+      "bugsLbl": "Conversion-impacting bugs reduced",
+      "performanceVal": "Stable",
+      "performanceLbl": "Performance during sales and peak traffic"
+    },
+    "cta": "Talk to E-commerce QA Experts",
+    "painsTitle": "Common quality challenges in e-commerce platforms",
+    "painsSubtitle": "Each of these problems translates into lost revenue and customer trust",
+    "pains": [
+      "Broken checkout or payment flows causing direct revenue loss",
+      "Bugs that impact conversion and cart completion rates",
+      "Regressions after frequent product catalog or pricing changes",
+      "System failures during sales, promotions, or peak traffic events",
+      "Inconsistent behavior across devices and browsers affecting mobile sales",
+      "QA focused on UI testing, not revenue-critical buying flows"
+    ],
+    "approachTitle": "How we apply QA in real e-commerce platforms",
+    "approachSubtitle": "QA that understands revenue flows, not just features",
+    "approach": [
+      {
+        "title": "QA built around revenue-critical user journeys, not pages",
+        "points": [
+          "Product discovery and search",
+          "Filtering and category navigation",
+          "Product details and variants",
+          "Add to cart and cart management",
+          "Checkout and address validation",
+          "Payment processing and order confirmation"
+        ]
+      },
+      {
+        "title": "Risk-based testing focused on what protects revenue",
+        "points": [
+          "Checkout and payment flow reliability",
+          "Pricing accuracy, discounts, and promotions",
+          "Inventory and availability synchronization",
+          "Peak-traffic and flash-sale scenarios"
+        ]
+      },
+      {
+        "title": "Regression strategy designed to protect buying paths",
+        "points": [
+          "Core conversion flows from browse to purchase",
+          "Critical integrations: payments, shipping, inventory",
+          "Backward compatibility of pricing and discount logic",
+          "High-revenue product categories and SKUs"
+        ]
+      },
+      {
+        "title": "Automation applied to high-impact revenue flows",
+        "points": [
+          "Automated testing of end-to-end buying journeys",
+          "Payment gateway and API integration testing",
+          "Fast feedback loops before releases",
+          "Continuous validation of critical paths"
+        ]
+      }
+    ],
+    "approachBottom": "QA protects revenue flows, not just features.",
+    "impactTitle": "Why quality directly impacts e-commerce business",
+    "impactSubtitle": "In e-commerce, bugs don't wait — they immediately affect revenue",
+    "impacts": [
+      "Direct revenue loss from broken checkout and payment flows",
+      "Drop in conversion rates from bugs in the buying journey",
+      "Increased cart abandonment from technical failures",
+      "Loss of customer trust and repeat purchase rates",
+      "Higher support and refund costs from failed transactions"
+    ],
+    "resultsTitle": "Results e-commerce teams achieve with us",
+    "resultsSubtitle": "Measurable improvements that show revenue protection",
+    "results": [
+      { "label": "Conversion-impacting bugs", "value": "-65%" },
+      { "label": "Checkout failures", "value": "-60%" },
+      { "label": "Production incidents during sales", "value": "-70%" },
+      { "label": "Regression execution time", "value": "-40%" },
+      { "label": "Faster promotional launches", "value": "+50%" },
+      { "label": "Revenue loss from incidents", "value": "-60%" }
+    ],
+    "engagementTitle": "Typical e-commerce engagement",
+    "engagement": {
+      "initialStateTitle": "Initial state",
+      "initialStateDesc": "Frequent checkout issues causing lost revenue, unstable releases during peak seasons, lost thousands in sales during promotional events. Team afraid to deploy during traffic spikes. High cart abandonment from technical failures.",
+      "problemsTitle": "Problems identified",
+      "problemsDesc": "Weak regression coverage on checkout flow — small changes breaking purchases. Promotions and discounts tested manually, causing pricing errors. Fragile payment integrations. No load testing — platform unstable during flash sales.",
+      "changedTitle": "What we changed",
+      "changedDesc": "Built QA strategy around revenue-critical flows. Comprehensive checkout and payment validation. Automated testing of promotional logic. Load testing for peak scenarios. Release validation before major sales events.",
+      "outcomeTitle": "Outcome",
+      "outcomeDesc": "Stable sales events generating record revenue. Higher conversion rates across the funnel. Fewer checkout failures and cart abandonment. Confident deployments during peak seasons. Reduced revenue loss from technical incidents."
+    },
+    "footerTitle": "Running or scaling an e-commerce platform?",
+    "footerSubtitle": "Let's protect your revenue before the next release or promotion.",
+    "footerCta": "Book a call"
+  },
+  "edtech": {
+    "headline": "In EdTech, platform failure means lost trust, lost users, and lost revenue",
+    "description": "EdTech platforms are not just products — they are learning infrastructures. When they fail, users don't complain — they leave.",
+    "stats": {
+      "incidentsVal": "-65%",
+      "incidentsLbl": "Platform incidents reduced",
+      "loadVal": "70%",
+      "loadLbl": "Peak-load failures reduced",
+      "launchesVal": "Stable",
+      "launchesLbl": "Launches during exams"
+    },
+    "cta": "Talk to EdTech QA Experts",
+    "painsTitle": "Common quality challenges in EdTech platforms",
+    "painsSubtitle": "These challenges impact platform reliability and user trust",
+    "pains": [
+      "Platform crashes during peak loads (exams, enrollments, launches)",
+      "Unstable user experience across devices and browsers",
+      "Content delivery issues (lessons, tests, videos, progress tracking)",
+      "Hidden regressions after frequent updates",
+      "Slow reaction to production issues",
+      "QA focused on UI, not learning flows and platform logic"
+    ],
+    "approachTitle": "How we apply QA in real EdTech platforms",
+    "approachSubtitle": "QA is built around learning flows, not screens. We protect the learning experience, not just features.",
+    "approach": [
+      {
+        "title": "Learning flow-based testing",
+        "points": [
+          "Onboarding and enrollment flows",
+          "Course access and lesson completion",
+          "Assessment and certification paths",
+          "Progress tracking and user journeys"
+        ]
+      },
+      {
+        "title": "Risk-based testing focus",
+        "points": [
+          "Peak usage scenarios",
+          "Concurrent users handling",
+          "Data integrity (progress, results, scores)",
+          "Content delivery reliability"
+        ]
+      },
+      {
+        "title": "Regression strategy",
+        "points": [
+          "Core learning paths coverage",
+          "Critical user journeys",
+          "Platform operations validation",
+          "API-level checks"
+        ]
+      },
+      {
+        "title": "Automation approach",
+        "points": [
+          "High-frequency user flows",
+          "Critical learning scenarios",
+          "Platform stability checks",
+          "Fast feedback loops"
+        ]
+      }
+    ],
+    "approachBottom": "QA protects learning flows, not just features.",
+    "impactTitle": "Why quality directly impacts EdTech business",
+    "impactSubtitle": "Platform instability destroys trust faster than bad content",
+    "impacts": [
+      "Loss of user trust",
+      "Student and teacher churn",
+      "Failed course launches",
+      "Reputation damage",
+      "Revenue loss from subscriptions and enrollments",
+      "Support and operational cost growth"
+    ],
+    "impactBottom": "\"In EdTech, platform instability destroys trust faster than bad content.\"",
+    "resultsTitle": "Results EdTech platforms achieve with us",
+    "resultsSubtitle": "Leadership metrics that drive business decisions",
+    "results": [
+      { "value": "-65%", "label": "Platform incidents" },
+      { "value": "-70%", "label": "Peak-load failures" },
+      { "value": "-50%", "label": "User complaints" },
+      { "value": "+50%", "label": "Release stability" },
+      { "value": "-40%", "label": "Regression execution time" },
+      { "value": "Faster", "label": "Feature launches" }
+    ],
+    "resultsBottom": "Plus: Faster and safer feature launches",
+    "engagementTitle": "Typical EdTech engagement",
+    "engagement": {
+      "initialStateTitle": "Initial state",
+      "initialStateDesc": "Unstable releases, peak-load failures during exams and enrollments, stressed engineering teams, inconsistent user experience across devices, mounting support tickets.",
+      "problemsTitle": "Problems identified",
+      "problemsDesc": "Weak regression coverage, no risk prioritization, QA focused on UI not learning flows, slow feedback cycles, no load testing for peak periods, manual testing bottlenecks.",
+      "changedTitle": "What we changed",
+      "changedDesc": "Rebuilt QA flow around learning journeys, implemented risk modeling, established test strategy focused on critical paths, automated high-frequency flows, integrated platform coverage into delivery pipeline.",
+      "outcomeTitle": "Outcome",
+      "outcomeDesc": "Stable launches during peak periods, 55% reduction in platform incidents, predictable delivery cadence, improved team confidence, reduced operational costs, scalable QA process."
+    },
+    "footerTitle": "Building or scaling an EdTech platform?",
+    "footerSubtitle": "Let's make your platform reliable, scalable, and trusted — not fragile.",
+    "footerCta": "Book a call"
+  },
+  "fintech": {
+    "headline": "In FinTech, one quality failure is enough to lose user trust",
+    "description": "FinTech products operate under regulatory pressure, real money flows, and zero tolerance for critical failures. Quality is not optional — it's a business requirement.",
+    "stats": {
+      "incidentsVal": "-65%",
+      "incidentsLbl": "Production incidents reduced",
+      "bugsVal": "3×",
+      "bugsLbl": "Cost of critical bugs reduced",
+      "releasesVal": "Predictable",
+      "releasesLbl": "Audit-ready releases"
+    },
+    "cta": "Talk to FinTech QA Experts",
+    "painsTitle": "Common quality challenges in FinTech products",
+    "painsSubtitle": "These are the real issues that keep FinTech engineering leaders up at night",
+    "pains": [
+      "Production bugs affecting real financial transactions",
+      "High cost of post-release fixes due to compliance and audits",
+      "Fear of releases because of hidden risks",
+      "Inconsistent test coverage across critical flows",
+      "Manual regression slowing down delivery",
+      "QA focused on checklists, not financial risk"
+    ],
+    "approachTitle": "How we help FinTech teams reduce risk",
+    "approachSubtitle": "QA applied in FinTech context with focus on what matters most",
+    "solutions": [
+      {
+        "title": "Risk-based testing",
+        "description": "Focused on money flows and critical paths"
+      },
+      {
+        "title": "Deep scenario analysis",
+        "description": "Transaction scenarios and edge cases"
+      },
+      {
+        "title": "Regression strengthening",
+        "description": "Core financial operations coverage"
+      },
+      {
+        "title": "Automation stabilization",
+        "description": "High-risk areas automated reliably"
+      },
+      {
+        "title": "Release confidence",
+        "description": "Improved without slowing delivery"
+      }
+    ],
+    "impactTitle": "Why quality in FinTech is a business issue",
+    "impacts": [
+      {
+        "title": "Loss of user trust",
+        "description": "Users expect perfect reliability when their money is involved"
+      },
+      {
+        "title": "Regulatory and compliance risks",
+        "description": "Failures can lead to audits, fines, and operational restrictions"
+      },
+      {
+        "title": "Direct financial losses",
+        "description": "Transaction errors, failed payments, and incorrect calculations cost real money"
+      },
+      {
+        "title": "Brand damage that is hard to recover from",
+        "description": "In financial services, reputation is everything"
+      }
+    ],
+    "impactBottom": "\"In FinTech, bugs are not just technical issues — they are business incidents.\"",
+    "resultsTitle": "Results FinTech teams achieve with us",
+    "resultsSubtitle": "Metrics that matter to leadership and investors",
+    "results": [
+      { "label": "Critical production bugs", "value": "-65%" },
+      { "label": "Release predictability", "value": "+50%" },
+      { "label": "Regression execution time", "value": "-40%" },
+      { "label": "Cost of post-release fixes", "value": "Stable" }
+    ],
+    "resultsBottom": "Plus: Faster incident detection and root cause analysis",
+    "engagementTitle": "Typical FinTech engagement",
+    "engagement": {
+      "initialStateTitle": "Initial state",
+      "initialStateDesc": "Frequent production incidents affecting transactions, slow and stressful releases, team losing confidence in the release process, business stakeholders frustrated with quality unpredictability.",
+      "problemsTitle": "Problems identified",
+      "problemsDesc": "Weak regression coverage of critical payment flows, unstable automation that nobody trusted, unclear ownership of quality risks, testing focused on UI rather than financial logic.",
+      "changedTitle": "What we changed",
+      "changedDesc": "Rebuilt test strategy around transaction risk, stabilized automation for core flows, established clear QA gates for releases, introduced risk-based test planning tied to business priorities.",
+      "outcomeTitle": "Outcome",
+      "outcomeDesc": "53% reduction in critical production bugs, releases became predictable and low-stress, business gained confidence in product quality, team could focus on new features instead of firefighting."
+    },
+    "footerTitle": "Building or scaling a FinTech product?",
+    "footerSubtitle": "Let's talk about reducing quality risk in your FinTech product — before it becomes a business problem.",
+    "footerCta": "Book a call"
+  },
+  "logistics": {
+    "headline": "In Logistics, one bug can stop the entire operation chain",
+    "descriptionBox": "In Logistics, one bug can stop the entire operation chain.",
+    "description": "Logistics platforms operate in real time. Every failure propagates downstream — delays, penalties, and customer dissatisfaction.",
+    "stats": {
+      "incidentsVal": "-60%",
+      "incidentsLbl": "Operational incidents reduced",
+      "syncVal": "50%",
+      "syncLbl": "Data inconsistency issues reduced",
+      "recoveryVal": "Faster",
+      "recoveryLbl": "Recovery from production failures"
+    },
+    "cta": "Talk to Logistics QA Experts",
+    "painsTitle": "Common quality challenges in logistics systems",
+    "painsSubtitle": "Each of these problems translates into operational cost and risk",
+    "pains": [
+      "Real-time data inconsistencies across systems causing operational confusion",
+      "Failed or delayed integrations with partners and carriers during critical flows",
+      "Bugs that break routing, tracking, or status updates — invisible until production",
+      "Regression issues caused by constant platform changes and partner API updates",
+      "Difficult root-cause analysis for production incidents during operational hours",
+      "QA focused on UI testing, not operational flows and event sequences"
+    ],
+    "approachTitle": "How we apply QA in real logistics systems",
+    "approachSubtitle": "QA that understands operational flows, not just features",
+    "approach": [
+      {
+        "title": "QA built around operational flows, not screens",
+        "points": [
+          "Order creation and validation",
+          "Shipment planning and routing",
+          "Status updates and event propagation",
+          "Delivery confirmation and completion",
+          "Exception handling and recovery flows"
+        ]
+      },
+      {
+        "title": "Risk-based testing focused on what breaks operations",
+        "points": [
+          "Real-time data accuracy across systems",
+          "Event sequencing and timing dependencies",
+          "Integration reliability under load",
+          "Failure scenarios and fallback logic"
+        ]
+      },
+      {
+        "title": "Regression strategy centered on operational chains",
+        "points": [
+          "Critical end-to-end operational flows",
+          "Cross-system interactions and data sync",
+          "Backward compatibility of partner integrations",
+          "High-impact scenarios that affect delivery"
+        ]
+      },
+      {
+        "title": "Automation applied where it protects continuity",
+        "points": [
+          "API and integration-level validation",
+          "Event-driven flow testing",
+          "Data consistency monitoring",
+          "Partner API compatibility checks"
+        ]
+      }
+    ],
+    "approachBottom": "QA protects operational continuity, not just features.",
+    "impactTitle": "Why quality directly impacts logistics business",
+    "impactSubtitle": "In logistics, quality failures turn into operational and financial incidents",
+    "impacts": [
+      "Operational downtime stops shipments and creates cascading delays",
+      "Delivery delays and SLA violations lead to penalties and chargebacks",
+      "Financial penalties and compensation costs from failed deliveries",
+      "Loss of partner and customer trust affects long-term relationships",
+      "Escalating support costs and manual operations overhead"
+    ],
+    "resultsTitle": "Results logistics teams achieve with us",
+    "resultsSubtitle": "Measurable improvements that demonstrate operational impact",
+    "results": [
+      { "label": "Operational incidents", "value": "-60%" },
+      { "label": "Integration-related failures", "value": "-65%" },
+      { "label": "Incident detection time", "value": "-50%" },
+      { "label": "Mean time to recovery (MTTR)", "value": "-40%" },
+      { "label": "Release stability", "value": "+45%" },
+      { "label": "Manual recovery operations cost", "value": "-55%" }
+    ],
+    "engagementTitle": "Typical logistics engagement",
+    "engagement": {
+      "initialStateTitle": "Initial state",
+      "initialStateDesc": "Frequent production incidents causing delayed shipments, partner integration failures during peak hours, firefighting mode — teams reacting to problems rather than preventing them. Operations team spending hours manually correcting data inconsistencies.",
+      "problemsTitle": "Problems identified",
+      "problemsDesc": "Weak regression testing — changes breaking existing flows. Integrations tested only for happy paths, not edge cases. Poor incident visibility — difficult to identify root cause quickly. No monitoring alignment — QA and operations working in silos.",
+      "changedTitle": "What we changed",
+      "changedDesc": "Rebuilt QA flow around critical operational chains. Built integration testing strategy covering failure scenarios. Aligned testing with monitoring and alerting. Created regression suites protecting high-risk areas. Enabled faster root-cause analysis through better test coverage.",
+      "outcomeTitle": "Outcome",
+      "outcomeDesc": "Fewer incidents disrupting operations. Faster recovery when issues occur. Predictable operations — team able to plan rather than firefight. Integration partners experiencing fewer issues. Reduced penalty costs and improved customer satisfaction."
+    },
+    "footerTitle": "Running or scaling a logistics platform?",
+    "footerSubtitle": "Let's make your logistics system reliable under real-world pressure.",
+    "footerCta": "Book a call"
+  },
+  "retail": {
+    "headline": "In retail, quality issues don't just break software — they break sales",
+    "description": "Modern retail systems are complex ecosystems: stores, online platforms, warehouses, POS, and third-party integrations. When quality breaks, customers feel it immediately — and so does revenue.",
+    "stats": {
+      "salesVal": "Fewer",
+      "salesLbl": "Sales lost due to system errors",
+      "pricingVal": "Stable",
+      "pricingLbl": "Pricing and promotions across channels",
+      "checkoutVal": "Reliable",
+      "checkoutLbl": "Inventory and checkout experiences"
+    },
+    "cta": "Talk to Retail QA Experts",
+    "painsTitle": "Common quality challenges in retail systems",
+    "painsSubtitle": "Each problem directly links to lost sales, operational chaos, or customer dissatisfaction",
+    "pains": [
+      "Inventory mismatches between online, mobile, and physical store systems",
+      "Pricing or promotion errors at checkout causing customer frustration",
+      "POS system failures during peak hours disrupting store operations",
+      "Inconsistent customer experience across channels and touchpoints",
+      "Regressions after frequent catalog, pricing, or campaign updates",
+      "Manual QA processes unable to keep pace with retail change velocity"
+    ],
+    "approachTitle": "How we apply QA in real retail environments",
+    "approachSubtitle": "QA approach built for omnichannel complexity and operational reality",
+    "approach": [
+      {
+        "title": "QA focuses on end-to-end retail flows, not isolated features",
+        "points": [
+          "Product setup and catalog management",
+          "Pricing, promotions, and discount logic",
+          "Inventory synchronization across all systems",
+          "Checkout flows (online and in-store POS)",
+          "Order fulfillment and returns processing"
+        ]
+      },
+      {
+        "title": "Risk-based testing prioritizes operational continuity",
+        "points": [
+          "Checkout and payment accuracy validation",
+          "Pricing, discounts, and promotional campaigns",
+          "Real-time inventory updates across channels",
+          "POS and backend system integrations"
+        ]
+      },
+      {
+        "title": "QA validates omnichannel consistency",
+        "points": [
+          "Same pricing online and in physical stores",
+          "Unified availability across all channels",
+          "Consistent customer experience across devices",
+          "Seamless transitions between channels (buy online, pickup in-store)"
+        ]
+      },
+      {
+        "title": "Automation applied to core retail operations",
+        "points": [
+          "End-to-end sales flow validation",
+          "Pricing and promotion calculation logic",
+          "API integrations between retail systems",
+          "Pre-launch regression for catalogs and campaigns"
+        ]
+      }
+    ],
+    "approachBottom": "Retail QA protects sales continuity and operational stability.",
+    "impactTitle": "Why quality failures are expensive in retail",
+    "impactSubtitle": "In retail, a single bug can affect thousands of transactions in hours",
+    "impacts": [
+      "Immediate revenue loss from broken checkout or payment flows",
+      "Customer frustration at checkout from pricing errors",
+      "Increased returns and support load from system failures",
+      "Store staff downtime and manual workarounds",
+      "Damage to brand trust and customer loyalty"
+    ],
+    "resultsTitle": "Results retail teams achieve with us",
+    "resultsSubtitle": "Business protection metrics that leadership can track",
+    "results": [
+      { "label": "Checkout-related incidents", "value": "-60%" },
+      { "label": "Pricing and promotion errors", "value": "-50%" },
+      { "label": "Inventory mismatch issues", "value": "-50%" },
+      { "label": "Regression testing time", "value": "-40%" },
+      { "label": "Peak season incidents", "value": "-65%" },
+      { "label": "Customer complaint volume", "value": "-55%" }
+    ],
+    "engagementTitle": "Typical retail engagement",
+    "engagement": {
+      "initialStateTitle": "Initial state",
+      "initialStateDesc": "Frequent pricing and checkout issues frustrating customers. Unstable releases causing operational disruptions. POS systems freezing during busy hours. Inventory showing incorrect availability across channels. Team afraid to deploy during peak shopping periods.",
+      "problemsTitle": "Problems identified",
+      "problemsDesc": "Fragmented systems with weak integration testing. Weak regression coverage on checkout and pricing flows. Manual QA unable to keep up with catalog and campaign changes. No validation of inventory sync accuracy.",
+      "changedTitle": "What we changed",
+      "changedDesc": "Built retail-focused QA strategy around sales continuity. Risk-based coverage on checkout, pricing, and inventory. Automated critical retail flows. Pre-launch validation for campaigns and catalog updates.",
+      "outcomeTitle": "Outcome",
+      "outcomeDesc": "Stable operations during peak seasons and sales events. Smoother campaign launches with fewer pricing errors. Reliable omnichannel experience. Fewer customer complaints. Store staff focused on customers instead of technical workarounds."
+    },
+    "footerTitle": "Scaling or modernizing a retail platform?",
+    "footerSubtitle": "Let's make sure your systems don't fail when sales matter most.",
+    "footerCta": "Book a call"
+  },
+  "saas": {
+    "headline": "In SaaS, quality issues kill retention before you see them coming",
+    "description": "SaaS products compete on user experience and reliability. Quality problems directly impact retention, growth, and competitive positioning. In subscription business, quality is retention.",
+    "stats": {
+      "bugsVal": "-70%",
+      "bugsLbl": "User-reported bugs reduced",
+      "freqVal": "+60%",
+      "freqLbl": "Release frequency increased",
+      "releasesVal": "Predictable",
+      "releasesLbl": "Confident releases"
+    },
+    "cta": "Book a call",
+    "painsTitle": "Common quality challenges in SaaS products",
+    "painsSubtitle": "These challenges slow down SaaS teams and impact customer satisfaction",
+    "pains": [
+      "User-facing bugs damaging product reputation and trust",
+      "Inconsistent quality across features and releases",
+      "Slow release cycles due to manual testing bottlenecks",
+      "Poor test coverage for integration points and APIs",
+      "Scaling challenges with growing feature sets",
+      "Critical user flows breaking after seemingly unrelated changes"
+    ],
+    "approachTitle": "How we help SaaS teams ship faster with confidence",
+    "approachSubtitle": "Quality approach designed for fast-moving SaaS environments",
+    "solutions": [
+      {
+        "title": "User journey testing",
+        "description": "Critical paths and conversion flows covered systematically"
+      },
+      {
+        "title": "API and integration testing",
+        "description": "Third-party integrations validated reliably"
+      },
+      {
+        "title": "Regression automation",
+        "description": "Fast feedback on core functionality"
+      },
+      {
+        "title": "Performance validation",
+        "description": "Response times and load handling monitored"
+      },
+      {
+        "title": "Cross-browser coverage",
+        "description": "Consistent experience across platforms"
+      }
+    ],
+    "impactTitle": "What's Included",
+    "impacts": [
+      {
+        "title": "Churn risk",
+        "description": "Users leave when product reliability doesn't meet expectations"
+      },
+      {
+        "title": "Growth bottleneck",
+        "description": "Poor quality slows feature delivery and competitive response"
+      },
+      {
+        "title": "Support costs",
+        "description": "Bugs create support tickets, drain resources, and frustrate teams"
+      },
+      {
+        "title": "Market reputation",
+        "description": "Product reviews and word-of-mouth heavily influenced by quality"
+      }
+    ],
+    "impactBottom": "\"In SaaS, quality directly impacts retention and growth metrics.\"",
+    "resultsTitle": "Results SaaS teams achieve with us",
+    "resultsSubtitle": "Metrics that impact business performance",
+    "results": [
+      { "label": "User-reported bugs", "value": "-70%" },
+      { "label": "Release frequency", "value": "+60%" },
+      { "label": "Test execution time", "value": "-50%" },
+      { "label": "Production incidents", "value": "-55%" }
+    ],
+    "resultsBottom": "Plus: Improved team confidence and faster feature iteration",
+    "engagementTitle": "Typical SaaS engagement",
+    "engagement": {
+      "initialStateTitle": "Initial state",
+      "initialStateDesc": "Growing number of user-reported bugs, release anxiety, slow deployment cycles, testing becoming a bottleneck as feature complexity increases.",
+      "problemsTitle": "Problems identified",
+      "problemsDesc": "Weak coverage of critical user journeys, manual regression taking days, integration points untested, no systematic approach to prioritizing test efforts.",
+      "changedTitle": "What we changed",
+      "changedDesc": "Built automation for core user flows, established risk-based testing strategy, improved API test coverage, introduced performance benchmarks for critical operations.",
+      "outcomeTitle": "Outcome",
+      "outcomeDesc": "62% reduction in user-reported bugs, release cycle shortened from 2 weeks to 3 days, team able to ship confidently multiple times per week, support tickets related to bugs decreased significantly."
+    },
+    "footerTitle": "Building or scaling a SaaS product?",
+    "footerSubtitle": "Let's talk about improving quality without slowing down your release velocity."
+  }
+}

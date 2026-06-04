@@ -3,46 +3,25 @@ import { CheckCircle, TrendingDown, Shield, Target } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function SaaS() {
-  const pains = [
-    'User-facing bugs damaging product reputation and trust',
-    'Inconsistent quality across features and releases',
-    'Slow release cycles due to manual testing bottlenecks',
-    'Poor test coverage for integration points and APIs',
-    'Scaling challenges with growing feature sets',
-    'Critical user flows breaking after seemingly unrelated changes',
-  ];
+  const { t } = useTranslation('industries');
 
-  const solutions = [
-    {
-      title: 'User journey testing',
-      description: 'Critical paths and conversion flows covered systematically',
-    },
-    {
-      title: 'API and integration testing',
-      description: 'Third-party integrations validated reliably',
-    },
-    {
-      title: 'Regression automation',
-      description: 'Fast feedback on core functionality',
-    },
-    {
-      title: 'Performance validation',
-      description: 'Response times and load handling monitored',
-    },
-    {
-      title: 'Cross-browser coverage',
-      description: 'Consistent experience across platforms',
-    },
-  ];
+  const pains: string[] = t('saas.pains') || [];
 
-  const metrics = [
-    { label: 'User-reported bugs', value: '-70%', icon: TrendingDown },
-    { label: 'Release frequency', value: '+60%', icon: Target },
-    { label: 'Test execution time', value: '-50%', icon: TrendingDown },
-    { label: 'Production incidents', value: '-55%', icon: Shield },
-  ];
+  const solutionsData: { title: string; description: string }[] = t('saas.solutions') || [];
+  const solutions = solutionsData.map((sol) => ({
+    ...sol,
+    icon: CheckCircle,
+  }));
+
+  const metricsData: { label: string; value: string }[] = t('saas.results') || [];
+  const metricsIcons = [TrendingDown, Target, TrendingDown, Shield];
+  const metrics = metricsData.map((m, idx) => ({
+    ...m,
+    icon: metricsIcons[idx] || Shield,
+  }));
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -54,7 +33,7 @@ export default function SaaS() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In SaaS, quality issues kill retention before you see them coming
+              {t('saas.headline')}
             </h1>
           </div>
 
@@ -62,8 +41,7 @@ export default function SaaS() {
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
-                SaaS products compete on user experience and reliability. Quality problems directly impact retention, growth, and competitive positioning.
-                In subscription business, quality is retention.
+                {t('saas.description')}
               </p>
             </div>
           </div>
@@ -72,25 +50,27 @@ export default function SaaS() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="-70%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('saas.stats.bugsVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">User-reported bugs reduced</div>
+              <div className="text-gray-300 text-sm">{t('saas.stats.bugsLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="+60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('saas.stats.freqVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Release frequency increased</div>
+              <div className="text-gray-300 text-sm">{t('saas.stats.freqLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Predictable</div>
-              <div className="text-gray-300 text-sm">Confident releases</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('saas.stats.releasesVal')}</div>
+              <div className="text-gray-300 text-sm">{t('saas.stats.releasesLbl')}</div>
             </div>
           </div>
 
           {/* CTA */}
           <div className="text-center">
-            <Button href="/contact" className="text-lg">Book a call</Button>
+            <Link href="/contact" className="inline-block">
+              <Button className="text-lg px-10 py-6">{t('saas.cta')}</Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -98,10 +78,10 @@ export default function SaaS() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Common quality challenges in SaaS products
+            {t('saas.painsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            These challenges slow down SaaS teams and impact customer satisfaction
+            {t('saas.painsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {pains.map((pain, index) => (
@@ -124,10 +104,10 @@ export default function SaaS() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            How we help SaaS teams ship faster with confidence
+            {t('saas.approachTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Quality approach designed for fast-moving SaaS environments
+            {t('saas.approachSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {solutions.map((solution, index) => (
@@ -147,50 +127,25 @@ export default function SaaS() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What&apos;s <span className="text-[#00B476]">Included</span>
+            {t('saas.impactTitle')}
           </h2>
           <div className="bg-green-950/15 border border-green-500/20 rounded-xl p-8 md:p-10">
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
+              {((t('saas.impacts') as any[]) || []).map((impact, idx) => (
+                <div key={idx} className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
+                    <Shield className="text-[#00B476]" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{impact.title}</h3>
+                    <p className="text-gray-400">{impact.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Churn risk</h3>
-                  <p className="text-gray-400">Users leave when product reliability doesn&apos;t meet expectations</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Growth bottleneck</h3>
-                  <p className="text-gray-400">Poor quality slows feature delivery and competitive response</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Support costs</h3>
-                  <p className="text-gray-400">Bugs create support tickets, drain resources, and frustrate teams</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Market reputation</h3>
-                  <p className="text-gray-400">Product reviews and word-of-mouth heavily influenced by quality</p>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="mt-8 pt-8">
               <p className="text-lg text-center text-[#00B476] font-semibold">
-                &quot;In SaaS, quality directly impacts retention and growth metrics.&quot;
+                {t('saas.impactBottom')}
               </p>
             </div>
           </div>
@@ -200,10 +155,10 @@ export default function SaaS() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Results SaaS teams achieve with us
+            {t('saas.resultsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Metrics that impact business performance
+            {t('saas.resultsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((metric, index) => {
@@ -224,7 +179,7 @@ export default function SaaS() {
           </div>
           <div className="mt-10 text-center">
             <p className="text-gray-400">
-              Plus: Improved team confidence and faster feature iteration
+              {t('saas.resultsBottom')}
             </p>
           </div>
         </div>
@@ -233,35 +188,31 @@ export default function SaaS() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Typical SaaS engagement
+            {t('saas.engagementTitle')}
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">{t('saas.engagement.initialStateTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Growing number of user-reported bugs, release anxiety, slow deployment cycles,
-                testing becoming a bottleneck as feature complexity increases.
+                {t('saas.engagement.initialStateDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">{t('saas.engagement.problemsTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Weak coverage of critical user journeys, manual regression taking days,
-                integration points untested, no systematic approach to prioritizing test efforts.
+                {t('saas.engagement.problemsDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">{t('saas.engagement.changedTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Built automation for core user flows, established risk-based testing strategy,
-                improved API test coverage, introduced performance benchmarks for critical operations.
+                {t('saas.engagement.changedDesc')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/50 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Outcome</h3>
+              <h3 className="text-xl font-semibold text-[#00B476] mb-3">{t('saas.engagement.outcomeTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                62% reduction in user-reported bugs, release cycle shortened from 2 weeks to 3 days,
-                team able to ship confidently multiple times per week, support tickets related to bugs decreased significantly.
+                {t('saas.engagement.outcomeDesc')}
               </p>
             </div>
           </div>
@@ -271,14 +222,16 @@ export default function SaaS() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Building or scaling a SaaS product?
+            {t('saas.footerTitle')}
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let&apos;s talk about improving quality without slowing down your release velocity.
+            {t('saas.footerSubtitle')}
           </p>
-          <Button href="/contact" className="text-lg px-10 py-6">
-            Book a call
-          </Button>
+          <Link href="/contact" className="inline-block">
+            <Button className="text-lg px-10 py-6">
+              {t('saas.cta')}
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

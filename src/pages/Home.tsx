@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Users, Shield, Clock, Target, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 import Hero from '../components/Hero';
 import ProcessSteps from '../components/ProcessSteps';
 import IndustryGrid from '../components/IndustryGrid';
@@ -28,6 +29,7 @@ import {
 
 const Home = () => {
   const router = useRouter();
+  const { t } = useTranslation('home');
   const aboutRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -73,10 +75,10 @@ const Home = () => {
     }
   };
 
-  const quotePart1 = "Your users won't give you a";
-  const quotePart2 = "second chance";
-  const quotePart3 = ".";
-  const quotePart4 = "We make sure they never see the bugs.";
+  const quotePart1 = t('quotePart1');
+  const quotePart2 = t('quotePart2');
+  const quotePart3 = t('quotePart3');
+  const quotePart4 = t('quotePart4');
 
   const renderAnimatedText = (text: string, isGreen: boolean = false, keyPrefix: string) => {
     const words = text.split(" ");
@@ -140,33 +142,33 @@ const Home = () => {
   const qaProblems = [
     {
       icon: Users,
-      title: "Developer blindness",
-      description: "\"It works perfectly!\" (Narrator: it didn't)"
+      title: t('problems.devBlindness.title'),
+      description: t('problems.devBlindness.description')
     },
     {
       icon: CheckCircle,
-      title: "Checkbox Circus",
-      description: "1000 test cases passed, but users still hate it"
+      title: t('problems.checkboxCircus.title'),
+      description: t('problems.checkboxCircus.description')
     },
     {
       icon: Shield,
-      title: "Shifting QA Left Out",
-      description: "\"QA? We’ll add it later.\" (Result: bugs made in from day one)"
+      title: t('problems.shiftingQa.title'),
+      description: t('problems.shiftingQa.description')
     },
     {
       icon: Clock,
-      title: "Last-minute panic",
-      description: "\"Can you test this before tomorrow's release?\""
+      title: t('problems.lastMinutePanic.title'),
+      description: t('problems.lastMinutePanic.description')
     },
     {
       icon: Target,
-      title: "Tool Addiction",
-      description: "$100K spent on tools, still shipping bugs"
+      title: t('problems.toolAddiction.title'),
+      description: t('problems.toolAddiction.description')
     },
      {
       icon: AlertTriangle,
-      title: "Missing Owner",
-      description: "No clear QA accountability → everyone assumes “someone else” tested it."
+      title: t('problems.missingOwner.title'),
+      description: t('problems.missingOwner.description')
     },
   ];
 
@@ -186,11 +188,9 @@ const Home = () => {
       <section id="experience" className="pt-12 pb-24 bg-gradient-to-b from-black via-green-950/15 to-black overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Experience behind our <span className="text-green-500">QA engineers</span>
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4" dangerouslySetInnerHTML={{ __html: t('experienceTitleHtml') }} />
             <p className="text-gray-400 text-lg">
-              Real-world QA practices brought from product and enterprise teams
+              {t('experienceSubtitle')}
             </p>
           </div>
         </div>
@@ -264,12 +264,9 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Why QA <span className="text-green-500">Breaks</span>
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8" dangerouslySetInnerHTML={{ __html: t('whyQaTitleHtml') }} />
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Let me guess: your devs are testing their own code. The offshore team is checking boxes but missing critical bugs. 
-              You ship, users complain, and everyone scrambles. <span className="text-green-500">Sound familiar?</span>
+              {t('whyQaDesc')}
             </p>
           </motion.div>
 
@@ -324,25 +321,22 @@ const Home = () => {
                 <div className="relative space-y-6">
                   {/* Label */}
                   <div className="text-xs tracking-[0.3em] uppercase text-green-500 font-semibold">
-                    About Us
+                    {t('aboutUsLabel')}
                   </div>
 
                   {/* Headline */}
-                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                    We build trust in applications —{' '}
-                    <span className="text-green-500">through people and quality thinking.</span>
-                  </h2>
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white" dangerouslySetInnerHTML={{ __html: t('aboutTitleHtml') }} />
 
                   {/* Body Text */}
                   <div className="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
                     <p>
-                      We started as a QA education initiative, helping engineers grow from Junior to Middle and Senior level.
+                      {t('aboutText1')}
                     </p>
                     <p>
-                      By teaching real-world testing and sharing practices from top tech companies, we built a strong professional community.
+                      {t('aboutText2')}
                     </p>
                     <p>
-                      Today, this knowledge allows us to set a new normal in quality — focused on impact, not rituals.
+                      {t('aboutText3')}
                     </p>
                   </div>
 
@@ -358,7 +352,7 @@ const Home = () => {
                       }}
                       className="inline-flex items-center text-green-500 hover:text-green-400 font-semibold text-lg group transition-colors"
                     >
-                      Learn our story
+                      {t('aboutLearnStory')}
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                     </Link>
                   </div>
@@ -389,10 +383,7 @@ const Home = () => {
                   <div className="relative inline-block text-left">
                     <div className="absolute inset-0 rounded-xl bg-black/50"></div>
                     <div className="relative z-10 w-20 h-1 bg-green-500 mb-3 rounded-full ml-3"></div>
-                    <p className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight px-4 py-2">
-                      People are our{' '}
-                      <span className="text-green-500">core value.</span>
-                    </p>
+                    <p className="relative z-10 text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight px-4 py-2" dangerouslySetInnerHTML={{ __html: t('imageQuoteHtml') }} />
                   </div>
                 </div>
               </div>

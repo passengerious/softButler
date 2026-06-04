@@ -1,0 +1,204 @@
+{
+  "title": "Build Trust in Software",
+  "experienceTitleHtml": "Experience behind our <span class=\"text-green-500\">QA engineers</span>",
+  "experienceSubtitle": "Real-world QA practices brought from product and enterprise teams",
+  "whyQaTitleHtml": "Why QA <span class=\"text-green-500\">Breaks</span>",
+  "whyQaDesc": "Let me guess: your devs are testing their own code. The offshore team is checking boxes but missing critical bugs. You ship, users complain, and everyone scrambles. Sound familiar?",
+  "quote": "People are our core value.",
+  "imageQuoteHtml": "People are our <span class=\"text-green-500\">core value.</span>",
+  "aboutTitleHtml": "We build trust in applications — <span class=\"text-green-500\">through people and quality thinking.</span>",
+  "aboutText1": "We started as a QA education initiative, helping engineers grow from Junior to Middle and Senior level.",
+  "aboutText2": "By teaching real-world testing and sharing practices from top tech companies, we built a strong professional community.",
+  "aboutText3": "Today, this knowledge allows us to set a new normal in quality — focused on impact, not rituals.",
+  "aboutLearnStory": "Learn our story",
+  "aboutUsLabel": "About Us",
+  "hero": {
+    "systemError": "SYSTEM ERROR",
+    "qaFailed": "Quality Assurance Failed...",
+    "allTestsPassed": "All Tests Passed",
+    "coverage": "Coverage: 98%",
+    "bugDetected": "Bug Detected",
+    "fixedAuto": "Fixed automatically",
+    "qaIsBroken": "Your QA Is",
+    "broken": "Broken",
+    "weWillFixIt": "We'll Fix It",
+    "subtitle": "We turn chaotic releases into smooth launches — no guesswork, no excuses.",
+    "getFreeConsultation": "Get Free Consultation",
+    "ourServices": "Our Services"
+  },
+  "process": {
+    "titleHtml": "Our Process: <span class=\"text-green-500\">Clear & Effective</span>",
+    "steps": [
+      {
+        "title": "We Learn",
+        "description": "Deep dive into your product, stack, and pain points"
+      },
+      {
+        "title": "We Break",
+        "description": "Exploratory testing to find what you've missed"
+      },
+      {
+        "title": "We Fix",
+        "description": "Detailed bug reports with steps, screenshots, severity"
+      },
+      {
+        "title": "We Prevent",
+        "description": "Automation & processes to stop bugs early"
+      }
+    ]
+  },
+  "sdlc": {
+    "titleHtml": "QA Isn't a Stage. <span class=\"text-green-500\">It's Everywhere</span>.",
+    "subtitle": "We don't \"test at the end.\" QA runs in parallel with your entire SDLC — reducing bugs earlier, when they're cheaper to fix.",
+    "continuous": "Continuous",
+    "qa": "QA",
+    "bottomTitle": "Testing isn't a checkbox at the end. It's a consistent, integrated process.",
+    "bottomDesc": "QA makes every stage of your product lifecycle safer, faster, and cheaper by catching issues when they're easiest to fix — not when they're most expensive.",
+    "stages": [
+      {
+        "title": "Requirements",
+        "description": "Define & validate",
+        "qaNote": "Validate requirements"
+      },
+      {
+        "title": "Design",
+        "description": "Plan & prototype",
+        "qaNote": "Check testability"
+      },
+      {
+        "title": "Development",
+        "description": "Build & code",
+        "qaNote": "Catch defects early"
+      },
+      {
+        "title": "Testing",
+        "description": "Verify & validate",
+        "qaNote": "Verify quality"
+      },
+      {
+        "title": "Deployment",
+        "description": "Release & launch",
+        "qaNote": "Release testing"
+      },
+      {
+        "title": "Maintenance",
+        "description": "Monitor & improve",
+        "qaNote": "Monitor & improve"
+      }
+    ]
+  },
+  "industries": {
+    "titleSaved": "Industries We've Saved From",
+    "titleServe": "Industries We Serve",
+    "qaHell": "QA Hell",
+    "freeAudit": "Get a Free Audit",
+    "items": {
+      "ecommerce": {
+        "name": "E-commerce",
+        "description": "Prevented a $500K loss by catching a checkout bug pre-launch",
+        "details": "Shopping carts, payment gateways, inventory management"
+      },
+      "fintech": {
+        "name": "FinTech",
+        "description": "Secured banking app with 99.9% uptime",
+        "details": "Payment processing, financial compliance, security"
+      },
+      "saas": {
+        "name": "SaaS",
+        "description": "Streamlined deployment for 50+ microservices",
+        "details": "Cloud platforms, API testing, scalability"
+      },
+      "logistics": {
+        "name": "Logistics",
+        "description": "Reduced delivery failures by 40% by detecting route and tracking issues early",
+        "details": "Shipment tracking, route optimization, warehouse systems, integrations with carriers"
+      },
+      "retail": {
+        "name": "Retail",
+        "description": "Improved in-store and online sales reliability, preventing POS and pricing errors",
+        "details": "POS systems, pricing engines, inventory sync, omnichannel retail platforms"
+      },
+      "edtech": {
+        "name": "EdTech",
+        "description": "Ensured seamless learning for 500K+ students",
+        "details": "LMS platforms, assessment tools, mobile learning"
+      }
+    }
+  },
+  "quotePart1": "Your users won't give you a",
+  "quotePart2": "second chance",
+  "quotePart3": ".",
+  "quotePart4": "We make sure they never see the bugs.",
+  "problems": {
+    "devBlindness": {
+      "title": "Developer blindness",
+      "description": "\"It works perfectly!\" (Narrator: it didn't)"
+    },
+    "checkboxCircus": {
+      "title": "Checkbox Circus",
+      "description": "1000 test cases passed, but users still hate it"
+    },
+    "shiftingQa": {
+      "title": "Shifting QA Left Out",
+      "description": "\"QA? We’ll add it later.\" (Result: bugs made in from day one)"
+    },
+    "lastMinutePanic": {
+      "title": "Last-minute panic",
+      "description": "\"Can you test this before tomorrow's release?\""
+    },
+    "toolAddiction": {
+      "title": "Tool Addiction",
+      "description": "$100K spent on tools, still shipping bugs"
+    },
+    "missingOwner": {
+      "title": "Missing Owner",
+      "description": "No clear QA accountability → everyone assumes “someone else” tested it."
+    }
+  },
+  "faq": {
+    "titleHtml": "Frequently Asked <span class=\"text-green-500\">Questions</span>",
+    "subtitle": "General Questions About QA and Testing",
+    "items": [
+      {
+        "question": "Who are you and what is your expertise?",
+        "answer": "We are SoftButler, a QA and Quality Engineering company on a mission to make products trustworthy by default. We help teams build quality into their products from day one through manual and automated testing, QA audits, and release acceleration — preventing issues before they reach production."
+      },
+      {
+        "question": "Why should clients choose SoftButler?",
+        "answer": "Clients choose SoftButler because we measure quality in real numbers, not promises. We combine strong QA engineering expertise with a business-oriented mindset — focusing on faster releases, fewer production bugs, and predictable delivery. We don't slow teams down. We accelerate development while increasing confidence in every release."
+      },
+      {
+        "question": "What industries do you have experience in?",
+        "answer": "We have hands-on experience working with: SaaS products, E-commerce platforms, Fintech solutions, Business and enterprise web applications. Our QA approach adapts to the product domain, risk level, and business goals of each industry."
+      },
+      {
+        "question": "What results do clients get from working with you?",
+        "answer": "Our clients typically achieve: Reduced production bugs, Faster and more predictable release cycles, Lower QA and regression costs through automation, Higher product stability and user satisfaction. We always focus on measurable outcomes and clearly show progress using metrics, reports, and KPIs."
+      },
+      {
+        "question": "Why is QA important for business?",
+        "answer": "QA is not just about finding bugs — it is about protecting revenue, reputation, and users. Strong QA helps businesses: Avoid costly production incidents, Reduce support and hotfix costs, Release faster with confidence, Build trust with customers. Quality directly impacts customer retention, growth, and long-term scalability."
+      },
+      {
+        "question": "What does your QA process look like from start to finish?",
+        "answer": "Our QA process typically includes: Product and risk analysis, QA strategy and scope definition, Test planning and test case creation, Manual and/or automated testing, Defect tracking and verification, Reporting, metrics, and recommendations. The process is always adapted to the product stage, team setup, and business priorities."
+      },
+      {
+        "question": "What quality guarantees do you provide?",
+        "answer": "We prove quality with measurable results. If agreed quality metrics are not achieved, we refund the cost of the service. Quality for us is not subjective — it is transparent, measurable, and accountable."
+      },
+      {
+        "question": "How do you work with client teams (communication and reporting)?",
+        "answer": "We maintain continuous communication with client teams and provide regular reports, adjusted to client needs. This can include: Daily or weekly status updates, Clear defect reports, Quality metrics and progress tracking, Actionable recommendations. Clients always know what is happening, what was found, and what comes next."
+      },
+      {
+        "question": "How long does QA implementation usually take?",
+        "answer": "QA implementation typically starts from 2 weeks, depending on the complexity of the product and selected services. We focus on delivering early value, not long onboarding phases."
+      },
+      {
+        "question": "Can clients get a free consultation or evaluation?",
+        "answer": "Yes. We offer a 3-day free trial for any selected service. If the client is not satisfied within the first 3 days, the service is completely free with no obligations."
+      }
+    ]
+  }
+}

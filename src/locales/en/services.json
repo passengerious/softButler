@@ -1,0 +1,60 @@
+{
+  "title": "Services",
+  "heroTitleHtml": "Our <span class=\"text-[#00B476]\">Services</span>",
+  "heroSubtitle": "Professional QA solutions tailored to your needs. From quick audits to comprehensive testing services.",
+  "mostPopular": "Most Popular",
+  "coreTestingServices": "Core Testing Services",
+  "learnMore": "Learn more",
+  "notSureTitleHtml": "Not Sure <span class=\"text-[#00B476]\">Which Service You</span> Need?",
+  "notSureSubtitle": "Let's talk. We'll help you find the right solution for your challenges.",
+  "bookCall": "Book a call",
+  "popular": {
+    "qa-audit": {
+      "title": "QA Audit & Consulting",
+      "description": "Fix your QA system before it breaks your product. Get clarity on what's wrong and how to fix it.",
+      "highlights": ["50% fewer bugs", "Clear action plan", "Quick wins identified"]
+    },
+    "automation-nitro": {
+      "title": "Automation Nitro",
+      "description": "Accelerate your testing with smart automation. Reduce regression time by up to 80%.",
+      "highlights": ["80% faster testing", "Stable automation", "CI/CD optimized"]
+    },
+    "release-acceleration": {
+      "title": "Release Acceleration",
+      "description": "Ship faster without breaking things. Optimize your entire release pipeline for speed and quality.",
+      "highlights": ["10× faster releases", "Predictable delivery", "Risk-based testing"]
+    },
+    "qa-candidate-assessment": {
+      "title": "QA Candidate Assessment",
+      "description": "Hire QA engineers with confidence — not hope. Reduce hiring mistakes by 70%.",
+      "highlights": ["Unbiased evaluation", "Real-world testing", "Clear hire/no-hire recommendation"]
+    }
+  },
+  "core": {
+    "functional-testing": {
+      "title": "Functional Testing",
+      "description": "Verify that your application works as intended. Comprehensive testing of features and user workflows.",
+      "highlights": ["Complete coverage", "User-focused", "Requirements validation"]
+    },
+    "performance-testing": {
+      "title": "Performance Testing",
+      "description": "Ensure your application can handle the load. Test speed, stability, and scalability under various conditions.",
+      "highlights": ["Load testing", "Stress testing", "Scalability analysis"]
+    },
+    "regression-testing": {
+      "title": "Regression Testing",
+      "description": "Make sure new changes don't break existing functionality. Systematic validation after every update.",
+      "highlights": ["Change impact analysis", "Automated suites", "Fast feedback"]
+    },
+    "integration-testing": {
+      "title": "Integration Testing",
+      "description": "Test how different parts of your system work together. Identify interface issues early.",
+      "highlights": ["API testing", "System integration", "Data flow validation"]
+    },
+    "system-testing": {
+      "title": "System Testing",
+      "description": "End-to-end testing of your complete application. Verify the entire system meets requirements.",
+      "highlights": ["Complete workflows", "Real scenarios", "Environment testing"]
+    }
+  }
+}

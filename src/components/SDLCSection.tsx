@@ -1,44 +1,47 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Palette, Code, TestTube, Rocket, Settings } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 const SDLCSection = () => {
+  const { t } = useTranslation('home');
+
   const sdlcStages = [
     {
       icon: FileText,
-      title: "Requirements",
-      description: "Define & validate",
-      qaNote: "Validate requirements"
+      title: t('sdlc.stages.0.title'),
+      description: t('sdlc.stages.0.description'),
+      qaNote: t('sdlc.stages.0.qaNote')
     },
     {
       icon: Palette,
-      title: "Design",
-      description: "Plan & prototype",
-      qaNote: "Check testability"
+      title: t('sdlc.stages.1.title'),
+      description: t('sdlc.stages.1.description'),
+      qaNote: t('sdlc.stages.1.qaNote')
     },
     {
       icon: Code,
-      title: "Development",
-      description: "Build & code",
-      qaNote: "Catch defects early"
+      title: t('sdlc.stages.2.title'),
+      description: t('sdlc.stages.2.description'),
+      qaNote: t('sdlc.stages.2.qaNote')
     },
     {
       icon: TestTube,
-      title: "Testing",
-      description: "Verify & validate",
-      qaNote: "Verify quality"
+      title: t('sdlc.stages.3.title'),
+      description: t('sdlc.stages.3.description'),
+      qaNote: t('sdlc.stages.3.qaNote')
     },
     {
       icon: Rocket,
-      title: "Deployment",
-      description: "Release & launch",
-      qaNote: "Release testing"
+      title: t('sdlc.stages.4.title'),
+      description: t('sdlc.stages.4.description'),
+      qaNote: t('sdlc.stages.4.qaNote')
     },
     {
       icon: Settings,
-      title: "Maintenance",
-      description: "Monitor & improve",
-      qaNote: "Monitor & improve"
+      title: t('sdlc.stages.5.title'),
+      description: t('sdlc.stages.5.description'),
+      qaNote: t('sdlc.stages.5.qaNote')
     }
   ];
 
@@ -51,11 +54,9 @@ const SDLCSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            QA Isn&apos;t a Stage. <span className="text-green-500">It&apos;s Everywhere</span>.
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8" dangerouslySetInnerHTML={{ __html: t('sdlc.titleHtml') }} />
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            We don&apos;t &quot;test at the end.&quot; QA runs in parallel with your entire SDLC — reducing bugs earlier, when they&apos;re cheaper to fix.
+            {t('sdlc.subtitle')}
           </p>
         </motion.div>
 
@@ -86,8 +87,8 @@ const SDLCSection = () => {
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="text-center leading-tight">
-                <div className="text-green-500 font-bold text-lg mb-0.5 leading-tight">Continuous</div>
-                <div className="text-white font-bold text-xl leading-tight">QA</div>
+                <div className="text-green-500 font-bold text-lg mb-0.5 leading-tight">{t('sdlc.continuous')}</div>
+                <div className="text-white font-bold text-xl leading-tight">{t('sdlc.qa')}</div>
               </div>
             </motion.div>
 
@@ -149,8 +150,8 @@ const SDLCSection = () => {
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="text-center leading-tight">
-                <div className="text-green-500 font-bold text-lg mb-0.5 leading-tight">Continuous</div>
-                <div className="text-white font-bold text-xl leading-tight">QA</div>
+                <div className="text-green-500 font-bold text-lg mb-0.5 leading-tight">{t('sdlc.continuous')}</div>
+                <div className="text-white font-bold text-xl leading-tight">{t('sdlc.qa')}</div>
               </div>
             </motion.div>
 
@@ -230,12 +231,11 @@ const SDLCSection = () => {
           <div className="bg-black/50 border border-green-500/30 rounded-lg p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-4">
               <p className="text-green-500 font-semibold text-lg">
-                Testing isn&apos;t a checkbox at the end. It&apos;s a consistent, integrated process.
+                {t('sdlc.bottomTitle')}
               </p>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              QA makes every stage of your product lifecycle safer, faster, and cheaper by catching issues 
-              when they&apos;re easiest to fix — not when they&apos;re most expensive.
+              {t('sdlc.bottomDesc')}
             </p>
           </div>
         </motion.div>

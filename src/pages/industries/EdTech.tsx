@@ -3,77 +3,23 @@ import { CheckCircle, Users, Zap, RefreshCw, Shield } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function EdTech() {
-  const pains = [
-    'Platform crashes during peak loads (exams, enrollments, launches)',
-    'Unstable user experience across devices and browsers',
-    'Content delivery issues (lessons, tests, videos, progress tracking)',
-    'Hidden regressions after frequent updates',
-    'Slow reaction to production issues',
-    'QA focused on UI, not learning flows and platform logic',
-  ];
+  const { t } = useTranslation('industries');
 
-  const qaApproaches = [
-    {
-      icon: Users,
-      title: 'Learning flow-based testing',
-      points: [
-        'Onboarding and enrollment flows',
-        'Course access and lesson completion',
-        'Assessment and certification paths',
-        'Progress tracking and user journeys',
-      ],
-    },
-    {
-      icon: Shield,
-      title: 'Risk-based testing focus',
-      points: [
-        'Peak usage scenarios',
-        'Concurrent users handling',
-        'Data integrity (progress, results, scores)',
-        'Content delivery reliability',
-      ],
-    },
-    {
-      icon: RefreshCw,
-      title: 'Regression strategy',
-      points: [
-        'Core learning paths coverage',
-        'Critical user journeys',
-        'Platform operations validation',
-        'API-level checks',
-      ],
-    },
-    {
-      icon: Zap,
-      title: 'Automation approach',
-      points: [
-        'High-frequency user flows',
-        'Critical learning scenarios',
-        'Platform stability checks',
-        'Fast feedback loops',
-      ],
-    },
-  ];
+  const pains: string[] = t('edtech.pains') || [];
 
-  const businessImpacts = [
-    'Loss of user trust',
-    'Student and teacher churn',
-    'Failed course launches',
-    'Reputation damage',
-    'Revenue loss from subscriptions and enrollments',
-    'Support and operational cost growth',
-  ];
+  const qaApproachesData: { title: string; points: string[] }[] = t('edtech.approach') || [];
+  const icons = [Users, Shield, RefreshCw, Zap];
+  const qaApproaches = qaApproachesData.map((app, idx) => ({
+    ...app,
+    icon: icons[idx] || Users,
+  }));
 
-  const results = [
-    { metric: '-65%', label: 'Platform incidents' },
-    { metric: '-70%', label: 'Peak-load failures' },
-    { metric: '-50%', label: 'User complaints' },
-    { metric: '+50%', label: 'Release stability' },
-    { metric: '-40%', label: 'Regression execution time' },
-    { metric: 'Faster', label: 'Feature launches' },
-  ];
+  const businessImpacts: string[] = t('edtech.impacts') || [];
+
+  const results: { metric: string; label: string }[] = t('edtech.results') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -85,7 +31,7 @@ export default function EdTech() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In EdTech, platform failure means lost trust, lost users, and lost revenue
+              {t('edtech.headline')}
             </h1>
           </div>
 
@@ -93,8 +39,7 @@ export default function EdTech() {
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
-                EdTech platforms are not just products — they are learning infrastructures.
-                When they fail, users don&apos;t complain — they leave.
+                {t('edtech.description')}
               </p>
             </div>
           </div>
@@ -103,19 +48,19 @@ export default function EdTech() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="-65%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('edtech.stats.incidentsVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Platform incidents reduced</div>
+              <div className="text-gray-300 text-sm">{t('edtech.stats.incidentsLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="70%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('edtech.stats.loadVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Peak-load failures reduced</div>
+              <div className="text-gray-300 text-sm">{t('edtech.stats.loadLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Stable</div>
-              <div className="text-gray-300 text-sm">Launches during exams</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('edtech.stats.launchesVal')}</div>
+              <div className="text-gray-300 text-sm">{t('edtech.stats.launchesLbl')}</div>
             </div>
           </div>
 
@@ -123,7 +68,7 @@ export default function EdTech() {
           <div className="text-center">
             <Link href="/contact" className="inline-block">
               <Button className="text-lg px-10 py-6">
-                Talk to EdTech QA Experts
+                {t('edtech.cta')}
               </Button>
             </Link>
           </div>
@@ -133,10 +78,10 @@ export default function EdTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Common quality challenges in EdTech platforms
+            {t('edtech.painsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            These challenges impact platform reliability and user trust
+            {t('edtech.painsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {pains.map((pain, index) => (
@@ -159,10 +104,10 @@ export default function EdTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            How we apply QA in real EdTech platforms
+            {t('edtech.approachTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            QA is built around learning flows, not screens. We protect the learning experience, not just features.
+            {t('edtech.approachSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {qaApproaches.map((approach, index) => {
@@ -192,7 +137,7 @@ export default function EdTech() {
           </div>
           <div className="mt-12 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 text-center">
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold leading-relaxed">
-              QA protects learning flows, not just features.
+              {t('edtech.approachBottom')}
             </p>
           </div>
         </div>
@@ -201,10 +146,10 @@ export default function EdTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Why quality directly impacts EdTech business
+            {t('edtech.impactTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Platform instability destroys trust faster than bad content
+            {t('edtech.impactSubtitle')}
           </p>
 
           <div className="relative">
@@ -239,7 +184,7 @@ export default function EdTech() {
           <div className="mt-16 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00B476]/5 to-transparent"></div>
             <p className="text-xl md:text-2xl text-center text-[#00B476] font-semibold leading-relaxed relative z-10">
-              &quot;In EdTech, platform instability destroys trust faster than bad content.&quot;
+              {t('edtech.impactBottom')}
             </p>
           </div>
         </div>
@@ -248,10 +193,10 @@ export default function EdTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Results EdTech platforms achieve with us
+            {t('edtech.resultsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Leadership metrics that drive business decisions
+            {t('edtech.resultsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {results.map((result, index) => (
@@ -268,7 +213,7 @@ export default function EdTech() {
           </div>
           <div className="mt-12 text-center">
             <p className="text-gray-400 text-lg">
-              Plus: Faster and safer feature launches
+              {t('edtech.resultsBottom')}
             </p>
           </div>
         </div>
@@ -277,35 +222,31 @@ export default function EdTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Typical EdTech engagement
+            {t('edtech.engagementTitle')}
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">{t('edtech.engagement.initialStateTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Unstable releases, peak-load failures during exams and enrollments, stressed engineering teams,
-                inconsistent user experience across devices, mounting support tickets.
+                {t('edtech.engagement.initialStateDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">{t('edtech.engagement.problemsTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Weak regression coverage, no risk prioritization, QA focused on UI not learning flows,
-                slow feedback cycles, no load testing for peak periods, manual testing bottlenecks.
+                {t('edtech.engagement.problemsDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">{t('edtech.engagement.changedTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Rebuilt QA flow around learning journeys, implemented risk modeling, established test strategy
-                focused on critical paths, automated high-frequency flows, integrated platform coverage into delivery pipeline.
+                {t('edtech.engagement.changedDesc')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/50 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Outcome</h3>
+              <h3 className="text-xl font-semibold text-[#00B476] mb-3">{t('edtech.engagement.outcomeTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Stable launches during peak periods, 55% reduction in platform incidents, predictable delivery cadence,
-                improved team confidence, reduced operational costs, scalable QA process.
+                {t('edtech.engagement.outcomeDesc')}
               </p>
             </div>
           </div>
@@ -315,14 +256,14 @@ export default function EdTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Building or scaling an EdTech platform?
+            {t('edtech.footerTitle')}
           </h2>
           <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-            Let&apos;s make your platform reliable, scalable, and trusted — not fragile.
+            {t('edtech.footerSubtitle')}
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">
-              Book a call
+              {t('edtech.footerCta')}
             </Button>
           </Link>
         </div>

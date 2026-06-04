@@ -2,17 +2,19 @@ import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Logo from './Logo';
+import { useTranslation } from '../lib/i18n';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation('common');
   
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/industries/fintech', label: 'Industries' },
-    { path: '/who-we-are', label: 'Who We Are' },
-    { path: '/careers', label: 'Careers' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', label: t('navbar.home') },
+    { path: '/services', label: t('navbar.services') },
+    { path: '/industries/fintech', label: t('navbar.industries') },
+    { path: '/who-we-are', label: t('navbar.whoWeAre') },
+    { path: '/careers', label: t('navbar.careers') },
+    { path: '/contact', label: t('navbar.contact') },
   ];
 
   const socialLinks: Array<{
@@ -59,8 +61,7 @@ const Footer = () => {
               </span>
             </button>
             <p className="text-gray-400 leading-relaxed max-w-sm">
-              We build scalable QA processes that prevent bugs before they happen, 
-              transforming chaotic releases into smooth launches.
+              {t('footer.description')}
             </p>
           </motion.div>
 
@@ -71,7 +72,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-4"
           >
-            <h3 className="text-lg font-bold text-white">Navigation</h3>
+            <h3 className="text-lg font-bold text-white">{t('footer.navigation')}</h3>
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <button
@@ -97,7 +98,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-4"
           >
-            <h3 className="text-lg font-bold text-white">Connect</h3>
+            <h3 className="text-lg font-bold text-white">{t('footer.connect')}</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -124,7 +125,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-2 text-sm text-gray-400">
-              <p className="text-white font-semibold">Direct Contact</p>
+              <p className="text-white font-semibold">{t('footer.directContact')}</p>
               <a
                 href="tel:+380635138576"
                 className="flex items-center gap-2 hover:text-green-500 transition-colors"
@@ -161,7 +162,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {currentYear} SoftButler. <a href="https://maps.app.goo.gl/gw8diAv6MP6F3K8E7?g_st=ic" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-500 transition-colors">Koval&apos;s&apos;kyi Lane, 19, Kyiv, Ukraine</a>
+              © {currentYear} SoftButler. {t('footer.rights')} <a href="https://maps.app.goo.gl/gw8diAv6MP6F3K8E7?g_st=ic" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-500 transition-colors">Koval&apos;s&apos;kyi Lane, 19, Kyiv, Ukraine</a>
             </p>
             
             {/* Accent Line */}

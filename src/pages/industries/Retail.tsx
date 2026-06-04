@@ -3,77 +3,23 @@ import { Store, Package, CreditCard, Repeat, AlertTriangle } from 'lucide-react'
 import Link from 'next/link';
 import Button from '../../components/Button';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function Retail() {
-  const pains = [
-    'Inventory mismatches between online, mobile, and physical store systems',
-    'Pricing or promotion errors at checkout causing customer frustration',
-    'POS system failures during peak hours disrupting store operations',
-    'Inconsistent customer experience across channels and touchpoints',
-    'Regressions after frequent catalog, pricing, or campaign updates',
-    'Manual QA processes unable to keep pace with retail change velocity',
-  ];
+  const { t } = useTranslation('industries');
 
-  const qaApproach = [
-    {
-      icon: Store,
-      title: 'QA focuses on end-to-end retail flows, not isolated features',
-      points: [
-        'Product setup and catalog management',
-        'Pricing, promotions, and discount logic',
-        'Inventory synchronization across all systems',
-        'Checkout flows (online and in-store POS)',
-        'Order fulfillment and returns processing',
-      ],
-    },
-    {
-      icon: Package,
-      title: 'Risk-based testing prioritizes operational continuity',
-      points: [
-        'Checkout and payment accuracy validation',
-        'Pricing, discounts, and promotional campaigns',
-        'Real-time inventory updates across channels',
-        'POS and backend system integrations',
-      ],
-    },
-    {
-      icon: Repeat,
-      title: 'QA validates omnichannel consistency',
-      points: [
-        'Same pricing online and in physical stores',
-        'Unified availability across all channels',
-        'Consistent customer experience across devices',
-        'Seamless transitions between channels (buy online, pickup in-store)',
-      ],
-    },
-    {
-      icon: CreditCard,
-      title: 'Automation applied to core retail operations',
-      points: [
-        'End-to-end sales flow validation',
-        'Pricing and promotion calculation logic',
-        'API integrations between retail systems',
-        'Pre-launch regression for catalogs and campaigns',
-      ],
-    },
-  ];
+  const pains: string[] = t('retail.pains') || [];
 
-  const businessImpacts = [
-    'Immediate revenue loss from broken checkout or payment flows',
-    'Customer frustration at checkout from pricing errors',
-    'Increased returns and support load from system failures',
-    'Store staff downtime and manual workarounds',
-    'Damage to brand trust and customer loyalty',
-  ];
+  const qaApproachData: { title: string; points: string[] }[] = t('retail.approach') || [];
+  const icons = [Store, Package, Repeat, CreditCard];
+  const qaApproach = qaApproachData.map((app, idx) => ({
+    ...app,
+    icon: icons[idx] || Store,
+  }));
 
-  const metrics = [
-    { label: 'Checkout-related incidents', value: '-60%' },
-    { label: 'Pricing and promotion errors', value: '-50%' },
-    { label: 'Inventory mismatch issues', value: '-50%' },
-    { label: 'Regression testing time', value: '-40%' },
-    { label: 'Peak season incidents', value: '-65%' },
-    { label: 'Customer complaint volume', value: '-55%' },
-  ];
+  const businessImpacts: string[] = t('retail.impacts') || [];
+
+  const metrics: { label: string; value: string }[] = t('retail.results') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -85,7 +31,7 @@ export default function Retail() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In retail, quality issues don&apos;t just break software — they break sales
+              {t('retail.headline')}
             </h1>
           </div>
 
@@ -93,8 +39,7 @@ export default function Retail() {
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
-                Modern retail systems are complex ecosystems: stores, online platforms, warehouses, POS, and third-party integrations.
-                When quality breaks, customers feel it immediately — and so does revenue.
+                {t('retail.description')}
               </p>
             </div>
           </div>
@@ -102,16 +47,16 @@ export default function Retail() {
           {/* Stats Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Fewer</div>
-              <div className="text-gray-300 text-sm">Sales lost due to system errors</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('retail.stats.salesVal')}</div>
+              <div className="text-gray-300 text-sm">{t('retail.stats.salesLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Stable</div>
-              <div className="text-gray-300 text-sm">Pricing and promotions across channels</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('retail.stats.pricingVal')}</div>
+              <div className="text-gray-300 text-sm">{t('retail.stats.pricingLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Reliable</div>
-              <div className="text-gray-300 text-sm">Inventory and checkout experiences</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('retail.stats.checkoutVal')}</div>
+              <div className="text-gray-300 text-sm">{t('retail.stats.checkoutLbl')}</div>
             </div>
           </div>
 
@@ -119,7 +64,7 @@ export default function Retail() {
           <div className="text-center">
             <Link href="/contact" className="inline-block">
               <Button className="text-lg px-10 py-6">
-                Talk to Retail QA Experts
+                {t('retail.cta')}
               </Button>
             </Link>
           </div>
@@ -129,10 +74,10 @@ export default function Retail() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Common quality challenges in retail systems
+            {t('retail.painsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Each problem directly links to lost sales, operational chaos, or customer dissatisfaction
+            {t('retail.painsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {pains.map((pain, index) => (
@@ -155,10 +100,10 @@ export default function Retail() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            How we apply QA in real retail environments
+            {t('retail.approachTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            QA approach built for omnichannel complexity and operational reality
+            {t('retail.approachSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             {qaApproach.map((approach, index) => {
@@ -184,7 +129,7 @@ export default function Retail() {
           </div>
           <div className="mt-12 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 text-center">
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold leading-relaxed">
-              Retail QA protects sales continuity and operational stability.
+              {t('retail.approachBottom')}
             </p>
           </div>
         </div>
@@ -193,10 +138,10 @@ export default function Retail() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Why quality failures are expensive in retail
+            {t('retail.impactTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            In retail, a single bug can affect thousands of transactions in hours
+            {t('retail.impactSubtitle')}
           </p>
 
           <div className="relative">
@@ -233,10 +178,10 @@ export default function Retail() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Results retail teams achieve with us
+            {t('retail.resultsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Business protection metrics that leadership can track
+            {t('retail.resultsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {metrics.map((metric, index) => (
@@ -257,36 +202,31 @@ export default function Retail() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Typical retail engagement
+            {t('retail.engagementTitle')}
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">{t('retail.engagement.initialStateTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Frequent pricing and checkout issues frustrating customers. Unstable releases causing operational disruptions.
-                POS systems freezing during busy hours. Inventory showing incorrect availability across channels.
-                Team afraid to deploy during peak shopping periods.
+                {t('retail.engagement.initialStateDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">{t('retail.engagement.problemsTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Fragmented systems with weak integration testing. Weak regression coverage on checkout and pricing flows.
-                Manual QA unable to keep up with catalog and campaign changes. No validation of inventory sync accuracy.
+                {t('retail.engagement.problemsDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">{t('retail.engagement.changedTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Built retail-focused QA strategy around sales continuity. Risk-based coverage on checkout, pricing, and inventory.
-                Automated critical retail flows. Pre-launch validation for campaigns and catalog updates.
+                {t('retail.engagement.changedDesc')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/50 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Outcome</h3>
+              <h3 className="text-xl font-semibold text-[#00B476] mb-3">{t('retail.engagement.outcomeTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Stable operations during peak seasons and sales events. Smoother campaign launches with fewer pricing errors.
-                Reliable omnichannel experience. Fewer customer complaints. Store staff focused on customers instead of technical workarounds.
+                {t('retail.engagement.outcomeDesc')}
               </p>
             </div>
           </div>
@@ -296,14 +236,14 @@ export default function Retail() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Scaling or modernizing a retail platform?
+            {t('retail.footerTitle')}
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let&apos;s make sure your systems don&apos;t fail when sales matter most.
+            {t('retail.footerSubtitle')}
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">
-              Book a call
+              {t('retail.footerCta')}
             </Button>
           </Link>
         </div>

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
+import { useTranslation } from '../lib/i18n';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,13 @@ const Navbar = () => {
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const router = useRouter();
+  const { t, locale } = useTranslation('common');
+
+  const toggleLocale = (newLocale: string) => {
+    router.push({ pathname: router.pathname, query: router.query }, router.asPath, { locale: newLocale }).catch((error) => {
+      console.error('Locale switch error:', error);
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,11 +47,11 @@ const Navbar = () => {
   ];
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/who-we-are', label: 'Who We Are' },
-    { path: '/careers', label: 'Careers' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', label: t('navbar.home') },
+    { path: '/services', label: t('navbar.services') },
+    { path: '/who-we-are', label: t('navbar.whoWeAre') },
+    { path: '/careers', label: t('navbar.careers') },
+    { path: '/contact', label: t('navbar.contact') },
   ];
 
   const isActive = (path: string) => router.pathname === path;
@@ -98,7 +106,7 @@ const Navbar = () => {
                   : 'text-white hover:text-green-500'
               }`}
             >
-              Home
+              {t('navbar.home')}
               {router.pathname === '/' && (
                 <motion.div
                   layoutId="navbar-indicator"
@@ -114,7 +122,7 @@ const Navbar = () => {
                   : 'text-white hover:text-green-500'
               }`}
             >
-              Services
+              {t('navbar.services')}
               {router.pathname === '/services' && (
                 <motion.div
                   layoutId="navbar-indicator"
@@ -135,7 +143,7 @@ const Navbar = () => {
                     : 'text-white hover:text-green-500'
                 }`}
               >
-                <span>Industries</span>
+                <span>{t('navbar.industries')}</span>
                 <ChevronDown size={16} className={`transition-transform ${industriesOpen ? 'rotate-180' : ''}`} />
               </button>
               {industriesOpen && (
@@ -179,6 +187,29 @@ const Navbar = () => {
                 )}
               </button>
             ))}
+            {/* Desktop Language Switcher */}
+            <div className="flex items-center space-x-1.5 border-l border-gray-800 pl-4 h-6">
+              <button
+                onClick={() => toggleLocale('en')}
+                className={`text-xs font-semibold px-2 py-1 rounded transition-all duration-300 ${
+                  locale === 'en'
+                    ? 'text-green-500 bg-green-500/10 border border-green-500/20'
+                    : 'text-gray-400 hover:text-white border border-transparent'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => toggleLocale('uk')}
+                className={`text-xs font-semibold px-2 py-1 rounded transition-all duration-300 ${
+                  locale === 'uk'
+                    ? 'text-green-500 bg-green-500/10 border border-green-500/20'
+                    : 'text-gray-400 hover:text-white border border-transparent'
+                }`}
+              >
+                UA
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -208,7 +239,7 @@ const Navbar = () => {
                     : 'text-white hover:text-green-500 hover:bg-green-500/5'
                 }`}
               >
-                Home
+                {t('navbar.home')}
               </button>
               <button
                 onClick={() => handleNavigation('/services')}
@@ -218,7 +249,7 @@ const Navbar = () => {
                     : 'text-white hover:text-green-500 hover:bg-green-500/5'
                 }`}
               >
-                Services
+                {t('navbar.services')}
               </button>
               {/* Mobile Industries Dropdown */}
               <div>
@@ -231,7 +262,7 @@ const Navbar = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span>Industries</span>
+                    <span>{t('navbar.industries')}</span>
                     <ChevronDown size={16} className={`transition-transform ${mobileIndustriesOpen ? 'rotate-180' : ''}`} />
                   </div>
                 </button>
@@ -266,6 +297,35 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
+              {/* Mobile Language Switcher */}
+              <div className="border-t border-green-500/20 mt-4 pt-4 px-6 flex justify-around gap-4">
+                <button
+                  onClick={() => {
+                    toggleLocale('en');
+                    setIsOpen(false);
+                  }}
+                  className={`flex-1 text-center py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                    locale === 'en'
+                      ? 'text-green-500 bg-green-500/10 border border-green-500/30 shadow-[0_0_15px_rgba(0,180,118,0.1)]'
+                      : 'text-gray-400 hover:text-white border border-transparent bg-gray-900/40'
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => {
+                    toggleLocale('uk');
+                    setIsOpen(false);
+                  }}
+                  className={`flex-1 text-center py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                    locale === 'uk'
+                      ? 'text-green-500 bg-green-500/10 border border-green-500/30 shadow-[0_0_15px_rgba(0,180,118,0.1)]'
+                      : 'text-gray-400 hover:text-white border border-transparent bg-gray-900/40'
+                  }`}
+                >
+                  Українська
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

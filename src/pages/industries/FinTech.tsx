@@ -2,46 +2,25 @@ import SEO from '../../components/SEO';
 import { CheckCircle, TrendingDown, Shield, Target } from 'lucide-react';
 import Link from 'next/link';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function FinTech() {
-  const pains = [
-    'Production bugs affecting real financial transactions',
-    'High cost of post-release fixes due to compliance and audits',
-    'Fear of releases because of hidden risks',
-    'Inconsistent test coverage across critical flows',
-    'Manual regression slowing down delivery',
-    'QA focused on checklists, not financial risk',
-  ];
+  const { t } = useTranslation('industries');
 
-  const solutions = [
-    {
-      title: 'Risk-based testing',
-      description: 'Focused on money flows and critical paths',
-    },
-    {
-      title: 'Deep scenario analysis',
-      description: 'Transaction scenarios and edge cases',
-    },
-    {
-      title: 'Regression strengthening',
-      description: 'Core financial operations coverage',
-    },
-    {
-      title: 'Automation stabilization',
-      description: 'High-risk areas automated reliably',
-    },
-    {
-      title: 'Release confidence',
-      description: 'Improved without slowing delivery',
-    },
-  ];
+  const pains: string[] = t('fintech.pains') || [];
 
-  const metrics = [
-    { label: 'Critical production bugs', value: '-65%', icon: TrendingDown },
-    { label: 'Release predictability', value: '+50%', icon: Target },
-    { label: 'Regression execution time', value: '-40%', icon: TrendingDown },
-    { label: 'Cost of post-release fixes', value: '', icon: Shield },
-  ];
+  const solutionsData: { title: string; description: string }[] = t('fintech.solutions') || [];
+  const solutions = solutionsData.map((sol) => ({
+    ...sol,
+    icon: CheckCircle,
+  }));
+
+  const metricsData: { label: string; value: string }[] = t('fintech.results') || [];
+  const metricsIcons = [TrendingDown, Target, TrendingDown, Shield];
+  const metrics = metricsData.map((m, idx) => ({
+    ...m,
+    icon: metricsIcons[idx] || Shield,
+  }));
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -54,7 +33,7 @@ export default function FinTech() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In FinTech, one quality failure is enough to lose user trust
+              {t('fintech.headline')}
             </h1>
           </div>
 
@@ -62,8 +41,7 @@ export default function FinTech() {
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
-                FinTech products operate under regulatory pressure, real money flows, and zero tolerance for critical failures.
-                Quality is not optional — it&apos;s a business requirement.
+                {t('fintech.description')}
               </p>
             </div>
           </div>
@@ -72,24 +50,24 @@ export default function FinTech() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="-65%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('fintech.stats.incidentsVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Production incidents reduced</div>
+              <div className="text-gray-300 text-sm">{t('fintech.stats.incidentsLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">3×</div>
-              <div className="text-gray-300 text-sm">Cost of critical bugs reduced</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('fintech.stats.bugsVal')}</div>
+              <div className="text-gray-300 text-sm">{t('fintech.stats.bugsLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Predictable</div>
-              <div className="text-gray-300 text-sm">Audit-ready releases</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('fintech.stats.releasesVal')}</div>
+              <div className="text-gray-300 text-sm">{t('fintech.stats.releasesLbl')}</div>
             </div>
           </div>
 
           {/* CTA */}
           <div className="text-center">
             <Link href="/contact" className="px-8 py-4 bg-[#00B476] text-black font-bold text-lg rounded-lg hover:bg-[#00B476]/90 transition-all duration-300 inline-block">
-              Talk to FinTech QA Experts
+              {t('fintech.cta')}
             </Link>
           </div>
         </div>
@@ -99,10 +77,10 @@ export default function FinTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Common quality challenges in FinTech products
+            {t('fintech.painsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            These are the real issues that keep FinTech engineering leaders up at night
+            {t('fintech.painsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {pains.map((pain, index) => (
@@ -126,10 +104,10 @@ export default function FinTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            How we help FinTech teams reduce risk
+            {t('fintech.approachTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            QA applied in FinTech context with focus on what matters most
+            {t('fintech.approachSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {solutions.map((solution, index) => (
@@ -150,50 +128,25 @@ export default function FinTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            Why quality in FinTech is a business issue
+            {t('fintech.impactTitle')}
           </h2>
           <div className="bg-green-950/15 border border-green-500/20 rounded-xl p-8 md:p-10">
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
+              {((t('fintech.impacts') as any[]) || []).map((impact, idx) => (
+                <div key={idx} className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
+                    <Shield className="text-[#00B476]" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{impact.title}</h3>
+                    <p className="text-gray-400">{impact.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Loss of user trust</h3>
-                  <p className="text-gray-400">Users expect perfect reliability when their money is involved</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Regulatory and compliance risks</h3>
-                  <p className="text-gray-400">Failures can lead to audits, fines, and operational restrictions</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Direct financial losses</h3>
-                  <p className="text-gray-400">Transaction errors, failed payments, and incorrect calculations cost real money</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-lg bg-[#00B476]/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="text-[#00B476]" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Brand damage that is hard to recover from</h3>
-                  <p className="text-gray-400">In financial services, reputation is everything</p>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="mt-8 pt-8">
               <p className="text-lg text-center text-[#00B476] font-semibold">
-                &quot;In FinTech, bugs are not just technical issues — they are business incidents.&quot;
+                {t('fintech.impactBottom')}
               </p>
             </div>
           </div>
@@ -204,10 +157,10 @@ export default function FinTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Results FinTech teams achieve with us
+            {t('fintech.resultsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Metrics that matter to leadership and investors
+            {t('fintech.resultsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((metric, index) => {
@@ -228,7 +181,7 @@ export default function FinTech() {
           </div>
           <div className="mt-10 text-center">
             <p className="text-gray-400">
-              Plus: Faster incident detection and root cause analysis
+              {t('fintech.resultsBottom')}
             </p>
           </div>
         </div>
@@ -238,35 +191,31 @@ export default function FinTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Typical FinTech engagement
+            {t('fintech.engagementTitle')}
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">{t('fintech.engagement.initialStateTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Frequent production incidents affecting transactions, slow and stressful releases,
-                team losing confidence in the release process, business stakeholders frustrated with quality unpredictability.
+                {t('fintech.engagement.initialStateDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">{t('fintech.engagement.problemsTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Weak regression coverage of critical payment flows, unstable automation that nobody trusted,
-                unclear ownership of quality risks, testing focused on UI rather than financial logic.
+                {t('fintech.engagement.problemsDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">{t('fintech.engagement.changedTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Rebuilt test strategy around transaction risk, stabilized automation for core flows,
-                established clear QA gates for releases, introduced risk-based test planning tied to business priorities.
+                {t('fintech.engagement.changedDesc')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/50 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Outcome</h3>
+              <h3 className="text-xl font-semibold text-[#00B476] mb-3">{t('fintech.engagement.outcomeTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                53% reduction in critical production bugs, releases became predictable and low-stress,
-                business gained confidence in product quality, team could focus on new features instead of firefighting.
+                {t('fintech.engagement.outcomeDesc')}
               </p>
             </div>
           </div>
@@ -277,13 +226,13 @@ export default function FinTech() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Building or scaling a FinTech product?
+            {t('fintech.footerTitle')}
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let&apos;s talk about reducing quality risk in your FinTech product — before it becomes a business problem.
+            {t('fintech.footerSubtitle')}
           </p>
           <Link href="/contact" className="px-8 py-4 bg-[#00B476] text-black font-bold text-lg rounded-lg hover:bg-[#00B476]/90 transition-all duration-300 inline-block">
-            Book a call
+            {t('fintech.footerCta')}
           </Link>
         </div>
       </section>

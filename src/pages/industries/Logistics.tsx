@@ -3,77 +3,23 @@ import { Package, AlertTriangle, Activity, Timer } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function Logistics() {
-  const pains = [
-    'Real-time data inconsistencies across systems causing operational confusion',
-    'Failed or delayed integrations with partners and carriers during critical flows',
-    'Bugs that break routing, tracking, or status updates — invisible until production',
-    'Regression issues caused by constant platform changes and partner API updates',
-    'Difficult root-cause analysis for production incidents during operational hours',
-    'QA focused on UI testing, not operational flows and event sequences',
-  ];
+  const { t } = useTranslation('industries');
 
-  const qaApproach = [
-    {
-      icon: Package,
-      title: 'QA built around operational flows, not screens',
-      points: [
-        'Order creation and validation',
-        'Shipment planning and routing',
-        'Status updates and event propagation',
-        'Delivery confirmation and completion',
-        'Exception handling and recovery flows',
-      ],
-    },
-    {
-      icon: AlertTriangle,
-      title: 'Risk-based testing focused on what breaks operations',
-      points: [
-        'Real-time data accuracy across systems',
-        'Event sequencing and timing dependencies',
-        'Integration reliability under load',
-        'Failure scenarios and fallback logic',
-      ],
-    },
-    {
-      icon: Activity,
-      title: 'Regression strategy centered on operational chains',
-      points: [
-        'Critical end-to-end operational flows',
-        'Cross-system interactions and data sync',
-        'Backward compatibility of partner integrations',
-        'High-impact scenarios that affect delivery',
-      ],
-    },
-    {
-      icon: Timer,
-      title: 'Automation applied where it protects continuity',
-      points: [
-        'API and integration-level validation',
-        'Event-driven flow testing',
-        'Data consistency monitoring',
-        'Partner API compatibility checks',
-      ],
-    },
-  ];
+  const pains: string[] = t('logistics.pains') || [];
 
-  const businessImpacts = [
-    'Operational downtime stops shipments and creates cascading delays',
-    'Delivery delays and SLA violations lead to penalties and chargebacks',
-    'Financial penalties and compensation costs from failed deliveries',
-    'Loss of partner and customer trust affects long-term relationships',
-    'Escalating support costs and manual operations overhead',
-  ];
+  const qaApproachData: { title: string; points: string[] }[] = t('logistics.approach') || [];
+  const icons = [Package, AlertTriangle, Activity, Timer];
+  const qaApproach = qaApproachData.map((app, idx) => ({
+    ...app,
+    icon: icons[idx] || Package,
+  }));
 
-  const metrics = [
-    { label: 'Operational incidents', value: '-60%' },
-    { label: 'Integration-related failures', value: '-65%' },
-    { label: 'Incident detection time', value: '-50%' },
-    { label: 'Mean time to recovery (MTTR)', value: '-40%' },
-    { label: 'Release stability', value: '+45%' },
-    { label: 'Manual recovery operations cost', value: '-55%' },
-  ];
+  const businessImpacts: string[] = t('logistics.impacts') || [];
+
+  const metrics: { label: string; value: string }[] = t('logistics.results') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -85,7 +31,7 @@ export default function Logistics() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In Logistics, one bug can stop the entire operation chain
+              {t('logistics.headline')}
             </h1>
           </div>
 
@@ -93,10 +39,10 @@ export default function Logistics() {
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center mb-4">
-                In Logistics, one bug can stop the entire operation chain.
+                {t('logistics.descriptionBox')}
               </p>
               <p className="text-base md:text-lg text-gray-400 leading-relaxed text-center">
-                Logistics platforms operate in real time. Every failure propagates downstream — delays, penalties, and customer dissatisfaction.
+                {t('logistics.description')}
               </p>
             </div>
           </div>
@@ -105,19 +51,19 @@ export default function Logistics() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="-60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('logistics.stats.incidentsVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Operational incidents reduced</div>
+              <div className="text-gray-300 text-sm">{t('logistics.stats.incidentsLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="50%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('logistics.stats.syncVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Data inconsistency issues reduced</div>
+              <div className="text-gray-300 text-sm">{t('logistics.stats.syncLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Faster</div>
-              <div className="text-gray-300 text-sm">Recovery from production failures</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('logistics.stats.recoveryVal')}</div>
+              <div className="text-gray-300 text-sm">{t('logistics.stats.recoveryLbl')}</div>
             </div>
           </div>
 
@@ -125,7 +71,7 @@ export default function Logistics() {
           <div className="text-center">
             <Link href="/contact" className="inline-block">
               <Button className="text-lg px-10 py-6">
-                Talk to Logistics QA Experts
+                {t('logistics.cta')}
               </Button>
             </Link>
           </div>
@@ -135,10 +81,10 @@ export default function Logistics() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Common quality challenges in logistics systems
+            {t('logistics.painsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Each of these problems translates into operational cost and risk
+            {t('logistics.painsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {pains.map((pain, index) => (
@@ -161,10 +107,10 @@ export default function Logistics() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            How we apply QA in real logistics systems
+            {t('logistics.approachTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            QA that understands operational flows, not just features
+            {t('logistics.approachSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             {qaApproach.map((approach, index) => {
@@ -190,7 +136,7 @@ export default function Logistics() {
           </div>
           <div className="mt-12 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 text-center">
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold leading-relaxed">
-              QA protects operational continuity, not just features.
+              {t('logistics.approachBottom')}
             </p>
           </div>
         </div>
@@ -199,10 +145,10 @@ export default function Logistics() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Why quality directly impacts logistics business
+            {t('logistics.impactTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            In logistics, quality failures turn into operational and financial incidents
+            {t('logistics.impactSubtitle')}
           </p>
 
           <div className="relative">
@@ -239,10 +185,10 @@ export default function Logistics() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Results logistics teams achieve with us
+            {t('logistics.resultsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Measurable improvements that demonstrate operational impact
+            {t('logistics.resultsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {metrics.map((metric, index) => (
@@ -263,37 +209,31 @@ export default function Logistics() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Typical logistics engagement
+            {t('logistics.engagementTitle')}
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">{t('logistics.engagement.initialStateTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Frequent production incidents causing delayed shipments, partner integration failures during peak hours,
-                firefighting mode — teams reacting to problems rather than preventing them. Operations team spending hours
-                manually correcting data inconsistencies.
+                {t('logistics.engagement.initialStateDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">{t('logistics.engagement.problemsTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Weak regression testing — changes breaking existing flows. Integrations tested only for happy paths, not edge cases.
-                Poor incident visibility — difficult to identify root cause quickly. No monitoring alignment — QA and operations working in silos.
+                {t('logistics.engagement.problemsDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">{t('logistics.engagement.changedTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Rebuilt QA flow around critical operational chains. Built integration testing strategy covering failure scenarios.
-                Aligned testing with monitoring and alerting. Created regression suites protecting high-risk areas.
-                Enabled faster root-cause analysis through better test coverage.
+                {t('logistics.engagement.changedDesc')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/50 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Outcome</h3>
+              <h3 className="text-xl font-semibold text-[#00B476] mb-3">{t('logistics.engagement.outcomeTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Fewer incidents disrupting operations. Faster recovery when issues occur. Predictable operations — team able to
-                plan rather than firefight. Integration partners experiencing fewer issues. Reduced penalty costs and improved customer satisfaction.
+                {t('logistics.engagement.outcomeDesc')}
               </p>
             </div>
           </div>
@@ -303,14 +243,14 @@ export default function Logistics() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Running or scaling a logistics platform?
+            {t('logistics.footerTitle')}
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let&apos;s make your logistics system reliable under real-world pressure.
+            {t('logistics.footerSubtitle')}
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">
-              Book a call
+              {t('logistics.footerCta')}
             </Button>
           </Link>
         </div>

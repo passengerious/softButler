@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Bug, Zap, Shield, AlertTriangle } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 interface HeroProps {
   onBookConsultation: () => void;
@@ -10,6 +11,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
   const router = useRouter();
+  const { t } = useTranslation('home');
   const [glitchActive, setGlitchActive] = useState(true);
   const [showGlitchOverlay, setShowGlitchOverlay] = useState(true);
   const [floatingBugs, setFloatingBugs] = useState<
@@ -110,8 +112,8 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-            <div className="text-red-500 font-mono text-xl font-bold">SYSTEM ERROR</div>
-            <div className="text-white font-mono text-sm mt-2">Quality Assurance Failed...</div>
+            <div className="text-red-500 font-mono text-xl font-bold">{t('hero.systemError')}</div>
+            <div className="text-white font-mono text-sm mt-2">{t('hero.qaFailed')}</div>
           </motion.div>
         </motion.div>
       )}
@@ -177,19 +179,19 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
               <div className="p-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <Shield className="w-4 h-4 text-green-500" />
-                  <span className="text-sm text-green-500">All Tests Passed</span>
+                  <span className="text-sm text-green-500">{t('hero.allTestsPassed')}</span>
                 </div>
                 <div className="h-2 bg-gray-700 rounded mb-2">
                   <div className="h-2 bg-green-500 rounded w-full"></div>
                 </div>
-                <div className="text-xs text-gray-400">Coverage: 98%</div>
+                <div className="text-xs text-gray-400">{t('hero.coverage')}</div>
               </div>
             </div>
             <div className="absolute bottom-32 left-16 w-48 h-32 bg-gray-800/10 border border-green-500/10 rounded-lg backdrop-blur-sm opacity-30 hidden md:block">
               <div className="p-3">
                 <Zap className="w-5 h-5 text-green-500 mb-2" />
-                <div className="text-sm text-green-500 mb-1">Bug Detected</div>
-                <div className="text-xs text-gray-400">Fixed automatically</div>
+                <div className="text-sm text-green-500 mb-1">{t('hero.bugDetected')}</div>
+                <div className="text-xs text-gray-400">{t('hero.fixedAuto')}</div>
               </div>
             </div>
           </motion.div>
@@ -209,9 +211,9 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
           transition={{ duration: 1, delay: 2 }}
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            Your QA Is{' '}
+            {t('hero.qaIsBroken')}{' '}
             <span className="text-red-500 relative">
-              Broken
+              {t('hero.broken')}
               <motion.div
                 className="absolute inset-0 bg-red-500/20 blur-lg"
                 animate={{ opacity: [0, 1, 0] }}
@@ -220,7 +222,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             </span>
             <br />
             <span className="text-green-500 drop-shadow-[0_0_20px_#00B476]">
-              We&apos;ll Fix It
+              {t('hero.weWillFixIt')}
             </span>
           </h1>
 
@@ -230,7 +232,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
             transition={{ duration: 1, delay: 2.5 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            We turn chaotic releases into smooth launches — no guesswork, no excuses.
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.div
@@ -243,7 +245,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
               onClick={onBookConsultation}
               className="px-8 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all duration-300 transform hover:scale-105"
             >
-              Get Free Consultation
+              {t('hero.getFreeConsultation')}
             </button>
             <Link
               href="/services"
@@ -255,7 +257,7 @@ const Hero: React.FC<HeroProps> = ({ onBookConsultation }) => {
               }}
               className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
             >
-              Our Services
+              {t('hero.ourServices')}
             </Link>
           </motion.div>
         </motion.div>

@@ -1,0 +1,92 @@
+{
+  "title": "Who We Are",
+  "subtitle": "Our story and mission",
+  "whoWeAreLabel": "Who We Are",
+  "heroTitleHtml": "We are a team that builds <span class=\"text-green-500\">trust through quality</span>",
+  "heroText1": "We are QA engineers, educators, and system thinkers who care deeply about how products work in the real world.",
+  "heroText2": "We started by teaching testing, grew into a strong professional community, and now help companies make quality a competitive advantage.",
+  "heroQuoteHtml": "People are our <span class=\"text-green-500\">core value</span>.",
+  "journeyTitleHtml": "Our <span class=\"text-gradient-green\">Journey</span>",
+  "journeySubtitle": "From humble beginnings to industry leaders",
+  "experienceTitleHtml": "Experience behind our <span class=\"text-gradient-green\">QA engineers</span>",
+  "experienceSubtitle": "Top companies we learn from and adapt their practices",
+  "newNormalTitleHtml": "New Normal in <span class=\"text-gradient-green\">Testing</span>",
+  "newNormalSubtitle": "Our core principles that redefine quality assurance",
+  "principles": [
+    {
+      "principle": "Quality is not a phase",
+      "reality": "it's a system"
+    },
+    {
+      "principle": "Testing is not a role",
+      "reality": "it's a mindset"
+    },
+    {
+      "principle": "Automation is not a goal",
+      "reality": "impact is"
+    },
+    {
+      "principle": "Best practices are useless",
+      "reality": "if they don't fit reality"
+    }
+  ],
+  "valuesTitleHtml": "Our <span class=\"text-gradient-green\">Core Values</span>",
+  "values": {
+    "peopleFirst": {
+      "title": "People First",
+      "subtitle": "People Are Our Main Value",
+      "description": "Every decision starts with people in mind"
+    },
+    "painInnovation": {
+      "title": "Pain-Driven Innovation",
+      "subtitle": "Client Pain Points Fuel Our Creativity",
+      "description": "Your challenges inspire our solutions"
+    },
+    "trendsetter": {
+      "title": "Trendsetter Mindset",
+      "subtitle": "First to Know, First to Create",
+      "description": "We don't follow trends — we set them"
+    }
+  },
+  "peopleBehindTitleHtml": "The People Behind <span class=\"text-gradient-green\">Quality</span>",
+  "peopleBehindSubtitle": "We are a team of QA engineers, educators, and problem-solvers united by one thing — care for quality.",
+  "teamSportQuoteHtml": "Quality is a <span class=\"text-green-500\">team sport</span>",
+  "cultureStatement": "We collaborate, challenge assumptions, and learn from each other every day to build systems people can trust.",
+  "seeHowWeWork": "See how we work",
+  "ctaTitleHtml": "Ready to Create <span class=\"text-gradient-green\">New Normal</span> with Us?",
+  "ctaSubtitle": "Join our community of innovators and quality champions",
+  "joinCommunity": "Join Community",
+  "workWithUs": "Work With Us",
+  "ctaFooter": "Let's build something extraordinary together 🚀",
+  "journeySteps": [
+    {
+      "title": "Started as Educators",
+      "description": "We began by teaching people software testing fundamentals. Not just theory, but real-world practices. We upgraded levels from middle to senior, not just beginners.",
+      "highlight": "Teaching others forced us to master quality ourselves."
+    },
+    {
+      "title": "Built a Learning Community",
+      "description": "Engineers started coming together to share knowledge, discuss failures, and learn from each other's experiences."
+    },
+    {
+      "title": "From Teaching to Practicing",
+      "description": "Our deep understanding of quality principles naturally evolved into providing QA services to real products."
+    },
+    {
+      "title": "Learning from the Best",
+      "description": "We studied practices from Google, Amazon, Netflix, and other tech giants. Not to copy, but to understand and adapt."
+    },
+    {
+      "title": "People-First Approach",
+      "description": "We realized that quality is built by people, not just processes. People became our core value."
+    },
+    {
+      "title": "Pain-Driven Innovation",
+      "description": "Client challenges pushed us to create better solutions. Their pain points became our innovation fuel."
+    },
+    {
+      "title": "Creating New Standards",
+      "description": "We stopped following trends and started setting them. Defining what “new normal” means in QA."
+    }
+  ]
+}

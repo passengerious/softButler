@@ -3,78 +3,23 @@ import { ShoppingCart, CreditCard, TrendingUp, Zap, DollarSign } from 'lucide-re
 import Link from 'next/link';
 import Button from '../../components/Button';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function Ecommerce() {
-  const pains = [
-    'Broken checkout or payment flows causing direct revenue loss',
-    'Bugs that impact conversion and cart completion rates',
-    'Regressions after frequent product catalog or pricing changes',
-    'System failures during sales, promotions, or peak traffic events',
-    'Inconsistent behavior across devices and browsers affecting mobile sales',
-    'QA focused on UI testing, not revenue-critical buying flows',
-  ];
+  const { t } = useTranslation('industries');
 
-  const qaApproach = [
-    {
-      icon: ShoppingCart,
-      title: 'QA built around revenue-critical user journeys, not pages',
-      points: [
-        'Product discovery and search',
-        'Filtering and category navigation',
-        'Product details and variants',
-        'Add to cart and cart management',
-        'Checkout and address validation',
-        'Payment processing and order confirmation',
-      ],
-    },
-    {
-      icon: CreditCard,
-      title: 'Risk-based testing focused on what protects revenue',
-      points: [
-        'Checkout and payment flow reliability',
-        'Pricing accuracy, discounts, and promotions',
-        'Inventory and availability synchronization',
-        'Peak-traffic and flash-sale scenarios',
-      ],
-    },
-    {
-      icon: TrendingUp,
-      title: 'Regression strategy designed to protect buying paths',
-      points: [
-        'Core conversion flows from browse to purchase',
-        'Critical integrations: payments, shipping, inventory',
-        'Backward compatibility of pricing and discount logic',
-        'High-revenue product categories and SKUs',
-      ],
-    },
-    {
-      icon: Zap,
-      title: 'Automation applied to high-impact revenue flows',
-      points: [
-        'Automated testing of end-to-end buying journeys',
-        'Payment gateway and API integration testing',
-        'Fast feedback loops before releases',
-        'Continuous validation of critical paths',
-      ],
-    },
-  ];
+  const pains: string[] = t('ecommerce.pains') || [];
 
-  const businessImpacts = [
-    'Direct revenue loss from broken checkout and payment flows',
-    'Drop in conversion rates from bugs in the buying journey',
-    'Increased cart abandonment from technical failures',
-    'Loss of customer trust and repeat purchase rates',
-    'Higher support and refund costs from failed transactions',
-  ];
+  const qaApproachData: { title: string; points: string[] }[] = t('ecommerce.approach') || [];
+  const icons = [ShoppingCart, CreditCard, TrendingUp, Zap];
+  const qaApproach = qaApproachData.map((app, idx) => ({
+    ...app,
+    icon: icons[idx] || ShoppingCart,
+  }));
 
-  const metrics = [
-    { label: 'Conversion-impacting bugs', value: '-65%' },
-    { label: 'Checkout failures', value: '-60%' },
-    { label: 'Production incidents during sales', value: '-70%' },
-    { label: 'Regression execution time', value: '-40%' },
-    { label: 'Faster promotional launches', value: '+50%' },
-    { label: 'Revenue loss from incidents', value: '-60%' },
-  ];
+  const businessImpacts: string[] = t('ecommerce.impacts') || [];
+
+  const metrics: { label: string; value: string }[] = t('ecommerce.results') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -86,7 +31,7 @@ export default function Ecommerce() {
           {/* Main Headline */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              In e-commerce, one broken flow can cost thousands in lost revenue
+              {t('ecommerce.headline')}
             </h1>
           </div>
 
@@ -94,8 +39,7 @@ export default function Ecommerce() {
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-green-950/20 border border-green-500/20 rounded-xl p-6 md:p-8">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed text-center">
-                E-commerce platforms live under constant pressure: traffic spikes, frequent changes, and zero tolerance for checkout failures.
-                Quality directly impacts revenue.
+                {t('ecommerce.description')}
               </p>
             </div>
           </div>
@@ -104,19 +48,19 @@ export default function Ecommerce() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="-60%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('ecommerce.stats.checkoutVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Checkout failures reduced</div>
+              <div className="text-gray-300 text-sm">{t('ecommerce.stats.checkoutLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
               <div className="mb-2">
-                <FormatMetricValue value="50%" valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
+                <FormatMetricValue value={t('ecommerce.stats.bugsVal')} valueClassName="text-3xl md:text-4xl font-bold text-[#00B476]" />
               </div>
-              <div className="text-gray-300 text-sm">Conversion-impacting bugs reduced</div>
+              <div className="text-gray-300 text-sm">{t('ecommerce.stats.bugsLbl')}</div>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/30 rounded-lg p-6 text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">Stable</div>
-              <div className="text-gray-300 text-sm">Performance during sales and peak traffic</div>
+              <div className="text-3xl md:text-4xl font-bold text-[#00B476] mb-2">{t('ecommerce.stats.performanceVal')}</div>
+              <div className="text-gray-300 text-sm">{t('ecommerce.stats.performanceLbl')}</div>
             </div>
           </div>
 
@@ -124,7 +68,7 @@ export default function Ecommerce() {
           <div className="text-center">
             <Link href="/contact" className="inline-block">
               <Button className="text-lg px-10 py-6">
-                Talk to E-commerce QA Experts
+                {t('ecommerce.cta')}
               </Button>
             </Link>
           </div>
@@ -134,10 +78,10 @@ export default function Ecommerce() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Common quality challenges in e-commerce platforms
+            {t('ecommerce.painsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Each of these problems translates into lost revenue and customer trust
+            {t('ecommerce.painsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {pains.map((pain, index) => (
@@ -160,10 +104,10 @@ export default function Ecommerce() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            How we apply QA in real e-commerce platforms
+            {t('ecommerce.approachTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            QA that understands revenue flows, not just features
+            {t('ecommerce.approachSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             {qaApproach.map((approach, index) => {
@@ -189,7 +133,7 @@ export default function Ecommerce() {
           </div>
           <div className="mt-12 bg-gradient-to-r from-black via-green-950/15 to-black rounded-xl p-8 text-center">
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold leading-relaxed">
-              QA protects revenue flows, not just features.
+              {t('ecommerce.approachBottom')}
             </p>
           </div>
         </div>
@@ -198,10 +142,10 @@ export default function Ecommerce() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Why quality directly impacts e-commerce business
+            {t('ecommerce.impactTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            In e-commerce, bugs don&apos;t wait — they immediately affect revenue
+            {t('ecommerce.impactSubtitle')}
           </p>
 
           <div className="relative">
@@ -238,10 +182,10 @@ export default function Ecommerce() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Results e-commerce teams achieve with us
+            {t('ecommerce.resultsTitle')}
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            Measurable improvements that show revenue protection
+            {t('ecommerce.resultsSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {metrics.map((metric, index) => (
@@ -262,36 +206,31 @@ export default function Ecommerce() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Typical e-commerce engagement
+            {t('ecommerce.engagementTitle')}
           </h2>
           <div className="space-y-8">
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-red-400 mb-3">Initial state</h3>
+              <h3 className="text-xl font-semibold text-red-400 mb-3">{t('ecommerce.engagement.initialStateTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Frequent checkout issues causing lost revenue, unstable releases during peak seasons,
-                lost thousands in sales during promotional events. Team afraid to deploy during traffic spikes.
-                High cart abandonment from technical failures.
+                {t('ecommerce.engagement.initialStateDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-yellow-400 mb-3">Problems identified</h3>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-3">{t('ecommerce.engagement.problemsTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Weak regression coverage on checkout flow — small changes breaking purchases. Promotions and discounts tested manually,
-                causing pricing errors. Fragile payment integrations. No load testing — platform unstable during flash sales.
+                {t('ecommerce.engagement.problemsDesc')}
               </p>
             </div>
             <div className="bg-green-950/15 border border-green-500/20 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-blue-400 mb-3">What we changed</h3>
+              <h3 className="text-xl font-semibold text-blue-400 mb-3">{t('ecommerce.engagement.changedTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Built QA strategy around revenue-critical flows. Comprehensive checkout and payment validation.
-                Automated testing of promotional logic. Load testing for peak scenarios. Release validation before major sales events.
+                {t('ecommerce.engagement.changedDesc')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-[#00B476]/10 to-transparent border border-[#00B476]/50 rounded-lg p-8">
-              <h3 className="text-xl font-semibold text-[#00B476] mb-3">Outcome</h3>
+              <h3 className="text-xl font-semibold text-[#00B476] mb-3">{t('ecommerce.engagement.outcomeTitle')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Stable sales events generating record revenue. Higher conversion rates across the funnel. Fewer checkout failures
-                and cart abandonment. Confident deployments during peak seasons. Reduced revenue loss from technical incidents.
+                {t('ecommerce.engagement.outcomeDesc')}
               </p>
             </div>
           </div>
@@ -301,14 +240,14 @@ export default function Ecommerce() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Running or scaling an e-commerce platform?
+            {t('ecommerce.footerTitle')}
           </h2>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Let&apos;s protect your revenue before the next release or promotion.
+            {t('ecommerce.footerSubtitle')}
           </p>
           <Link href="/contact" className="inline-block">
             <Button className="text-lg px-10 py-6">
-              Book a call
+              {t('ecommerce.footerCta')}
             </Button>
           </Link>
         </div>

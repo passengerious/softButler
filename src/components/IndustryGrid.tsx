@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ShoppingCart, DollarSign, Laptop, GraduationCap, Truck, Store } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 interface IndustryGridProps {
   preview?: boolean;
@@ -9,47 +10,49 @@ interface IndustryGridProps {
 
 const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
   const router = useRouter();
+  const { t } = useTranslation('home');
+
   const industries = [
     {
-      name: "E-commerce",
+      name: t('industries.items.ecommerce.name'),
       icon: ShoppingCart,
-      description: "Prevented a $500K loss by catching a checkout bug pre-launch",
-      details: "Shopping carts, payment gateways, inventory management",
+      description: t('industries.items.ecommerce.description'),
+      details: t('industries.items.ecommerce.details'),
       path: "/industries/ecommerce"
     },
     {
-      name: "Fintech",
+      name: t('industries.items.fintech.name'),
       icon: DollarSign,
-      description: "Secured banking app with 99.9% uptime",
-      details: "Payment processing, financial compliance, security",
+      description: t('industries.items.fintech.description'),
+      details: t('industries.items.fintech.details'),
       path: "/industries/fintech"
     },
     {
-      name: "SaaS",
+      name: t('industries.items.saas.name'),
       icon: Laptop,
-      description: "Streamlined deployment for 50+ microservices",
-      details: "Cloud platforms, API testing, scalability",
+      description: t('industries.items.saas.description'),
+      details: t('industries.items.saas.details'),
       path: "/industries/saas"
     },
     {
-      name: "Logistics",
+      name: t('industries.items.logistics.name'),
       icon: Truck,
-      description: "Reduced delivery failures by 40% by detecting route and tracking issues early",
-      details: "Shipment tracking, route optimization, warehouse systems, integrations with carriers",
+      description: t('industries.items.logistics.description'),
+      details: t('industries.items.logistics.details'),
       path: "/industries/logistics"
     },
     {
-      name: "Retail",
+      name: t('industries.items.retail.name'),
       icon: Store,
-      description: "Improved in-store and online sales reliability, preventing POS and pricing errors",
-      details: "POS systems, pricing engines, inventory sync, omnichannel retail platforms",
+      description: t('industries.items.retail.description'),
+      details: t('industries.items.retail.details'),
       path: "/industries/retail"
     },
     {
-      name: "EdTech",
+      name: t('industries.items.edtech.name'),
       icon: GraduationCap,
-      description: "Ensured seamless learning for 500K+ students",
-      details: "LMS platforms, assessment tools, mobile learning",
+      description: t('industries.items.edtech.description'),
+      details: t('industries.items.edtech.details'),
       path: "/industries/edtech"
     }
   ];
@@ -66,9 +69,9 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            {preview ? "Industries We've Saved From" : "Industries We Serve"}
+            {preview ? t('industries.titleSaved') : t('industries.titleServe')}
             <br />
-            <span className="text-green-500">QA Hell</span>
+            <span className="text-green-500">{t('industries.qaHell')}</span>
           </h2>
         </motion.div>
 
@@ -133,7 +136,7 @@ const IndustryGrid: React.FC<IndustryGridProps> = ({ preview = false }) => {
               }}
               className="inline-block px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:bg-green-500 hover:text-black transform hover:scale-105 transition-all duration-300 hover:drop-shadow-[0_0_20px_#00B476]"
             >
-              Get a Free Audit
+              {t('industries.freeAudit')}
             </Link>
           </motion.div>
         )}

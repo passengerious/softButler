@@ -1,72 +1,68 @@
 import SEO from '../components/SEO';
 import Link from 'next/link';
 import { ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 export default function Services() {
+  const { t } = useTranslation('services');
+
   const popularServices = [
     {
       slug: 'qa-audit',
-      title: 'QA Audit & Consulting',
-      description:
-        "Fix your QA system before it breaks your product. Get clarity on what's wrong and how to fix it.",
-      highlights: ['50% fewer bugs', 'Clear action plan', 'Quick wins identified'],
+      title: t('popular.qa-audit.title'),
+      description: t('popular.qa-audit.description'),
+      highlights: t('popular.qa-audit.highlights') as string[] || [],
     },
     {
       slug: 'automation-nitro',
-      title: 'Automation Nitro',
-      description: 'Accelerate your testing with smart automation. Reduce regression time by up to 80%.',
-      highlights: ['80% faster testing', 'Stable automation', 'CI/CD optimized'],
+      title: t('popular.automation-nitro.title'),
+      description: t('popular.automation-nitro.description'),
+      highlights: t('popular.automation-nitro.highlights') as string[] || [],
     },
     {
       slug: 'release-acceleration',
-      title: 'Release Acceleration',
-      description:
-        'Ship faster without breaking things. Optimize your entire release pipeline for speed and quality.',
-      highlights: ['10× faster releases', 'Predictable delivery', 'Risk-based testing'],
+      title: t('popular.release-acceleration.title'),
+      description: t('popular.release-acceleration.description'),
+      highlights: t('popular.release-acceleration.highlights') as string[] || [],
     },
     {
       slug: 'qa-candidate-assessment',
-      title: 'QA Candidate Assessment',
-      description: 'Hire QA engineers with confidence — not hope. Reduce hiring mistakes by 70%.',
-      highlights: ['Unbiased evaluation', 'Real-world testing', 'Clear hire/no-hire recommendation'],
+      title: t('popular.qa-candidate-assessment.title'),
+      description: t('popular.qa-candidate-assessment.description'),
+      highlights: t('popular.qa-candidate-assessment.highlights') as string[] || [],
     },
   ];
 
   const coreServices = [
     {
       slug: 'functional-testing',
-      title: 'Functional Testing',
-      description:
-        'Verify that your application works as intended. Comprehensive testing of features and user workflows.',
-      highlights: ['Complete coverage', 'User-focused', 'Requirements validation'],
+      title: t('core.functional-testing.title'),
+      description: t('core.functional-testing.description'),
+      highlights: t('core.functional-testing.highlights') as string[] || [],
     },
     {
       slug: 'performance-testing',
-      title: 'Performance Testing',
-      description:
-        'Ensure your application can handle the load. Test speed, stability, and scalability under various conditions.',
-      highlights: ['Load testing', 'Stress testing', 'Scalability analysis'],
+      title: t('core.performance-testing.title'),
+      description: t('core.performance-testing.description'),
+      highlights: t('core.performance-testing.highlights') as string[] || [],
     },
     {
       slug: 'regression-testing',
-      title: 'Regression Testing',
-      description:
-        "Make sure new changes don't break existing functionality. Systematic validation after every update.",
-      highlights: ['Change impact analysis', 'Automated suites', 'Fast feedback'],
+      title: t('core.regression-testing.title'),
+      description: t('core.regression-testing.description'),
+      highlights: t('core.regression-testing.highlights') as string[] || [],
     },
     {
       slug: 'integration-testing',
-      title: 'Integration Testing',
-      description:
-        'Test how different parts of your system work together. Identify interface issues early.',
-      highlights: ['API testing', 'System integration', 'Data flow validation'],
+      title: t('core.integration-testing.title'),
+      description: t('core.integration-testing.description'),
+      highlights: t('core.integration-testing.highlights') as string[] || [],
     },
     {
       slug: 'system-testing',
-      title: 'System Testing',
-      description:
-        'End-to-end testing of your complete application. Verify the entire system meets requirements.',
-      highlights: ['Complete workflows', 'Real scenarios', 'Environment testing'],
+      title: t('core.system-testing.title'),
+      description: t('core.system-testing.description'),
+      highlights: t('core.system-testing.highlights') as string[] || [],
     },
   ];
 
@@ -78,12 +74,9 @@ export default function Services() {
       <section className="pt-20 pb-4 mt-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our <span className="text-[#00B476]">Services</span>
-            </h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6" dangerouslySetInnerHTML={{ __html: t('heroTitleHtml') }} />
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Professional QA solutions tailored to your needs. From quick audits to comprehensive
-              testing services.
+              {t('heroSubtitle')}
             </p>
           </div>
         </div>
@@ -93,7 +86,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-12">
             <Star className="text-[#00B476] mr-3" size={32} />
-            <h2 className="text-3xl md:text-4xl font-bold">Most Popular</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t('mostPopular')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
@@ -116,7 +109,7 @@ export default function Services() {
                     ))}
                   </div>
                   <div className="flex items-center text-[#00B476] font-semibold mt-auto pt-2">
-                    Learn more{' '}
+                    {t('learnMore')}{' '}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                   </div>
                 </div>
@@ -125,7 +118,7 @@ export default function Services() {
           </div>
 
           <div className="border-t border-[#00B476]/20 pt-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">Core Testing Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-12">{t('coreTestingServices')}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {coreServices.map((service) => (
@@ -144,7 +137,7 @@ export default function Services() {
                       ))}
                     </div>
                     <div className="flex items-center text-[#00B476] font-semibold mt-auto pt-2">
-                      Learn more{' '}
+                      {t('learnMore')}{' '}
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                     </div>
                   </div>
@@ -157,15 +150,15 @@ export default function Services() {
 
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Not Sure <span className="text-[#00B476]">Which Service You</span> Need?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6" dangerouslySetInnerHTML={{ __html: t('notSureTitleHtml') }} />
           <p className="text-xl text-gray-300 mb-8">
-            Let&apos;s talk. We&apos;ll help you find the right solution for your challenges.
+            {t('notSureSubtitle')}
           </p>
           <Link
             href="/contact"
             className="inline-block bg-[#00B476] text-black px-8 py-3 rounded-lg font-semibold hover:bg-[#00B476]/90 transition-colors"
           >
-            Book a call
+            {t('bookCall')}
           </Link>
         </div>
       </section>

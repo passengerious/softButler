@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, CheckCircle, User, MessageSquare } from 'lucide-react';
 import { validateContactForm } from '../lib/formValidation';
 import { showSuccessToast, showErrorToast } from '../lib/toastHelpers';
+import { useTranslation } from '../lib/i18n';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const { t } = useTranslation('contact');
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,15 +51,15 @@ const Contact = () => {
       }
 
       showSuccessToast(
-        'Message sent successfully!',
-        "We'll get back to you within 24 hours to discuss how we can help grow your business."
+        t('toastSuccessTitle'),
+        t('toastSuccessDesc')
       );
 
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Error sending message. Please try again later.';
+      const errorMessage = err instanceof Error ? err.message : t('toastErrorDefault');
       showErrorToast(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -84,11 +86,9 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-8"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              Let&apos;s Fix Your <span className="text-green-500">QA</span>
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-8" dangerouslySetInnerHTML={{ __html: t('heroTitleHtml') }} />
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Ready to transform chaos into quality? Get in touch and let&apos;s discuss your testing challenges.
+              {t('heroSubtitle')}
             </p>
           </motion.div>
         </div>
@@ -107,15 +107,12 @@ const Contact = () => {
               {isSubmitted ? (
                 <>
                   <div className="bg-green-950/10 border border-green-500/20 rounded-lg p-6">
-                    <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
-                    <p className="text-gray-300">
-                      We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
-                      For urgent QA emergencies, mention &quot;URGENT&quot; in your subject line.
-                    </p>
+                    <h3 className="text-xl font-bold text-white mb-4">{t('responseTimeTitle')}</h3>
+                    <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: t('responseTimeDescHtml') }} />
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-6">You can also contact us via...</h3>
+                    <h3 className="text-2xl font-bold text-white mb-6">{t('alsoContactVia')}</h3>
                   </div>
 
                   <div className="space-y-6">
@@ -128,7 +125,7 @@ const Contact = () => {
                         <Mail className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-white font-semibold">Email Us</p>
+                        <p className="text-white font-semibold">{t('emailUs')}</p>
                         <p className="text-gray-300">start@softbutler.io</p>
                       </div>
                     </motion.a>
@@ -144,8 +141,8 @@ const Contact = () => {
                         <Linkedin className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-white font-semibold">LinkedIn</p>
-                        <p className="text-gray-300">Connect with us professionally</p>
+                        <p className="text-white font-semibold">{t('linkedin')}</p>
+                        <p className="text-gray-300">{t('linkedinDesc')}</p>
                       </div>
                     </motion.a>
                   </div>
@@ -153,10 +150,9 @@ const Contact = () => {
               ) : (
                 <>
                   <div>
-                    <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
+                    <h2 className="text-3xl font-bold text-white mb-6">{t('getInTouch')}</h2>
                     <p className="text-gray-300 leading-relaxed mb-8">
-                      We&apos;re here to help you build better software. Whether you need a complete QA overhaul 
-                      or just want to chat about your testing challenges, we&apos;d love to hear from you.
+                      {t('getInTouchDesc')}
                     </p>
                   </div>
 
@@ -170,7 +166,7 @@ const Contact = () => {
                         <Mail className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-white font-semibold">Email Us</p>
+                        <p className="text-white font-semibold">{t('emailUs')}</p>
                         <p className="text-gray-300">start@softbutler.io</p>
                       </div>
                     </motion.a>
@@ -186,18 +182,15 @@ const Contact = () => {
                         <Linkedin className="w-6 h-6 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-white font-semibold">LinkedIn</p>
-                        <p className="text-gray-300">Connect with us professionally</p>
+                        <p className="text-white font-semibold">{t('linkedin')}</p>
+                        <p className="text-gray-300">{t('linkedinDesc')}</p>
                       </div>
                     </motion.a>
                   </div>
 
                   <div className="bg-green-950/10 border border-green-500/20 rounded-lg p-6">
-                    <h3 className="text-xl font-bold text-white mb-4">Response Time</h3>
-                    <p className="text-gray-300">
-                      We typically respond within <span className="text-green-500 font-semibold">24 hours</span> during business days.
-                      For urgent QA emergencies, mention &quot;URGENT&quot; in your subject line.
-                    </p>
+                    <h3 className="text-xl font-bold text-white mb-4">{t('responseTimeTitle')}</h3>
+                    <p className="text-gray-300" dangerouslySetInnerHTML={{ __html: t('responseTimeDescHtml') }} />
                   </div>
                 </>
               )}
@@ -225,19 +218,19 @@ const Contact = () => {
                     >
                       <CheckCircle className="w-8 h-8 text-black" />
                     </motion.div>
-                    <h4 className="text-3xl font-bold text-white mb-4">Message Sent!</h4>
+                    <h4 className="text-3xl font-bold text-white mb-4">{t('messageSent')}</h4>
                     <p className="text-xl text-gray-300 leading-relaxed">
-                      Thanks for reaching out. We&apos;ll get back to you within 24 hours.
+                      {t('messageSentDesc')}
                     </p>
                   </motion.div>
                 ) : (
                   <>
-                    <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
+                    <h3 className="text-2xl font-bold text-white mb-6">{t('sendMessage')}</h3>
                     <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <User className="w-4 h-4 inline mr-2" />
-                        Name
+                        {t('labelName')}
                       </label>
                       <input
                         type="text"
@@ -247,14 +240,14 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
-                        placeholder="Your full name"
+                        placeholder={t('placeholderName')}
                       />
                     </div>
-
+ 
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <Mail className="w-4 h-4 inline mr-2" />
-                        Email
+                        {t('labelEmail')}
                       </label>
                       <input
                         type="email"
@@ -263,14 +256,14 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300"
-                        placeholder="your@email.com"
+                        placeholder={t('placeholderEmail')}
                       />
                     </div>
-
+ 
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <MessageSquare className="w-4 h-4 inline mr-2" />
-                        Message
+                        {t('labelMessage')}
                       </label>
                       <textarea
                         name="message"
@@ -279,7 +272,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         className="w-full p-4 bg-black border border-green-500/20 rounded-lg text-white placeholder-gray-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all duration-300 resize-none"
-                        placeholder="Tell us about your QA challenges. What&apos;s broken? What do you need help with?"
+                        placeholder={t('placeholderMessage')}
                       />
                     </div>
 
@@ -292,12 +285,12 @@ const Contact = () => {
                       {isSubmitting ? (
                         <div className="flex items-center justify-center space-x-2">
                           <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                          <span>Sending...</span>
+                          <span>{t('buttonSending')}</span>
                         </div>
                       ) : (
                         <div className="flex items-center justify-center space-x-2">
                           <Send className="w-5 h-5" />
-                          <span>Let&apos;s Fix Your QA</span>
+                          <span>{t('buttonSend')}</span>
                         </div>
                       )}
                     </motion.button>

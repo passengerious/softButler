@@ -14,8 +14,10 @@ import {
 
 import { validateContactForm } from '../lib/formValidation';
 import { showSuccessToast, showErrorToast } from '../lib/toastHelpers';
+import { useTranslation } from '../lib/i18n';
 
 const InlineBookingCalendar = () => {
+  const { t, locale } = useTranslation('common');
   const [isMounted, setIsMounted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -45,7 +47,7 @@ const InlineBookingCalendar = () => {
   const formatDateForDisplay = (dateString: string) => {
     const [year, month, day] = dateString.split('-').map(Number);
     const date = new Date(year, month - 1, day);
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString(locale === 'uk' ? 'uk-UA' : 'en-US', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
@@ -205,12 +207,21 @@ const InlineBookingCalendar = () => {
   // Calendar navigation guards
   // ---------------------------------------------------------------------------
 
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
-  ];
+  const monthNames = React.useMemo(() => {
+    return Array.from({ length: 12 }, (_, i) => {
+      const date = new Date(2021, i, 1);
+      const name = date.toLocaleDateString(locale === 'uk' ? 'uk-UA' : 'en-US', { month: 'long' });
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    });
+  }, [locale]);
 
-  const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const weekDays = React.useMemo(() => {
+    return Array.from({ length: 7 }, (_, i) => {
+      const date = new Date(2021, 0, 3 + i); // 2021-01-03 is Sunday
+      const name = date.toLocaleDateString(locale === 'uk' ? 'uk-UA' : 'en-US', { weekday: 'short' });
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    });
+  }, [locale]);
 
   const minMonth = React.useMemo(
     () => new Date(todayStart.getFullYear(), todayStart.getMonth(), 1),
@@ -286,12 +297,9 @@ const InlineBookingCalendar = () => {
       <section className="py-20 px-6 bg-gray-900/30">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Book Your <span className="text-green-500">Free Consultation</span>
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8" dangerouslySetInnerHTML={{ __html: t('booking.title') }} />
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to fix your QA process? Schedule a free consultation and
-              let&apos;s discuss your testing challenges.
+              {t('booking.subtitle')}
             </p>
           </div>
 
@@ -302,16 +310,16 @@ const InlineBookingCalendar = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center font-bold text-lg text-gray-400" />
                   <div className="hidden sm:block">
-                    <div className="font-semibold text-gray-400">Step 1</div>
-                    <div className="text-sm text-gray-500">Choose Date</div>
+                    <div className="font-semibold text-gray-400">{t('booking.step')} 1</div>
+                    <div className="text-sm text-gray-500">{t('booking.chooseDate')}</div>
                   </div>
                 </div>
                 <div className="flex-1 sm:flex-none sm:w-12 h-0.5 mx-4 bg-gray-700" />
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center font-bold text-lg text-gray-400" />
                   <div className="hidden sm:block">
-                    <div className="font-semibold text-gray-400">Step 2</div>
-                    <div className="text-sm text-gray-500">Your Details</div>
+                    <div className="font-semibold text-gray-400">{t('booking.step')} 2</div>
+                    <div className="text-sm text-gray-500">{t('booking.yourDetails')}</div>
                   </div>
                 </div>
               </div>
@@ -352,9 +360,8 @@ const InlineBookingCalendar = () => {
   }
 
   const steps = [
-
-    { number: 1, title: 'Choose Date', icon: Calendar },
-    { number: 2, title: 'Your Details', icon: User },
+    { number: 1, title: t('booking.chooseDate'), icon: Calendar },
+    { number: 2, title: t('booking.yourDetails'), icon: User },
   ];
 
   // ---------------------------------------------------------------------------
@@ -379,11 +386,10 @@ const InlineBookingCalendar = () => {
               <Check className="w-10 h-10 text-black" />
             </motion.div>
             <h3 className="text-3xl font-bold text-white mb-6">
-              Consultation Booked!
+              {t('booking.success.title')}
             </h3>
             <p className="text-xl text-gray-300 mb-8">
-              We&apos;ll send you a confirmation email with the meeting details.
-              Looking forward to fixing your QA!
+              {t('booking.success.message')}
             </p>
             <div className="text-lg text-green-500 font-semibold mb-8">
               {formatDateForDisplay(selectedDate)}
@@ -398,7 +404,7 @@ const InlineBookingCalendar = () => {
               }}
               className="px-8 py-4 border-2 border-green-500 text-green-500 font-bold text-lg rounded-lg hover:border-green-400 hover:text-green-400 transition-all duration-300 transform hover:scale-105"
             >
-              Book Another Consultation
+              {t('booking.buttons.another')}
             </button>
           </motion.div>
         </div>
@@ -419,12 +425,9 @@ const InlineBookingCalendar = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Book Your <span className="text-green-500">Free Consultation</span>
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8" dangerouslySetInnerHTML={{ __html: t('booking.title') }} />
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to fix your QA process? Schedule a free consultation and
-            let&apos;s discuss your testing challenges.
+            {t('booking.subtitle')}
           </p>
         </motion.div>
 
@@ -460,7 +463,7 @@ const InlineBookingCalendar = () => {
                             : 'text-gray-400'
                         }`}
                       >
-                        Step {step.number}
+                        {t('booking.step')} {step.number}
                       </div>
                       <div
                         className={`text-sm transition-colors ${
@@ -502,10 +505,10 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      Choose Your Preferred Date
+                      {t('booking.step1Title')}
                     </h3>
                     <p className="text-gray-300">
-                      Select a date that works best for your schedule
+                      {t('booking.step1Subtitle')}
                     </p>
                   </div>
 
@@ -604,17 +607,17 @@ const InlineBookingCalendar = () => {
                 >
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                      Almost There! Your Details
+                      {t('booking.step2Title')}
                     </h3>
                     <p className="text-gray-300">
-                      Tell us about yourself and your challenges
+                      {t('booking.step2Subtitle')}
                     </p>
                   </div>
 
                   {/* Selected Date Display */}
                   <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 max-w-md mx-auto">
                     <p className="text-green-500 font-semibold mb-1 text-center">
-                      Your Consultation Date:
+                      {t('booking.selectedDate')}
                     </p>
                     <p className="text-white text-center">
                       {formatDateForDisplay(selectedDate)}
@@ -628,7 +631,7 @@ const InlineBookingCalendar = () => {
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <User className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
-                        Name
+                        {t('booking.form.name')}
                       </label>
                       <input
                         type="text"
@@ -639,14 +642,14 @@ const InlineBookingCalendar = () => {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all"
-                        placeholder="Your full name"
+                        placeholder={t('booking.form.namePlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <Mail className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
-                        Email
+                        {t('booking.form.email')}
                       </label>
                       <input
                         type="email"
@@ -656,14 +659,14 @@ const InlineBookingCalendar = () => {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all"
-                        placeholder="your@email.com"
+                        placeholder={t('booking.form.emailPlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label className="block text-white font-semibold mb-2">
                         <MessageSquare className="w-4 h-4 inline-block align-middle flex-shrink-0 mr-2" />
-                        Tell us about your challenges
+                        {t('booking.form.message')}
                       </label>
                       <textarea
                         rows={4}
@@ -673,7 +676,7 @@ const InlineBookingCalendar = () => {
                           setFormData({ ...formData, message: e.target.value })
                         }
                         className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all resize-none"
-                        placeholder="What problems are you facing?"
+                        placeholder={t('booking.form.messagePlaceholder')}
                       />
                     </div>
 
@@ -684,7 +687,7 @@ const InlineBookingCalendar = () => {
                         className="w-full sm:w-1/2 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        <span>Back to Date</span>
+                        <span>{t('booking.buttons.back')}</span>
                       </button>
                       <motion.button
                         type="submit"
@@ -696,11 +699,11 @@ const InlineBookingCalendar = () => {
                         {isSubmitting ? (
                           <>
                             <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                            <span>Booking...</span>
+                            <span>{t('booking.buttons.submitting')}</span>
                           </>
                         ) : (
                           <>
-                            <span>Book Free QA Audit</span>
+                            <span>{t('booking.buttons.submit')}</span>
                             <ArrowRight className="w-4 h-4" />
                           </>
                         )}

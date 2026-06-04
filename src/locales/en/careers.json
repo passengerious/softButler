@@ -1,0 +1,85 @@
+{
+  "title": "Careers",
+  "intro": "We build strong QA systems — and we're looking for people who care about quality, not checklists.",
+  "desc": "We work with real products and real delivery pipelines. Our QA engineers influence how products are built, tested, and released — not just how bugs are reported.",
+  "openPositionsHtml": "Open <span class=\"text-[#00B476]\">Positions</span>",
+  "applySenior": "Apply for Senior QA Engineer",
+  "applyMiddle": "Apply for Middle QA Engineer",
+  "howToApplyHtml": "How to <span class=\"text-[#00B476]\">Apply</span>",
+  "howToApplyDesc": "We respect candidates' time and keep the process clear and predictable",
+  "dontSeeRoleHtml": "Don't see <span class=\"text-[#00B476]\">your role?</span>",
+  "dontSeeRoleDesc": "We're always interested in strong QA engineers.\nIf you care about quality and ownership — reach out.",
+  "contactUs": "Contact us",
+  "senior": {
+    "title": "Senior QA Automation Engineer",
+    "desc": "As a Senior QA Engineer, you will be responsible for driving quality across the product, shaping QA processes, and influencing how teams think about risk and testing.",
+    "responsibilities": [
+      "Own quality for assigned projects",
+      "Automate test cases using Playwright",
+      "Design test strategy and test coverage",
+      "Lead risk-based testing and regression strategy",
+      "Work closely with developers, PMs, and DevOps",
+      "Review and improve existing test processes",
+      "Mentor Middle and Junior QA engineers",
+      "Contribute to automation strategy (not just writing tests)"
+    ],
+    "requirements": [
+      "Experience with Playwright/Cypress/WebdriverIO 4+ years",
+      "Setting CI/CD pipelines",
+      "English level: Upper-Intermediate+",
+      "Strong experience in QA engineering 4+ years",
+      "Deep understanding of testing principles and quality risks",
+      "Experience with web applications and APIs",
+      "Ability to design test strategies",
+      "Clear communication and ownership mindset"
+    ],
+    "benefits": [
+      "Influence on real product decisions",
+      "Freedom to improve QA, not just follow instructions",
+      "Professional growth in QA, automation, and delivery processes",
+      "Transparent expectations and feedback"
+    ]
+  },
+  "middle": {
+    "title": "General Middle QA Engineer",
+    "desc": "As a Middle QA Engineer, you will work on real projects, improve your testing skills, and grow towards a strong, independent QA role.",
+    "responsibilities": [
+      "Perform manual testing of web applications and APIs",
+      "Write and maintain test cases and checklists",
+      "Automate manual tests using Playwright",
+      "Participate in regression testing",
+      "Analyze requirements and find risks",
+      "Collaborate with developers and senior QA engineers",
+      "Contribute to test documentation"
+    ],
+    "requirements": [
+      "3+ years of experience in QA",
+      "Experience with Playwright 2+ years",
+      "Experience with setting CI/CD pipelines",
+      "Understanding of QA fundamentals and testing types",
+      "Experience with bug tracking systems",
+      "Experience with Postman/Proxyman/Charles/Fiddler/etc. 2+ years",
+      "Deep understanding of web technologies (HTTP, REST, browsers)",
+      "Clear communication and ownership mindset"
+    ],
+    "benefits": [
+      "Clear growth path to Senior QA",
+      "Mentorship from experienced QA engineers",
+      "Real projects instead of \"training tasks\"",
+      "Supportive and professional team"
+    ]
+  },
+  "steps": [
+    "Apply for the position",
+    "Short intro call",
+    "Technical interview / practical task",
+    "Decision and offer"
+  ],
+  "labels": {
+    "responsibilities": "Responsibilities",
+    "requirements": "Requirements",
+    "benefits": "What you get",
+    "remoteHybrid": "Remote / Hybrid",
+    "fullTime": "Full-time"
+  }
+}

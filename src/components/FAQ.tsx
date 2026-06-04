@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 import { faqItems as defaultFaqItems } from './FAQ.data';
+import { useTranslation } from '../lib/i18n';
 
 export interface FAQItem {
   question: string;
@@ -17,13 +18,17 @@ interface FAQProps {
 }
 
 const FAQ = ({
-  items = defaultFaqItems,
-  title = <>Frequently Asked <span className="text-green-500">Questions</span></>,
-  subtitle = "General Questions About QA and Testing",
+  items,
+  title,
+  subtitle,
   className = "py-20 px-6 bg-gray-900/30",
   id = "faq"
 }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useTranslation('home');
+
+  const renderedItems: FAQItem[] = items || t('faq.items') || defaultFaqItems;
+  const renderedSubtitle = subtitle !== undefined ? subtitle : t('faq.subtitle');
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -40,15 +45,15 @@ const FAQ = ({
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            {title}
+            {title !== undefined ? title : <span dangerouslySetInnerHTML={{ __html: t('faq.titleHtml') }} />}
           </h2>
           <p className="text-xl text-gray-300">
-            {subtitle}
+            {renderedSubtitle}
           </p>
         </motion.div>
 
         <div className="space-y-4">
-          {items.map((faq, index) => (
+          {renderedItems.map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
