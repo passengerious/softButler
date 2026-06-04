@@ -1,9 +1,13 @@
 import type { AppProps } from 'next/app';
+import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 import CookieBanner from '../src/components/CookieBanner';
 import { I18nProvider } from '../src/lib/i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import '../src/index.css';
+
+// TODO: Replace 'G-XXXXXXXXXX' with the owner's actual GA4 Measurement ID
+const GA_MEASUREMENT_ID = 'G-DS8TR4J4QN';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
