@@ -1,6 +1,7 @@
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../../components/Button';
+import { useTranslation } from '../../lib/i18n';
 
 interface ServiceTemplateProps {
   title: string;
@@ -19,6 +20,8 @@ export default function ServiceTemplate({
   features,
   process,
 }: ServiceTemplateProps) {
+  const { t } = useTranslation('services');
+
   return (
     <div className="bg-black text-white relative overflow-hidden">
       <div className="pointer-events-none absolute -top-32 -left-24 h-72 w-72 rounded-full bg-green-500/10 blur-3xl" />
@@ -29,7 +32,7 @@ export default function ServiceTemplate({
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">{title}</h1>
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-6">{subtitle}</p>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">{description}</p>
-            <Button href="/contact" className="text-lg">Book a call</Button>
+            <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
           </div>
         </div>
       </section>
@@ -37,7 +40,7 @@ export default function ServiceTemplate({
       <section className="py-20 bg-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Key <span className="text-[#00B476]">Benefits</span>
+            {t('services.keyBenefitsMain') || 'Key'} <span className="text-[#00B476]">{t('services.keyBenefitsGreen') || 'Benefits'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -62,7 +65,7 @@ export default function ServiceTemplate({
       <section className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What&apos;s <span className="text-[#00B476]">Included</span>
+            {t('services.whatsIncludedMain') || "What's"} <span className="text-[#00B476]">{t('services.whatsIncludedGreen') || 'Included'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -91,9 +94,9 @@ export default function ServiceTemplate({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-[#00B476]">Process</span>
+              {t('services.ourProcessMain') || 'Our'} <span className="text-[#00B476]">{t('services.ourProcessGreen') || 'Process'}</span>
             </h2>
-            <p className="text-gray-400 text-lg">Your roadmap to testing excellence</p>
+            <p className="text-gray-400 text-lg">{t('services.processSubtitle') || 'Your roadmap to testing excellence'}</p>
           </div>
 
           <div className="relative">
@@ -114,16 +117,16 @@ export default function ServiceTemplate({
                   <div className="flex-1 bg-gradient-to-br from-black to-green-950/20 p-6 rounded-xl border border-[#00B476]/20 group-hover:border-[#00B476] transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#00B476]/20 group-hover:translate-x-2">
                     <div className="flex items-start justify-between mb-2">
                       <h3 className="text-[#00B476] font-semibold text-sm uppercase tracking-wider">
-                        Step {idx + 1}
+                        {t('services.step') || 'Step'} {idx + 1}
                       </h3>
                       {idx === 0 && (
                         <span className="bg-[#00B476]/20 text-[#00B476] text-xs px-3 py-1 rounded-full font-semibold">
-                          START HERE
+                          {t('services.startHere') || 'START HERE'}
                         </span>
                       )}
                       {idx === process.length - 1 && (
                         <span className="bg-[#dc2626]/20 text-[#dc2626] text-xs px-3 py-1 rounded-full font-semibold">
-                          FINISH
+                          {t('services.finish') || 'FINISH'}
                         </span>
                       )}
                     </div>
@@ -139,12 +142,12 @@ export default function ServiceTemplate({
       <section id="contact" className="py-20 bg-black">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to <span className="text-[#00B476]">get started?</span>
+            {t('services.readyTitleMain') || 'Ready to'} <span className="text-[#00B476]">{t('services.readyTitleGreen') || 'get started?'}</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let&apos;s discuss how we can help improve your quality assurance process.
+            {t('services.readySubtitle') || "Let's discuss how we can help improve your quality assurance process."}
           </p>
-          <Button href="/contact" className="text-lg">Book a call</Button>
+          <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
         </div>
       </section>
     </div>

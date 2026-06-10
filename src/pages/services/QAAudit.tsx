@@ -440,7 +440,7 @@ export default function QAAudit() {
 
       <FAQ 
         items={faqs} 
-        title={<>QA Audit <span className="text-[#00B476]">FAQ</span></>}
+        title={<>{t('qa-audit.title')} <span className="text-[#00B476]">FAQ</span></>}
         subtitle={t('services.faqSubtitle') || 'Clear answers to common questions.'}
         className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
       />

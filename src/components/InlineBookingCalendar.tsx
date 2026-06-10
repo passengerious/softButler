@@ -332,7 +332,7 @@ const InlineBookingCalendar = () => {
                   <div className="h-8 bg-gray-800 rounded w-64 mx-auto mb-2" />
                   <div className="h-4 bg-gray-800 rounded w-48 mx-auto" />
                 </div>
-                
+
                 {/* Month navigation skeleton */}
                 <div className="flex items-center justify-between px-6">
                   <div className="w-10 h-10 bg-gray-800 rounded" />
@@ -361,7 +361,7 @@ const InlineBookingCalendar = () => {
 
   const steps = [
     { number: 1, title: t('booking.chooseDate'), icon: Calendar },
-    { number: 2, title: '', icon: User },
+    { number: 2, title: t('booking.yourDetails'), icon: User },
   ];
 
   // ---------------------------------------------------------------------------
@@ -442,11 +442,10 @@ const InlineBookingCalendar = () => {
                 <React.Fragment key={step.number}>
                   <div className="flex items-center space-x-3">
                     <motion.div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${
-                        currentStep >= step.number
+                      className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border-2 transition-all duration-300 ${currentStep >= step.number
                           ? 'bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(52,152,219,0.5)]'
                           : 'bg-gray-800 text-gray-400 border-gray-600'
-                      }`}
+                        }`}
                       whileHover={{ scale: currentStep >= step.number ? 1.1 : 1 }}
                     >
                       {currentStep > step.number ? (
@@ -457,20 +456,18 @@ const InlineBookingCalendar = () => {
                     </motion.div>
                     <div className="hidden sm:block">
                       <div
-                        className={`font-semibold transition-colors ${
-                          currentStep >= step.number
+                        className={`font-semibold transition-colors ${currentStep >= step.number
                             ? 'text-green-500'
                             : 'text-gray-400'
-                        }`}
+                          }`}
                       >
                         {t('booking.step')} {step.number}
                       </div>
                       <div
-                        className={`text-sm transition-colors ${
-                          currentStep >= step.number
+                        className={`text-sm transition-colors ${currentStep >= step.number
                             ? 'text-white'
                             : 'text-gray-500'
-                        }`}
+                          }`}
                       >
                         {step.title}
                       </div>
@@ -478,11 +475,10 @@ const InlineBookingCalendar = () => {
                   </div>
                   {index < steps.length - 1 && (
                     <div
-                      className={`flex-1 sm:flex-none sm:w-12 h-0.5 mx-4 transition-colors animate-pulse ${
-                        currentStep > step.number
+                      className={`flex-1 sm:flex-none sm:w-12 h-0.5 mx-4 transition-colors animate-pulse ${currentStep > step.number
                           ? 'bg-green-500'
                           : 'bg-gray-700'
-                      }`}
+                        }`}
                     />
                   )}
                 </React.Fragment>
@@ -518,11 +514,10 @@ const InlineBookingCalendar = () => {
                       <button
                         onClick={() => !isPrevDisabled && navigateMonth(-1)}
                         disabled={isPrevDisabled}
-                        className={`p-2 transition-colors ${
-                          isPrevDisabled
+                        className={`p-2 transition-colors ${isPrevDisabled
                             ? 'text-gray-600 cursor-not-allowed'
                             : 'text-gray-400 hover:text-green-500'
-                        }`}
+                          }`}
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
@@ -533,11 +528,10 @@ const InlineBookingCalendar = () => {
                       <button
                         onClick={() => !isNextDisabled && navigateMonth(1)}
                         disabled={isNextDisabled}
-                        className={`p-2 transition-colors ${
-                          isNextDisabled
+                        className={`p-2 transition-colors ${isNextDisabled
                             ? 'text-gray-600 cursor-not-allowed'
                             : 'text-gray-400 hover:text-green-500'
-                        }`}
+                          }`}
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>
@@ -572,18 +566,17 @@ const InlineBookingCalendar = () => {
                           }
                           className={`
                             aspect-square flex items-center justify-center text-sm rounded transition-all
-                            ${
-                              !dateInfo.isCurrentMonth
-                                ? 'text-gray-600 cursor-not-allowed'
-                                : dateInfo.isPast ||
-                                  dateInfo.isOutOfRange ||
-                                  dateInfo.isWeekend
+                            ${!dateInfo.isCurrentMonth
+                              ? 'text-gray-600 cursor-not-allowed'
+                              : dateInfo.isPast ||
+                                dateInfo.isOutOfRange ||
+                                dateInfo.isWeekend
                                 ? 'text-gray-600 cursor-not-allowed'
                                 : dateInfo.isToday
-                                ? 'bg-green-500/20 text-green-500 border border-green-500/50'
-                                : selectedDate === dateInfo.date
-                                ? 'bg-green-500 text-black font-bold shadow-[0_0_15px_rgba(52,152,219,0.5)]'
-                                : 'text-white hover:bg-gray-800 hover:text-green-500'
+                                  ? 'bg-green-500/20 text-green-500 border border-green-500/50'
+                                  : selectedDate === dateInfo.date
+                                    ? 'bg-green-500 text-black font-bold shadow-[0_0_15px_rgba(52,152,219,0.5)]'
+                                    : 'text-white hover:bg-gray-800 hover:text-green-500'
                             }
                           `}
                         >

@@ -208,7 +208,7 @@ export default function QACandidateAssessment() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Key <span className="text-[#00B476]">{t('services.keyBenefits') || 'Benefits'}</span>
+            {t('services.keyBenefitsMain') || 'Key'} <span className="text-[#00B476]">{t('services.keyBenefitsGreen') || 'Benefits'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
@@ -287,7 +287,7 @@ export default function QACandidateAssessment() {
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-[#00B476]">{t('services.ourProcess') || 'Process'}</span>
+              {t('services.ourProcessMain') || 'Our'} <span className="text-[#00B476]">{t('services.ourProcessGreen') || 'Process'}</span>
             </h2>
             <p className="text-gray-400 text-lg">{t('qa-candidate-assessment.processSubtitle') || 'Your roadmap to candidate evaluation excellence'}</p>
           </div>
@@ -407,7 +407,7 @@ export default function QACandidateAssessment() {
 
       <FAQ 
         items={faqs} 
-        title={<>Candidate Assessment <span className="text-[#00B476]">FAQ</span></>}
+        title={<>{t('qa-candidate-assessment.title')} <span className="text-[#00B476]">FAQ</span></>}
         subtitle={t('services.faqSubtitle') || 'Clear answers to the most common questions about candidate evaluation.'}
         className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
       />

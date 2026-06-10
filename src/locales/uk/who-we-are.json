@@ -5,7 +5,7 @@
   "heroTitleHtml": "Ми — команда, яка будує <span class=\"text-green-500\">довіру через якість</span>",
   "heroText1": "Ми — QA-інженери, педагоги та системні мислителі, які глибоко дбають про те, як продукти працюють у реальному світі.",
   "heroText2": "Ми починали з викладання тестування, виросли в сильну професійную спільноту, а тепер допомагаємо компаніям зробити якість конкурентною перевагою.",
-  "heroQuoteHtml": "Люди — наша <span class=\"text-green-500\">головна цінність</span>.",
+  "heroQuoteHtml": "Люди — наша <span class=\"text-green-500\">головна цінність</span>",
   "journeyTitleHtml": "Наш <span class=\"text-gradient-green\">шлях</span>",
   "journeySubtitle": "Від скромного старту до лідерів галузі",
   "experienceTitleHtml": "Досвід наших <span class=\"text-gradient-green\">QA-інженерів</span>",
@@ -15,22 +15,22 @@
   "principles": [
     {
       "principle": "Якість — це не фаза",
-      "separator": ", ",
+      "separator": ",",
       "reality": "це система"
     },
     {
       "principle": "Тестування — це не роль",
-      "separator": ", ",
+      "separator": ",",
       "reality": "це спосіб мислення"
     },
     {
       "principle": "Автоматизація — це не мета",
-      "separator": ", а ",
-      "reality": "метою є результат"
+      "separator": ",",
+      "reality": "а метою є результат"
     },
     {
       "principle": "Найкращі практики марні",
-      "separator": ", ",
+      "separator": ",",
       "reality": "якщо вони не відповідають реальності"
     }
   ],

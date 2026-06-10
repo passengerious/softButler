@@ -123,7 +123,7 @@ export default function AutomationNitro() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Key <span className="text-[#00B476]">{t('services.keyBenefits') || 'Benefits'}</span>
+            {t('services.keyBenefitsMain') || 'Key'} <span className="text-[#00B476]">{t('services.keyBenefitsGreen') || 'Benefits'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -244,7 +244,7 @@ export default function AutomationNitro() {
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-[#00B476]">{t('services.ourProcess') || 'Process'}</span>
+              {t('services.ourProcessMain') || 'Our'} <span className="text-[#00B476]">{t('services.ourProcessGreen') || 'Process'}</span>
             </h2>
             <p className="text-gray-400 text-lg">{t('services.processSubtitle') || 'Your roadmap to testing excellence'}</p>
           </div>

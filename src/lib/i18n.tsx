@@ -62,37 +62,72 @@ export function useTranslation(ns: Namespace) {
   
   const t = (key: string, variables?: Record<string, string | number>): any => {
     const keys = key.split('.');
-    const firstKey = keys[0];
-    const isExplicitNamespace = translations[locale] && firstKey in translations[locale];
-    const targetNs = isExplicitNamespace ? (firstKey as Namespace) : ns;
-    const actualKeys = isExplicitNamespace ? keys.slice(1) : keys;
-
-    let value: any = translations[locale]?.[targetNs];
     
-    for (const k of actualKeys) {
+    // 1. Try to resolve the key in the current namespace 'ns'
+    let value: any = translations[locale]?.[ns];
+    let found = true;
+    for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        // Fallback to English if key missing in uk
-        let fallbackValue: any = translations['en']?.[targetNs];
-        for (const fk of actualKeys) {
-          if (fallbackValue && typeof fallbackValue === 'object' && fk in fallbackValue) {
-            fallbackValue = fallbackValue[fk];
-          } else {
-            fallbackValue = null;
-            break;
-          }
-        }
-        if (typeof fallbackValue === 'string') {
-          value = fallbackValue;
-        } else {
-          return key;
-        }
+        found = false;
+        break;
       }
     }
     
-    if (typeof value !== 'string' && !Array.isArray(value)) {
-      return key;
+    // 2. If not found in current namespace, check if it's an explicit namespace prefix
+    if (!found) {
+      const firstKey = keys[0];
+      const isExplicitNamespace = translations[locale] && firstKey in translations[locale];
+      if (isExplicitNamespace) {
+        const targetNs = firstKey as Namespace;
+        const actualKeys = keys.slice(1);
+        value = translations[locale]?.[targetNs];
+        found = true;
+        for (const k of actualKeys) {
+          if (value && typeof value === 'object' && k in value) {
+            value = value[k];
+          } else {
+            // Fallback to English for this target namespace
+            let fallbackValue: any = translations['en']?.[targetNs];
+            for (const fk of actualKeys) {
+              if (fallbackValue && typeof fallbackValue === 'object' && fk in fallbackValue) {
+                fallbackValue = fallbackValue[fk];
+              } else {
+                fallbackValue = null;
+                break;
+              }
+            }
+            if (typeof fallbackValue === 'string') {
+              value = fallbackValue;
+            } else {
+              found = false;
+            }
+            break;
+          }
+        }
+      }
+    }
+
+    // 3. Fallback to English for current namespace 'ns' if still not found
+    if (!found) {
+      let fallbackValue: any = translations['en']?.[ns];
+      for (const fk of keys) {
+        if (fallbackValue && typeof fallbackValue === 'object' && fk in fallbackValue) {
+          fallbackValue = fallbackValue[fk];
+        } else {
+          fallbackValue = null;
+          break;
+        }
+      }
+      if (typeof fallbackValue === 'string' || Array.isArray(fallbackValue)) {
+        value = fallbackValue;
+        found = true;
+      }
+    }
+    
+    if (!found || (typeof value !== 'string' && !Array.isArray(value))) {
+      return undefined;
     }
     
     if (variables && typeof value === 'string') {
