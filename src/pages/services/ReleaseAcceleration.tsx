@@ -16,125 +16,41 @@ import {
   Bell,
   Users,
   Activity,
-  Plus,
-  Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
-import Link from 'next/link';
+import { useTranslation } from '../../lib/i18n';
 
 export default function ReleaseAcceleration() {
-  const benefits = [
-    'Deploy up to 10× faster than current pace',
-    'Reduce time from commit to production',
-    'Improve release predictability and confidence',
-    'Minimize rollback risks',
-    'Enable continuous deployment practices',
-    'Reduce stress and manual work in releases',
-  ];
+  const { t } = useTranslation('service-details');
 
-  const features = [
-    'Release pipeline analysis and optimization',
-    'Risk-based testing strategy',
-    'Automated deployment workflows',
-    'Feature flag implementation',
-    'Rollback procedures',
-    'Monitoring and alerting setup',
-    'Progressive delivery setup',
-    'Team process optimization',
-  ];
+  const benefits: string[] = t('release-acceleration.benefits') || [];
+  const features: string[] = t('release-acceleration.features') || [];
+  const painPoints: string[] = t('release-acceleration.painPoints') || [];
+  const qaActivities: string[] = t('release-acceleration.qaActivities') || [];
+  const devopsActivities: string[] = t('release-acceleration.devopsActivities') || [];
+  const productionActivities: string[] = t('release-acceleration.productionActivities') || [];
 
   const process = [
-    { icon: Search, text: 'Analyze current release process and identify bottlenecks' },
-    { icon: Settings, text: 'Design optimized release pipeline architecture' },
-    { icon: Target, text: 'Implement risk-based testing approach' },
-    { icon: GitBranch, text: 'Set up automated deployment workflows' },
-    { icon: Flag, text: 'Configure feature flags and progressive rollout' },
-    { icon: Bell, text: 'Establish monitoring and quick rollback procedures' },
-    { icon: Users, text: 'Train team on new release processes' },
-    { icon: Activity, text: 'Monitor and continuously optimize release performance' },
-  ];
-
-  const painPoints = [
-    'A release is always stressful, long, and unpredictable',
-    'Deployment takes hours or days',
-    '40% of releases require a hotfix within 24 hours',
-    'All tests are always run, even when not necessary',
-    'There is no clear smoke/regression separation',
-    'There is a fear of releasing updates on Fridays or before weekends',
-    'CI/CD is not scalable (no parallelization)',
-    'The QA team manually tests for regression before each release (5-10 hours)',
-    'Rollback = panic and 2-4 hours of downtime',
-    'Each hour of downtime costs $5k-50k in lost sales',
-  ];
-
-  const qaActivities = [
-    'Analysis of the existing testing process',
-    'Highlighting: Smoke suite (quick check before deployment)',
-    'Regression suite (what really catches risks)',
-    'Risk-based approach to running tests',
-    'Reduction of manual regression',
-  ];
-
-  const devopsActivities = [
-    'Optimization of CI/CD pipelines',
-    'Test parallelization',
-    'Multi-environment setup (dev / stage / pre-prod)',
-    'Infrastructure as Code (Terraform / Ansible / Helm — as needed)',
-    'Implementation of Continuous Delivery / Deployment',
-  ];
-
-  const productionActivities = [
-    'Production monitoring',
-    'Synthetic tests for critical flows',
-    'Early detection of problems after release',
+    { icon: Search, text: t('release-acceleration.process.0') },
+    { icon: Settings, text: t('release-acceleration.process.1') },
+    { icon: Target, text: t('release-acceleration.process.2') },
+    { icon: GitBranch, text: t('release-acceleration.process.3') },
+    { icon: Flag, text: t('release-acceleration.process.4') },
+    { icon: Bell, text: t('release-acceleration.process.5') },
+    { icon: Users, text: t('release-acceleration.process.6') },
+    { icon: Activity, text: t('release-acceleration.process.7') },
   ];
 
   const results = [
-    { metric: 'Release Frequency', improvement: '10× faster' },
-    { metric: 'Deployment Time', improvement: 'From hours to minutes' },
-    { metric: 'Hotfix Rate', improvement: '70% reduction' },
-    { metric: 'Rollback Time', improvement: 'From 2-4h to <5min' },
-    { metric: 'Test Execution Time', improvement: '80% faster' },
-    { metric: 'Manual Testing', improvement: '90% reduction' },
+    { metric: t('release-acceleration.results.0.metric'), improvement: t('release-acceleration.results.0.improvement') },
+    { metric: t('release-acceleration.results.1.metric'), improvement: t('release-acceleration.results.1.improvement') },
+    { metric: t('release-acceleration.results.2.metric'), improvement: t('release-acceleration.results.2.improvement') },
+    { metric: t('release-acceleration.results.3.metric'), improvement: t('release-acceleration.results.3.improvement') },
+    { metric: t('release-acceleration.results.4.metric'), improvement: t('release-acceleration.results.4.improvement') },
+    { metric: t('release-acceleration.results.5.metric'), improvement: t('release-acceleration.results.5.improvement') },
   ];
 
-  const faqs = [
-    {
-      question: 'What exactly do you accelerate?',
-      answer:
-        'We accelerate the release cycle, not just testing — by removing QA bottlenecks, optimizing processes, and improving test efficiency.',
-    },
-    {
-      question: 'What problems does this service solve?',
-      answer:
-        'It solves slow releases, unstable deployments, late bug discovery, and last-minute QA chaos before production.',
-    },
-    {
-      question: 'Is this a QA or DevOps service?',
-      answer:
-        'It&apos;s a QA-driven release optimization service that works closely with development and CI/CD, without replacing your DevOps team but closely working with our Devops expert.',
-    },
-    {
-      question: 'How do you identify release bottlenecks?',
-      answer:
-        'We analyze your release flow, test coverage, environments, feedback loops, and automation readiness to find what slows releases down.',
-    },
-    {
-      question: 'How fast can we see improvement?',
-      answer:
-        'Most teams see measurable improvements within 2–3 weeks, depending on product and process complexity.',
-    },
-    {
-      question: 'Do you change our existing processes?',
-      answer:
-        'We optimize, not break existing workflows — improving what you already have instead of forcing heavy process changes.',
-    },
-    {
-      question: 'How do you measure success?',
-      answer:
-        'Success is measured by shorter release cycles, fewer release blockers, and higher confidence in production deployments.',
-    },
-  ];
+  const faqs = t('release-acceleration.faqs') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -151,19 +67,15 @@ export default function ReleaseAcceleration() {
         >
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Release Acceleration
+              {t('release-acceleration.title')}
             </h1>
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-6">
-              Ship faster without breaking things
+              {t('release-acceleration.subtitle')}
             </p>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-              Optimize your entire release pipeline for speed and quality. Deploy up to{' '}
-              <span className="text-[#00B476] font-bold underline decoration-[#00B476] decoration-2 underline-offset-4">
-                10× faster
-              </span>{' '}
-              while maintaining or improving quality standards.
+              {t('release-acceleration.description')}
             </p>
-            <Button href="/contact" className="text-lg">Book a call</Button>
+            <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
           </div>
         </motion.div>
       </section>
@@ -180,10 +92,10 @@ export default function ReleaseAcceleration() {
           <div className="text-center mb-12">
             <AlertTriangle className="text-[#dc2626] mx-auto mb-4" size={48} />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Does this sound <span className="text-[#dc2626]">familiar?</span>
+              {t('release-acceleration.familiarTitle') || 'Does this sound familiar?'}
             </h2>
             <p className="text-xl text-gray-300 mb-8 italic">
-              &quot;Releases are always stressful, long, and unpredictable.&quot;
+              &quot;{t('release-acceleration.familiarQuote')}&quot;
             </p>
           </div>
 
@@ -213,7 +125,7 @@ export default function ReleaseAcceleration() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Key <span className="text-[#00B476]">Benefits</span>
+            Key <span className="text-[#00B476]">{t('services.keyBenefits') || 'Benefits'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -244,7 +156,7 @@ export default function ReleaseAcceleration() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What&apos;s <span className="text-[#00B476]">Included</span>
+            {t('services.whatsIncluded') || "What's Included"}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -275,17 +187,17 @@ export default function ReleaseAcceleration() {
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            What we <span className="text-[#00B476]">do</span>
+            {t('release-acceleration.doTitle') || 'What we do'}
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12">
-            End-to-end release optimization across QA, DevOps, and Production
+            {t('release-acceleration.doSubtitle')}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-black to-green-950/20 p-8 rounded-xl border-2 border-[#00B476]/30 hover:border-[#00B476] transition-all duration-300 hover:shadow-xl hover:shadow-[#00B476]/20">
               <div className="flex items-center gap-3 mb-6">
                 <Shield className="text-[#00B476]" size={32} />
-                <h3 className="text-2xl font-bold text-white">QA Side</h3>
+                <h3 className="text-2xl font-bold text-white">{t('release-acceleration.qaSide') || 'QA Side'}</h3>
               </div>
               <ul className="space-y-3">
                 {qaActivities.map((activity, idx) => (
@@ -300,7 +212,7 @@ export default function ReleaseAcceleration() {
             <div className="bg-gradient-to-br from-black to-green-950/20 p-8 rounded-xl border-2 border-[#00B476]/30 hover:border-[#00B476] transition-all duration-300 hover:shadow-xl hover:shadow-[#00B476]/20">
               <div className="flex items-center gap-3 mb-6">
                 <Zap className="text-[#00B476]" size={32} />
-                <h3 className="text-2xl font-bold text-white">DevOps Side</h3>
+                <h3 className="text-2xl font-bold text-white">{t('release-acceleration.devopsSide') || 'DevOps Side'}</h3>
               </div>
               <ul className="space-y-3">
                 {devopsActivities.map((activity, idx) => (
@@ -315,7 +227,7 @@ export default function ReleaseAcceleration() {
             <div className="bg-gradient-to-br from-black to-green-950/20 p-8 rounded-xl border-2 border-[#00B476]/30 hover:border-[#00B476] transition-all duration-300 hover:shadow-xl hover:shadow-[#00B476]/20">
               <div className="flex items-center gap-3 mb-6">
                 <TrendingUp className="text-[#00B476]" size={32} />
-                <h3 className="text-2xl font-bold text-white">Production-Ready</h3>
+                <h3 className="text-2xl font-bold text-white">{t('release-acceleration.productionReady') || 'Production-Ready'}</h3>
               </div>
               <ul className="space-y-3">
                 {productionActivities.map((activity, idx) => (
@@ -343,9 +255,9 @@ export default function ReleaseAcceleration() {
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-[#00B476]">Process</span>
+              Our <span className="text-[#00B476]">{t('services.ourProcess') || 'Process'}</span>
             </h2>
-            <p className="text-gray-400 text-lg">Your roadmap to testing excellence</p>
+            <p className="text-gray-400 text-lg">{t('services.processSubtitle') || 'Your roadmap to testing excellence'}</p>
           </div>
 
           <div className="relative mb-12">
@@ -389,18 +301,18 @@ export default function ReleaseAcceleration() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Expected <span className="text-[#00B476]">Results</span>
+            {t('release-acceleration.resultsTitle') || 'Expected Results'}
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12">
-            Measurable improvements across all release metrics
+            {t('release-acceleration.resultsSubtitle') || 'Measurable improvements across all release metrics'}
           </p>
 
           <div className="overflow-x-auto">
             <table className="w-full bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 rounded-xl overflow-hidden">
               <thead>
                 <tr className="bg-[#00B476]/10">
-                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Metric</th>
-                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Improvement</th>
+                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">{t('services.metric') || 'Metric'}</th>
+                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">{t('services.improvement') || 'Improvement'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -423,7 +335,7 @@ export default function ReleaseAcceleration() {
       <FAQ 
         items={faqs} 
         title={<>Release Acceleration <span className="text-[#00B476]">FAQ</span></>}
-        subtitle="Clear answers to the most common questions about release optimization."
+        subtitle={t('services.faqSubtitle') || 'Clear answers to the most common questions about release optimization.'}
         className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
       />
 
@@ -436,12 +348,12 @@ export default function ReleaseAcceleration() {
           className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to <span className="text-[#00B476]">get started?</span>
+            {t('release-acceleration.readyTitle') || 'Ready to get started?'}
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let&apos;s discuss how we can help improve your quality assurance process.
+            {t('release-acceleration.readySubtitle')}
           </p>
-          <Button href="/contact" className="text-lg">Book a call</Button>
+          <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
         </motion.div>
       </section>
     </div>

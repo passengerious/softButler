@@ -9,124 +9,49 @@ import {
   Zap,
   Target,
   AlertTriangle,
-  Plus,
-  Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
-import Link from 'next/link';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function AutomationNitro() {
-  const benefits = [
-    'Reduce regression testing time by up to 80%',
-    'Improve test reliability and eliminate flaky tests',
-    'Scale testing without scaling headcount',
-    'Get faster feedback on every code change',
-    'Reduce manual testing burden on your team',
-    'Improve CI/CD pipeline efficiency',
-  ];
+  const { t } = useTranslation('service-details');
 
-  const features = [
-    'Test automation strategy and roadmap',
-    'Framework selection and setup',
-    'Automated test development',
-    'CI/CD integration',
-    'Test maintenance and optimization',
-    'Team training and knowledge transfer',
-    'Flaky test elimination',
-    'Parallel execution setup',
-  ];
-
-  const process = [
-    'Analyze current testing process and identify automation opportunities',
-    'Design automation strategy aligned with your delivery pipeline',
-    'Select and configure appropriate testing frameworks and tools',
-    'Develop automated test suites for critical user flows',
-    'Integrate tests into CI/CD pipeline',
-    'Optimize test execution speed and reliability',
-    'Train your team on maintaining and extending automation',
-    'Provide ongoing support and optimization',
-  ];
-
-  const painPoints = [
-    'Regression takes days or weeks',
-    'Automated tests are slow and expensive to write',
-    'Existing automated tests are unstable (flaky)',
-    'Automation cannot keep up with the product',
-    'CI/CD is slowed down by tests',
-    'Automation does not deliver the expected ROI',
-  ];
+  const benefits: string[] = t('automation-nitro.benefits') || [];
+  const features: string[] = t('automation-nitro.features') || [];
+  const process: string[] = t('automation-nitro.process') || [];
+  const painPoints: string[] = t('automation-nitro.painPoints') || [];
 
   const aiAdvantages = [
     {
       icon: Brain,
-      title: 'Smart Test Generation',
-      description:
-        'AI analyzes your application and generates optimal test cases automatically, covering edge cases humans might miss',
+      title: t('automation-nitro.aiAdvantages.0.title'),
+      description: t('automation-nitro.aiAdvantages.0.description'),
     },
     {
       icon: Target,
-      title: 'Intelligent Test Selection',
-      description:
-        'AI determines which tests to run based on code changes, reducing test execution time by up to 70%',
+      title: t('automation-nitro.aiAdvantages.1.title'),
+      description: t('automation-nitro.aiAdvantages.1.description'),
     },
     {
       icon: Zap,
-      title: 'Self-Healing Tests',
-      description:
-        'AI automatically fixes broken tests when UI changes, eliminating maintenance overhead',
+      title: t('automation-nitro.aiAdvantages.2.title'),
+      description: t('automation-nitro.aiAdvantages.2.description'),
     },
     {
       icon: Bot,
-      title: 'Test Cases Generation',
-      description:
-        'AI detects flaky tests and identifies root causes faster than manual analysis',
+      title: t('automation-nitro.aiAdvantages.3.title'),
+      description: t('automation-nitro.aiAdvantages.3.description'),
     },
   ];
 
   const results = [
-    { metric: 'Manual Regression', improvement: '– 40%' },
-    { metric: 'Production Bugs in Critical Flows', improvement: '– 60%' },
-    { metric: 'CI Feedback Time', improvement: '– 50%' },
+    { metric: t('automation-nitro.results.0.metric'), improvement: t('automation-nitro.results.0.improvement') },
+    { metric: t('automation-nitro.results.1.metric'), improvement: t('automation-nitro.results.1.improvement') },
+    { metric: t('automation-nitro.results.2.metric'), improvement: t('automation-nitro.results.2.improvement') },
   ];
 
-  const faqs = [
-    {
-      question: 'What exactly does Automation Nitro include?',
-      answer:
-        'Automation Nitro covers test automation setup from scratch or improvement of existing automation, including framework setup, test creation, CI/CD integration, and best practices.',
-    },
-    {
-      question: "Is Automation Nitro suitable if we don't have automation yet?",
-      answer:
-        'Yes. This service is designed both for products without automation and for teams with unstable or poorly maintained test automation.',
-    },
-    {
-      question: 'What types of tests do you automate?',
-      answer:
-        'We focus on high-value automated tests such as regression, smoke, critical user flows, and API tests — not low-impact or flaky scenarios.',
-    },
-    {
-      question: 'Which tools and technologies do you use?',
-      answer:
-        'We select tools based on your stack and needs, commonly using Playwright, Selenium, Cypress, API automation tools, and integrating them into your existing CI/CD pipeline.',
-    },
-    {
-      question: 'How fast will we see results?',
-      answer:
-        'Initial value is usually delivered within 2 weeks, with automated tests running as part of your release process shortly after.',
-    },
-    {
-      question: 'Will our team be able to maintain the automation?',
-      answer:
-        'Yes. We build clean, maintainable automation, provide documentation, and can onboard your team or continue supporting automation if needed.',
-    },
-    {
-      question: 'How do you ensure automation actually saves time and money?',
-      answer:
-        'We automate only what makes sense for your product and measure impact through reduced regression time, faster releases, and fewer production issues.',
-    },
-  ];
+  const faqs = t('automation-nitro.faqs') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -143,18 +68,15 @@ export default function AutomationNitro() {
         >
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Automation Nitro
+              {t('automation-nitro.title')}
             </h1>
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-6">
-              Accelerate testing with smart automation
+              {t('automation-nitro.subtitle')}
             </p>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-              Transform your testing process with intelligent automation that actually works.
-              Reduce regression time by{' '}
-              <span className="text-[#dc2626] font-semibold">up to 80%</span> while improving test
-              reliability and coverage.
+              {t('automation-nitro.description')}
             </p>
-            <Button href="/contact" className="text-lg">Book a call</Button>
+            <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
           </div>
         </motion.div>
       </section>
@@ -171,7 +93,7 @@ export default function AutomationNitro() {
           <div className="text-center mb-12">
             <AlertTriangle className="text-[#dc2626] mx-auto mb-4" size={48} />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Common <span className="text-[#dc2626]">Automation Challenges</span>
+              {t('automation-nitro.challengesTitle') || 'Common Automation Challenges'}
             </h2>
           </div>
 
@@ -201,7 +123,7 @@ export default function AutomationNitro() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Key <span className="text-[#00B476]">Benefits</span>
+            Key <span className="text-[#00B476]">{t('services.keyBenefits') || 'Benefits'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -234,14 +156,13 @@ export default function AutomationNitro() {
         >
           <div className="text-center mb-16">
             <div className="inline-block bg-[#00B476]/10 px-6 py-2 rounded-full mb-4 animate-pulse">
-              <span className="text-[#00B476] font-bold text-sm">POWERED BY AI</span>
+              <span className="text-[#00B476] font-bold text-sm">{t('automation-nitro.poweredByAi') || 'POWERED BY AI'}</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span className="text-[#00B476]">AI</span> Advantages
+              <span className="text-[#00B476]">AI</span> {t('automation-nitro.aiTitle') || 'Advantages'}
             </h2>
             <p className="text-center text-gray-300 text-xl max-w-3xl mx-auto">
-              Leverage cutting-edge AI to make your automation{' '}
-              <span className="text-[#dc2626] font-semibold">smarter, faster, and more reliable</span>
+              {t('automation-nitro.aiSubtitle')}
             </p>
           </div>
 
@@ -288,7 +209,7 @@ export default function AutomationNitro() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What&apos;s <span className="text-[#00B476]">Included</span>
+            {t('services.whatsIncluded') || "What's Included"}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -323,9 +244,9 @@ export default function AutomationNitro() {
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-[#00B476]">Process</span>
+              Our <span className="text-[#00B476]">{t('services.ourProcess') || 'Process'}</span>
             </h2>
-            <p className="text-gray-400 text-lg">Your roadmap to testing excellence</p>
+            <p className="text-gray-400 text-lg">{t('services.processSubtitle') || 'Your roadmap to testing excellence'}</p>
           </div>
 
           <div className="relative">
@@ -343,16 +264,16 @@ export default function AutomationNitro() {
                   <div className="flex-1 bg-gradient-to-br from-black to-green-950/20 p-6 rounded-xl border border-[#00B476]/20 group-hover:border-[#00B476] transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#00B476]/20 group-hover:translate-x-2">
                     <div className="flex items-start justify-between mb-2">
                       <h3 className="text-[#00B476] font-semibold text-sm uppercase tracking-wider">
-                        Step {idx + 1}
+                        {t('services.step') || 'Step'} {idx + 1}
                       </h3>
                       {idx === 0 && (
                         <span className="bg-[#00B476]/20 text-[#00B476] text-xs px-3 py-1 rounded-full font-semibold">
-                          START HERE
+                          {t('services.startHere') || 'START HERE'}
                         </span>
                       )}
                       {idx === process.length - 1 && (
                         <span className="bg-[#dc2626]/20 text-[#dc2626] text-xs px-3 py-1 rounded-full font-semibold">
-                          FINISH
+                          {t('services.finish') || 'FINISH'}
                         </span>
                       )}
                     </div>
@@ -374,18 +295,18 @@ export default function AutomationNitro() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Expected <span className="text-[#00B476]">Results</span>
+            {t('automation-nitro.resultsTitle') || 'Expected Results'}
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12">
-            Measurable improvements in testing efficiency
+            {t('automation-nitro.resultsSubtitle') || 'Measurable improvements in testing efficiency'}
           </p>
 
           <div className="overflow-x-auto">
             <table className="w-full bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 rounded-xl overflow-hidden">
               <thead>
                 <tr className="bg-[#00B476]/10">
-                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Metric</th>
-                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Improvement</th>
+                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">{t('services.metric') || 'Metric'}</th>
+                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">{t('services.improvement') || 'Improvement'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -410,8 +331,8 @@ export default function AutomationNitro() {
 
       <FAQ 
         items={faqs} 
-        title={<>Automation Nitro <span className="text-[#00B476]">FAQ</span></>}
-        subtitle="Clear answers to common questions about automation setup and outcomes."
+        title={<>{t('automation-nitro.title')} <span className="text-[#00B476]">FAQ</span></>}
+        subtitle={t('services.faqSubtitle') || 'Clear answers to common questions.'}
         className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
       />
 
@@ -425,51 +346,40 @@ export default function AutomationNitro() {
         >
           <div className="bg-black/60 backdrop-blur-sm border border-green-500/20 rounded-2xl px-6 py-8 sm:px-10 sm:py-10">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">
-            Ready to <span className="text-[#00B476]">Automate Your Testing?</span>
+            Ready to <span className="text-[#00B476]">{t('automation-nitro.readyToAutomate') || 'Automate Your Testing?'}</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6">
-            Start saving <span className="text-[#dc2626] font-bold">70% on testing costs</span> while
-            shipping <span className="text-[#00B476] font-bold">10× faster</span>
+            {t('automation-nitro.startSaving')}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
             <div className="text-center group">
               <div className="text-4xl font-bold text-[#00B476] mb-1 group-hover:scale-110 transition-transform">
                 80%
               </div>
-              <div className="text-gray-400">Faster Testing</div>
+              <div className="text-gray-400">{t('automation-nitro.fasterTesting') || 'Faster Testing'}</div>
             </div>
             <div className="text-center group">
               <div className="text-4xl font-bold text-[#dc2626] mb-1 group-hover:scale-110 transition-transform">
                 70%
               </div>
-              <div className="text-gray-400">Cost Reduction</div>
+              <div className="text-gray-400">{t('automation-nitro.costReduction') || 'Cost Reduction'}</div>
             </div>
             <div className="text-center group">
               <div className="text-4xl font-bold text-[#00B476] mb-1 group-hover:scale-110 transition-transform">
                 10×
               </div>
-              <div className="text-gray-400">Faster Delivery</div>
+              <div className="text-gray-400">{t('automation-nitro.fasterDelivery') || 'Faster Delivery'}</div>
             </div>
           </div>
-          <Button href="/contact" className="text-lg mb-4 w-full sm:w-auto">Get Your Free Automation Assessment</Button>
+          <Button href="/contact" className="text-lg mb-4 w-full sm:w-auto">
+            {t('automation-nitro.freeAssessment')}
+          </Button>
           <p className="text-gray-400 text-sm sm:text-base">
-            No commitment required. See how automation can transform your testing.
+            {t('automation-nitro.noCommitment')}
           </p>
           </div>
         </motion.div>
       </section>
-
-      {/* <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 via-gray-950 to-black">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to <span className="text-[#00B476]">get started?</span>
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how we can help improve your quality assurance process.
-          </p>
-          <Button className="text-lg">Book a call</Button>
-        </div>
-      </section> */}
     </div>
   );
 }

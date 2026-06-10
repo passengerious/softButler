@@ -11,22 +11,26 @@
   "experienceTitleHtml": "Досвід наших <span class=\"text-gradient-green\">QA-інженерів</span>",
   "experienceSubtitle": "Провідні компанії, у яких ми навчаємось та адаптуємо їхні практики",
   "newNormalTitleHtml": "Новий стандарт у <span class=\"text-gradient-green\">тестуванні</span>",
-  "newNormalSubtitle": "Наші основні принципи, які переосмислюють забезпечення якості",
+  "newNormalSubtitle": "Наші основні принципи, які переосмислюють процес забезпечення якості",
   "principles": [
     {
       "principle": "Якість — це не фаза",
+      "separator": ", ",
       "reality": "це система"
     },
     {
       "principle": "Тестування — це не роль",
+      "separator": ", ",
       "reality": "це спосіб мислення"
     },
     {
       "principle": "Автоматизація — це не мета",
+      "separator": ", а ",
       "reality": "метою є результат"
     },
     {
       "principle": "Найкращі практики марні",
+      "separator": ", ",
       "reality": "якщо вони не відповідають реальності"
     }
   ],

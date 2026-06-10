@@ -34,7 +34,7 @@
     "yourDetails": "Your Details",
     "step1Title": "Choose Your Preferred Date",
     "step1Subtitle": "Select a date that works best for your schedule",
-    "step2Title": "Almost There! Your Details",
+    "step2Title": "Almost There!",
     "step2Subtitle": "Tell us about yourself and your challenges",
     "selectedDate": "Your Consultation Date:",
     "form": {
@@ -55,5 +55,6 @@
       "title": "Consultation Booked!",
       "message": "We'll send you a confirmation email with the meeting details. Looking forward to fixing your QA!"
     }
-  }
+  },
+  "bookCall": "Book a call"
 }

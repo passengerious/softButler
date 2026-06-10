@@ -1,7 +1,6 @@
 import SEO from '../../components/SEO';
 import { motion } from 'framer-motion';
 import FAQ from '../../components/FAQ';
-import Link from 'next/link';
 import {
   CheckCircle,
   AlertTriangle,
@@ -9,113 +8,44 @@ import {
   FileCheck,
   TrendingUp,
   Award,
-  Plus,
-  Minus,
   Search,
-  Settings,
   Users,
 } from 'lucide-react';
 import Button from '../../components/Button';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function QACandidateAssessment() {
-  const painPoints = [
-    "It's hard to objectively assess the real level of a QA candidate",
-    'Good interviews ≠ strong performance on a real project',
-    'Hiring mistakes cost months of time and thousands of dollars',
-    'QA engineers often fail to deliver expected value after onboarding',
-  ];
+  const { t } = useTranslation('service-details');
 
-  const serviceFormat = [
-    'Fast, independent assessment',
-    'No changes to your existing hiring process',
-    'External, unbiased evaluation',
-  ];
-
-  const basedOn = ['Your product', 'Your real risks', 'Your expectations from the role'];
-
-  const evaluationAreas = [
-    'Ability to achieve expected QA outcomes',
-    'Test design and coverage thinking',
-    'Risk-based testing skills',
-    'Work with requirements',
-    'Communication and QA ownership',
-    'Readiness to work on a real project',
-  ];
-
-  const assessmentFormats = [
-    'Short structured interview',
-    'Practical task (based on your product or a similar domain)',
-    'Real-time coding',
-    'Live testing session',
-  ];
-
-  const reportIncludes = [
-    'Overall candidate evaluation',
-    'Risks and weak areas',
-    'Real level: Junior / Middle / Strong Middle / Senior',
-    'Recommendation: hire / no-hire / hire with conditions',
-    'Fit assessment for your role and product',
-    'Clear comments for Hiring Manager / CTO / HR',
-  ];
+  const painPoints: string[] = t('qa-candidate-assessment.painPoints') || [];
+  const serviceFormat: string[] = t('qa-candidate-assessment.serviceFormat') || [];
+  const basedOn: string[] = t('qa-candidate-assessment.basedOn') || [];
+  const evaluationAreas: string[] = t('qa-candidate-assessment.evaluationAreas') || [];
+  const assessmentFormats: string[] = t('qa-candidate-assessment.assessmentFormats') || [];
+  const reportIncludes: string[] = t('qa-candidate-assessment.reportIncludes') || [];
 
   const processSteps = [
-    { icon: Users, title: 'Requirement Alignment', text: 'We align with your team on key expectations, product complexities, and required tech stack.' },
-    { icon: Target, title: 'Task Setup', text: 'We design custom, product-specific evaluation tasks and real-world testing scenarios.' },
-    { icon: Search, title: 'Active Evaluation', text: 'We conduct short structured technical interviews and live-testing/coding assessment sessions.' },
-    { icon: FileCheck, title: 'Report Generation', text: 'We deliver an unbiased assessment report highlighting risks, real QA level, and recommendations.' },
-    { icon: Award, title: 'Decision Consultation', text: 'We review results with your hiring team to ensure perfect alignment before the final offer.' },
+    { icon: Users, title: t('qa-candidate-assessment.processSteps.0.title'), text: t('qa-candidate-assessment.processSteps.0.text') },
+    { icon: Target, title: t('qa-candidate-assessment.processSteps.1.title'), text: t('qa-candidate-assessment.processSteps.1.text') },
+    { icon: Search, title: t('qa-candidate-assessment.processSteps.2.title'), text: t('qa-candidate-assessment.processSteps.2.text') },
+    { icon: FileCheck, title: t('qa-candidate-assessment.processSteps.3.title'), text: t('qa-candidate-assessment.processSteps.3.text') },
+    { icon: Award, title: t('qa-candidate-assessment.processSteps.4.title'), text: t('qa-candidate-assessment.processSteps.4.text') },
   ];
 
   const results = [
-    { metric: 'Wrong Hire Risk', improvement: '-70%' },
-    { metric: 'Hiring Confidence', improvement: '+100%' },
-    { metric: 'Fewer Re-hires', improvement: 'Significant' },
+    { metric: t('qa-candidate-assessment.results.0.metric'), improvement: t('qa-candidate-assessment.results.0.improvement') },
+    { metric: t('qa-candidate-assessment.results.1.metric'), improvement: t('qa-candidate-assessment.results.1.improvement') },
+    { metric: t('qa-candidate-assessment.results.2.metric'), improvement: t('qa-candidate-assessment.results.2.improvement') },
   ];
 
   const metrics = [
-    { label: 'Wrong Hire Risk', value: '-70%' },
-    { label: 'Hiring Confidence', value: '+100%' },
-    { label: 'Fewer Re-hires', value: 'Significant' },
+    { label: t('qa-candidate-assessment.metrics.0.label'), value: t('qa-candidate-assessment.metrics.0.value') },
+    { label: t('qa-candidate-assessment.metrics.1.label'), value: t('qa-candidate-assessment.metrics.1.value') },
+    { label: t('qa-candidate-assessment.metrics.2.label'), value: t('qa-candidate-assessment.metrics.2.value') },
   ];
 
-  const faqs = [
-    {
-      question: 'What is QA Candidate Assessment?',
-      answer:
-        'It’s a service where we evaluate QA candidates (manual and automation) for skills, mindset, and real-world problem solving before you hire them.',
-    },
-    {
-      question: 'What does the assessment include?',
-      answer:
-        'We assess technical skills, test design, automation logic, API knowledge, reporting clarity, and scenario thinking through real tasks and interviews.',
-    },
-    {
-      question: 'Who is this assessment for?',
-      answer:
-        'For companies hiring QA engineers (Junior, Middle, Senior) who want a trusted, objective evaluation before making hiring decisions.',
-    },
-    {
-      question: 'How long does the assessment take?',
-      answer:
-        'Assessment typically takes 1–3 days per candidate, depending on level and test depth.',
-    },
-    {
-      question: 'Do you provide detailed feedback?',
-      answer:
-        'Yes — you receive a clear report with strengths, weaknesses, and recommendations for each candidate.',
-    },
-    {
-      question: 'Can you assess candidates in our stack/tech?',
-      answer:
-        'Yes — we tailor assessments to your technology stack, tooling, and project specifics.',
-    },
-    {
-      question: 'How does this save time and cost?',
-      answer:
-        'We reduce bad hires and rework, help you focus only on qualified candidates, and improve hiring ROI.',
-    },
-  ];
+  const faqs = t('qa-candidate-assessment.faqs') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -132,15 +62,15 @@ export default function QACandidateAssessment() {
         >
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              QA Candidate Assessment
+              {t('qa-candidate-assessment.title')}
             </h1>
             <p className="text-xl md:text-2xl text-[#00B476] font-semibold mb-8">
-              Hire QA engineers with confidence — not hope
+              {t('qa-candidate-assessment.subtitle')}
             </p>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-              Evaluate technical skills and testing mindset objectively. Filter out underperformers and identify the top 10% of talent before the final interview stage.
+              {t('qa-candidate-assessment.description')}
             </p>
-            <Button href="/contact" className="text-lg">Book a call</Button>
+            <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
           </div>
         </motion.div>
       </section>
@@ -157,7 +87,7 @@ export default function QACandidateAssessment() {
           <div className="text-center mb-12">
             <AlertTriangle className="text-[#dc2626] mx-auto mb-4" size={48} />
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              The Real Cost of <span className="text-[#dc2626]">Hiring Mistakes</span>
+              {t('qa-candidate-assessment.painTitle') || 'The Real Cost of Hiring Mistakes'}
             </h2>
           </div>
 
@@ -178,8 +108,7 @@ export default function QACandidateAssessment() {
 
           <div className="bg-gradient-to-br from-[#dc2626]/10 to-black border-2 border-[#dc2626]/30 p-8 rounded-xl text-center">
             <p className="text-xl md:text-2xl text-gray-200 font-medium">
-              &quot;We hire a QA engineer — and after 1–2 months we realize{' '}
-              <span className="text-[#dc2626] font-bold">it was a mistake</span>.&quot;
+              &quot;{t('qa-candidate-assessment.hiringMistakeQuote')}&quot;
             </p>
           </div>
         </motion.div>
@@ -194,7 +123,7 @@ export default function QACandidateAssessment() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            How the Service <span className="text-[#00B476]">Works</span>
+            {t('qa-candidate-assessment.serviceFormatTitle') || 'How the Service Works'}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -227,18 +156,14 @@ export default function QACandidateAssessment() {
           <div className="bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 p-12 rounded-2xl text-center">
             <Award className="text-[#00B476] mx-auto mb-6" size={56} />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-[#00B476]">Hiring Confidence Assessment</span>
+              <span className="text-[#00B476]">{t('qa-candidate-assessment.confidenceTitle') || 'Hiring Confidence Assessment'}</span>
             </h2>
             <p className="text-xl text-gray-300 mb-6">
-              Hire QA engineers with confidence, not hope.
+              {t('qa-candidate-assessment.confidenceSubtitle')}
             </p>
             <div className="max-w-2xl mx-auto">
               <p className="text-lg text-gray-400 leading-relaxed">
-                One comprehensive service that gives a clear answer to the question:
-                <br />
-                <span className="text-white font-semibold">
-                  &quot;Is this QA candidate the right fit for our product and team?&quot;
-                </span>
+                {t('qa-candidate-assessment.confidenceQuestion')}
               </p>
             </div>
           </div>
@@ -254,10 +179,10 @@ export default function QACandidateAssessment() {
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            What the Assessment is <span className="text-[#00B476]">Based On</span>
+            {t('qa-candidate-assessment.basedOnTitle') || 'What the Assessment is Based On'}
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-            We evaluate quality of thinking — <span className="text-white font-semibold">not memorized answers</span>
+            {t('qa-candidate-assessment.basedOnSubtitle')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -283,7 +208,7 @@ export default function QACandidateAssessment() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What We <span className="text-[#00B476]">Evaluate</span>
+            Key <span className="text-[#00B476]">{t('services.keyBenefits') || 'Benefits'}</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
@@ -302,7 +227,7 @@ export default function QACandidateAssessment() {
           </div>
 
           <div className="bg-black border border-green-500/20 rounded-xl p-8">
-            <h3 className="text-xl font-bold mb-6 text-center text-white">Assessment Formats</h3>
+            <h3 className="text-xl font-bold mb-6 text-center text-white">{t('qa-candidate-assessment.assessmentFormatsTitle') || 'Assessment Formats'}</h3>
             <div className="space-y-3">
               {assessmentFormats.map((format, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-gray-300">
@@ -326,13 +251,13 @@ export default function QACandidateAssessment() {
           <div className="text-center mb-12">
             <FileCheck className="text-[#00B476] mx-auto mb-4" size={48} />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What You <span className="text-[#00B476]">Get</span>
+              {t('qa-candidate-assessment.getKeywordsTitle') || 'What You Get'}
             </h2>
           </div>
 
           <div className="bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 p-10 rounded-2xl">
             <h3 className="text-2xl font-bold mb-8 text-center text-[#00B476]">
-              QA Candidate Assessment Report
+              {t('qa-candidate-assessment.reportTitle') || 'QA Candidate Assessment Report'}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {reportIncludes.map((item, idx) => (
@@ -362,9 +287,9 @@ export default function QACandidateAssessment() {
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="text-[#00B476]">Process</span>
+              Our <span className="text-[#00B476]">{t('services.ourProcess') || 'Process'}</span>
             </h2>
-            <p className="text-gray-400 text-lg">Your roadmap to candidate evaluation excellence</p>
+            <p className="text-gray-400 text-lg">{t('qa-candidate-assessment.processSubtitle') || 'Your roadmap to candidate evaluation excellence'}</p>
           </div>
 
           <div className="relative mb-12">
@@ -409,18 +334,18 @@ export default function QACandidateAssessment() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Expected <span className="text-[#00B476]">Results</span>
+            {t('qa-candidate-assessment.resultsTitle') || 'Expected Results'}
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12">
-            Measurable improvements in hiring speed, cost reduction, and team stability
+            {t('qa-candidate-assessment.resultsSubtitle') || 'Measurable improvements in hiring speed, cost reduction, and team stability'}
           </p>
 
           <div className="overflow-x-auto">
             <table className="w-full bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 rounded-xl overflow-hidden">
               <thead>
                 <tr className="bg-[#00B476]/10">
-                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Metric</th>
-                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">Improvement</th>
+                  <th className="text-left p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">{t('services.metric') || 'Metric'}</th>
+                  <th className="text-right p-6 text-[#00B476] font-bold text-lg border-b-2 border-[#00B476]/30">{t('services.improvement') || 'Improvement'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -457,7 +382,7 @@ export default function QACandidateAssessment() {
           <div className="text-center mb-12">
             <TrendingUp className="text-[#00B476] mx-auto mb-4" size={48} />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Impact in <span className="text-[#00B476]">Numbers</span>
+              {t('qa-candidate-assessment.impactTitle') || 'Impact in Numbers'}
             </h2>
           </div>
 
@@ -483,7 +408,7 @@ export default function QACandidateAssessment() {
       <FAQ 
         items={faqs} 
         title={<>Candidate Assessment <span className="text-[#00B476]">FAQ</span></>}
-        subtitle="Clear answers to the most common questions about candidate evaluation."
+        subtitle={t('services.faqSubtitle') || 'Clear answers to the most common questions about candidate evaluation.'}
         className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
       />
 
@@ -496,14 +421,15 @@ export default function QACandidateAssessment() {
           className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to hire QA with <span className="text-[#00B476]">confidence?</span>
+            {t('qa-candidate-assessment.readyTitle') || 'Ready to hire QA with confidence?'}
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            One short call is enough to start reducing hiring risk.
+            {t('qa-candidate-assessment.readySubtitle')}
           </p>
-          <Button href="/contact" className="text-lg">Book a call</Button>
+          <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
         </motion.div>
       </section>
     </div>
   );
 }
+

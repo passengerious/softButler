@@ -18,189 +18,122 @@ import {
   FileText,
   AlertTriangle,
   Gift,
-  Plus,
-  Minus,
 } from 'lucide-react';
 import Button from '../../components/Button';
-import Link from 'next/link';
 import { FormatMetricValue } from '../../components/FormatMetricValue';
+import { useTranslation } from '../../lib/i18n';
 
 export default function QAAudit() {
-  const checklistItems = [
-    'Releases are stressful and unpredictable',
-    'Production bugs appear after almost every release',
-    'Regression testing takes too long',
-    'QA depends too much on specific people',
-    'Test cases are outdated or not trusted',
-    'Test cases are outdated or not trusted',
-    "Automation exists but doesn't save time",
-    "Developers don't trust QA results",
-    'CI/CD is slow or flaky because of tests',
-    'CI/CD is slow or flaky because of tests',
-  ];
+  const { t } = useTranslation('service-details');
+
+  const checklistItems: string[] = t('qa-audit.checklistItems') || [];
 
   const analysisSteps = [
     {
       icon: Search,
-      title: 'Process Analysis',
-      description: 'Analyze the QA process "as is" — from task creation by analyst to production deployment',
+      title: t('qa-audit.analysisSteps.0.title'),
+      description: t('qa-audit.analysisSteps.0.description'),
     },
     {
       icon: FileCheck,
-      title: 'Test Coverage Review',
-      description: 'Review test coverage (manual & automated)',
+      title: t('qa-audit.analysisSteps.1.title'),
+      description: t('qa-audit.analysisSteps.1.description'),
     },
     {
       icon: Bug,
-      title: 'Production Bugs Analysis',
-      description: 'Analyze production bugs and their root causes',
+      title: t('qa-audit.analysisSteps.2.title'),
+      description: t('qa-audit.analysisSteps.2.description'),
     },
     {
       icon: GitBranch,
-      title: 'Regression Flow Review',
-      description: 'Review regression testing flow',
+      title: t('qa-audit.analysisSteps.3.title'),
+      description: t('qa-audit.analysisSteps.3.description'),
     },
     {
       icon: Bot,
-      title: 'Automation Evaluation',
-      description: 'Analyze automation (if exists): stability, value, maintenance cost',
+      title: t('qa-audit.analysisSteps.4.title'),
+      description: t('qa-audit.analysisSteps.4.description'),
     },
     {
       icon: FileText,
-      title: 'Documentation Quality',
-      description: 'Review documentation quality and relevance',
+      title: t('qa-audit.analysisSteps.5.title'),
+      description: t('qa-audit.analysisSteps.5.description'),
     },
     {
       icon: Zap,
-      title: 'Tools & AI Usage',
-      description: 'Analyze how tools and AI are used (or misused)',
+      title: t('qa-audit.analysisSteps.6.title'),
+      description: t('qa-audit.analysisSteps.6.description'),
     },
     {
       icon: AlertTriangle,
-      title: 'Bottlenecks & Quick Wins',
-      description: 'Identify bottlenecks, risks, and quick wins',
+      title: t('qa-audit.analysisSteps.7.title'),
+      description: t('qa-audit.analysisSteps.7.description'),
     },
   ];
 
   const whyUsPoints = [
     {
       icon: Bot,
-      title: 'AI-Powered Analysis',
-      description: 'We use AI-powered analysis tools to detect patterns and risks faster',
+      title: t('qa-audit.whyUsPoints.0.title'),
+      description: t('qa-audit.whyUsPoints.0.description'),
     },
     {
       icon: Award,
-      title: 'ISTQB Certified',
-      description: 'Our team is ISTQB-certified with proven expertise',
+      title: t('qa-audit.whyUsPoints.1.title'),
+      description: t('qa-audit.whyUsPoints.1.description'),
     },
     {
       icon: Target,
-      title: 'Diverse Experience',
-      description: 'Large hands-on experience across different product domains',
+      title: t('qa-audit.whyUsPoints.2.title'),
+      description: t('qa-audit.whyUsPoints.2.description'),
     },
     {
       icon: Rocket,
-      title: 'Measured Quality',
-      description: 'We measure quality with numbers, not words — clear metrics that prove impact',
+      title: t('qa-audit.whyUsPoints.3.title'),
+      description: t('qa-audit.whyUsPoints.3.description'),
     },
     {
       icon: Shield,
-      title: 'Practical Guidance',
-      description: 'We show how to do it, not just what to do',
+      title: t('qa-audit.whyUsPoints.4.title'),
+      description: t('qa-audit.whyUsPoints.4.description'),
     },
     {
       icon: Gift,
-      title: 'Free Test Trial',
-      description: 'Try us before making any payment',
+      title: t('qa-audit.whyUsPoints.5.title'),
+      description: t('qa-audit.whyUsPoints.5.description'),
     },
   ];
 
   const packages = [
     {
-      name: 'QA Clarity Audit',
-      duration: '10–14 working days',
-      bestFor: 'Teams that need clarity and direction',
-      includes: [
-        'QA process "as is" analysis',
-        'Test coverage review',
-        'Production bugs analysis',
-        'Regression testing review',
-        'Automation evaluation (if exists)',
-      ],
+      name: t('qa-audit.packages.0.name'),
+      duration: t('qa-audit.packages.0.duration'),
+      bestFor: t('qa-audit.packages.0.bestFor'),
+      includes: t('qa-audit.packages.0.includes') || [],
     },
     {
-      name: 'QA Stabilization',
-      duration: 'Audit: 10–14 days + Stabilization: 2–4 weeks',
-      bestFor: 'Teams ready to implement improvements',
-      includes: [
-        'Everything in QA Clarity Audit',
-        'Risk-based testing setup',
-        'Test structure implementation',
-        'Regression flow optimization',
-        'Automated tests stabilization',
-        'CI/CD optimization for testing',
-      ],
+      name: t('qa-audit.packages.1.name'),
+      duration: t('qa-audit.packages.1.duration'),
+      bestFor: t('qa-audit.packages.1.bestFor'),
+      includes: t('qa-audit.packages.1.includes') || [],
       highlight: true,
     },
     {
-      name: 'QA Transformation',
-      duration: 'Audit: 10–14 days + Transformation: 6–8 weeks',
-      bestFor: 'Teams ready for long-term quality transformation',
-      includes: [
-        'Everything in QA Stabilization',
-        'Complete QA flow rebuild with your team',
-        'QA team training program',
-        'Quality metrics implementation',
-        'Autonomous QA function setup',
-        'Ongoing support and guidance',
-      ],
+      name: t('qa-audit.packages.2.name'),
+      duration: t('qa-audit.packages.2.duration'),
+      bestFor: t('qa-audit.packages.2.bestFor'),
+      includes: t('qa-audit.packages.2.includes') || [],
     },
   ];
 
   const results = [
-    { metric: 'Production bugs', improvement: '-60%' },
-    { metric: 'Release predictability', improvement: '+40%' },
-    { metric: 'Cost of bugs', improvement: '3× lower' },
-    { metric: 'Regression time', improvement: '-35%' },
+    { metric: t('qa-audit.results.0.metric'), improvement: t('qa-audit.results.0.improvement') },
+    { metric: t('qa-audit.results.1.metric'), improvement: t('qa-audit.results.1.improvement') },
+    { metric: t('qa-audit.results.2.metric'), improvement: t('qa-audit.results.2.improvement') },
+    { metric: t('qa-audit.results.3.metric'), improvement: t('qa-audit.results.3.improvement') },
   ];
 
-  const faqs = [
-    {
-      question: 'What exactly do you audit?',
-      answer:
-        'We audit your QA process, test coverage, tools, documentation, environments, and release risks to identify gaps that impact product quality and delivery speed.',
-    },
-    {
-      question: 'When do I need a QA audit?',
-      answer:
-        'A QA audit is needed when you face frequent production bugs, unstable releases, slow QA cycles, or want an external, unbiased quality assessment.',
-    },
-    {
-      question: 'How is a QA audit different from regular testing?',
-      answer:
-        'Testing finds bugs. A QA audit explains why bugs appear, evaluates the entire quality process, and provides clear, actionable improvements.',
-    },
-    {
-      question: 'What deliverables will I receive?',
-      answer:
-        'You receive a structured audit report with: Identified risks and gaps, Quality metrics, Prioritized recommendations, Clear next steps for improvement.',
-    },
-    {
-      question: 'How long does the QA audit take?',
-      answer:
-        'Most audits take 1–2 weeks, depending on product complexity and current QA maturity.',
-    },
-    {
-      question: 'Do you help implement the audit recommendations?',
-      answer:
-        'Yes. We can support implementation, optimize your QA process, or continue with testing and automation based on audit results.',
-    },
-    {
-      question: 'Is this audit suitable for small or early-stage teams?',
-      answer:
-        'Yes. The audit is adapted to your product stage, team size, and business goals — from startups to growing SaaS products.',
-    },
-  ];
+  const faqs = t('qa-audit.faqs') || [];
 
   return (
     <div className="bg-black text-white relative overflow-hidden">
@@ -217,16 +150,10 @@ export default function QAAudit() {
         >
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Fix your QA system
-              <br />
-              <span className="text-[#00B476]">before it breaks your product</span>
+              {t('qa-audit.title')}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
-              QA Audit helps you see where quality is leaking and how to fix it —{' '}
-              <span className="text-[#dc2626] font-semibold">
-                before it impacts users and revenue
-              </span>
-              .
+              {t('qa-audit.description')}
             </p>
           </div>
 
@@ -234,24 +161,24 @@ export default function QAAudit() {
             <div className="bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 p-8 rounded-xl text-center hover:border-[#00B476] transition-all hover:shadow-lg hover:shadow-[#00B476]/20">
               <TrendingUp className="text-[#00B476] mx-auto mb-4" size={48} />
               <div className="text-4xl md:text-5xl font-bold text-[#00B476] mb-2">50%</div>
-              <div className="text-gray-400 text-lg">fewer production bugs</div>
+              <div className="text-gray-400 text-lg">{t('services.popular.qa-audit.highlights.0') || 'fewer production bugs'}</div>
             </div>
 
             <div className="bg-gradient-to-br from-black to-green-950/20 border-2 border-[#dc2626]/30 p-8 rounded-xl text-center hover:border-[#dc2626] transition-all hover:shadow-lg hover:shadow-[#dc2626]/20">
               <Target className="text-[#dc2626] mx-auto mb-4" size={48} />
               <div className="text-4xl md:text-5xl font-bold text-[#dc2626] mb-2">3×</div>
-              <div className="text-gray-400 text-lg">lower cost of fixing bugs</div>
+              <div className="text-gray-400 text-lg">{t('services.popular.qa-audit.highlights.1') || 'lower cost of fixing bugs'}</div>
             </div>
 
             <div className="bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 p-8 rounded-xl text-center hover:border-[#00B476] transition-all hover:shadow-lg hover:shadow-[#00B476]/20">
               <Rocket className="text-[#00B476] mx-auto mb-4" size={48} />
               <div className="text-4xl md:text-5xl font-bold text-[#00B476] mb-2">10×</div>
-              <div className="text-gray-400 text-lg">faster releases</div>
+              <div className="text-gray-400 text-lg">{t('services.popular.qa-audit.highlights.2') || 'faster releases'}</div>
             </div>
           </div>
 
           <div className="text-center">
-            <Button href="/contact" className="text-lg">Book a call</Button>
+            <Button href="/contact" className="text-lg">{t('common.bookCall') || 'Book a call'}</Button>
           </div>
         </motion.div>
       </section>
@@ -265,11 +192,10 @@ export default function QAAudit() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            When do you need a <span className="text-[#00B476]">QA Audit?</span>
+            {t('qa-audit.checklistTitle') || 'When do you need a QA Audit?'}
           </h2>
           <p className="text-center text-gray-300 text-lg mb-12">
-            If you answer <span className="text-[#00B476] font-semibold">YES</span> to at least 3 of
-            the questions below, QA Audit & Consulting will be especially useful for you:
+            {t('qa-audit.checklistSubtitle')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -300,12 +226,10 @@ export default function QAAudit() {
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            What we <span className="text-[#00B476]">actually do</span>
+            {t('qa-audit.analysisTitle') || 'What we actually do'}
           </h2>
           <p className="text-center text-gray-300 text-lg mb-12">
-            We don&apos;t just review QA. We analyze the{' '}
-            <span className="text-[#dc2626] font-semibold">entire quality flow</span> from idea to
-            production.
+            {t('qa-audit.analysisSubtitle')}
           </p>
 
           <div className="relative mb-12">
@@ -341,10 +265,9 @@ export default function QAAudit() {
 
           <div className="text-center bg-gradient-to-r from-[#00B476]/10 via-[#dc2626]/10 to-[#00B476]/10 border-2 border-[#00B476]/30 p-8 rounded-xl">
             <p className="text-2xl font-bold text-white mb-2">
-              You get a <span className="text-[#00B476]">clear, prioritized action plan</span> — not
-              just observations.
+              {t('qa-audit.planTitle') || 'You get a clear, prioritized action plan — not just observations.'}
             </p>
-            <p className="text-gray-400">Ready to implement from day one</p>
+            <p className="text-gray-400">{t('qa-audit.planSubtitle') || 'Ready to implement from day one'}</p>
           </div>
         </motion.div>
       </section>
@@ -358,7 +281,7 @@ export default function QAAudit() {
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Why <span className="text-[#00B476]">work with us?</span>
+            {t('qa-audit.whyUsTitle') || 'Why work with us?'}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -390,10 +313,10 @@ export default function QAAudit() {
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Choose the level of <span className="text-[#00B476]">impact</span>
+            {t('qa-audit.packagesTitle') || 'Choose the level of impact'}
           </h2>
           <p className="text-center text-gray-300 text-lg mb-12">
-            Select the package that fits your current needs and readiness for change
+            {t('qa-audit.packagesSubtitle') || 'Select the package that fits your current needs and readiness for change'}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -408,7 +331,7 @@ export default function QAAudit() {
               >
                 {pkg.highlight && (
                   <div className="bg-[#00B476] text-black text-sm font-bold px-3 py-1 rounded-full inline-block mb-4 text-center">
-                    MOST POPULAR
+                    {t('common.mostPopular') || 'MOST POPULAR'}
                   </div>
                 )}
                 <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
@@ -426,7 +349,7 @@ export default function QAAudit() {
 
                 <div className="border-t border-[#00B476]/20 pt-6 mt-auto">
                     <Button href="/contact" variant={pkg.highlight ? 'primary' : 'secondary'} className="w-full">
-                      Book a call
+                      {t('common.bookCall') || 'Book a call'}
                     </Button>
                 </div>
               </div>
@@ -444,10 +367,10 @@ export default function QAAudit() {
           className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            What you get after <span className="text-[#00B476]">QA Audit</span>
+            {t('qa-audit.resultsTitle') || 'What you get after QA Audit'}
           </h2>
           <p className="text-center text-gray-400 text-lg mb-12">
-            Measurable improvements across all key quality metrics
+            {t('qa-audit.resultsSubtitle') || 'Measurable improvements across all key quality metrics'}
           </p>
 
           <div className="bg-gradient-to-br from-black to-green-950/20 border-2 border-[#00B476]/30 p-8 md:p-10 rounded-2xl">
@@ -518,7 +441,7 @@ export default function QAAudit() {
       <FAQ 
         items={faqs} 
         title={<>QA Audit <span className="text-[#00B476]">FAQ</span></>}
-        subtitle="Clear answers to common questions about our QA Audit process."
+        subtitle={t('services.faqSubtitle') || 'Clear answers to common questions.'}
         className="py-20 bg-gradient-to-b from-black via-green-950/10 to-black"
       />
 
@@ -532,17 +455,12 @@ export default function QAAudit() {
           className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            What we need <span className="text-[#00B476]">from you?</span>
+            {t('qa-audit.readyTitle') || 'Ready to Improve Your Quality Assurance?'}
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            One call to understand your product and challenges.
+            {t('qa-audit.readySubtitle')}
           </p>
-          <Button href="/contact" className="text-lg mb-6">Book a call</Button>
-          <p className="text-gray-400 text-lg">
-            What we give you — <span className="text-[#00B476]">clarity</span>,{' '}
-            <span className="text-[#00B476]">stability</span>, and a{' '}
-            <span className="text-[#00B476]">QA system that scales</span> with your product.
-          </p>
+          <Button href="/contact" className="text-lg mb-6">{t('common.bookCall') || 'Book a call'}</Button>
         </motion.div>
       </section>
     </div>

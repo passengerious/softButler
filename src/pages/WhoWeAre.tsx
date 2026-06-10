@@ -303,7 +303,7 @@ const WhoWeAre = () => {
           </p>
 
           <div className="space-y-8">
-            {(t('principles') as Array<{ principle: string, reality: string }> || []).map((item, index) => {
+            {(t('principles') as Array<{ principle: string, reality: string, separator?: string }> || []).map((item, index) => {
               const alignmentClasses = {
                 0: "mr-auto",
                 1: "mx-auto",
@@ -327,7 +327,11 @@ const WhoWeAre = () => {
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <p className="text-xl md:text-2xl font-semibold text-white leading-relaxed">
-                    {item.principle} <span className="text-white/70 mx-1.5 text-lg md:text-xl font-normal">–</span> <span className="text-green-500">{item.reality}</span>
+                    {item.principle}
+                    <span className="text-white/70 mx-1.5 text-lg md:text-xl font-normal">
+                      {item.separator !== undefined ? item.separator : " – "}
+                    </span>
+                    <span className="text-green-500">{item.reality}</span>
                   </p>
                 </div>
               );

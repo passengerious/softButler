@@ -1,0 +1,674 @@
+{
+  "functional": {
+    "title": "Functional Testing",
+    "subtitle": "Verify your application works as intended",
+    "description": "Comprehensive testing of features and user workflows to ensure your application meets requirements and delivers the expected user experience.",
+    "benefits": [
+      "Catch bugs before they reach production",
+      "Ensure features work as specified",
+      "Validate complete user workflows",
+      "Improve product quality and reliability",
+      "Reduce post-release defects",
+      "Increase customer satisfaction"
+    ],
+    "features": [
+      "Requirements analysis and test planning",
+      "Test case design and documentation",
+      "Manual exploratory testing",
+      "User acceptance testing support",
+      "Cross-browser and cross-device testing",
+      "API and backend testing",
+      "Bug reporting and tracking",
+      "Regression testing"
+    ],
+    "process": [
+      "Review requirements and user stories",
+      "Design comprehensive test cases",
+      "Execute tests across all features",
+      "Document and report defects",
+      "Verify bug fixes",
+      "Perform exploratory testing",
+      "Validate integration points",
+      "Provide test reports and metrics"
+    ]
+  },
+  "integration": {
+    "title": "Integration Testing",
+    "subtitle": "Test how different parts of your system work together",
+    "description": "Verify that integrated components, services, and systems work correctly together. Identify interface issues and data flow problems early.",
+    "benefits": [
+      "Catch integration issues before production",
+      "Verify API contracts and data flows",
+      "Ensure microservices work together correctly",
+      "Reduce integration-related production bugs",
+      "Support continuous integration practices",
+      "Improve system reliability"
+    ],
+    "features": [
+      "API testing and validation",
+      "Service integration testing",
+      "Database integration testing",
+      "Third-party integration testing",
+      "Message queue and event testing",
+      "Contract testing",
+      "End-to-end workflow testing",
+      "Integration test automation"
+    ],
+    "process": [
+      "Map system integrations and data flows",
+      "Design integration test scenarios",
+      "Set up test environments and data",
+      "Execute API and service integration tests",
+      "Verify data flow across components",
+      "Test error handling and edge cases",
+      "Automate critical integration tests",
+      "Provide integration test reports"
+    ]
+  },
+  "performance": {
+    "title": "Performance Testing",
+    "subtitle": "Ensure your application can handle the load",
+    "description": "Test speed, stability, and scalability under various conditions. Identify bottlenecks before they impact your users and revenue.",
+    "benefits": [
+      "Identify performance bottlenecks early",
+      "Ensure application can handle expected load",
+      "Improve user experience with faster response times",
+      "Reduce infrastructure costs through optimization",
+      "Prevent outages during peak traffic",
+      "Support capacity planning decisions"
+    ],
+    "features": [
+      "Load testing under normal conditions",
+      "Stress testing to find breaking points",
+      "Spike testing for sudden traffic increases",
+      "Soak testing for long-term stability",
+      "Scalability analysis",
+      "Performance monitoring",
+      "Bottleneck identification",
+      "Optimization recommendations"
+    ],
+    "process": [
+      "Define performance requirements and success criteria",
+      "Design realistic test scenarios",
+      "Set up performance testing environment",
+      "Execute load, stress, and spike tests",
+      "Monitor system behavior under load",
+      "Analyze results and identify bottlenecks",
+      "Provide optimization recommendations",
+      "Verify improvements through re-testing"
+    ]
+  },
+  "regression": {
+    "title": "Regression Testing",
+    "subtitle": "Ensure new changes don't break existing functionality",
+    "description": "Systematic validation after every update to catch unintended side effects. Maintain product quality as your codebase evolves.",
+    "benefits": [
+      "Catch breaking changes before production",
+      "Maintain product stability during development",
+      "Reduce risk of regression bugs",
+      "Enable confident code changes",
+      "Support continuous integration practices",
+      "Reduce time spent on bug fixes"
+    ],
+    "features": [
+      "Comprehensive regression test suite design",
+      "Automated regression testing",
+      "Manual regression verification",
+      "Change impact analysis",
+      "Selective regression testing",
+      "Continuous regression monitoring",
+      "Test suite optimization",
+      "Fast feedback on changes"
+    ],
+    "process": [
+      "Analyze application to identify regression-prone areas",
+      "Design efficient regression test suite",
+      "Implement automated regression tests",
+      "Integrate tests into CI/CD pipeline",
+      "Execute regression tests on each change",
+      "Analyze test results and failures",
+      "Optimize test suite for speed and coverage",
+      "Continuously maintain and update tests"
+    ]
+  },
+  "system": {
+    "title": "System Testing",
+    "subtitle": "End-to-end testing of your complete application",
+    "description": "Comprehensive testing of the entire system to verify it meets all requirements. Test complete workflows in realistic environments.",
+    "benefits": [
+      "Verify the complete system works as expected",
+      "Test real user scenarios end-to-end",
+      "Identify system-level issues",
+      "Validate business requirements",
+      "Ensure quality before release",
+      "Reduce post-release defects"
+    ],
+    "features": [
+      "End-to-end workflow testing",
+      "Business scenario validation",
+      "Environment testing",
+      "Configuration testing",
+      "Security testing basics",
+      "Usability testing",
+      "Recovery testing",
+      "Documentation verification"
+    ],
+    "process": [
+      "Review system requirements and architecture",
+      "Design comprehensive system test scenarios",
+      "Set up production-like test environment",
+      "Execute end-to-end test cases",
+      "Test across different configurations",
+      "Verify security and error handling",
+      "Document and report issues",
+      "Provide system quality assessment"
+    ]
+  },
+  "automation-nitro": {
+    "title": "Automation Nitro",
+    "subtitle": "Accelerate testing with smart automation",
+    "description": "Transform your testing process with intelligent automation that actually works. Reduce regression time by up to 80% while improving test reliability and coverage.",
+    "benefits": [
+      "Reduce regression testing time by up to 80%",
+      "Improve test reliability and eliminate flaky tests",
+      "Scale testing without scaling headcount",
+      "Get faster feedback on every code change",
+      "Reduce manual testing burden on your team",
+      "Improve CI/CD pipeline efficiency"
+    ],
+    "features": [
+      "Test automation strategy and roadmap",
+      "Framework selection and setup",
+      "Automated test development",
+      "CI/CD integration",
+      "Test maintenance and optimization",
+      "Team training and knowledge transfer",
+      "Flaky test elimination",
+      "Parallel execution setup"
+    ],
+    "process": [
+      "Analyze current testing process and identify automation opportunities",
+      "Design automation strategy aligned with your delivery pipeline",
+      "Select and configure appropriate testing frameworks and tools",
+      "Develop automated test suites for critical user flows",
+      "Integrate tests into CI/CD pipeline",
+      "Optimize test execution speed and reliability",
+      "Train your team on maintaining and extending automation",
+      "Provide ongoing support and optimization"
+    ],
+    "painPoints": [
+      "Regression takes days or weeks",
+      "Automated tests are slow and expensive to write",
+      "Existing automated tests are unstable (flaky)",
+      "Automation cannot keep up with the product",
+      "CI/CD is slowed down by tests",
+      "Automation does not deliver the expected ROI"
+    ],
+    "aiAdvantages": [
+      {
+        "title": "Smart Test Generation",
+        "description": "AI analyzes your application and generates optimal test cases automatically, covering edge cases humans might miss"
+      },
+      {
+        "title": "Intelligent Test Selection",
+        "description": "AI determines which tests to run based on code changes, reducing test execution time by up to 70%"
+      },
+      {
+        "title": "Self-Healing Tests",
+        "description": "AI automatically fixes broken tests when UI changes, eliminating maintenance overhead"
+      },
+      {
+        "title": "Test Cases Generation",
+        "description": "AI detects flaky tests and identifies root causes faster than manual analysis"
+      }
+    ],
+    "results": [
+      { "metric": "Manual Regression", "improvement": "– 40%" },
+      { "metric": "Production Bugs in Critical Flows", "improvement": "– 60%" },
+      { "metric": "CI Feedback Time", "improvement": "– 50%" }
+    ],
+    "faqs": [
+      {
+        "question": "What exactly does Automation Nitro include?",
+        "answer": "Automation Nitro covers test automation setup from scratch or improvement of existing automation, including framework setup, test creation, CI/CD integration, and best practices."
+      },
+      {
+        "question": "Is Automation Nitro suitable if we don't have automation yet?",
+        "answer": "Yes. This service is designed both for products without automation and for teams with unstable or poorly maintained test automation."
+      },
+      {
+        "question": "What types of tests do you automate?",
+        "answer": "We focus on high-value automated tests such as regression, smoke, critical user flows, and API tests — not low-impact or flaky scenarios."
+      },
+      {
+        "question": "Which tools and technologies do you use?",
+        "answer": "We select tools based on your stack and needs, commonly using Playwright, Selenium, Cypress, API automation tools, and integrating them into your existing CI/CD pipeline."
+      },
+      {
+        "question": "How fast will we see results?",
+        "answer": "Initial value is usually delivered within 2 weeks, with automated tests running as part of your release process shortly after."
+      },
+      {
+        "question": "Will our team be able to maintain the automation?",
+        "answer": "Yes. We build clean, maintainable automation, provide documentation, and can onboard your team or continue supporting automation if needed."
+      },
+      {
+        "question": "How do you ensure automation actually saves time and money?",
+        "answer": "We automate only what makes sense for your product and measure impact through reduced regression time, faster releases, and fewer production issues."
+      }
+    ],
+    "readyToAutomate": "Ready to Automate Your Testing?",
+    "startSaving": "Start saving 70% on testing costs while shipping 10× faster",
+    "fasterTesting": "Faster Testing",
+    "costReduction": "Cost Reduction",
+    "fasterDelivery": "Faster Delivery",
+    "freeAssessment": "Get Your Free Automation Assessment",
+    "noCommitment": "No commitment required. See how automation can transform your testing.",
+    "challengesTitle": "Common Automation Challenges",
+    "poweredByAi": "POWERED BY AI",
+    "aiTitle": "AI Advantages",
+    "aiSubtitle": "Leverage cutting-edge AI to make your automation smarter, faster, and more reliable",
+    "resultsTitle": "Expected Results",
+    "resultsSubtitle": "Measurable improvements in testing efficiency"
+  },
+  "qa-audit": {
+    "title": "QA Audit & Consulting",
+    "subtitle": "Fix your QA system before it breaks your product",
+    "description": "Identify bottlenecks, improve test coverage, and establish a modern quality assurance process that helps you release software faster with higher confidence.",
+    "checklistTitle": "Common QA Pain Points",
+    "checklistSubtitle": "Does your team experience any of these symptoms?",
+    "checklistItems": [
+      "Releases are stressful and unpredictable",
+      "Production bugs appear after almost every release",
+      "Regression testing takes too long",
+      "QA depends too much on specific people",
+      "Test cases are outdated or not trusted",
+      "Automation exists but doesn't save time",
+      "Developers don't trust QA results",
+      "CI/CD is slow or flaky because of tests"
+    ],
+    "analysisTitle": "What We Analyze",
+    "analysisSubtitle": "A comprehensive deep dive into your entire QA system",
+    "analysisSteps": [
+      {
+        "title": "Process Analysis",
+        "description": "Analyze the QA process \"as is\" — from task creation by analyst to production deployment"
+      },
+      {
+        "title": "Test Coverage Review",
+        "description": "Review test coverage (manual & automated)"
+      },
+      {
+        "title": "Production Bugs Analysis",
+        "description": "Analyze production bugs and their root causes"
+      },
+      {
+        "title": "Regression Flow Review",
+        "description": "Review regression testing flow"
+      },
+      {
+        "title": "Automation Evaluation",
+        "description": "Analyze automation (if exists): stability, value, maintenance cost"
+      },
+      {
+        "title": "Documentation Quality",
+        "description": "Review documentation quality and relevance"
+      },
+      {
+        "title": "Tools & AI Usage",
+        "description": "Analyze how tools and AI are used (or misused)"
+      },
+      {
+        "title": "Bottlenecks & Quick Wins",
+        "description": "Identify bottlenecks, risks, and quick wins"
+      }
+    ],
+    "whyUsTitle": "Why Choose Us?",
+    "whyUsSubtitle": "Unbiased expertise to guide your quality transformation",
+    "whyUsPoints": [
+      {
+        "title": "AI-Powered Analysis",
+        "description": "We use AI-powered analysis tools to detect patterns and risks faster"
+      },
+      {
+        "title": "ISTQB Certified",
+        "description": "Our team is ISTQB-certified with proven expertise"
+      },
+      {
+        "title": "Diverse Experience",
+        "description": "Large hands-on experience across different product domains"
+      },
+      {
+        "title": "Measured Quality",
+        "description": "We measure quality with numbers, not words — clear metrics that prove impact"
+      },
+      {
+        "title": "Practical Guidance",
+        "description": "We show how to do it, not just what to do"
+      },
+      {
+        "title": "Free Test Trial",
+        "description": "Try us before making any payment"
+      }
+    ],
+    "packagesTitle": "Flexible Audit Packages",
+    "packagesSubtitle": "Choose the level of audit that fits your team's current needs",
+    "packages": [
+      {
+        "name": "QA Clarity Audit",
+        "duration": "10–14 working days",
+        "bestFor": "Teams that need clarity and direction",
+        "includes": [
+          "QA process \"as is\" analysis",
+          "Test coverage review",
+          "Production bugs analysis",
+          "Regression testing review",
+          "Automation evaluation (if exists)"
+        ]
+      },
+      {
+        "name": "QA Stabilization",
+        "duration": "Audit: 10–14 days + Stabilization: 2–4 weeks",
+        "bestFor": "Teams ready to implement improvements",
+        "includes": [
+          "Everything in QA Clarity Audit",
+          "Risk-based testing setup",
+          "Test structure implementation",
+          "Regression flow optimization",
+          "Automated tests stabilization",
+          "CI/CD optimization for testing"
+        ]
+      },
+      {
+        "name": "QA Transformation",
+        "duration": "Audit: 10–14 days + Transformation: 6–8 weeks",
+        "bestFor": "Teams ready for long-term quality transformation",
+        "includes": [
+          "Everything in QA Stabilization",
+          "Complete QA flow rebuild with your team",
+          "QA team training program",
+          "Quality metrics implementation",
+          "Autonomous QA function setup",
+          "Ongoing support and guidance"
+        ]
+      }
+    ],
+    "resultsTitle": "Expected Results",
+    "resultsSubtitle": "Measurable improvements in product quality and team efficiency",
+    "results": [
+      { "metric": "Production bugs", "improvement": "-60%" },
+      { "metric": "Release predictability", "improvement": "+40%" },
+      { "metric": "Cost of bugs", "improvement": "3× lower" },
+      { "metric": "Regression time", "improvement": "-35%" }
+    ],
+    "faqs": [
+      {
+        "question": "What exactly do you audit?",
+        "answer": "We audit your QA process, test coverage, tools, documentation, environments, and release risks to identify gaps that impact product quality and delivery speed."
+      },
+      {
+        "question": "When do I need a QA audit?",
+        "answer": "A QA audit is needed when you face frequent production bugs, unstable releases, slow QA cycles, or want an external, unbiased quality assessment."
+      },
+      {
+        "question": "How is a QA audit different from regular testing?",
+        "answer": "Testing finds bugs. A QA audit explains why bugs appear, evaluates the entire quality process, and provides clear, actionable improvements."
+      },
+      {
+        "question": "What deliverables will I receive?",
+        "answer": "You receive a structured audit report with: Identified risks and gaps, Quality metrics, Prioritized recommendations, Clear next steps for improvement."
+      },
+      {
+        "question": "How long does the QA audit take?",
+        "answer": "Most audits take 1–2 weeks, depending on product complexity and current QA maturity."
+      },
+      {
+        "question": "Do you help implement the audit recommendations?",
+        "answer": "Yes. We can support implementation, optimize your QA process, or continue with testing and automation based on audit results."
+      },
+      {
+        "question": "Is this audit suitable for small or early-stage teams?",
+        "answer": "Yes. Early audits help set up a scalable QA foundation, avoiding costly quality mistakes as the codebase grows."
+      }
+    ],
+    "readyTitle": "Ready to Improve Your Quality Assurance?",
+    "readySubtitle": "Let's discuss how we can help optimize your QA process."
+  },
+  "qa-candidate-assessment": {
+    "title": "QA Candidate Assessment",
+    "subtitle": "Hire QA engineers with confidence — not hope",
+    "description": "Evaluate technical skills and testing mindset objectively. Filter out underperformers and identify the top 10% of talent before the final interview stage.",
+    "painTitle": "The Real Cost of Hiring Mistakes",
+    "painPoints": [
+      "It's hard to objectively assess the real level of a QA candidate",
+      "Good interviews ≠ strong performance on a real project",
+      "Hiring mistakes cost months of time and thousands of dollars",
+      "QA engineers often fail to deliver expected value after onboarding"
+    ],
+    "hiringMistakeQuote": "We hire a QA engineer — and after 1–2 months we realize it was a mistake.",
+    "serviceFormatTitle": "How the Service Works",
+    "serviceFormat": [
+      "Fast, independent assessment",
+      "No changes to your existing hiring process",
+      "External, unbiased evaluation"
+    ],
+    "confidenceTitle": "Hiring Confidence Assessment",
+    "confidenceSubtitle": "Hire QA engineers with confidence, not hope.",
+    "confidenceQuestion": "Is this QA candidate the right fit for our product and team?",
+    "basedOnTitle": "What the Assessment is Based On",
+    "basedOnSubtitle": "We evaluate quality of thinking — not memorized answers",
+    "basedOn": [
+      "Your product",
+      "Your real risks",
+      "Your expectations from the role"
+    ],
+    "evaluateTitle": "What We Evaluate",
+    "evaluationAreas": [
+      "Ability to achieve expected QA outcomes",
+      "Test design and coverage thinking",
+      "Risk-based testing skills",
+      "Work with requirements",
+      "Communication and QA ownership",
+      "Readiness to work on a real project"
+    ],
+    "assessmentFormatsTitle": "Assessment Formats",
+    "assessmentFormats": [
+      "Short structured interview",
+      "Practical task (based on your product or a similar domain)",
+      "Real-time coding",
+      "Live testing session"
+    ],
+    "getKeywordsTitle": "What You Get",
+    "reportTitle": "QA Candidate Assessment Report",
+    "reportIncludes": [
+      "Overall candidate evaluation",
+      "Risks and weak areas",
+      "Real level: Junior / Middle / Strong Middle / Senior",
+      "Recommendation: hire / no-hire / hire with conditions",
+      "Fit assessment for your role and product",
+      "Clear comments for Hiring Manager / CTO / HR"
+    ],
+    "processTitle": "Our Process",
+    "processSubtitle": "Your roadmap to candidate evaluation excellence",
+    "processSteps": [
+      {
+        "title": "Requirement Alignment",
+        "text": "We align with your team on key expectations, product complexities, and required tech stack."
+      },
+      {
+        "title": "Task Setup",
+        "text": "We design custom, product-specific evaluation tasks and real-world testing scenarios."
+      },
+      {
+        "title": "Active Evaluation",
+        "text": "We conduct short structured technical interviews and live-testing/coding assessment sessions."
+      },
+      {
+        "title": "Report Generation",
+        "text": "We deliver an unbiased assessment report highlighting risks, real QA level, and recommendations."
+      },
+      {
+        "title": "Decision Consultation",
+        "text": "We review results with your hiring team to ensure perfect alignment before the final offer."
+      }
+    ],
+    "resultsTitle": "Expected Results",
+    "resultsSubtitle": "Measurable improvements in hiring speed, cost reduction, and team stability",
+    "results": [
+      { "metric": "Wrong Hire Risk", "improvement": "-70%" },
+      { "metric": "Hiring Confidence", "improvement": "+100%" },
+      { "metric": "Fewer Re-hires", "improvement": "Significant" }
+    ],
+    "impactTitle": "Impact in Numbers",
+    "metrics": [
+      { "label": "Wrong Hire Risk", "value": "-70%" },
+      { "label": "Hiring Confidence", "value": "+100%" },
+      { "label": "Fewer Re-hires", "value": "Significant" }
+    ],
+    "faqs": [
+      {
+        "question": "What is QA Candidate Assessment?",
+        "answer": "It’s a service where we evaluate QA candidates (manual and automation) for skills, mindset, and real-world problem solving before you hire them."
+      },
+      {
+        "question": "What does the assessment include?",
+        "answer": "We assess technical skills, test design, automation logic, API knowledge, reporting clarity, and scenario thinking through real tasks and interviews."
+      },
+      {
+        "question": "Who is this assessment for?",
+        "answer": "For companies hiring QA engineers (Junior, Middle, Senior) who want a trusted, objective evaluation before making hiring decisions."
+      },
+      {
+        "question": "How long does the assessment take?",
+        "answer": "Assessment typically takes 1–3 days per candidate, depending on level and test depth."
+      },
+      {
+        "question": "Do you provide detailed feedback?",
+        "answer": "Yes — you receive a report with strengths, weaknesses, and recommendations for each candidate."
+      },
+      {
+        "question": "Can you assess candidates in our stack/tech?",
+        "answer": "Yes — we tailor assessments to your technology stack, tooling, and project specifics."
+      },
+      {
+        "question": "How does this save time and cost?",
+        "answer": "We reduce bad hires and rework, help you focus only on qualified candidates, and improve hiring ROI."
+      }
+    ],
+    "readyTitle": "Ready to hire QA with confidence?",
+    "readySubtitle": "One short call is enough to start reducing hiring risk."
+  },
+  "release-acceleration": {
+    "title": "Release Acceleration",
+    "subtitle": "Ship faster without breaking things",
+    "description": "Optimize your entire release pipeline for speed and quality. Deploy up to 10× faster while maintaining or improving quality standards.",
+    "benefits": [
+      "Deploy up to 10× faster than current pace",
+      "Reduce time from commit to production",
+      "Improve release predictability and confidence",
+      "Minimize rollback risks",
+      "Enable continuous deployment practices",
+      "Reduce stress and manual work in releases"
+    ],
+    "features": [
+      "Release pipeline analysis and optimization",
+      "Risk-based testing strategy",
+      "Automated deployment workflows",
+      "Feature flag implementation",
+      "Rollback procedures",
+      "Monitoring and alerting setup",
+      "Progressive delivery setup",
+      "Team process optimization"
+    ],
+    "process": [
+      "Analyze current release process and identify bottlenecks",
+      "Design optimized release pipeline architecture",
+      "Implement risk-based testing approach",
+      "Set up automated deployment workflows",
+      "Configure feature flags and progressive rollout",
+      "Establish monitoring and quick rollback procedures",
+      "Train team on new release processes",
+      "Monitor and continuously optimize release performance"
+    ],
+    "familiarTitle": "Does this sound familiar?",
+    "familiarQuote": "\"Releases are always stressful, long, and unpredictable.\"",
+    "painPoints": [
+      "A release is always stressful, long, and unpredictable",
+      "Deployment takes hours or days",
+      "40% of releases require a hotfix within 24 hours",
+      "All tests are always run, even when not necessary",
+      "There is no clear smoke/regression separation",
+      "There is a fear of releasing updates on Fridays or before weekends",
+      "CI/CD is not scalable (no parallelization)",
+      "The QA team manually tests for regression before each release (5-10 hours)",
+      "Rollback = panic and 2-4 hours of downtime",
+      "Each hour of downtime costs $5k-50k in lost sales"
+    ],
+    "doTitle": "What we do",
+    "doSubtitle": "End-to-end release optimization across QA, DevOps, and Production",
+    "qaSide": "QA Side",
+    "devopsSide": "DevOps Side",
+    "productionReady": "Production-Ready",
+    "qaActivities": [
+      "Analysis of the existing testing process",
+      "Highlighting: Smoke suite (quick check before deployment)",
+      "Regression suite (what really catches risks)",
+      "Risk-based approach to running tests",
+      "Reduction of manual regression"
+    ],
+    "devopsActivities": [
+      "Optimization of CI/CD pipelines",
+      "Test parallelization",
+      "Multi-environment setup (dev / stage / pre-prod)",
+      "Infrastructure as Code (Terraform / Ansible / Helm — as needed)",
+      "Implementation of Continuous Delivery / Deployment"
+    ],
+    "productionActivities": [
+      "Production monitoring",
+      "Synthetic tests for critical flows",
+      "Early detection of problems after release"
+    ],
+    "resultsTitle": "Expected Results",
+    "resultsSubtitle": "Measurable improvements across all release metrics",
+    "results": [
+      { "metric": "Release Frequency", "improvement": "10× faster" },
+      { "metric": "Deployment Time", "improvement": "From hours to minutes" },
+      { "metric": "Hotfix Rate", "improvement": "70% reduction" },
+      { "metric": "Rollback Time", "improvement": "From 2-4h to <5min" },
+      { "metric": "Test Execution Time", "improvement": "80% faster" },
+      { "metric": "Manual Testing", "improvement": "90% reduction" }
+    ],
+    "faqs": [
+      {
+        "question": "What exactly do you accelerate?",
+        "answer": "We accelerate the release cycle, not just testing — by removing QA bottlenecks, optimizing processes, and improving test efficiency."
+      },
+      {
+        "question": "What problems does this service solve?",
+        "answer": "It solves slow releases, unstable deployments, late bug discovery, and last-minute QA chaos before production."
+      },
+      {
+        "question": "Is this a QA or DevOps service?",
+        "answer": "It's a QA-driven release optimization service that works closely with development and CI/CD, without replacing your DevOps team but closely working with our Devops expert."
+      },
+      {
+        "question": "How do you identify release bottlenecks?",
+        "answer": "We analyze your release flow, test coverage, environments, feedback loops, and automation readiness to find what slows releases down."
+      },
+      {
+        "question": "How fast can we see improvement?",
+        "answer": "Most teams see measurable improvements within 2–3 weeks, depending on product and process complexity."
+      },
+      {
+        "question": "Do you change our existing processes?",
+        "answer": "We optimize, not break existing workflows — improving what you already have instead of forcing heavy process changes."
+      },
+      {
+        "question": "How do you measure success?",
+        "answer": "Success is measured by shorter release cycles, fewer release blockers, and higher confidence in production deployments."
+      }
+    ],
+    "readyTitle": "Ready to get started?",
+    "readySubtitle": "Let's discuss how we can help improve your quality assurance process."
+  }
+}

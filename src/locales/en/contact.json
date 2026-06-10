@@ -20,8 +20,8 @@
   "labelEmail": "Email",
   "placeholderEmail": "your@email.com",
   "labelMessage": "Message",
-  "placeholderMessage": "Tell us about your QA challenges. What's broken? What do you need help with?",
-  "buttonSend": "Let's Fix Your QA",
+  "placeholderMessage": "Tell us about your QA challenges.",
+  "buttonSend": "Contact With Us",
   "buttonSending": "Sending...",
   "messageSent": "Message Sent!",
   "messageSentDesc": "Thanks for reaching out. We'll get back to you within 24 hours."

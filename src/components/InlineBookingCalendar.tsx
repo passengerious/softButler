@@ -361,7 +361,7 @@ const InlineBookingCalendar = () => {
 
   const steps = [
     { number: 1, title: t('booking.chooseDate'), icon: Calendar },
-    { number: 2, title: t('booking.yourDetails'), icon: User },
+    { number: 2, title: '', icon: User },
   ];
 
   // ---------------------------------------------------------------------------
@@ -684,7 +684,7 @@ const InlineBookingCalendar = () => {
                       <button
                         type="button"
                         onClick={goBack}
-                        className="w-full sm:w-1/2 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2"
+                        className="w-full sm:w-1/2 py-4 border border-gray-600 text-white rounded-lg hover:bg-gray-800 hover:border-green-500/50 transition-all flex items-center justify-center space-x-2 text-base"
                       >
                         <ArrowLeft className="w-4 h-4" />
                         <span>{t('booking.buttons.back')}</span>
@@ -694,7 +694,7 @@ const InlineBookingCalendar = () => {
                         disabled={isSubmitting}
                         whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                        className="w-full sm:w-1/2 py-4 bg-green-500 text-black font-bold text-lg rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full sm:w-1/2 py-4 bg-green-500 text-black font-bold text-base rounded-lg hover:bg-green-400 hover:drop-shadow-[0_0_20px_#00B476] transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                       >
                         {isSubmitting ? (
                           <>

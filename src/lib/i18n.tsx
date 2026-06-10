@@ -15,6 +15,8 @@ import enWhoWeAre from '../locales/en/who-we-are.json';
 import ukWhoWeAre from '../locales/uk/who-we-are.json';
 import enIndustries from '../locales/en/industries.json';
 import ukIndustries from '../locales/uk/industries.json';
+import enServiceDetails from '../locales/en/service-details.json';
+import ukServiceDetails from '../locales/uk/service-details.json';
 
 const translations = {
   en: {
@@ -25,6 +27,7 @@ const translations = {
     services: enServices,
     'who-we-are': enWhoWeAre,
     industries: enIndustries,
+    'service-details': enServiceDetails,
   },
   uk: {
     common: ukCommon,
@@ -34,6 +37,7 @@ const translations = {
     services: ukServices,
     'who-we-are': ukWhoWeAre,
     industries: ukIndustries,
+    'service-details': ukServiceDetails,
   },
 };
 
@@ -58,15 +62,20 @@ export function useTranslation(ns: Namespace) {
   
   const t = (key: string, variables?: Record<string, string | number>): any => {
     const keys = key.split('.');
-    let value: any = translations[locale]?.[ns];
+    const firstKey = keys[0];
+    const isExplicitNamespace = translations[locale] && firstKey in translations[locale];
+    const targetNs = isExplicitNamespace ? (firstKey as Namespace) : ns;
+    const actualKeys = isExplicitNamespace ? keys.slice(1) : keys;
+
+    let value: any = translations[locale]?.[targetNs];
     
-    for (const k of keys) {
+    for (const k of actualKeys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
         // Fallback to English if key missing in uk
-        let fallbackValue: any = translations['en']?.[ns];
-        for (const fk of keys) {
+        let fallbackValue: any = translations['en']?.[targetNs];
+        for (const fk of actualKeys) {
           if (fallbackValue && typeof fallbackValue === 'object' && fk in fallbackValue) {
             fallbackValue = fallbackValue[fk];
           } else {
