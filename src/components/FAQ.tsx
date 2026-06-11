@@ -21,7 +21,7 @@ const FAQ = ({
   items,
   title,
   subtitle,
-  className = "py-20 px-6 bg-gray-900/30",
+  className = "py-20 bg-gray-900/30",
   id = "faq"
 }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -36,7 +36,7 @@ const FAQ = ({
 
   return (
     <section id={id} className={className}>
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
