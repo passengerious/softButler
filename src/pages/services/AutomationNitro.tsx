@@ -184,11 +184,11 @@ export default function AutomationNitro() {
                         <Icon className="text-[#00B476]" size={40} />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-white font-bold mb-3 text-2xl group-hover:text-[#00B476] transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-white font-bold mb-3 text-2xl group-hover:text-[#00B476] transition-colors break-words">
                         {advantage.title}
                       </h3>
-                      <p className="text-gray-400 text-base leading-relaxed">
+                      <p className="text-gray-400 text-base leading-relaxed break-words">
                         {advantage.description}
                       </p>
                     </div>

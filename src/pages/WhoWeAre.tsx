@@ -328,7 +328,7 @@ const WhoWeAre = () => {
                 >
                   <p className="text-xl md:text-2xl font-semibold text-white leading-relaxed">
                     {item.principle}
-                    <span className="text-white/70 mx-1.5 text-lg md:text-xl font-normal">
+                    <span className={`text-white/70 text-lg md:text-xl font-normal ${item.separator === ',' ? 'mr-1.5' : 'mx-1.5'}`}>
                       {item.separator !== undefined ? item.separator : " – "}
                     </span>
                     <span className="text-green-500">{item.reality}</span>
