@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Cookie, ChevronDown, ChevronUp } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 export default function CookieBanner() {
+  const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
   const [showCustomize, setShowCustomize] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -73,10 +75,10 @@ export default function CookieBanner() {
         </div>
         <div className="flex-1">
           <h3 className="text-white font-semibold text-base leading-tight">
-            We value your privacy
+            {t('cookieBanner.title')}
           </h3>
           <p className="text-gray-400 text-xs leading-relaxed mt-1.5">
-            We use cookies to optimize your browsing experience, analyze site traffic, and personalize content. You can manage your preferences or accept all cookies.
+            {t('cookieBanner.description')}
           </p>
         </div>
       </div>
@@ -86,19 +88,19 @@ export default function CookieBanner() {
           {/* Necessary Cookies */}
           <div className="flex items-center justify-between p-2.5 bg-gray-900/40 border border-gray-800/40 rounded-xl">
             <div className="pr-4">
-              <span className="text-white text-xs font-semibold block">Necessary Cookies</span>
-              <span className="text-[10px] text-gray-500 block leading-tight mt-0.5">Required for security, core features, and system stability.</span>
+              <span className="text-white text-xs font-semibold block">{t('cookieBanner.necessaryTitle')}</span>
+              <span className="text-[10px] text-gray-500 block leading-tight mt-0.5">{t('cookieBanner.necessaryDesc')}</span>
             </div>
             <div className="flex-shrink-0">
-              <span className="text-[9px] uppercase font-bold tracking-wider text-[#00B476] bg-[#00B476]/10 px-2 py-0.5 rounded border border-[#00B476]/20">Always Active</span>
+              <span className="text-[9px] uppercase font-bold tracking-wider text-[#00B476] bg-[#00B476]/10 px-2 py-0.5 rounded border border-[#00B476]/20">{t('cookieBanner.necessaryStatus')}</span>
             </div>
           </div>
 
           {/* Performance & Analytics */}
           <div className="flex items-center justify-between p-2.5 bg-gray-900/40 border border-gray-800/40 rounded-xl">
             <div className="pr-4">
-              <span className="text-white text-xs font-semibold block">Performance & Analytics</span>
-              <span className="text-[10px] text-gray-500 block leading-tight mt-0.5">Helps us understand how visitors interact with the site to improve performance.</span>
+              <span className="text-white text-xs font-semibold block">{t('cookieBanner.analyticsTitle')}</span>
+              <span className="text-[10px] text-gray-500 block leading-tight mt-0.5">{t('cookieBanner.analyticsDesc')}</span>
             </div>
             <label className="cookie-toggle-label flex-shrink-0">
               <input 
@@ -116,8 +118,8 @@ export default function CookieBanner() {
           {/* Marketing */}
           <div className="flex items-center justify-between p-2.5 bg-gray-900/40 border border-gray-800/40 rounded-xl">
             <div className="pr-4">
-              <span className="text-white text-xs font-semibold block">Marketing Cookies</span>
-              <span className="text-[10px] text-gray-500 block leading-tight mt-0.5">Used to provide personalized announcements and track ad conversion.</span>
+              <span className="text-white text-xs font-semibold block">{t('cookieBanner.marketingTitle')}</span>
+              <span className="text-[10px] text-gray-500 block leading-tight mt-0.5">{t('cookieBanner.marketingDesc')}</span>
             </div>
             <label className="cookie-toggle-label flex-shrink-0">
               <input 
@@ -141,11 +143,11 @@ export default function CookieBanner() {
         >
           {showCustomize ? (
             <>
-              Hide Settings <ChevronUp className="w-3.5 h-3.5" />
+              {t('cookieBanner.hideSettings')} <ChevronUp className="w-3.5 h-3.5" />
             </>
           ) : (
             <>
-              Manage Settings <ChevronDown className="w-3.5 h-3.5" />
+              {t('cookieBanner.manageSettings')} <ChevronDown className="w-3.5 h-3.5" />
             </>
           )}
         </button>
@@ -157,13 +159,13 @@ export default function CookieBanner() {
                 onClick={handleDeclineAll}
                 className="px-3 py-1.5 border border-gray-800 hover:border-gray-700 text-gray-300 hover:text-white text-xs font-medium rounded-lg transition-all duration-200"
               >
-                Reject All
+                {t('cookieBanner.rejectAll')}
               </button>
               <button
                 onClick={handleSavePreferences}
                 className="px-3.5 py-1.5 bg-[#00B476] hover:bg-[#009662] text-black font-semibold text-xs rounded-lg transition-all duration-200 shadow-[0_2px_10px_rgba(0,180,118,0.2)]"
               >
-                Save Preferences
+                {t('cookieBanner.savePreferences')}
               </button>
             </>
           ) : (
@@ -172,13 +174,13 @@ export default function CookieBanner() {
                 onClick={handleDeclineAll}
                 className="px-3 py-1.5 border border-gray-800 hover:border-gray-700 text-gray-300 hover:text-white text-xs font-medium rounded-lg transition-all duration-200"
               >
-                Decline
+                {t('cookieBanner.decline')}
               </button>
               <button
                 onClick={handleAcceptAll}
                 className="px-4 py-1.5 bg-[#00B476] hover:bg-[#009662] text-black font-semibold text-xs rounded-lg transition-all duration-200 shadow-[0_2px_10px_rgba(0,180,118,0.2)]"
               >
-                Accept All
+                {t('cookieBanner.acceptAll')}
               </button>
             </>
           )}

@@ -159,7 +159,7 @@ export default function AutomationNitro() {
               <span className="text-[#00B476] font-bold text-sm">{t('automation-nitro.poweredByAi') || 'POWERED BY AI'}</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span className="text-[#00B476]">AI</span> {t('automation-nitro.aiTitle') || 'Advantages'}
+              {t('automation-nitro.aiTitlePart1')} <span className="text-[#00B476]">{t('automation-nitro.aiTitlePart2')}</span>
             </h2>
             <p className="text-center text-gray-300 text-xl max-w-3xl mx-auto">
               {t('automation-nitro.aiSubtitle')}
@@ -346,7 +346,7 @@ export default function AutomationNitro() {
         >
           <div className="bg-black/60 backdrop-blur-sm border border-green-500/20 rounded-2xl px-6 py-8 sm:px-10 sm:py-10">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">
-            Ready to <span className="text-[#00B476]">{t('automation-nitro.readyToAutomate') || 'Automate Your Testing?'}</span>
+            {t('automation-nitro.readyToAutomatePart1')} <span className="text-[#00B476]">{t('automation-nitro.readyToAutomatePart2')}</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6">
             {t('automation-nitro.startSaving')}

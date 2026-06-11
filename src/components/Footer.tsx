@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Send, Phone } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import Logo from './Logo';
 import { useTranslation } from '../lib/i18n';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation('common');
+  const router = useRouter();
   
   const navLinks = [
     { path: '/', label: t('navbar.home') },
@@ -48,7 +50,7 @@ const Footer = () => {
           >
             <button 
               onClick={() => {
-                window.location.href = '/';
+                router.push('/').catch((error) => console.error('Navigation error:', error));
                 setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
               }}
               className="flex items-center space-x-3 group cursor-pointer"
@@ -78,7 +80,7 @@ const Footer = () => {
                 <button
                   key={link.path}
                   onClick={() => {
-                    window.location.href = link.path;
+                    router.push(link.path).catch((error) => console.error('Navigation error:', error));
                     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
                   }}
                   className="text-gray-400 hover:text-green-500 transition-colors duration-300 relative group"

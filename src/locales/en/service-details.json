@@ -257,7 +257,8 @@
         "answer": "We automate only what makes sense for your product and measure impact through reduced regression time, faster releases, and fewer production issues."
       }
     ],
-    "readyToAutomate": "Ready to Automate Your Testing?",
+    "readyToAutomatePart1": "Ready to",
+    "readyToAutomatePart2": "Automate Your Testing?",
     "startSaving": "Start saving 70% on testing costs while shipping 10× faster",
     "fasterTesting": "Faster Testing",
     "costReduction": "Cost Reduction",
@@ -266,7 +267,8 @@
     "noCommitment": "No commitment required. See how automation can transform your testing.",
     "challengesTitle": "Common Automation Challenges",
     "poweredByAi": "POWERED BY AI",
-    "aiTitle": "AI Advantages",
+    "aiTitlePart1": "AI",
+    "aiTitlePart2": "Advantages",
     "aiSubtitle": "Leverage cutting-edge AI to make your automation smarter, faster, and more reliable",
     "resultsTitle": "Expected Results",
     "resultsSubtitle": "Measurable improvements in testing efficiency"

@@ -59,8 +59,8 @@ export default function App({ Component, pageProps }: AppProps) {
       )}
       <I18nProvider>
         <Component {...pageProps} />
+        <CookieBanner />
       </I18nProvider>
-      <CookieBanner />
       <ToastContainer
         position="top-right"
         autoClose={5000}

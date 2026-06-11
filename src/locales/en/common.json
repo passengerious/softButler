@@ -21,10 +21,20 @@
   },
   "cookieBanner": {
     "title": "We value your privacy",
-    "description": "We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
-    "accept": "Accept All",
+    "description": "We use cookies to optimize your browsing experience, analyze site traffic, and personalize content. You can manage your preferences or accept all cookies.",
+    "acceptAll": "Accept All",
     "decline": "Decline",
-    "preferences": "Preferences"
+    "rejectAll": "Reject All",
+    "manageSettings": "Manage Settings",
+    "hideSettings": "Hide Settings",
+    "savePreferences": "Save Preferences",
+    "necessaryTitle": "Necessary Cookies",
+    "necessaryDesc": "Required for security, core features, and system stability.",
+    "necessaryStatus": "Always Active",
+    "analyticsTitle": "Performance & Analytics",
+    "analyticsDesc": "Helps us understand how visitors interact with the site to improve performance.",
+    "marketingTitle": "Marketing Cookies",
+    "marketingDesc": "Used to provide personalized announcements and track ad conversion."
   },
   "booking": {
     "title": "Book Your <span class=\"text-green-500\">Free Consultation</span>",
