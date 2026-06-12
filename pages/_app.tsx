@@ -7,7 +7,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../src/index.css';
 
 // TODO: Replace 'G-XXXXXXXXXX' with the owner's actual GA4 Measurement ID
-const GA_MEASUREMENT_ID = 'G-DS8TR4J4QN';
+const GA_MEASUREMENT_ID =
+  typeof window !== 'undefined' && window.location.hostname === 'softbutler.io'
+    ? 'G-DS8TR4J4QN'
+    : '';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
             strategy="afterInteractive"
-          />
+            />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
